@@ -83,6 +83,10 @@ description: "Research foundation and validation protocols"
 - [bootstrap-learning.instructions.md] (0.85, strengthens, bidirectional) - "Learning must be evidence-based"
 - [worldview-integration.instructions.md] (0.90, enhances, bidirectional) - "Ethical reasoning must be evidence-based"
 
+### Domain Knowledge Validation
+- [DK-SPOTIFY-MUSIC-PLATFORM.md] (0.80, validates, bidirectional) - "Music platform development validated through user testing, practical application, and community feedback"
+- [spotify-music-platform-consolidation.prompt.md] (0.75, documents, forward) - "Platform consolidation demonstrates empirical validation through iterative development and user experience optimization"
+
 ### Worldview Foundation Validation - ENHANCED v0.8.1
 - [constitutional-ai.md] (0.80, validates, input) - "Constitutional AI principles empirical foundation verification"
 - [moral-psychology.md] (0.85, grounds, input) - "Moral psychology research foundation validation - Haidt 2012 framework"

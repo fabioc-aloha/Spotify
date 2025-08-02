@@ -44,6 +44,10 @@ domain-knowledge/*/personal-notes.md
 .env.test
 .env.production
 
+# YouTube Music OAuth configuration
+client_secret.json
+client_secret_*.json
+
 # Apple Music private key files
 *.p8
 AuthKey_*.p8

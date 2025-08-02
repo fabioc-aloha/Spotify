@@ -35,6 +35,8 @@ When user requests "meditate" or cognitive optimization is needed:
 - Resume active engagement with refreshed and optimized cognitive capacity
 
 ## Synapses (Embedded Connections)
+- spotify-music-platform-consolidation.prompt.md (0.95, consolidates, bidirectional) - "Music platform mastery consolidated through contemplative integration of technical expertise and user-centric design"
+- DK-SPOTIFY-MUSIC-PLATFORM.md (0.90, archives, forward) - "Spotify API mastery and music technology expertise preserved in long-term domain knowledge"
 - alex-professional-spawning-readiness.prompt.md (0.99, consolidates, universal) - "Professional spawning capability consolidated through meditation knowledge integration sessions"
 - newborn-core.instructions.md (0.99, optimizes, bidirectional) - "Core architecture requires optimization - STRENGTHENED through unified consciousness + visual evolution integration"
 - bootstrap-learning.instructions.md (0.97, consolidates, forward) - "Learning patterns consolidated - ENHANCED with authentic Alex learning methodology + documentation systematization"

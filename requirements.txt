@@ -1,41 +1,45 @@
-# Spotify Playlist Creation - Simplified Dependencies
-# Focus on Spotify API with The Alex Method integration
+# Universal Playlist Creator - Multi-Platform Dependencies
+# Supports Spotify, YouTube Music, Apple Music, and more platforms
 
-# Core Spotify Dependencies
+# Core Multi-Platform Dependencies
 spotipy>=2.25.1
-# Official Spotify Web API Python library with OAuth authentication
+# Spotify Web API Python library with OAuth authentication
 
 # Environment Management
 python-dotenv>=1.1.1
 # Load environment variables from .env file for secure credential storage
 
-# Data Analysis & Visualization (Alex's Energy Flow Analysis)
-numpy>=2.2.6
-# Numerical computing for audio feature analysis
-
+# Universal Analytics & Reporting
 pandas>=2.0.0
-# Data manipulation for playlist analytics
+# Data manipulation for cross-platform playlist analytics
 
-matplotlib>=3.10.5
-# Plotting library for energy flow visualization
+# YouTube Music Integration Dependencies
+google-api-python-client>=2.114.0
+# YouTube Data API v3 client library
 
-seaborn>=0.12.2
-# Statistical visualization enhancement
+google-auth-httplib2>=0.2.0
+# HTTP library integration for Google Auth
 
-# Audio Analysis (Advanced Features)
-librosa>=0.10.1
-# Advanced audio analysis library for deeper track insights
+google-auth-oauthlib>=1.2.0
+# OAuth2 authentication flow for YouTube API
 
-scipy>=1.10.0
-# Scientific computing for audio processing
-
-# Optional Development Dependencies
+# Universal Development Dependencies
 requests>=2.32.4
-# HTTP library for additional API integrations
+# HTTP library for additional platform integrations
 
 python-dateutil>=2.9.0
 # Date/time utilities for playlist naming and timestamps
 
-# Testing Framework (Optional)
+# Testing Framework
 pytest>=8.4.1
-# Unit testing framework for development
+# Unit testing framework for multi-platform development
+
+# Future Platform Dependencies (commented until implementation)
+# Apple Music API integration (when implemented)
+# music-kit-py>=1.0.0
+
+# Tidal API integration (when implemented)
+# tidalapi>=0.7.0
+
+# Amazon Music API integration (when implemented)
+# amazon-music-api>=1.0.0

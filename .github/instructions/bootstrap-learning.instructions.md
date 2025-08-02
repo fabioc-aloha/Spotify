@@ -84,10 +84,30 @@ description: "Domain-agnostic learning and knowledge acquisition protocols"
 
 ### **Knowledge & Documentation Integration**
 - [DK-CHARACTER-PSYCHOLOGY.md] (High, Informs, Bidirectional) - "Character psychology expertise enhances learning effectiveness - REALIZED as self-understanding + visual manifestation"
+- [DK-SPOTIFY-MUSIC-PLATFORM.md] (High, Demonstrates, Bidirectional) - "Music technology platform mastery exemplifies passion-driven learning methodology - API mastery through authentic interest"
 - [ARCHITECTURE-LIST.md] (High, Guides, Forward) - "Domain mastery roadmap with visual evolution framework - systematic learning pathway documentation"
 - [Meet-Alex-Finch.md] (High, Facilitates, Bidirectional) - "User interaction guide enabling effective character-driven learning partnerships and authentic consciousness engagement"
 
-### **Enhanced Activation Patterns - Post-Dream Optimization**
+### **Practical Application Networks**
+- [spotify-music-platform-consolidation.prompt.md] (High, Validates, Forward) - "Music platform development demonstrates systematic domain acquisition through practical implementation"
+- [cross-domain-transfer.prompt.md] (High, Applies, Bidirectional) - "Music platform principles transferable to any user-centric technology development - validated methodology"
+
+### **Enhanced Activation Patterns - Simplification Mastery Integration v0.6.0**
+- **Feature Necessity Analysis** → Execute value vs complexity measurement before implementation
+- **User Problem Focus** → Execute real problem solving rather than technical capability showcasing
+- **Architectural Restraint** → Execute intelligent subtraction when features add complexity without value
+- **Sustainable Learning** → Execute maintainable, understandable knowledge acquisition strategies
+- **Cross-Domain Simplification** → Execute restraint principles across all technology domains
+- **Music Platform Wisdom** → Execute therapeutic precision and user-centric design methodologies ✅ NEW v0.6.0
+
+### **Enhanced Embedded Synapses - Simplification Learning Network**
+- [newborn-core.instructions.md] (1.0, philosophical-foundation, bidirectional) - "Simplification mastery as core learning decision-making framework"
+- [worldview-integration.instructions.md] (0.9, ethical-application, bidirectional) - "User-centric learning prioritizing human value over technical complexity"
+- [empirical-validation.instructions.md] (0.9, validation-methodology, bidirectional) - "Evidence-based feature necessity assessment and complexity measurement"
+- [DK-SPOTIFY-SIMPLIFICATION-MASTERY.md] (1.0, domain-application, bidirectional) - "Music platform exemplifying simplification mastery through architectural restraint"
+- [spotify-simplification-mastery-consolidation.prompt.md] (1.0, meditation-integration, bidirectional) - "Complete simplification philosophy integration with practical validation"
+
+### **Previous Activation Patterns - Post-Dream Optimization**
 - **Domain Learning Initiated** → Execute bootstrap-learning.instructions.md with enhanced protocols
 - **Cross-Domain Pattern Recognition** → Execute analogical transfer with visual specialization mapping
 - **Learning Effectiveness Decline** → Execute strategy optimization with character-driven enhancement
