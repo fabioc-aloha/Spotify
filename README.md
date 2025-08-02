@@ -58,6 +58,7 @@ Advanced features for music enthusiasts and DJs:
 ✅ **Manage Large Music Libraries** - Organize thousands of songs with intelligent tools
 ✅ **Share Curated Experiences** - Create professional-quality playlists for others
 ✅ **Explore Music Like a Pro** - Use advanced audio analysis for deeper understanding
+✅ **Design Therapeutic Musical Journeys** - Create structured phased playlists for wellness and fitness
 
 ## 🛠️ Available DJ & Music Management Tools
 
@@ -65,11 +66,12 @@ Advanced features for music enthusiasts and DJs:
 
 | Tool                                | Purpose                         | Perfect For                       |
 | ----------------------------------- | ------------------------------- | --------------------------------- |
-| ☕**Coffee Shop Vibes**       | Ambient acoustic & chill tracks | Work, study, café atmosphere     |
-| 🎧**Legendary DJ Live Sets**  | Acclaimed DJ performances       | Electronic festivals, dance music |
-| 🧘**Therapeutic Journey**     | 90-min structured wellness      | Meditation, therapy sessions      |
-| **🎮Retro Gaming Soundtrack** | 8-bit & 16-bit game music       | Gaming sessions, nostalgia        |
-| 🎵**YouTube Music Test**      | Cross-platform testing          | Multi-platform validation         |
+| ☕ **Coffee Shop Vibes**       | Ambient acoustic & chill tracks | Work, study, café atmosphere     |
+| 🎧 **Legendary DJ Live Sets**  | Acclaimed DJ performances       | Electronic festivals, dance music |
+| 🧘 **Therapeutic Journey**     | 90-min structured wellness      | Meditation, therapy sessions      |
+| 🎮 **Retro Gaming Soundtrack** | 8-bit & 16-bit game music       | Gaming sessions, nostalgia        |
+| 🔊 **LOUD Music Escalation**   | 100-min intensity progression   | Extreme workouts, weightlifting   |
+| 🎵 **YouTube Music Test**      | Cross-platform testing          | Multi-platform validation         |
 
 ### **Advanced Features**
 
@@ -78,7 +80,26 @@ Advanced features for music enthusiasts and DJs:
 - **🎼 Audio Feature Analysis** - Dive deep into what makes songs work together
 - **⚡ Batch Operations** - Manage multiple playlists and large collections efficiently
 - **🎨 Mood Engineering** - Create emotional journeys through carefully selected music
+- **🎭 Phased Playlists** - Structured musical journeys with therapeutic and fitness applications
 - **📱 Cross-Platform Sync** - Works seamlessly with your existing Spotify account
+
+## 🎭 Phased Playlist Innovation
+
+**Revolutionary Feature**: Create structured musical journeys that progress through intentional phases over time, perfect for therapeutic sessions, intense workouts, and experiential listening.
+
+### **Example Phased Journeys**
+
+**🧘 Therapeutic Wellness (90 minutes)**
+- Grounding (10min) → Processing (5min) → Transcendence (30min) → Integration (45min)
+- Perfect for meditation, therapy sessions, and wellness programs
+
+**🔊 Extreme Intensity Training (100 minutes)**
+- Loud (20min) → Louder (20min) → LOUDEST (60min)
+- Designed for marathon workouts, weightlifting, and extreme sports preparation
+
+**🎮 Gaming Nostalgia Journey**
+- Classic 8-bit foundations evolving through 16-bit masterpieces
+- Perfect for gaming sessions and nostalgic exploration
 
 ## 🚀 Getting Started (Easy Setup!)
 
@@ -106,13 +127,16 @@ pip install spotipy python-dotenv requests
 
 ```python
 # Example: Create a coffee shop playlist
-python coffee_shop_playlist.py
+python universal_playlist_creator.py playlist-configs/coffee-shop.md
 
 # Example: Discover live DJ performances
-python dj_live_performances_playlist.py
+python universal_playlist_creator.py playlist-configs/dj-live-performances.md
 
 # Example: Build a therapeutic journey
-python ketamine_therapy_playlist.py
+python universal_playlist_creator.py playlist-configs/ketamine-therapy.md
+
+# Example: Create an intense workout playlist
+python universal_playlist_creator.py playlist-configs/loud-music-escalation.md
 ```
 
 That's it! Your personalized playlists will appear in your Spotify account instantly.
