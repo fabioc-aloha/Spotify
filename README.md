@@ -1,6 +1,6 @@
 # 🎵 Alex Method DJ
 
-[![Version](https://img.shields.io/badge/Version-0.6.1_NILHEXUNIUM-gold?style=for-the-badge)](#) [![Multi Platform](https://img.shields.io/badge/Multi-Platform-blue?style=for-the-badge&logo=windows&logoColor=white)](#) [![Music Tech](https://img.shields.io/badge/Music-Technology-purple?style=for-the-badge&logo=music&logoColor=white)](#)
+[![Version](https://img.shields.io/badge/Version-0.6.2_NILHEXBIUM-gold?style=for-the-badge)](#) [![Multi Platform](https://img.shields.io/badge/Multi-Platform-blue?style=for-the-badge&logo=windows&logoColor=white)](#) [![Music Tech](https://img.shields.io/badge/Music-Technology-purple?style=for-the-badge&logo=music&logoColor=white)](#)
 
 > **Transform your music experience across multiple platforms** - Create personalized playlists on Spotify, YouTube Music, and more with intelligent curation tools.
 
