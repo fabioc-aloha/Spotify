@@ -1,0 +1,34 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor-specific files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Personal workspace files (if any)
+workspace.code-workspace
+
+# Node modules (if any JavaScript tooling is added later)
+node_modules/
+
+# Python cache (if any Python tooling is added later)
+__pycache__/
+*.pyc
+*.pyo
+
+# Domain-specific learning storage (keep structure but ignore personal content)
+domain-knowledge/personal/
+domain-knowledge/*/personal-notes.md
