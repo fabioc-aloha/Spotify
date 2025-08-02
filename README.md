@@ -1,7 +1,5 @@
 # 🎵 Alex Method DJ
 
-**Multi-Platform Intelligent Music Curation & DJ Playlist Creation Suite**
-
 [![Version](https://img.shields.io/badge/Version-0.6.1_NILHEXUNIUM-gold?style=for-the-badge)](#) [![Multi Platform](https://img.shields.io/badge/Multi-Platform-blue?style=for-the-badge&logo=windows&logoColor=white)](#) [![Music Tech](https://img.shields.io/badge/Music-Technology-purple?style=for-the-badge&logo=music&logoColor=white)](#)
 
 > **Transform your music experience across multiple platforms** - Create personalized playlists on Spotify, YouTube Music, and more with intelligent curation tools.
@@ -65,12 +63,13 @@ Advanced features for music enthusiasts and DJs:
 
 ### **Core DJ Playlist Creators**
 
-| Tool                                 | Purpose                     | Perfect For                       |
-| ------------------------------------ | --------------------------- | --------------------------------- |
-| ☕**Coffee Shop Creator**      | Ambient productivity music  | Work, study, relaxation           |
-| 🧘**Therapeutic Journey**      | Wellness-focused playlists  | Meditation, therapy, healing      |
-| 🎧**Live Performance Curator** | DJ sets and live recordings | Dance music, electronic festivals |
-| 🎵**Custom Mood Builder**      | Personalized mood playlists | Any occasion or emotion           |
+| Tool                                | Purpose                         | Perfect For                       |
+| ----------------------------------- | ------------------------------- | --------------------------------- |
+| ☕**Coffee Shop Vibes**       | Ambient acoustic & chill tracks | Work, study, café atmosphere     |
+| 🎧**Legendary DJ Live Sets**  | Acclaimed DJ performances       | Electronic festivals, dance music |
+| 🧘**Therapeutic Journey**     | 90-min structured wellness      | Meditation, therapy sessions      |
+| **🎮Retro Gaming Soundtrack** | 8-bit & 16-bit game music       | Gaming sessions, nostalgia        |
+| 🎵**YouTube Music Test**      | Cross-platform testing          | Multi-platform validation         |
 
 ### **Advanced Features**
 
