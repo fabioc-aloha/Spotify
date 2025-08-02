@@ -57,14 +57,14 @@ class SpotifyPlaylistCreator:
         """Load and validate Spotify API credentials from environment variables."""
         self.client_id = os.getenv('SPOTIFY_CLIENT_ID')
         self.client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
-        self.redirect_uri = os.getenv('SPOTIFY_REDIRECT_URI', 'http://localhost:8080')
+        self.redirect_uri = os.getenv('SPOTIFY_REDIRECT_URI', 'http://127.0.0.1:8888/callback')
         
         # Validate required credentials
         if not self.client_id or not self.client_secret:
             raise ValueError(
                 "Missing Spotify credentials. Please check your .env file.\n"
                 "Required: SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET\n"
-                "Optional: SPOTIFY_REDIRECT_URI (defaults to http://localhost:8080)"
+                "Optional: SPOTIFY_REDIRECT_URI (defaults to http://127.0.0.1:8888)"
             )
         
         print(f"✅ Credentials loaded successfully")
