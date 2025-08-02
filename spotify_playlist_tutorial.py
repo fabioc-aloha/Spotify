@@ -1,343 +1,415 @@
 #!/usr/bin/env python3
 """
-Spotify Playlist Creation Tutorial - Simplified Alex Method
-Learn to create playlists programmatically using Spotify Web API
+Spotify Playlist Creation Tutorial with NEWBORN Enhanced Learning
+================================================================
+
+This tutorial demonstrates how to create Spotify playlists using the Spotify Web API,
+featuring approval workflows and smart playlist generation capabilities.
+
+Requirements:
+- Spotify Developer Account
+- App credentials configured in .env file
+- Python packages: spotipy, python-dotenv
+
+Environment Setup:
+1. Copy .env.template to .env
+2. Fill in your Spotify API credentials
+3. Run this tutorial to learn playlist creation
+
+Learning Objectives:
+- Authenticate with Spotify Web API
+- Search for tracks and artists
+- Create playlists with approval workflow
+- Analyze audio features for smart playlists
+- Implement user-controlled playlist generation
+
+Version: 1.2.0 - Enhanced with secure credential management
 """
 
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import os
+from dotenv import load_dotenv
 import json
-from datetime import datetime
+from typing import List, Dict, Optional
+import time
+
+# Load environment variables from .env file
+load_dotenv()
 
 class SpotifyPlaylistCreator:
-    def __init__(self, client_id, client_secret, redirect_uri):
-        """
-        Initialize Spotify API connection
+    """
+    Enhanced Spotify playlist creator with approval workflows and secure credential management.
+    
+    Features:
+    - Secure credential loading from .env file
+    - Preview-approve-create workflow
+    - Audio feature analysis for smart playlists
+    - Error handling and user feedback
+    """
+    
+    def __init__(self):
+        """Initialize with credentials from environment variables."""
+        self.setup_credentials()
+        self.setup_spotify_client()
+    
+    def setup_credentials(self):
+        """Load and validate Spotify API credentials from environment variables."""
+        self.client_id = os.getenv('SPOTIFY_CLIENT_ID')
+        self.client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
+        self.redirect_uri = os.getenv('SPOTIFY_REDIRECT_URI', 'http://localhost:8080')
         
-        To get credentials:
-        1. Go to https://developer.spotify.com/dashboard
-        2. Create a new app
-        3. Get Client ID and Client Secret
-        4. Set redirect URI (e.g., http://localhost:8080/callback)
-        """
-        scope = "playlist-modify-public playlist-modify-private user-library-read"
+        # Validate required credentials
+        if not self.client_id or not self.client_secret:
+            raise ValueError(
+                "Missing Spotify credentials. Please check your .env file.\n"
+                "Required: SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET\n"
+                "Optional: SPOTIFY_REDIRECT_URI (defaults to http://localhost:8080)"
+            )
         
-        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-            client_id=client_id,
-            client_secret=client_secret,
-            redirect_uri=redirect_uri,
-            scope=scope
-        ))
-        
-        # Get current user info
-        self.user = self.sp.current_user()
-        print(f"✅ Connected to Spotify as: {self.user['display_name']}")
+        print(f"✅ Credentials loaded successfully")
+        print(f"   Client ID: {self.client_id[:8]}...")
+        print(f"   Redirect URI: {self.redirect_uri}")
+    
+    def setup_spotify_client(self):
+        """Initialize Spotify client with OAuth authentication."""
+        try:
+            self.scope = "playlist-modify-public playlist-modify-private user-library-read"
+            
+            auth_manager = SpotifyOAuth(
+                client_id=self.client_id,
+                client_secret=self.client_secret,
+                redirect_uri=self.redirect_uri,
+                scope=self.scope
+            )
+            
+            self.sp = spotipy.Spotify(auth_manager=auth_manager)
+            
+            # Test the connection
+            user = self.sp.current_user()
+            print(f"✅ Successfully connected to Spotify as: {user['display_name']}")
+            self.user_id = user['id']
+            
+        except Exception as e:
+            raise ConnectionError(f"Failed to connect to Spotify: {str(e)}")
 
-    def create_basic_playlist(self, name, description="", public=True):
-        """Create a new empty playlist"""
-        playlist = self.sp.user_playlist_create(
-            user=self.user['id'],
-            name=name,
-            public=public,
-            description=description
-        )
+    def search_tracks(self, query: str, limit: int = 10) -> List[Dict]:
+        """
+        Search for tracks on Spotify.
         
-        print(f"🎵 Created playlist: '{name}'")
-        print(f"   URL: {playlist['external_urls']['spotify']}")
-        return playlist
+        Args:
+            query: Search query (artist, song, album, etc.)
+            limit: Maximum number of results to return
+            
+        Returns:
+            List of track dictionaries with metadata
+        """
+        try:
+            results = self.sp.search(q=query, type='track', limit=limit)
+            tracks = []
+            
+            for track in results['tracks']['items']:
+                track_info = {
+                    'id': track['id'],
+                    'name': track['name'],
+                    'artist': ', '.join([artist['name'] for artist in track['artists']]),
+                    'album': track['album']['name'],
+                    'duration_ms': track['duration_ms'],
+                    'popularity': track['popularity'],
+                    'preview_url': track['preview_url']
+                }
+                tracks.append(track_info)
+            
+            print(f"🔍 Found {len(tracks)} tracks for query: '{query}'")
+            return tracks
+            
+        except Exception as e:
+            print(f"❌ Error searching tracks: {str(e)}")
+            return []
 
-    def search_and_add_tracks(self, playlist_id, search_queries):
+    def preview_playlist_content(self, tracks: List[Dict]) -> None:
         """
-        Search for tracks and add them to playlist
+        Display playlist content for user review before creation.
         
-        search_queries: List of strings like ["artist - song", "another song"]
+        Args:
+            tracks: List of track dictionaries to preview
         """
-        track_ids = []
+        print("\n" + "="*60)
+        print("🎵 PLAYLIST PREVIEW")
+        print("="*60)
+        
+        for i, track in enumerate(tracks, 1):
+            duration_min = track['duration_ms'] // 60000
+            duration_sec = (track['duration_ms'] % 60000) // 1000
+            
+            print(f"{i:2d}. {track['name']}")
+            print(f"    Artist: {track['artist']}")
+            print(f"    Album: {track['album']}")
+            print(f"    Duration: {duration_min}:{duration_sec:02d}")
+            print(f"    Popularity: {track['popularity']}/100")
+            print()
+        
+        total_duration = sum(track['duration_ms'] for track in tracks)
+        total_min = total_duration // 60000
+        total_sec = (total_duration % 60000) // 1000
+        
+        print(f"📊 Total tracks: {len(tracks)}")
+        print(f"⏱️  Total duration: {total_min}:{total_sec:02d}")
+        print("="*60)
+
+    def create_playlist_with_approval(self, name: str, tracks: List[Dict], 
+                                    description: str = "", public: bool = True) -> Optional[str]:
+        """
+        Create playlist with user approval workflow.
+        
+        Args:
+            name: Playlist name
+            tracks: List of track dictionaries
+            description: Playlist description
+            public: Whether playlist should be public
+            
+        Returns:
+            Playlist ID if created, None if cancelled
+        """
+        # Preview the content
+        self.preview_playlist_content(tracks)
+        
+        # Get user approval
+        print(f"\n🎯 Ready to create playlist: '{name}'")
+        print(f"📝 Description: {description}")
+        print(f"🌍 Visibility: {'Public' if public else 'Private'}")
+        
+        while True:
+            choice = input("\n✨ Create this playlist? (y/n/preview): ").lower().strip()
+            
+            if choice == 'y':
+                break
+            elif choice == 'n':
+                print("❌ Playlist creation cancelled.")
+                return None
+            elif choice == 'preview':
+                self.preview_playlist_content(tracks)
+            else:
+                print("Please enter 'y' for yes, 'n' for no, or 'preview' to see the content again.")
+        
+        # Create the playlist
+        try:
+            playlist = self.sp.user_playlist_create(
+                user=self.user_id,
+                name=name,
+                public=public,
+                description=description
+            )
+            
+            # Add tracks to playlist
+            track_ids = [track['id'] for track in tracks]
+            if track_ids:
+                # Add tracks in batches of 100 (Spotify API limit)
+                for i in range(0, len(track_ids), 100):
+                    batch = track_ids[i:i+100]
+                    self.sp.playlist_add_items(playlist['id'], batch)
+            
+            print(f"✅ Successfully created playlist: '{name}'")
+            print(f"🔗 Playlist URL: {playlist['external_urls']['spotify']}")
+            
+            return playlist['id']
+            
+        except Exception as e:
+            print(f"❌ Error creating playlist: {str(e)}")
+            return None
+
+    def get_audio_features(self, track_ids: List[str]) -> List[Dict]:
+        """
+        Get audio features for tracks to enable smart playlist creation.
+        
+        Args:
+            track_ids: List of Spotify track IDs
+            
+        Returns:
+            List of audio feature dictionaries
+        """
+        try:
+            # Get audio features in batches of 100 (API limit)
+            all_features = []
+            for i in range(0, len(track_ids), 100):
+                batch = track_ids[i:i+100]
+                features = self.sp.audio_features(batch)
+                all_features.extend([f for f in features if f is not None])
+            
+            return all_features
+            
+        except Exception as e:
+            print(f"❌ Error getting audio features: {str(e)}")
+            return []
+
+    def generate_smart_playlist(self, seed_artists: List[str], target_features: Dict, 
+                              playlist_name: str, limit: int = 20) -> Optional[str]:
+        """
+        Generate a smart playlist based on audio features and seed artists.
+        
+        Args:
+            seed_artists: List of artist names to base recommendations on
+            target_features: Dictionary of target audio features (e.g., {'energy': 0.8, 'danceability': 0.7})
+            playlist_name: Name for the generated playlist
+            limit: Number of tracks to include
+            
+        Returns:
+            Playlist ID if created, None if failed
+        """
+        try:
+            # Search for seed artist IDs
+            artist_ids = []
+            for artist_name in seed_artists[:5]:  # Max 5 seed artists
+                results = self.sp.search(q=artist_name, type='artist', limit=1)
+                if results['artists']['items']:
+                    artist_ids.append(results['artists']['items'][0]['id'])
+            
+            if not artist_ids:
+                print("❌ No valid artists found for recommendations")
+                return None
+            
+            # Get recommendations
+            recommendations = self.sp.recommendations(
+                seed_artists=artist_ids,
+                limit=limit,
+                **{f'target_{k}': v for k, v in target_features.items()}
+            )
+            
+            # Format tracks for playlist creation
+            tracks = []
+            for track in recommendations['tracks']:
+                track_info = {
+                    'id': track['id'],
+                    'name': track['name'],
+                    'artist': ', '.join([artist['name'] for artist in track['artists']]),
+                    'album': track['album']['name'],
+                    'duration_ms': track['duration_ms'],
+                    'popularity': track['popularity'],
+                    'preview_url': track['preview_url']
+                }
+                tracks.append(track_info)
+            
+            if not tracks:
+                print("❌ No recommendations found with these criteria")
+                return None
+            
+            # Create description with target features
+            feature_desc = ", ".join([f"{k}: {v}" for k, v in target_features.items()])
+            description = f"Smart playlist based on {', '.join(seed_artists)} with features: {feature_desc}"
+            
+            print(f"🧠 Generated {len(tracks)} smart recommendations")
+            return self.create_playlist_with_approval(playlist_name, tracks, description)
+            
+        except Exception as e:
+            print(f"❌ Error generating smart playlist: {str(e)}")
+            return None
+
+
+def tutorial_basic_playlist():
+    """Tutorial: Create a basic playlist with manual track selection."""
+    print("\n🎓 TUTORIAL: Basic Playlist Creation")
+    print("="*50)
+    
+    try:
+        # Initialize the creator
+        creator = SpotifyPlaylistCreator()
+        
+        # Search for some tracks
+        print("\n1. Searching for tracks...")
+        tracks = []
+        
+        search_queries = [
+            "The Beatles Hey Jude",
+            "Queen Bohemian Rhapsody", 
+            "Led Zeppelin Stairway to Heaven",
+            "Pink Floyd Wish You Were Here",
+            "The Rolling Stones Paint It Black"
+        ]
         
         for query in search_queries:
-            # Search for track
-            results = self.sp.search(q=query, type='track', limit=1)
-            
-            if results['tracks']['items']:
-                track = results['tracks']['items'][0]
-                track_ids.append(track['id'])
-                print(f"✅ Found: {track['artists'][0]['name']} - {track['name']}")
-            else:
-                print(f"❌ Not found: {query}")
+            results = creator.search_tracks(query, limit=1)
+            if results:
+                tracks.extend(results)
         
-        # Add tracks to playlist in batches (Spotify limit: 100 tracks per request)
-        if track_ids:
-            for i in range(0, len(track_ids), 100):
-                batch = track_ids[i:i+100]
-                self.sp.playlist_add_items(playlist_id, batch)
-            
-            print(f"🎵 Added {len(track_ids)} tracks to playlist")
-        
-        return track_ids
-
-    def preview_playlist_content(self, track_list):
-        """Preview playlist contents before creation - get user approval"""
-        print("\n🎵 PLAYLIST PREVIEW")
-        print("=" * 50)
-        
-        found_tracks = []
-        not_found = []
-        
-        for i, query in enumerate(track_list, 1):
-            # Search for track
-            results = self.sp.search(q=query, type='track', limit=1)
-            
-            if results['tracks']['items']:
-                track = results['tracks']['items'][0]
-                found_tracks.append({
-                    'query': query,
-                    'track': track,
-                    'id': track['id']
-                })
-                duration_ms = track['duration_ms']
-                duration_min = duration_ms // 60000
-                duration_sec = (duration_ms % 60000) // 1000
-                
-                print(f"{i:2d}. ✅ {track['artists'][0]['name']} - {track['name']}")
-                print(f"     Album: {track['album']['name']} ({duration_min}:{duration_sec:02d})")
-            else:
-                not_found.append(query)
-                print(f"{i:2d}. ❌ NOT FOUND: {query}")
-        
-        print(f"\n📊 Summary: {len(found_tracks)} found, {len(not_found)} not found")
-        
-        if not_found:
-            print("\n⚠️  Tracks not found:")
-            for track in not_found:
-                print(f"   • {track}")
-        
-        return found_tracks, not_found
-
-    def create_playlist_with_approval(self, theme_name, track_list):
-        """Create playlist with user approval workflow"""
-        
-        # Step 1: Preview content
-        found_tracks, not_found = self.preview_playlist_content(track_list)
-        
-        if not found_tracks:
-            print("❌ No tracks found. Cannot create playlist.")
-            return None
-        
-        # Step 2: Get user approval
-        print(f"\n🤔 Create '{theme_name}' playlist with {len(found_tracks)} tracks?")
-        approval = input("   Type 'yes' to create playlist, or 'no' to cancel: ").lower().strip()
-        
-        if approval not in ['yes', 'y']:
-            print("❌ Playlist creation cancelled.")
-            return None
-        
-        # Step 3: Create playlist with approved content
-        print(f"\n🚀 Creating '{theme_name}' playlist...")
-        
-        description = f"A {theme_name.lower()} playlist created with the Alex Method"
-        playlist = self.create_basic_playlist(
-            name=f"{theme_name} Mix - {datetime.now().strftime('%b %Y')}",
-            description=description
+        # Create playlist with approval
+        playlist_id = creator.create_playlist_with_approval(
+            name="Classic Rock Essentials",
+            tracks=tracks,
+            description="Handpicked classic rock masterpieces",
+            public=True
         )
         
-        # Add only the found tracks
-        track_ids = [track['id'] for track in found_tracks]
-        if track_ids:
-            for i in range(0, len(track_ids), 100):
-                batch = track_ids[i:i+100]
-                self.sp.playlist_add_items(playlist['id'], batch)
-            
-            print(f"✅ Successfully added {len(track_ids)} tracks to playlist")
+        if playlist_id:
+            print(f"🎉 Tutorial completed! Playlist created with ID: {playlist_id}")
         
-        return playlist
+    except Exception as e:
+        print(f"❌ Tutorial failed: {str(e)}")
 
-    def create_themed_playlist(self, theme_name, track_list):
-        """Create a themed playlist with predefined tracks (legacy method)"""
-        return self.create_playlist_with_approval(theme_name, track_list)
 
-    def analyze_playlist_energy(self, playlist_id):
-        """
-        Analyze the energy flow of a playlist using Spotify's audio features
-        This is part of Alex's advanced DJ technique
-        """
-        # Get playlist tracks
-        tracks = self.sp.playlist_tracks(playlist_id)
-        track_ids = [item['track']['id'] for item in tracks['items'] if item['track']]
+def tutorial_smart_playlist():
+    """Tutorial: Generate a smart playlist using audio features."""
+    print("\n🎓 TUTORIAL: Smart Playlist Generation")
+    print("="*50)
+    
+    try:
+        # Initialize the creator
+        creator = SpotifyPlaylistCreator()
         
-        # Get audio features
-        audio_features = self.sp.audio_features(track_ids)
+        # Generate a high-energy workout playlist
+        print("\n1. Generating high-energy workout playlist...")
         
-        energy_analysis = {
-            'track_count': len(track_ids),
-            'avg_energy': sum(f['energy'] for f in audio_features if f) / len(audio_features),
-            'avg_tempo': sum(f['tempo'] for f in audio_features if f) / len(audio_features),
-            'avg_valence': sum(f['valence'] for f in audio_features if f) / len(audio_features),
-            'energy_flow': [f['energy'] for f in audio_features if f]
+        seed_artists = ["Daft Punk", "Justice", "Disclosure"]
+        target_features = {
+            'energy': 0.8,
+            'danceability': 0.7,
+            'valence': 0.6,
+            'tempo': 120
         }
         
-        print("\n📊 Playlist Energy Analysis:")
-        print(f"   Tracks: {energy_analysis['track_count']}")
-        print(f"   Average Energy: {energy_analysis['avg_energy']:.2f}")
-        print(f"   Average Tempo: {energy_analysis['avg_tempo']:.0f} BPM")
-        print(f"   Average Mood: {energy_analysis['avg_valence']:.2f}")
+        playlist_id = creator.generate_smart_playlist(
+            seed_artists=seed_artists,
+            target_features=target_features,
+            playlist_name="AI Generated Workout Mix",
+            limit=25
+        )
         
-    def generate_smart_playlist(self, theme, preferences=None):
-        """
-        Generate smart playlist suggestions based on theme and user preferences
-        User approves before API creation
-        """
-        print(f"\n🧠 Generating smart '{theme}' playlist suggestions...")
+        if playlist_id:
+            print(f"🎉 Smart playlist created with ID: {playlist_id}")
         
-        # Predefined track suggestions by theme
-        theme_suggestions = {
-            'workout': [
-                "Eminem - Till I Collapse",
-                "The Prodigy - Spitfire", 
-                "Skrillex - Bangarang",
-                "Pendulum - Propane Nightmares",
-                "Rage Against The Machine - Killing In The Name",
-                "Linkin Park - One Step Closer",
-                "Foo Fighters - The Pretender",
-                "System of a Down - Chop Suey",
-                "Daft Punk - Harder Better Faster Stronger",
-                "Kanye West - Stronger"
-            ],
-            'chill': [
-                "Bonobo - Kiara",
-                "Thievery Corporation - Lebanese Blonde",
-                "Zero 7 - In The Waiting Line", 
-                "Massive Attack - Teardrop",
-                "Portishead - Glory Box",
-                "Air - La Femme d'Argent",
-                "Boards of Canada - Roygbiv",
-                "Nujabes - Aruarian Dance",
-                "Emancipator - Soon It Will Be Cold Enough",
-                "Tycho - A Walk"
-            ],
-            'focus': [
-                "Max Richter - On The Nature of Daylight",
-                "Ólafur Arnalds - Near Light",
-                "Nils Frahm - Says", 
-                "GoGo Penguin - Hopopono",
-                "Kiasmos - Blurred EP",
-                "Jon Hopkins - Immunity",
-                "Aphex Twin - Avril 14th",
-                "Rival Consoles - Recovery",
-                "Ben Lukas Boysen - Golden Times 1",
-                "Clark - Winter Linn"
-            ],
-            'party': [
-                "Dua Lipa - Don't Start Now",
-                "The Weeknd - Blinding Lights",
-                "Bruno Mars - Uptown Funk",
-                "Daft Punk - Get Lucky",
-                "Mark Ronson - Uptown Funk",
-                "Calvin Harris - Feel So Close",
-                "David Guetta - Titanium",
-                "Swedish House Mafia - Don't You Worry Child",
-                "Avicii - Wake Me Up",
-                "Pitbull - Give Me Everything"
-            ]
-        }
-        
-        suggested_tracks = theme_suggestions.get(theme.lower(), [])
-        
-        if not suggested_tracks:
-            print(f"❌ No suggestions available for theme '{theme}'")
-            print("Available themes:", list(theme_suggestions.keys()))
-            return None
-        
-        # Create playlist with approval workflow
-        return self.create_playlist_with_approval(theme.title(), suggested_tracks)
+    except Exception as e:
+        print(f"❌ Smart playlist tutorial failed: {str(e)}")
 
-        return energy_analysis
 
-def interactive_playlist_creator():
-    """Interactive playlist creation with user approval workflow"""
+def main():
+    """Main function to run the tutorials."""
+    print("🎵 Spotify Playlist Creation Tutorial")
+    print("====================================")
     
-    # NOTE: Replace these with your actual Spotify app credentials
-    CLIENT_ID = "your_client_id_here"
-    CLIENT_SECRET = "your_client_secret_here"
-    REDIRECT_URI = "http://localhost:8080/callback"
+    # Check environment setup
+    if not os.getenv('SPOTIFY_CLIENT_ID'):
+        print("⚠️  Environment Setup Required!")
+        print("1. Copy .env.template to .env")
+        print("2. Fill in your Spotify API credentials")
+        print("3. Run this tutorial again")
+        return
     
-    print("🎧 Interactive Spotify Playlist Creator")
-    print("=" * 50)
-    print("This tool will preview playlists before creating them via API")
-    print("You'll approve the content before any playlist is created.")
+    print("\nChoose a tutorial:")
+    print("1. Basic playlist creation")
+    print("2. Smart playlist generation")
+    print("3. Both tutorials")
     
-    # Uncomment when you have credentials:
-    # creator = SpotifyPlaylistCreator(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
+    choice = input("\nEnter your choice (1-3): ").strip()
     
-    # Demo workflow (uncomment when ready):
-    # print("\n🎯 Available playlist themes:")
-    # print("1. workout - High-energy tracks for exercise")  
-    # print("2. chill - Relaxed tracks for unwinding")
-    # print("3. focus - Instrumental tracks for concentration")
-    # print("4. party - Upbeat tracks for celebrations")
-    
-    # theme = input("\nEnter theme (workout/chill/focus/party): ").strip().lower()
-    # 
-    # if theme in ['workout', 'chill', 'focus', 'party']:
-    #     playlist = creator.generate_smart_playlist(theme)
-    #     
-    #     if playlist:
-    #         print(f"\n🎉 Playlist created successfully!")
-    #         print(f"   URL: {playlist['external_urls']['spotify']}")
-    #         
-    #         # Analyze the created playlist
-    #         creator.analyze_playlist_energy(playlist['id'])
-    #     else:
-    #         print("❌ Playlist creation was cancelled or failed.")
-    # else:
-    #     print("❌ Invalid theme selected.")
-    
-    print("\n📚 To use this interactive creator:")
-    print("1. Get Spotify API credentials from https://developer.spotify.com/dashboard")
-    print("2. Replace CLIENT_ID, CLIENT_SECRET, and REDIRECT_URI with your values")
-    print("3. Uncomment the demo code above")
-    print("4. Run: python spotify_playlist_tutorial.py")
+    if choice == '1':
+        tutorial_basic_playlist()
+    elif choice == '2':
+        tutorial_smart_playlist()
+    elif choice == '3':
+        tutorial_basic_playlist()
+        tutorial_smart_playlist()
+    else:
+        print("Invalid choice. Please run again and select 1, 2, or 3.")
 
-def demo_playlist_creation():
-    """Demo showing different playlist creation methods"""
-    
-    # NOTE: Replace these with your actual Spotify app credentials
-    CLIENT_ID = "your_client_id_here"
-    CLIENT_SECRET = "your_client_secret_here"
-    REDIRECT_URI = "http://localhost:8080/callback"
-    
-    print("🎧 Spotify Playlist Creation Tutorial")
-    print("=" * 50)
-    
-    # Uncomment the following lines when you have credentials:
-    
-    # creator = SpotifyPlaylistCreator(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
-    
-    # Example 1: Create a workout playlist with approval
-    # workout_tracks = [
-    #     "Eminem - Till I Collapse",
-    #     "The Prodigy - Spitfire",
-    #     "Skrillex - Bangarang",
-    #     "Pendulum - Propane Nightmares",
-    #     "Rage Against The Machine - Killing In The Name"
-    # ]
-    # 
-    # workout_playlist = creator.create_playlist_with_approval("High Energy Workout", workout_tracks)
-    
-    # Example 2: Create a smart playlist with approval
-    # chill_playlist = creator.generate_smart_playlist("chill")
-    
-    # Example 3: Analyze energy flow of created playlist
-    # if workout_playlist:
-    #     creator.analyze_playlist_energy(workout_playlist['id'])
-    
-    print("\n📚 To use this script:")
-    print("1. Get Spotify API credentials from https://developer.spotify.com/dashboard")
-    print("2. Replace CLIENT_ID, CLIENT_SECRET, and REDIRECT_URI with your values")
-    print("3. Uncomment the demo code above")
-    print("4. Run: python spotify_playlist_tutorial.py")
-    print("\n🔄 For interactive mode, call interactive_playlist_creator() instead")
 
 if __name__ == "__main__":
-    # Choose your mode:
-    demo_playlist_creation()        # Basic demo
-    # interactive_playlist_creator()  # Interactive mode
+    main()

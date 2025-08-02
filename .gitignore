@@ -32,3 +32,40 @@ __pycache__/
 # Domain-specific learning storage (keep structure but ignore personal content)
 domain-knowledge/personal/
 domain-knowledge/*/personal-notes.md
+
+# =============================================
+# MUSIC API SPECIFIC SENSITIVE FILES
+# =============================================
+
+# Environment files with API credentials
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Apple Music private key files
+*.p8
+AuthKey_*.p8
+private_keys/
+
+# Spotify cache and tokens
+.cache
+.cache-*
+*.cache
+
+# Generated playlist files
+playlists_generated/
+playlist_exports/
+
+# Audio analysis cache
+audio_analysis_cache/
+track_features_cache/
+
+# User data and sessions
+user_sessions/
+user_playlists/
+
+# API logs
+playlist_creation.log
+api_errors.log
