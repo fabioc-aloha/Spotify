@@ -1,0 +1,54 @@
+# Music Playlist Creation Dependencies
+# For both Spotify and Apple Music API integration tutorials
+
+# Spotify API Dependencies
+spotipy>=2.25.1
+# Official Spotify Web API Python library
+# Handles OAuth authentication and API requests
+
+# Apple Music API Dependencies  
+requests>=2.32.4
+# HTTP library for Apple Music API requests
+
+PyJWT>=2.10.1
+# JWT token generation for Apple Music authentication
+
+cryptography>=45.0.5
+# Required for PyJWT ES256 algorithm (Apple Music uses ES256)
+
+# General Dependencies
+python-dateutil>=2.9.0
+# Date/time utilities for playlist naming and timestamps
+
+# Optional: Enhanced JSON handling
+ujson>=5.10.0
+# Faster JSON parsing (optional performance enhancement)
+
+# Development/Testing Dependencies (optional)
+pytest>=8.4.1
+# Unit testing framework
+
+pytest-mock>=3.11.1
+# Mocking library for testing API calls
+
+# Documentation Dependencies (optional)
+markdown>=3.4.4
+# For generating documentation from markdown files
+
+# Audio Analysis Dependencies (optional)
+librosa>=0.10.1
+# Advanced audio analysis library (if extending beyond API features)
+
+numpy>=2.2.6
+# Required by librosa for audio processing
+
+# Visualization Dependencies (optional - for Alex's advanced analytics)
+matplotlib>=3.10.5
+# Plotting library for energy flow visualization
+
+seaborn>=0.12.2
+# Statistical visualization enhancement
+
+# Environment Management (optional)
+python-dotenv>=1.1.1
+# Load environment variables from .env file for secure credential storage

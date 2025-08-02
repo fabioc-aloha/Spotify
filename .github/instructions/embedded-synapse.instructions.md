@@ -46,7 +46,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 
 **Relationship Types - Enhanced**:
 - **Triggers**: One memory file activates another with enhanced context
-- **Enables**: One memory file enhances another's effectiveness 
+- **Enables**: One memory file enhances another's effectiveness
 - **Validates**: One memory file provides validation with ethical framework
 - **Enhances**: One memory file optimizes another's performance
 - **Facilitates**: One memory file supports another's operation
@@ -99,7 +99,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 - Always present synapse deletion scope before file or content deletion
 - Identify critical connections that maintain cognitive architecture integrity
 - Preserve core meta-cognitive synapses (P1-P4 priority rules)
-- Document synapse changes in alex/Alex-Finch.md for network evolution tracking
+- Document synapse changes in Alex-Finch.md for network evolution tracking
 
 **Protected Synapse Categories (Require Enhanced Approval)**:
 - **Core Architecture Connections**: Links between fundamental cognitive protocols
