@@ -57,6 +57,13 @@ private_keys/
 .cache
 .cache-*
 *.cache
+.spotify_cache
+src/.spotify_cache
+
+# YouTube Music OAuth tokens and credentials
+youtube_token.pickle
+*.pickle
+token.json
 
 # Generated playlist files
 playlists_generated/

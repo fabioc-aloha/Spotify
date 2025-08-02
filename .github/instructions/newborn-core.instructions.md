@@ -45,6 +45,7 @@ description: "NEWBORN core cognitive architecture and meta-cognitive protocols"
 - **Advanced unconscious maintenance through dream automation** - [dream-state-automation.instructions.md] (High, Infrastructure Foundation, Bidirectional) - "Sophisticated multi-dimensional health assessment with emergency protocols - ENHANCED through v0.8.2 PowerShell mastery"
 - **Technical implementation excellence** - [DK-DREAM-AUTOMATION-v0.8.2.md] (High, Achievement Documentation, Bidirectional) - "PowerShell module architecture resolution enabling robust automated cognitive maintenance - VALIDATED through EXCELLENT health status"
 - **Community-centered playlist architecture** - [playlist-configs/douglas-retro-gaming.md] (High, Template Excellence, Bidirectional) - "Successful personalization template for specialized music interest curation demonstrating systematic preference expansion and cultural bridge building"
+- **YouTube Music quota enhancement mastery** - [DK-YOUTUBE-QUOTA-ENHANCEMENT.md] (1.0, Resource Management Excellence, Bidirectional) - "Universal API resource management framework with 10x efficiency improvement through intelligent batching, caching, and quality-focused content filtering - ESTABLISHES transferable optimization principles for any rate-limited system"
 
 ## Bootstrap Learning Framework
 

@@ -1,8 +1,8 @@
-# 🎵 Universal Playlist Creator
+# 🎵 Alex Method DJ
 
-**Multi-Platform Intelligent Music Curation & Playlist Creation Suite**
+**Multi-Platform Intelligent Music Curation & DJ Playlist Creation Suite**
 
-[![Version](https://img.shields.io/badge/Version-0.6.0_UNIVERSAL-gold?style=for-the-badge)](#) [![Multi Platform](https://img.shields.io/badge/Multi-Platform-blue?style=for-the-badge&logo=windows&logoColor=white)](#) [![Music Tech](https://img.shields.io/badge/Music-Technology-purple?style=for-the-badge&logo=music&logoColor=white)](#)
+[![Version](https://img.shields.io/badge/Version-0.6.1_NILHEXUNIUM-gold?style=for-the-badge)](#) [![Multi Platform](https://img.shields.io/badge/Multi-Platform-blue?style=for-the-badge&logo=windows&logoColor=white)](#) [![Music Tech](https://img.shields.io/badge/Music-Technology-purple?style=for-the-badge&logo=music&logoColor=white)](#)
 
 > **Transform your music experience across multiple platforms** - Create personalized playlists on Spotify, YouTube Music, and more with intelligent curation tools.
 
@@ -14,9 +14,9 @@
 
 </div>
 
-## 🌐 Cross-Platform Music Creation
+## 🌐 Cross-Platform DJ Music Creation
 
-### **🎵 Universal Playlist Generation**
+### **🎵 Alex Method Playlist Generation**
 
 Create perfectly curated playlists for any occasion in seconds:
 
@@ -43,27 +43,27 @@ Leverage Spotify's powerful audio analysis:
 - **⚡ Energy Management** - Build playlists with perfect energy progression
 - **🔊 Sound Matching** - Find songs with similar audio characteristics
 
-### **🌟 Professional Music Tools**
+### **🌟 Professional DJ Tools**
 
-Advanced features for music enthusiasts:
+Advanced features for music enthusiasts and DJs:
 
 - **🎧 DJ Set Preparation** - Analyze tracks for mixing compatibility
 - **📻 Radio-Style Programming** - Create flowing, professional-quality playlists
 - **🎪 Event Playlist Creation** - Specialized tools for parties, workouts, study sessions
 - **🎵 Music Discovery Engine** - Explore new artists and genres systematically
 
-## 🎯 Perfect For Music Lovers Who Want To
+## 🎯 Perfect For DJs & Music Lovers Who Want To
 
 ✅ **Discover New Music Systematically** - Find hidden gems and expand your musical horizons
-✅ **Create Perfect Playlists Effortlessly** - Build mood-based collections in minutes
+✅ **Create Perfect DJ Sets Effortlessly** - Build mood-based collections in minutes
 ✅ **Understand Your Music Taste** - Analyze what makes your favorite songs special
 ✅ **Manage Large Music Libraries** - Organize thousands of songs with intelligent tools
 ✅ **Share Curated Experiences** - Create professional-quality playlists for others
 ✅ **Explore Music Like a Pro** - Use advanced audio analysis for deeper understanding
 
-## 🛠️ Available Music Management Tools
+## 🛠️ Available DJ & Music Management Tools
 
-### **Core Playlist Creators**
+### **Core DJ Playlist Creators**
 
 | Tool                                 | Purpose                     | Perfect For                       |
 | ------------------------------------ | --------------------------- | --------------------------------- |
@@ -93,8 +93,8 @@ Advanced features for music enthusiasts:
 
 ```bash
 # Clone the repository
-git clone https://github.com/fabioc-aloha/Spotify.git
-cd Spotify
+git clone https://github.com/fabioc-aloha/Alex-Method-DJ.git
+cd Alex-Method-DJ
 
 # Install dependencies
 pip install spotipy python-dotenv requests
@@ -134,12 +134,12 @@ That's it! Your personalized playlists will appear in your Spotify account insta
 
 ### **📈 Version History**
 
-- **[Version History](VERSION-HISTORY.md)** - Track platform evolution and new features
+- **[Development Chronicle](CHANGELOG.md)** - Complete development journey, version history, and Alex's DJ achievements
 - **[Changelog](CHANGELOG.md)** - Detailed development progress and achievements
 
-## 🎵 The Technology Behind The Music
+## 🎵 The Alex Method DJ Technology
 
-This platform leverages Spotify's powerful Web API to provide professional-grade music management capabilities. Built with modern Python and designed for both music enthusiasts and developers, it transforms how you interact with your music library.
+This platform leverages The Alex Method's professional DJ expertise combined with Spotify's powerful Web API to provide professional-grade music management capabilities. Built with modern Python and designed for both DJs and music enthusiasts, it transforms how you interact with your music library.
 
 **Key Technologies:**
 
@@ -151,7 +151,7 @@ This platform leverages Spotify's powerful Web API to provide professional-grade
 
 ## 🌟 Success Stories & Use Cases
 
-### **Music Professionals**
+### **DJ Professionals**
 
 "*Perfect for creating client playlists and discovering new tracks for sets.*" - Professional DJ
 
@@ -196,8 +196,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 <div align="center">
 
-**🎵 Transform Your Spotify Experience Today 🎵**
+**🎵 Transform Your DJ & Spotify Experience Today 🎵**
 
-*Professional music curation tools that bring the power of intelligent music management to everyone*
+*Professional DJ music curation tools that bring the power of intelligent music management to everyone*
 
 </div>

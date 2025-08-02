@@ -2,7 +2,7 @@
 
 **Description**: Testing YouTube Music integration with The Alex Method
 **Target Duration**: 30 minutes
-**Platform**: YouTube Music
+**Platform**: youtube
 
 ## Track List
 

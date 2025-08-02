@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
-Base Playlist Creator - Universal Platform Support
-Abstract base class for platform-specific playlist creators
+Base Playlist Creator - Alex Method DJ Platform Support
 
-Part of the Universal Platform Playlist Creator system - Alex Method
-Supports: Spotify, YouTube Music, and future platform expansions
+Abstract base class for all music platform integrations.
+Part of the Alex Method DJ Platform system
 """
 
 from abc import ABC, abstractmethod

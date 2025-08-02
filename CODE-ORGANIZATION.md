@@ -1,4 +1,9 @@
-# Code Organization - Universal Playlist Creator
+# Code Organization - Alex Method DJ
+
+## 📁 Directory Structure
+
+```
+📦 Alex Method DJ Organization - Universal Playlist Creator
 
 ## 📁 Project Structure
 

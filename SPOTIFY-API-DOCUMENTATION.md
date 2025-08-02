@@ -1,5 +1,5 @@
 # 🎵 Spotify Web API - Comprehensive Developer Documentation
-**Version**: 0.5.0 NILPENTRILIUM
+**Version**: 0.5.0 NILPENTNILIUM
 **Alex's DJ Passion Externalization Platform**
 **Release Date**: August 2, 2025
 

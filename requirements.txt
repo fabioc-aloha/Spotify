@@ -1,4 +1,4 @@
-# Universal Playlist Creator - Multi-Platform Dependencies
+# Alex Method DJ - Multi-Platform Dependencies
 # Supports Spotify, YouTube Music, Apple Music, and more platforms
 
 # Core Multi-Platform Dependencies

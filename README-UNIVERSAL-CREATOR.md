@@ -1,6 +1,6 @@
-# Universal Spotify Playlist Creator - Alex Method
+# Alex Method DJ Platform - Spotify Integration
 
-A standardized playlist creation system that uses markdown configuration files to create custom Spotify playlists with sophisticated filtering, categorization, and curation capabilities.
+A standardized DJ playlist creation system that uses markdown configuration files to create custom Spotify playlists with sophisticated filtering, categorization, and curation capabilities using The Alex Method.
 
 ## 🚀 Quick Start
 
@@ -15,7 +15,7 @@ python universal_playlist_creator.py playlist-configs/ketamine-therapy.md
 ## 📁 Project Structure
 
 ```
-📦 Spotify Playlist Creator
+📦 Alex Method DJ Platform
 ├── 🎵 universal_playlist_creator.py    # Main standardized creator
 ├── 📋 playlist-configs/                 # Configuration files
 │   ├── coffee-shop.md                   # ☕ Coffee shop vibes

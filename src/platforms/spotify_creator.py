@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Spotify Universal Playlist Creator - Alex Method
+Alex Method DJ Spotify Creator - Professional DJ Playlist Creation
+The Alex Method: Professional DJ techniques for creating perfect musical journeys
 Standardized Spotify playlist creation using markdown configuration files
 
 Features:
@@ -493,7 +494,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         
         # Get playlist details from config
         name = self.config['metadata'].get('name', 'Alex Method Playlist')
-        description = self.config['metadata'].get('description', 'Created with Alex Method Universal Playlist Creator')
+        description = self.config['metadata'].get('description', 'Created with Alex Method DJ')
         is_private = self.config['metadata'].get('privacy', 'public').lower() == 'private'
         
         # Check if playlist already exists
@@ -804,7 +805,7 @@ def main():
         config_file = os.path.join("playlist-configs", config_file)
     
     try:
-        print("🎵 UNIVERSAL PLAYLIST CREATOR - Alex Method")
+        print("🎵 ALEX METHOD DJ - Spotify Platform")
         print("=" * 50)
         
         creator = SpotifyPlaylistCreator()

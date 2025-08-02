@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Universal Playlist Creator - Multi-Platform Support
-Creates playlists across different music platforms using a unified interface
+Alex Method DJ - Multi-Platform Support
+Creates DJ playlists across different music platforms using The Alex Method
 
 Supported Platforms:
 - Spotify (fully implemented)
@@ -43,7 +43,7 @@ def get_available_platforms():
     
     return platforms
 
-def create_playlist_universal(config_file: str, platform: str = 'spotify') -> bool:
+def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') -> bool:
     """Create playlist using specified platform."""
     
     # Get available platforms
@@ -65,7 +65,7 @@ def create_playlist_universal(config_file: str, platform: str = 'spotify') -> bo
         CreatorClass = available_platforms[platform]
         creator = CreatorClass()
         
-        print(f"🎵 Universal Playlist Creator - {creator.get_platform_name()}")
+        print(f"🎵 Alex Method DJ - {creator.get_platform_name()}")
         print(f"📁 Loading configuration: {config_file}")
         
         # Load configuration
@@ -123,7 +123,7 @@ def create_playlist_universal(config_file: str, platform: str = 'spotify') -> bo
         # Create playlist
         print(f"\n🆕 Creating playlist on {creator.get_platform_name()}...")
         
-        playlist_description = metadata.get('description', f'Created with Universal Playlist Creator for {creator.get_platform_name()}')
+        playlist_description = metadata.get('description', f'Created with Alex Method DJ for {creator.get_platform_name()}')
         is_public = metadata.get('privacy', 'public').lower() == 'public'
         
         # Check if playlist exists
@@ -169,9 +169,9 @@ def create_playlist_universal(config_file: str, platform: str = 'spotify') -> bo
         return False
 
 def main():
-    """Main entry point for universal playlist creator."""
+    """Main entry point for Alex Method DJ playlist creator."""
     parser = argparse.ArgumentParser(
-        description="Universal Playlist Creator - Multi-Platform Support",
+        description="Alex Method DJ - Multi-Platform Support",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -208,7 +208,7 @@ Supported Platforms:
     
     # List platforms mode
     if args.list_platforms:
-        print("🎵 Universal Playlist Creator - Available Platforms")
+        print("🎵 Alex Method DJ - Available Platforms")
         platforms = get_available_platforms()
         
         if platforms:
@@ -233,7 +233,7 @@ Supported Platforms:
         sys.exit(1)
     
     # Create playlist
-    success = create_playlist_universal(args.config_file, args.platform)
+    success = create_playlist_alex_method_dj(args.config_file, args.platform)
     
     if not success:
         sys.exit(1)

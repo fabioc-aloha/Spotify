@@ -32,18 +32,36 @@ except ImportError:
     YOUTUBE_AVAILABLE = False
 
 class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
-    """YouTube Music Playlist Creator with video content curation."""
+    """YouTube Music implementation of playlist creator."""
     
     def __init__(self):
-        """Initialize with YouTube Data API credentials."""
-        if not YOUTUBE_AVAILABLE:
-            raise ImportError("YouTube Data API dependencies not installed. Install with: pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib")
-        
         super().__init__()
-        load_dotenv()
-        self.youtube = None
+        self.platform_name = "YouTube Music"
         self.credentials = None
-        self.setup_platform_client()
+        self.youtube = None
+        
+        # Quota optimization settings
+        self.quota_used = 0
+        self.max_quota_per_session = 8000  # Leave buffer for other operations
+        self.search_cache = {}  # Cache search results
+        self.batch_size = 8  # Optimized batch size for searches
+        
+        # Load API key from environment
+        load_dotenv()
+        api_key = os.getenv('YOUTUBE_API_KEY')
+        
+        if not api_key:
+            print("❌ YouTube API key not found in environment variables")
+            print("Please set YOUTUBE_API_KEY in your .env file")
+            return
+        
+        try:
+            # Initialize YouTube API client
+            self.youtube = build('youtube', 'v3', developerKey=api_key)
+            print("✅ YouTube Data API client authenticated successfully")
+        except Exception as e:
+            print(f"❌ Error initializing YouTube API: {e}")
+            raise
         
     def setup_platform_client(self):
         """Set up YouTube Data API client with OAuth2 authentication."""
@@ -82,7 +100,7 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
             else:
                 # Create OAuth2 flow
                 client_config = {
-                    "web": {
+                    "installed": {
                         "client_id": client_id,
                         "client_secret": client_secret,
                         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -102,14 +120,20 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
                 
                 print(f"🔐 YouTube OAuth2 Setup Required")
                 print(f"1. Open this URL in your browser: {auth_url}")
-                print(f"2. Complete the authorization")
-                print(f"3. Copy the authorization code from the redirect URL")
+                print(f"2. Complete the authorization (click Advanced -> Go to Alex DJ)")
+                print(f"3. After authorization, you'll see a blank page")
+                print(f"4. Copy the FULL URL from your browser (starts with http://localhost:8080/?code=...)")
                 
-                auth_code = input("Enter the authorization code: ").strip()
+                redirect_url = input("Paste the full redirect URL here: ").strip()
                 
-                # Exchange code for token
-                flow.fetch_token(code=auth_code)
-                self.credentials = flow.credentials
+                # Extract code from URL
+                if 'code=' in redirect_url:
+                    auth_code = redirect_url.split('code=')[1].split('&')[0]
+                    # Exchange code for token
+                    flow.fetch_token(code=auth_code)
+                    self.credentials = flow.credentials
+                else:
+                    raise ValueError("Invalid redirect URL. Please make sure to copy the full URL.")
             
             # Save credentials for next run
             with open(token_file, 'wb') as token:
@@ -124,22 +148,41 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
         return "YouTube Music"
     
     def search_content(self, query: str, limit: int = 50) -> List[Dict[str, Any]]:
-        """Search for video content on YouTube."""
+        """Optimized search for music content with quota management and caching."""
         if not self.youtube:
             return []
         
+        # Check quota limit
+        if self.quota_used >= self.max_quota_per_session:
+            print(f"⚠️ Quota limit reached ({self.quota_used}/{self.max_quota_per_session}). Skipping search: {query}")
+            return []
+        
+        # Check cache first
+        cache_key = f"{query}_{limit}"
+        if cache_key in self.search_cache:
+            print(f"📋 Using cached results for: {query}")
+            return self.search_cache[cache_key]
+        
         try:
             # Enhanced search with music-specific parameters
+            music_query = f"{query} official music video OR audio OR song"
+            
+            print(f"🔍 Searching (Quota: {self.quota_used}/{self.max_quota_per_session}): {query}")
+            
             search_response = self.youtube.search().list(
-                q=query,
+                q=music_query,
                 part='id,snippet',
-                maxResults=min(limit, 50),  # YouTube API limit
+                maxResults=min(limit * 2, 50),  # Get more to filter better
                 type='video',
                 videoCategoryId='10',  # Music category
                 order='relevance',
                 regionCode='US',
-                relevanceLanguage='en'
+                relevanceLanguage='en',
+                videoDuration='medium'  # 4-20 minutes (typical music length)
             ).execute()
+            
+            # Track quota usage (search = ~100 units)
+            self.quota_used += 100
             
             videos = []
             video_ids = []
@@ -150,28 +193,62 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
                 video_ids.append(video_id)
                 videos.append(item)
             
-            # Get video details including duration
+            # Get video details including duration (batch request)
             if video_ids:
                 videos_response = self.youtube.videos().list(
-                    part='contentDetails,statistics',
+                    part='contentDetails,statistics,snippet',
                     id=','.join(video_ids)
                 ).execute()
                 
-                # Merge duration data
-                duration_map = {}
-                for video in videos_response.get('items', []):
-                    duration_map[video['id']] = video['contentDetails']['duration']
+                # Track quota usage (videos.list = ~1 unit per video, max 50)
+                self.quota_used += min(len(video_ids), 50)
                 
-                # Add duration to search results
-                for video in videos:
-                    video_id = video['id']['videoId']
-                    if video_id in duration_map:
-                        video['duration'] = duration_map[video_id]
+                # Get channel details for verification (optimized batch)
+                channel_ids = list(set([v['snippet']['channelId'] for v in videos_response.get('items', [])]))
+                channel_info = {}
+                
+                # Only get channel info if quota allows and we have reasonable number of channels
+                if self.quota_used + len(channel_ids) < self.max_quota_per_session and len(channel_ids) <= 20:
+                    channels_response = self.youtube.channels().list(
+                        part='snippet,statistics',
+                        id=','.join(channel_ids[:20])  # Limit to save quota
+                    ).execute()
+                    
+                    # Track quota usage (channels.list = ~1 unit per channel)
+                    self.quota_used += len(channel_ids)
+                    channel_info = {ch['id']: ch for ch in channels_response.get('items', [])}
+                
+                # Merge duration and channel data, apply music filtering
+                duration_map = {}
+                filtered_videos = []
+                
+                for video in videos_response.get('items', []):
+                    video_id = video['id']
+                    duration_map[video_id] = video['contentDetails']['duration']
+                    
+                    # Enhanced music content filtering
+                    if self._is_music_content(video, channel_info.get(video['snippet']['channelId']) if channel_info else None):
+                        # Find corresponding search result
+                        for search_video in videos:
+                            if search_video['id']['videoId'] == video_id:
+                                search_video['duration'] = duration_map[video_id]
+                                search_video['video_details'] = video
+                                filtered_videos.append(search_video)
+                                break
+                
+                # Sort by music relevance and limit results
+                filtered_videos = self._rank_music_content(filtered_videos)
+                result = filtered_videos[:limit]
+                
+                # Cache the result
+                self.search_cache[cache_key] = result
+                print(f"✅ Found {len(result)} music items (cached for future use)")
+                return result
             
             return videos
             
         except Exception as e:
-            print(f"YouTube search error for query '{query}': {e}")
+            print(f"YouTube Music search error for query '{query}': {e}")
             return []
     
     def extract_content_info(self, item: Dict[str, Any], query: str) -> Dict[str, Any]:
@@ -408,6 +485,193 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
         except Exception as e:
             print(f"Warning: Could not search existing YouTube playlists: {e}")
             return None
+    
+    def _is_music_content(self, video: Dict[str, Any], channel_info: Optional[Dict[str, Any]] = None) -> bool:
+        """Enhanced music content detection with multiple criteria."""
+        snippet = video['snippet']
+        title = snippet['title'].lower()
+        description = snippet.get('description', '').lower()
+        channel_title = snippet['channelTitle'].lower()
+        
+        # Strong positive indicators for music content
+        music_keywords = [
+            'official music video', 'official video', 'official audio', 'music video',
+            'official lyric video', 'lyrics', 'official song', 'single', 'album',
+            'acoustic version', 'live performance', 'concert', 'studio version',
+            'remix', 'cover', 'soundtrack', 'theme song', 'original song'
+        ]
+        
+        # Negative indicators (exclude these)
+        exclude_keywords = [
+            'tutorial', 'lesson', 'how to', 'reaction', 'review', 'analysis',
+            'compilation', 'mashup', 'nightcore', 'slowed + reverb', '8d audio',
+            'gameplay', 'walkthrough', 'trailer', 'interview', 'behind the scenes',
+            'making of', 'documentary', 'news', 'unboxing', 'vlog'
+        ]
+        
+        # Check for positive music indicators
+        music_score = 0
+        for keyword in music_keywords:
+            if keyword in title or keyword in description:
+                music_score += 1
+        
+        # Check for negative indicators
+        exclude_score = 0
+        for keyword in exclude_keywords:
+            if keyword in title or keyword in description:
+                exclude_score += 1
+        
+        # Enhanced channel verification
+        is_music_channel = False
+        if channel_info:
+            channel_stats = channel_info.get('statistics', {})
+            subscriber_count = int(channel_stats.get('subscriberCount', 0))
+            
+            # Music channels typically have good subscriber counts
+            if subscriber_count > 10000:
+                is_music_channel = True
+            
+            # Check for verified music channels or labels
+            music_labels = [
+                'records', 'music', 'entertainment', 'label', 'official',
+                'vevo', 'universal', 'sony', 'warner', 'atlantic', 'columbia'
+            ]
+            for label in music_labels:
+                if label in channel_title:
+                    is_music_channel = True
+                    break
+        
+        # Duration check (music typically 1-10 minutes)
+        duration_str = video.get('contentDetails', {}).get('duration', 'PT0S')
+        duration_minutes = self._parse_youtube_duration(duration_str)
+        valid_duration = 1.0 <= duration_minutes <= 10.0
+        
+        # Final scoring
+        if exclude_score > 0:
+            return False  # Exclude content with negative indicators
+        
+        if music_score >= 2 and is_music_channel and valid_duration:
+            return True  # Strong music content
+        
+        if music_score >= 1 and valid_duration and 'official' in title:
+            return True  # Official content with reasonable duration
+        
+        return False
+    
+    def _rank_music_content(self, videos: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Rank videos by music content quality."""
+        def music_quality_score(video):
+            snippet = video['snippet']
+            title = snippet['title'].lower()
+            channel = snippet['channelTitle'].lower()
+            
+            score = 0
+            
+            # Prefer official content
+            if 'official' in title:
+                score += 10
+            
+            # Prefer established music channels
+            if any(term in channel for term in ['records', 'music', 'vevo', 'official']):
+                score += 8
+            
+            # Prefer music video content
+            if 'music video' in title:
+                score += 6
+            elif 'audio' in title:
+                score += 4
+            
+            # Prefer verified artists (check for common indicators)
+            if any(term in title for term in ['feat.', 'ft.', 'featuring']):
+                score += 3
+            
+            # Get view count if available
+            if 'video_details' in video:
+                stats = video['video_details'].get('statistics', {})
+                view_count = int(stats.get('viewCount', 0))
+                # Higher view count indicates quality
+                if view_count > 1000000:  # 1M+ views
+                    score += 5
+                elif view_count > 100000:  # 100K+ views
+                    score += 3
+            
+            return score
+        
+        return sorted(videos, key=music_quality_score, reverse=True)
+    
+    def search_tracks(self) -> List[Dict[str, Any]]:
+        """
+        Main search method called by Alex Method DJ.
+        Uses optimized quota management for efficient searching.
+        """
+        all_content = []
+        
+        # Get configuration
+        if not hasattr(self, 'config') or not self.config:
+            print("❌ No configuration loaded")
+            return []
+            
+        search_queries = self.config.get('search_queries', [])
+        duration_target = self.config.get('metadata', {}).get('duration_target', '90 minutes')
+        
+        # Parse duration (simple parsing)
+        target_duration = 90  # Default
+        if 'minute' in duration_target.lower():
+            try:
+                target_duration = int(''.join(filter(str.isdigit, duration_target)))
+            except:
+                target_duration = 90
+        
+        print(f"🎯 Target duration: {target_duration} minutes")
+        print(f"🔍 Original queries: {len(search_queries)} (optimizing to save quota)")
+        
+        # Smart query optimization: Group similar queries and use broader terms
+        optimized_queries = self._optimize_search_queries(search_queries)
+        print(f"⚡ Optimized to: {len(optimized_queries)} efficient searches")
+        
+        # Calculate content needed per query
+        content_per_query = max(3, min(10, int(target_duration * 0.8 / len(optimized_queries))))
+        
+        for i, query in enumerate(optimized_queries):
+            if self.quota_used >= self.max_quota_per_session:
+                print(f"⚠️ Quota limit reached. Stopping search at {i+1}/{len(optimized_queries)} queries")
+                break
+                
+            print(f"🔍 Query {i+1}/{len(optimized_queries)}: {query}")
+            content = self.search_content(query, limit=content_per_query)
+            
+            if content:
+                all_content.extend(content)
+                print(f"   ✅ Found {len(content)} items")
+            else:
+                print(f"   ❌ No results")
+        
+        print(f"📊 Total quota used: {self.quota_used}/{self.max_quota_per_session}")
+        return all_content
+    
+    def _optimize_search_queries(self, queries: List[str]) -> List[str]:
+        """
+        Optimize search queries by combining similar terms and reducing redundancy.
+        """
+        if len(queries) <= self.batch_size:
+            return queries
+        
+        # Group queries by theme and combine similar ones
+        optimized = []
+        
+        # Take every nth query to get a good distribution
+        step = max(1, len(queries) // self.batch_size)
+        for i in range(0, min(len(queries), self.batch_size * step), step):
+            optimized.append(queries[i])
+        
+        # If we still have room and didn't get enough, add a few more
+        if len(optimized) < self.batch_size:
+            remaining = self.batch_size - len(optimized)
+            for i, query in enumerate(queries):
+                if query not in optimized and len(optimized) < self.batch_size:
+                    optimized.append(query)
+        
+        return optimized[:self.batch_size]
 
 # Main execution for testing
 if __name__ == "__main__":

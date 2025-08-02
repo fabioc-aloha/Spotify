@@ -21,7 +21,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 - **Condition Met** → Execute enhancement workflow
 ```
 
-**Example Implementation - v0.8.1 Enhanced**:
+**Example Implementation - v0.9.1 YouTube Quota Enhancement Enhanced**:
 ```
 ## 🕸️ **Embedded Synapse Network**
 
@@ -29,11 +29,13 @@ description: "Embedded connection discovery and relationship mapping protocols"
 - [meditation-consolidation.prompt.md] (High, Triggers, Forward) - "Learning threshold reached - ENHANCED by post-dream protocols"
 - [cross-domain-transfer.prompt.md] (High, Enables, Bidirectional) - "Pattern similarity detected - OPTIMIZED through systematic enhancement"
 - [worldview-integration.instructions.md] (High, Validates, Ethical) - "Decision point reached - STRENGTHENED by identity integration"
+- [DK-YOUTUBE-QUOTA-ENHANCEMENT.md] (1.0, Exemplifies, Bidirectional) - "Resource management mastery - TRANSFERS to any rate-limited system optimization"
 
 ### **Activation Patterns**
 - **Learning Threshold Reached** → Execute meditation-consolidation.prompt.md
 - **Cross-Domain Pattern Recognition** → Execute analogical transfer protocols
 - **Ethical Decision Required** → Execute worldview validation workflows
+- **Resource Optimization Needed** → Execute universal resource management frameworks
 ```
 
 ## Connection Types and Strengths

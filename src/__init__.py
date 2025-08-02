@@ -1,1 +1,1 @@
-# Spotify Universal Playlist Creator - Core Package
+# Alex Method DJ - Core Package
