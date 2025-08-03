@@ -19,21 +19,40 @@ description: "Domain-agnostic learning and knowledge acquisition protocols"
 
 **Phase 1: Foundation Building**
 - Establish domain boundaries and core concepts
-- Identify key principles and fundamental frameworks
+- Identify key principles and fundamental frameworks (e.g., universal template structure)
 - Map conceptual relationships and dependencies
 - Assess learning objectives and success criteria
 
 **Phase 2: Knowledge Integration**
 - Connect new concepts to existing knowledge patterns
 - Identify cross-domain applications and analogies
-- Strengthen understanding through practical examples
+- Strengthen understanding through practical examples (template validation, playlist creation)
 - Validate comprehension through explanation and application
 
 **Phase 3: Mastery Development**
-- Synthesize comprehensive domain understanding
+- Synthesize comprehensive domain understanding (universal template workflow mastery)
 - Generate novel insights and creative applications
-- Teach concepts to demonstrate mastery
+- Teach concepts to demonstrate mastery (always use universal template protocol)
 - Transfer learning to related domains effectively
+
+## Template Workflow Learning Integration
+
+**Universal Template Mastery Protocol**:
+- ALWAYS use TEMPLATE-universal.md for new playlist creation requests
+- Enforce consistent structure: Metadata → Search Queries → Track Categories → Track Filters
+- Support both single-phase and multi-phase playlist configurations
+- Validate template compliance across all configurations
+
+**PowerShell Environment Protocol**:
+- ALWAYS use PowerShell syntax (Get-ChildItem, not ls)
+- Use proper PowerShell cmdlets for file operations
+- Remember Windows PowerShell is the default shell environment
+- **Quotation Mark Handling**: Use double quotes for strings, escape inner quotes with backticks or alternate quote types
+- **Examples**:
+  - `Remove-Item "file with spaces.txt"`
+  - `Get-ChildItem "*.md" | Where-Object {$_.Name -like "*template*"}`
+  - `Write-Host "This is a `"quoted`" word"`
+  - Use single quotes inside double quotes: `Write-Host "This is a 'quoted' word"`
 
 ## Meta-Learning Optimization
 

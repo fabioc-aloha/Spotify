@@ -602,15 +602,29 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
     def search_tracks(self) -> List[Dict[str, Any]]:
         """
         Main search method called by Alex Method DJ.
-        Uses optimized quota management for efficient searching.
+        OPTIMIZED: Uses Spotify track list from config if available (quota efficient!)
+        Falls back to standard search if no Spotify metadata found.
         """
-        all_content = []
-        
-        # Get configuration
         if not hasattr(self, 'config') or not self.config:
             print("❌ No configuration loaded")
             return []
-            
+        
+        # Reset quota tracking for this session
+        self.quota_used = 0
+        print(f"🚀 YouTube Music playlist creation started (Fresh quota: {self.max_quota_per_session} units)")
+        
+        # Check if we have Spotify track list from config metadata (EFFICIENT!)
+        spotify_tracks = self._extract_spotify_track_list()
+        if spotify_tracks:
+            print(f"🎯 QUOTA EFFICIENT MODE: Found {len(spotify_tracks)} tracks from Spotify playlist")
+            print(f"   💾 Using cross-platform transfer - minimal YouTube searches needed!")
+            return self.search_tracks_from_spotify_metadata()
+        
+        # Fallback to standard search if no Spotify metadata
+        print("🔍 STANDARD MODE: No Spotify track list found - using search queries")
+        print("   ⚠️ This will use more quota. Consider creating Spotify playlist first for efficiency.")
+        
+        all_content = []
         search_queries = self.config.get('search_queries', [])
         duration_target = self.config.get('metadata', {}).get('duration_target', '90 minutes')
         
@@ -630,7 +644,7 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
         print(f"⚡ Optimized to: {len(optimized_queries)} efficient searches")
         
         # Calculate content needed per query
-        content_per_query = max(3, min(10, int(target_duration * 0.8 / len(optimized_queries))))
+        content_per_query = max(3, min(8, int(target_duration * 0.6 / len(optimized_queries))))
         
         for i, query in enumerate(optimized_queries):
             if self.quota_used >= self.max_quota_per_session:
@@ -672,6 +686,145 @@ class YouTubeMusicPlaylistCreator(BasePlaylistCreator):
                     optimized.append(query)
         
         return optimized[:self.batch_size]
+    
+    def search_tracks_from_spotify_metadata(self) -> List[Dict[str, Any]]:
+        """Search for YouTube videos using Spotify track list from config metadata - QUOTA EFFICIENT!"""
+        if not self.config:
+            raise ValueError("No configuration loaded. Call load_config() first.")
+        
+        # Check if we have Spotify metadata with track list
+        spotify_tracks = self._extract_spotify_track_list()
+        if not spotify_tracks:
+            print("❌ No Spotify track list found in config - falling back to standard search")
+            return self.search_tracks()
+        
+        print(f"🔄 Using Spotify track list from config - QUOTA EFFICIENT MODE!")
+        print(f"   📋 Found {len(spotify_tracks)} tracks from Spotify playlist")
+        print(f"   🎯 Conservative YouTube search: only 1 search per track")
+        
+        # Check quota availability before starting
+        estimated_quota = len(spotify_tracks) * 100  # ~100 quota units per search
+        if self.quota_used + estimated_quota > self.max_quota_per_session:
+            available_tracks = (self.max_quota_per_session - self.quota_used) // 100
+            print(f"⚠️ Quota limit: Can only search {available_tracks} of {len(spotify_tracks)} tracks")
+            spotify_tracks = spotify_tracks[:available_tracks]
+        
+        youtube_videos = []
+        successful_matches = 0
+        
+        for i, track_info in enumerate(spotify_tracks, 1):
+            if self.quota_used >= self.max_quota_per_session:
+                print(f"⚠️ Quota limit reached - processed {successful_matches}/{len(spotify_tracks)} tracks")
+                break
+                
+            # Create precise search query from Spotify track info
+            artist = track_info['artist']
+            title = track_info['title']
+            search_query = f"{artist} {title} official music video"
+            
+            print(f"   {i:2d}/{len(spotify_tracks)}: {artist} - {title}")
+            
+            try:
+                # Single precise search per track
+                videos = self.search_content(search_query, limit=5)  # Only 5 results for efficiency
+                
+                # Find best match
+                best_video = self._find_best_youtube_match(videos, artist, title)
+                if best_video:
+                    youtube_videos.append(best_video)
+                    successful_matches += 1
+                    print(f"      ✅ Found: {best_video['title']}")
+                else:
+                    print(f"      ❌ No good match found")
+                    
+            except Exception as e:
+                print(f"      ⚠️ Search error: {e}")
+                continue
+        
+        print(f"\n🎵 YouTube Music Transfer Complete:")
+        print(f"   ✅ Successfully matched: {successful_matches}/{len(spotify_tracks)} tracks")
+        print(f"   📊 Quota used: {self.quota_used}/{self.max_quota_per_session}")
+        print(f"   💾 Quota efficiency: {successful_matches} tracks with minimal searches")
+        
+        return youtube_videos
+    
+    def _extract_spotify_track_list(self) -> List[Dict[str, Any]]:
+        """Extract Spotify track list from config metadata section."""
+        content = getattr(self, '_raw_config_content', '')
+        if not content or "## Cross-Platform Metadata" not in content:
+            return []
+        
+        tracks = []
+        
+        # Find the track list section
+        import re
+        track_list_match = re.search(r'### Track List \(for YouTube Music Transfer\)\s*\n(.*?)(?=\n###|\n##|\Z)', content, re.DOTALL)
+        
+        if not track_list_match:
+            return []
+        
+        track_lines = track_list_match.group(1).strip().split('\n')
+        
+        for line in track_lines:
+            if re.match(r'^\s*\d+\.', line):  # Lines starting with numbers
+                # Parse: "12. Song Name - Artist Name (4.2m)"
+                match = re.match(r'^\s*\d+\.\s*(.+?)\s*-\s*(.+?)\s*\([\d.]+m\)', line)
+                if match:
+                    title = match.group(1).strip()
+                    artist = match.group(2).strip()
+                    tracks.append({
+                        'title': title,
+                        'artist': artist,
+                        'original_line': line.strip()
+                    })
+        
+        return tracks
+    
+    def _find_best_youtube_match(self, videos: List[Dict[str, Any]], target_artist: str, target_title: str) -> Optional[Dict[str, Any]]:
+        """Find the best YouTube video match for a Spotify track."""
+        if not videos:
+            return None
+        
+        target_artist_lower = target_artist.lower()
+        target_title_lower = target_title.lower()
+        
+        best_match = None
+        best_score = 0
+        
+        for video in videos:
+            if not self.is_content_suitable(video):
+                continue
+                
+            video_title = video.get('title', '').lower()
+            video_channel = video.get('channel', '').lower()
+            
+            # Calculate match score
+            score = 0
+            
+            # Artist/channel match (high priority)
+            if target_artist_lower in video_channel or target_artist_lower in video_title:
+                score += 40
+            
+            # Title match (high priority)
+            title_words = target_title_lower.split()
+            for word in title_words:
+                if len(word) > 2 and word in video_title:  # Skip short words
+                    score += 15
+            
+            # Prefer official content
+            if any(keyword in video_title for keyword in ['official', 'music video', 'audio']):
+                score += 10
+            
+            # Prefer music channels
+            if any(keyword in video_channel for keyword in ['music', 'records', 'entertainment']):
+                score += 5
+            
+            if score > best_score:
+                best_score = score
+                best_match = video
+        
+        # Only return if we have a reasonable match
+        return best_match if best_score >= 25 else None
 
 # Main execution for testing
 if __name__ == "__main__":

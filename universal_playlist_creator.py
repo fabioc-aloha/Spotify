@@ -15,7 +15,7 @@ Features:
 - Support for both standard and phased playlists
 
 Usage:
-    python universal_playlist_creator.py <config_file> [--platform spotify|youtube]
+    python universal_playlist_creator.py <config_file> [--platform spotify|youtube-music]
 """
 
 import sys
@@ -34,12 +34,17 @@ def get_available_platforms():
     except ImportError as e:
         print(f"⚠️ Spotify unavailable: {e}")
     
-    # Check YouTube Music availability
+    # Check Enhanced YouTube Music availability (preferred)
     try:
-        from src.platforms.youtube_creator import YouTubeMusicPlaylistCreator
-        platforms['youtube'] = YouTubeMusicPlaylistCreator
-    except ImportError as e:
-        print(f"⚠️ YouTube Music unavailable: {e}")
+        from src.platforms.enhanced_youtube_music_creator import EnhancedYouTubeMusicCreator
+        platforms['youtube-music'] = EnhancedYouTubeMusicCreator
+    except ImportError:
+        # Fallback to original YouTube creator
+        try:
+            from src.platforms.youtube_creator import YouTubeMusicPlaylistCreator
+            platforms['youtube-music'] = YouTubeMusicPlaylistCreator
+        except ImportError as e:
+            print(f"⚠️ YouTube Music unavailable: {e}")
     
     return platforms
 
@@ -94,6 +99,9 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
         if hasattr(creator, 'search_tracks'):
             # Use Spotify-specific method for backward compatibility
             content = creator.search_tracks()
+        elif hasattr(creator, 'search_tracks_from_spotify_metadata'):
+            # Use enhanced YouTube Music cross-platform method
+            content = creator.search_tracks_from_spotify_metadata()
         else:
             # Use generic search for other platforms
             all_content = []
@@ -120,44 +128,56 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
         total_duration = sum(item.get('duration_minutes', item.get('duration_min', 0)) for item in content)
         print(f"✅ Found {len(content)} items ({total_duration:.1f} minutes)")
         
-        # Create playlist
+        # Create playlist using platform-specific method if available
         print(f"\n🆕 Creating playlist on {creator.get_platform_name()}...")
         
-        playlist_description = metadata.get('description', f'Created with Alex Method DJ for {creator.get_platform_name()}')
-        is_public = metadata.get('privacy', 'public').lower() == 'public'
-        
-        # Check if playlist exists
-        existing_playlist = creator.find_existing_playlist(playlist_name)
-        
-        if existing_playlist:
-            print(f"🔄 Found existing playlist '{playlist_name}' - would you like to refresh it? (y/n): ", end="")
-            response = input().strip().lower()
-            if response in ['y', 'yes']:
-                # For now, create new playlist (refresh logic platform-specific)
-                print("🔄 Refreshing playlist...")
-            else:
-                print("❌ Playlist creation cancelled")
-                return False
-        
-        # Create new playlist
-        playlist_id = creator.create_playlist(playlist_name, playlist_description, is_public)
-        
-        # Add content to playlist
-        content_ids = [item['id'] for item in content]
-        creator.add_content_to_playlist(playlist_id, content_ids)
-        
-        # Success message
-        print(f"\n🎉 SUCCESS! Created '{playlist_name}' on {creator.get_platform_name()}")
-        print(f"📱 {len(content)} items added")
-        print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
-        
-        if hasattr(creator, 'sp') and existing_playlist:
-            # Spotify-specific URL
-            print(f"🔗 Playlist URL: https://open.spotify.com/playlist/{playlist_id}")
-        elif platform == 'youtube':
-            print(f"🔗 Playlist URL: https://www.youtube.com/playlist?list={playlist_id}")
-        
-        print(f"\n{emoji} Ready to enjoy your curated playlist!")
+        # Use Spotify-specific enhanced method if available
+        if hasattr(creator, 'create_or_refresh_playlist'):
+            # Spotify has enhanced playlist management with metadata saving
+            playlist_id = creator.create_or_refresh_playlist(content)
+        elif hasattr(creator, 'create_youtube_music_playlist_from_metadata'):
+            # Enhanced YouTube Music has metadata-based playlist creation
+            playlist_id = creator.create_youtube_music_playlist_from_metadata(config_file)
+            if playlist_id:
+                print(f"\n🎉 SUCCESS! Created '{playlist_name}' on YouTube Music")
+                print(f"📱 {len(content)} tracks processed")
+                total_duration = sum(item.get('duration_minutes', item.get('duration_min', 0)) for item in content)
+                print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
+                print(f"🔗 Playlist URL: https://music.youtube.com/playlist?list={playlist_id}")
+                print(f"\n{emoji} Ready to enjoy your curated playlist!")
+        else:
+            # Generic platform method for other platforms
+            playlist_description = metadata.get('description', f'Created with Alex Method DJ for {creator.get_platform_name()}')
+            is_public = metadata.get('privacy', 'public').lower() == 'public'
+            
+            # Check if playlist exists
+            existing_playlist = creator.find_existing_playlist(playlist_name)
+            
+            if existing_playlist:
+                print(f"🔄 Found existing playlist '{playlist_name}' - would you like to refresh it? (y/n): ", end="")
+                response = input().strip().lower()
+                if response in ['y', 'yes']:
+                    print("🔄 Refreshing playlist...")
+                else:
+                    print("❌ Playlist creation cancelled")
+                    return False
+            
+            # Create new playlist
+            playlist_id = creator.create_playlist(playlist_name, playlist_description, is_public)
+            
+            # Add content to playlist
+            content_ids = [item['id'] for item in content]
+            creator.add_content_to_playlist(playlist_id, content_ids)
+            
+            # Success message for generic platforms
+            print(f"\n🎉 SUCCESS! Created '{playlist_name}' on {creator.get_platform_name()}")
+            print(f"📱 {len(content)} items added")
+            print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
+            
+            if platform == 'youtube-music':
+                print(f"🔗 Playlist URL: https://www.youtube.com/playlist?list={playlist_id}")
+            
+            print(f"\n{emoji} Ready to enjoy your curated playlist!")
         
         return True
         
@@ -177,11 +197,11 @@ def main():
 Examples:
   python universal_playlist_creator.py douglas-retro-gaming.md
   python universal_playlist_creator.py douglas-retro-gaming.md --platform spotify
-  python universal_playlist_creator.py douglas-retro-gaming.md --platform youtube
+  python universal_playlist_creator.py douglas-retro-gaming.md --platform youtube-music
   
 Supported Platforms:
-  spotify    - Spotify (requires spotipy, credentials in .env)
-  youtube    - YouTube Music (requires google-api-python-client, API key/OAuth)
+  spotify       - Spotify (requires spotipy, credentials in .env)
+  youtube-music - YouTube Music (requires google-api-python-client, API key/OAuth)
         """
     )
     
@@ -193,7 +213,7 @@ Supported Platforms:
     
     parser.add_argument(
         '--platform', '-p',
-        choices=['spotify', 'youtube'],
+        choices=['spotify', 'youtube-music'],
         default='spotify',
         help='Target platform for playlist creation (default: spotify)'
     )

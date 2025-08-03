@@ -14,8 +14,11 @@ pandas>=2.0.0
 # Data manipulation for cross-platform playlist analytics
 
 # YouTube Music Integration Dependencies
+ytmusicapi>=1.11.0
+# Official YouTube Music API library for proper music track search and playlist management
+
 google-api-python-client>=2.114.0
-# YouTube Data API v3 client library
+# YouTube Data API v3 client library (legacy support)
 
 google-auth-httplib2>=0.2.0
 # HTTP library integration for Google Auth

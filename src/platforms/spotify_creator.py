@@ -503,7 +503,13 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         if existing_playlist:
             print(f"🔄 Found existing playlist '{name}' - refreshing content...")
             playlist_id = self.refresh_playlist(existing_playlist['id'], tracks)
-            playlist = existing_playlist
+            # Get updated playlist object with fresh metadata
+            try:
+                playlist = self.sp.playlist(existing_playlist['id'])
+                if not playlist:
+                    playlist = existing_playlist  # Fallback to existing if refresh fails
+            except:
+                playlist = existing_playlist  # Fallback to existing if API call fails
             action = "refreshed"
         else:
             print(f"🆕 Creating new playlist '{name}'...")
@@ -537,6 +543,10 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         print(f"📱 {len(tracks)} tracks {action}")
         print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
         print(f"🔗 Playlist URL: {playlist['external_urls']['spotify']}")
+        
+        # Save playlist URL and track info to config file for cross-platform usage
+        self._save_playlist_metadata(playlist, tracks, action)
+        
         print(f"\n{emoji} Ready to enjoy your curated playlist!")
         
         return playlist_id
@@ -784,6 +794,66 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         for i in range(0, len(track_uris), batch_size):
             batch = track_uris[i:i + batch_size]
             self.sp.playlist_add_items(playlist_id, batch)
+    
+    def _save_playlist_metadata(self, playlist: Dict[str, Any], tracks: List[Dict[str, Any]], action: str):
+        """Save playlist URL and track information to the config file for cross-platform usage."""
+        try:
+            if not hasattr(self, 'config_file_path') or not self.config_file_path:
+                print("⚠️ Config file path not available - skipping metadata save")
+                return
+            
+            print(f"💾 Saving playlist metadata to {self.config_file_path}")
+            
+            # Read current config file
+            with open(self.config_file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Prepare metadata section
+            playlist_url = playlist['external_urls']['spotify']
+            total_duration = sum(t['duration_min'] for t in tracks)
+            current_date = "2025-08-03"  # Using current date
+            
+            metadata_section = f"""
+## Cross-Platform Metadata
+- **Spotify URL**: {playlist_url}
+- **Spotify ID**: {playlist['id']}
+- **Last Updated**: {current_date}
+- **Action**: {action}
+- **Track Count**: {len(tracks)}
+- **Duration**: {total_duration:.1f} minutes
+- **Generated Tracks**: Ready for YouTube Music transfer
+
+### Track List (for YouTube Music Transfer)
+"""
+            
+            # Add track list for YouTube Music transfer
+            for i, track in enumerate(tracks, 1):
+                metadata_section += f"{i:2d}. {track['name']} - {track['artist']} ({track['duration_min']:.1f}m)\n"
+            
+            # Check if Cross-Platform Metadata section already exists
+            if "## Cross-Platform Metadata" in content:
+                # Replace existing section
+                import re
+                pattern = r'\n## Cross-Platform Metadata.*?(?=\n## |\Z)'
+                content = re.sub(pattern, metadata_section, content, flags=re.DOTALL)
+                print("🔄 Updated existing Cross-Platform Metadata section")
+            else:
+                # Add new section at the end
+                content += "\n" + metadata_section
+                print("✨ Added new Cross-Platform Metadata section")
+            
+            # Write back to file
+            with open(self.config_file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            print(f"✅ Successfully saved playlist metadata")
+            print(f"🔄 YouTube Music can now use this track list without additional searches")
+            print(f"   📋 Saved {len(tracks)} tracks for cross-platform transfer")
+            
+        except Exception as e:
+            print(f"⚠️ Warning: Could not save playlist metadata: {e}")
+            import traceback
+            traceback.print_exc()
 
 def main():
     """Main function to create playlist from config file."""

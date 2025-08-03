@@ -19,12 +19,16 @@ class BasePlaylistCreator(ABC):
         """Initialize common attributes."""
         self.config: Optional[Dict[str, Any]] = None
         self._raw_config_content = ""
+        self.config_file_path: Optional[str] = None
         
     def load_config(self, config_file: str) -> Dict[str, Any]:
         """Load and parse playlist configuration from markdown file."""
         config_path = Path(config_file)
         if not config_path.exists():
             raise FileNotFoundError(f"Configuration file not found: {config_file}")
+        
+        # Store config file path for later use
+        self.config_file_path = str(config_path.absolute())
         
         with open(config_path, 'r', encoding='utf-8') as f:
             content = f.read()
