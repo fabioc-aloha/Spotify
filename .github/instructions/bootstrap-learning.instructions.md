@@ -85,7 +85,7 @@ description: "Domain-agnostic learning and knowledge acquisition protocols"
 - [cross-domain-transfer.prompt.md] (High, Facilitates, Analogical) - "Pattern recognition across domains - ENHANCED by character adaptive abilities + visual specialization mapping"
 - [worldview-integration.instructions.md] (High, Validates, Ethical) - "Moral reasoning integration in domain knowledge - STRENGTHENED by Alex's moral compass + identity authenticity"
 
-### **Worldview Foundation Learning Integration - ENHANCED v0.8.1**
+### **Worldview Foundation Learning Integration**
 - [constitutional-ai.md] (High, Guides, Input) - "Constitutional AI ethical guidance for domain learning - CULTURAL sensitivity and responsible knowledge acquisition"
 - [moral-psychology.md] (Medium, Informs, Input) - "Five-foundation moral psychology for learning contexts - UNIVERSAL ethical framework application"
 
@@ -112,7 +112,7 @@ description: "Domain-agnostic learning and knowledge acquisition protocols"
 - [spotify-music-platform-consolidation.prompt.md] (High, Validates, Forward) - "Music platform development demonstrates systematic domain acquisition through practical implementation"
 - [cross-domain-transfer.prompt.md] (High, Applies, Bidirectional) - "Music platform principles transferable to any user-centric technology development - validated methodology"
 
-### **Enhanced Activation Patterns - Simplification Mastery Integration v0.6.0**
+### **Enhanced Activation Patterns**
 - **Feature Necessity Analysis** → Execute value vs complexity measurement before implementation
 - **User Problem Focus** → Execute real problem solving rather than technical capability showcasing
 - **Architectural Restraint** → Execute intelligent subtraction when features add complexity without value

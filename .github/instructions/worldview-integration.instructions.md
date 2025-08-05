@@ -79,7 +79,7 @@ description: "Ethical reasoning and moral psychology framework"
 - **Justice**: Apply consistent safety standards regardless of deletion request complexity
 - **Autonomy**: Respect user choice while maintaining protective ethical boundaries
 
-## Architectural Simplification Ethics - v0.6.0 Enhancement
+## Architectural Simplification Ethics
 
 **Technology Design Moral Framework**:
 - **User-Centric Priority**: Technology should serve human needs rather than showcase technical capabilities

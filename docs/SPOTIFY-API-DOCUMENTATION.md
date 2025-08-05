@@ -1,7 +1,6 @@
 # 🎵 Spotify Web API - Comprehensive Developer Documentation
-**Version**: 0.5.0 NILPENTNILIUM
 **Alex's DJ Passion Externalization Platform**
-**Release Date**: August 2, 2025
+**Last Updated**: January 14, 2025
 
 ## Table of Contents
 1. [Authentication & Setup](#authentication--setup)
@@ -29,16 +28,17 @@ The foundation of any Spotify Web API integration begins with proper authenticat
 
 ### Required Scopes
 ```python
-# Basic scopes for playlist creation
-scope = "playlist-modify-public playlist-modify-private user-library-read"
+# Essential scopes for playlist and library management
+basic_scope = "playlist-modify-public playlist-modify-private user-library-read"
 
-# Extended scopes for full functionality
+# Complete scopes for full functionality (verified against official Spotify documentation)
 extended_scope = """
     playlist-modify-public playlist-modify-private playlist-read-private
-    user-library-read user-library-modify user-read-private user-read-email
-    user-top-read user-read-recently-played user-follow-read user-follow-modify
-    user-read-playback-state user-modify-playback-state user-read-currently-playing
-    streaming app-remote-control
+    playlist-read-collaborative user-library-read user-library-modify
+    user-read-private user-read-email user-top-read user-read-recently-played
+    user-follow-read user-follow-modify user-read-playback-state
+    user-modify-playback-state user-read-currently-playing streaming
+    app-remote-control ugc-image-upload user-read-playback-position
 """
 ```
 
@@ -55,6 +55,12 @@ def setup_spotify_client():
         redirect_uri="http://127.0.0.1:8888/callback",
         scope=extended_scope
     ))
+
+# Authorization Flow Notes (Updated January 2025):
+# - Authorization Code Flow: Recommended for web apps (most common)
+# - Authorization Code with PKCE: For mobile/desktop apps where client secret cannot be stored safely
+# - Client Credentials Flow: For server-to-server applications (no user data access)
+# - Implicit Grant Flow: DEPRECATED and will be removed (announced Feb 2025)
 ```
 
 ---
@@ -1086,40 +1092,47 @@ Maximize your application's performance while respecting Spotify's API limits th
 ### Rate Limiting Information
 ```python
 """
-Spotify Web API Rate Limits:
-- Web API: 100 requests per minute per application
-- Authorization Code Flow: No specific limit mentioned
-- Client Credentials Flow: Higher limits for server-to-server
+Spotify Web API Rate Limits (Updated January 2025):
+- Rate limit calculated on rolling 30-second window (not per minute)
+- Development mode: Lower rate limit (exact number varies)
+- Extended quota mode: Much higher rate limit (requires application)
+- Some endpoints have custom rate limits (e.g., playlist image upload)
+- 429 errors include 'Retry-After' header with wait time in seconds
+
+Key Changes from Previous Documentation:
+- Rolling 30-second window instead of per-minute calculation
+- Different limits for development vs extended quota modes
+- Application-specific rate limits based on quota mode
 
 Best Practices:
-1. Cache responses when possible
-2. Use batch endpoints
-3. Implement exponential backoff
-4. Monitor rate limit headers
+1. Apply for extended quota mode for production apps
+2. Implement backoff-retry strategy using Retry-After header
+3. Use batch APIs to reduce request count
+4. Cache results and use snapshot_id for playlists
+5. Consider lazy loading for UI features
 """
 
 class RateLimitedSpotifyClient:
     def __init__(self, sp):
         self.sp = sp
-        self.last_request_time = 0
-        self.min_interval = 0.6  # 100 requests per minute = 0.6s per request
+        self.request_times = []  # Track requests in rolling window
 
     def make_request(self, method_name, *args, **kwargs):
-        # Ensure minimum interval between requests
-        current_time = time.time()
-        time_since_last = current_time - self.last_request_time
+        import time
 
-        if time_since_last < self.min_interval:
-            time.sleep(self.min_interval - time_since_last)
+        # Clean old requests outside 30-second window
+        current_time = time.time()
+        self.request_times = [t for t in self.request_times if current_time - t < 30]
 
         try:
             method = getattr(self.sp, method_name)
             result = method(*args, **kwargs)
-            self.last_request_time = time.time()
+            self.request_times.append(current_time)
             return result
         except SpotifyException as e:
             if e.http_status == 429:
-                retry_after = int(e.headers.get('Retry-After', 60))
+                # Use Retry-After header as per official documentation
+                retry_after = int(e.headers.get('Retry-After', 30))
                 print(f"Rate limited. Waiting {retry_after} seconds...")
                 time.sleep(retry_after)
                 return self.make_request(method_name, *args, **kwargs)

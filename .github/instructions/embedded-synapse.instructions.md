@@ -9,7 +9,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 
 **Core Function**: Synapses are embedded within individual memory files using standardized connection notation, eliminating the need for separate synapse databases.
 
-**Connection Notation Format - Enhanced v0.8.1**:
+**Connection Notation Format**:
 ```
 ## 🕸️ **Embedded Synapse Network**
 
@@ -46,7 +46,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 
 ## Connection Types and Strengths
 
-**Connection Strength Classification - Enhanced v0.8.1**:
+**Connection Strength Classification**:
 - **Critical**: Core architecture connections (always activate)
 - **High**: Frequent activation connections (enhanced responsiveness)
 - **Medium**: Conditional activation connections (context-sensitive)

@@ -178,12 +178,20 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             relaxed_tracks = self.search_with_relaxed_filters()
             if relaxed_tracks:
                 print(f"   🔄 Found {len(relaxed_tracks)} additional tracks with relaxed filters")
-                # Combine and deduplicate
-                all_track_ids = {t['id'] for t in tracks}
+                # Combine and deduplicate using enhanced deduplication
+                existing_track_ids = {t['id'] for t in tracks}
+                existing_track_names = set()
+                for t in tracks:
+                    normalized_identifier = self.normalize_track_identifier(t['name'], t['artist'])
+                    existing_track_names.add(normalized_identifier)
+                
                 for track in relaxed_tracks:
-                    if track['id'] not in all_track_ids:
+                    # Check both ID and name-based duplicates
+                    normalized_identifier = self.normalize_track_identifier(track['name'], track['artist'])
+                    if track['id'] not in existing_track_ids and normalized_identifier not in existing_track_names:
                         tracks.append(track)
-                        all_track_ids.add(track['id'])
+                        existing_track_ids.add(track['id'])
+                        existing_track_names.add(normalized_identifier)
                 print(f"   🔄 Total tracks after relaxed search: {len(tracks)}")
         
         # Use dynamic programming approach for better track selection
@@ -326,6 +334,45 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             'category': self.categorize_track(query)
         }
     
+    def normalize_track_identifier(self, track_name: str, artist_name: str) -> str:
+        """Create a normalized identifier for duplicate detection."""
+        import re
+        
+        # Normalize track name: remove special characters, convert to lowercase
+        normalized_name = re.sub(r'[^\w\s]', '', track_name.lower())
+        normalized_name = re.sub(r'\s+', ' ', normalized_name).strip()
+        
+        # Normalize artist name: remove special characters, convert to lowercase
+        normalized_artist = re.sub(r'[^\w\s]', '', artist_name.lower())
+        normalized_artist = re.sub(r'\s+', ' ', normalized_artist).strip()
+        
+        # Create combined identifier
+        return f"{normalized_artist}::{normalized_name}"
+    
+    def is_duplicate_track(self, track_info: Dict[str, Any], existing_tracks: List[Dict[str, Any]], 
+                          used_track_ids: set, used_track_names: set) -> bool:
+        """Check if track is a duplicate by ID or name+artist combination."""
+        track_id = track_info['id']
+        track_name = track_info['name']
+        artist_name = track_info['artist']
+        
+        # Check for ID-based duplicate
+        if track_id in used_track_ids:
+            return True
+        
+        # Check for name+artist based duplicate
+        normalized_identifier = self.normalize_track_identifier(track_name, artist_name)
+        if normalized_identifier in used_track_names:
+            return True
+        
+        return False
+    
+    def add_track_to_dedup_sets(self, track_info: Dict[str, Any], used_track_ids: set, used_track_names: set):
+        """Add track to both ID and name-based deduplication sets."""
+        used_track_ids.add(track_info['id'])
+        normalized_identifier = self.normalize_track_identifier(track_info['name'], track_info['artist'])
+        used_track_names.add(normalized_identifier)
+
     def categorize_track(self, query: str) -> str:
         """Categorize track based on query and configuration."""
         # If we have track categories defined, try to match
@@ -459,7 +506,22 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             return None
     
     def refresh_playlist(self, playlist_id: str, tracks: List[Dict[str, Any]]) -> str:
-        """Replace all tracks in existing playlist with new tracks."""
+        """Replace all tracks in existing playlist with new tracks and update description."""
+        # Update playlist description with enhanced version
+        if self.config:
+            base_description = self.config['metadata'].get('description', 'Created with Alex Method DJ')
+            enhanced_description = self.generate_enhanced_description(base_description, tracks)
+            
+            try:
+                # Update playlist details including description
+                self.sp.playlist_change_details(
+                    playlist_id=playlist_id,
+                    description=enhanced_description
+                )
+                print(f"📝 Updated playlist description with phase timestamps")
+            except Exception as e:
+                print(f"⚠️ Warning: Could not update playlist description: {e}")
+        
         # Clear existing tracks
         existing_tracks = self.sp.playlist_tracks(playlist_id, fields='items.track.uri')
         
@@ -482,6 +544,54 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             
         return playlist_id
 
+    def generate_enhanced_description(self, base_description: str, tracks: List[Dict[str, Any]]) -> str:
+        """Generate enhanced description with phase timestamps for phased playlists."""
+        if not self.has_track_categories():
+            return base_description
+        
+        # Calculate timestamps for each phase
+        current_time = 0.0
+        phase_timestamps = []
+        current_phase = None
+        
+        for track in tracks:
+            phase_name = track.get('phase')
+            if phase_name and phase_name != current_phase:
+                # New phase starting
+                minutes = int(current_time)
+                seconds = int((current_time - minutes) * 60)
+                timestamp = f"{minutes}:{seconds:02d}"
+                phase_timestamps.append(f"{timestamp} {phase_name}")
+                current_phase = phase_name
+            
+            current_time += track['duration_min']
+        
+        # Build enhanced description with character limit (Spotify max is 300 chars)
+        enhanced_description = base_description
+        if phase_timestamps:
+            timeline_text = " | ".join(phase_timestamps)
+            # Check if we can fit the timeline
+            test_description = f"{base_description} | Phases: {timeline_text}"
+            
+            if len(test_description) <= 300:
+                enhanced_description = test_description
+            else:
+                # Truncate base description to fit timeline
+                available_chars = 300 - len(f" | Phases: {timeline_text}")
+                if available_chars > 50:  # Ensure base description isn't too short
+                    truncated_base = base_description[:available_chars-3] + "..."
+                    enhanced_description = f"{truncated_base} | Phases: {timeline_text}"
+                else:
+                    # Timeline too long, use short format
+                    short_timeline = " | ".join([f"{ts.split(' ')[0]} {ts.split(' ')[1][:3]}" for ts in phase_timestamps])
+                    enhanced_description = f"{base_description} | {short_timeline}"
+        
+        # Ensure description is within Spotify's 300 character limit
+        if len(enhanced_description) > 300:
+            enhanced_description = enhanced_description[:297] + "..."
+        
+        return enhanced_description
+
     def create_or_refresh_playlist(self, tracks: List[Dict[str, Any]]) -> str:
         """Create new playlist or refresh existing one."""
         if not self.config:
@@ -494,7 +604,9 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         
         # Get playlist details from config
         name = self.config['metadata'].get('name', 'Alex Method Playlist')
-        description = self.config['metadata'].get('description', 'Created with Alex Method DJ')
+        base_description = self.config['metadata'].get('description', 'Created with Alex Method DJ')
+        # Generate enhanced description with timestamps for phased playlists
+        description = self.generate_enhanced_description(base_description, tracks)
         is_private = self.config['metadata'].get('privacy', 'public').lower() == 'private'
         
         # Check if playlist already exists
@@ -566,6 +678,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         
         all_tracks = []
         used_track_ids = set()
+        used_track_names = set()  # Add name-based deduplication
         
         for phase_name, phase_info in phases.items():
             duration_minutes = phase_info['duration']
@@ -582,13 +695,18 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                     results = self.sp.search(q=query, type='track', limit=per_query_limit)
                     if results and results['tracks']['items']:
                         for track in results['tracks']['items']:
-                            if track['id'] not in used_track_ids and self.is_track_suitable(track):
+                            if self.is_track_suitable(track):
                                 track_info = self.extract_track_info(track, query)
-                                track_info['phase'] = phase_name
-                                phase_tracks.append(track_info)
                                 
-                                if len(phase_tracks) >= duration_minutes * 4:  # 4x target for selection
-                                    break
+                                # Enhanced deduplication check (ID + name+artist)
+                                if not self.is_duplicate_track(track_info, phase_tracks, used_track_ids, used_track_names):
+                                    track_info['phase'] = phase_name
+                                    phase_tracks.append(track_info)
+                                    # Mark as used to prevent collection in other phases
+                                    self.add_track_to_dedup_sets(track_info, used_track_ids, used_track_names)
+                                    
+                                    if len(phase_tracks) >= duration_minutes * 4:  # 4x target for selection
+                                        break
                 except Exception as e:
                     print(f"   ⚠️ Error searching for phase '{phase_name}' with query '{query}': {e}")
                     continue
@@ -598,9 +716,8 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 optimal_tracks = self.apply_duration_targeting(phase_tracks, duration_minutes)
                 print(f"   ✅ Phase {phase_name}: {len(optimal_tracks)} tracks ({sum(t['duration_min'] for t in optimal_tracks):.1f}min)")
                 
-                # Add to main playlist and mark as used
+                # Add to main playlist (tracks already marked as used above)
                 all_tracks.extend(optimal_tracks)
-                used_track_ids.update(track['id'] for track in optimal_tracks)
             else:
                 print(f"   ⚠️ No tracks found for phase {phase_name}")
         
@@ -687,6 +804,8 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         
         # Search with relaxed filters
         relaxed_tracks = []
+        used_track_ids = set()
+        used_track_names = set()  # Add name-based deduplication
         per_query_limit = min(30, self.config.get('track_limits', {}).get('per_query', 20))
         
         # Use a subset of search queries for relaxed search
@@ -699,9 +818,13 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                         if len(relaxed_tracks) >= 100:  # Limit relaxed search
                             break
                             
-                        if self.is_track_suitable(track) and track['id'] not in [t['id'] for t in relaxed_tracks]:
+                        if self.is_track_suitable(track):
                             track_info = self.extract_track_info(track, query)
-                            relaxed_tracks.append(track_info)
+                            
+                            # Enhanced deduplication check (ID + name+artist)
+                            if not self.is_duplicate_track(track_info, relaxed_tracks, used_track_ids, used_track_names):
+                                relaxed_tracks.append(track_info)
+                                self.add_track_to_dedup_sets(track_info, used_track_ids, used_track_names)
             except Exception as e:
                 print(f"   ⚠️ Error in relaxed search for '{query}': {e}")
                 continue
@@ -717,6 +840,8 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             return []
             
         tracks = []
+        used_track_ids = set()
+        used_track_names = set()  # Add name-based deduplication
         
         # Parse target duration for dynamic search sizing
         target_duration_str = self.config.get('metadata', {}).get('duration_target', '')
@@ -751,9 +876,13 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                         if len(tracks) >= search_pool_size:
                             break
                             
-                        if self.is_track_suitable(track) and track['id'] not in [t['id'] for t in tracks]:
+                        if self.is_track_suitable(track):
                             track_info = self.extract_track_info(track, query)
-                            tracks.append(track_info)
+                            
+                            # Enhanced deduplication check (ID + name+artist)
+                            if not self.is_duplicate_track(track_info, tracks, used_track_ids, used_track_names):
+                                tracks.append(track_info)
+                                self.add_track_to_dedup_sets(track_info, used_track_ids, used_track_names)
             except Exception as e:
                 print(f"   ⚠️ Error searching for '{query}': {e}")
                 continue
@@ -835,7 +964,9 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 # Replace existing section
                 import re
                 pattern = r'\n## Cross-Platform Metadata.*?(?=\n## |\Z)'
-                content = re.sub(pattern, metadata_section, content, flags=re.DOTALL)
+                # Escape special regex characters in the replacement string
+                escaped_metadata = metadata_section.replace('\\', '\\\\')
+                content = re.sub(pattern, escaped_metadata, content, flags=re.DOTALL)
                 print("🔄 Updated existing Cross-Platform Metadata section")
             else:
                 # Add new section at the end

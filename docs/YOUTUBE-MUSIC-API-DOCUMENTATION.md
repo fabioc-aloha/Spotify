@@ -1,13 +1,18 @@
 # YouTube Music API Documentation
-**Universal Playlist Creator - YouTube Music Integration**
+
+**Alex Method DJ Platform - YouTube Music Integration**
+**Last Updated**: August 4, 2025
 
 ---
 
 ## 🎯 **Overview**
 
-This documentation covers the YouTube Data API v3 integration for creating music playlists through the Universal Playlist Creator. YouTube Music support enables video-based playlist creation with music-focused content curation.
+This documentation covers the YouTube Data API v3 integration for creating music playlists through the Alex Method DJ Platform. YouTube Music support enables video-based playlist creation with music-focused content curation.
+
+**Important Note**: This integration uses the standard YouTube Data API v3, not YouTube Music API (which is not publicly available). All music playlist functionality is achieved through YouTube's video platform with music-specific filtering.
 
 ### **Key Features**
+
 - 🎵 **Music Video Discovery**: Search and filter for official music videos
 - 🎬 **Content Quality Control**: Filter by views, channel verification, and content type
 - ⏱️ **Duration Targeting**: Precise playlist timing with ±10% accuracy
@@ -24,6 +29,7 @@ Getting started with YouTube Music integration requires setting up Google Cloud 
 ### **1. Google Cloud Console Setup**
 
 #### **Create Project & Enable API**
+
 ```bash
 # 1. Go to Google Cloud Console
 https://console.cloud.google.com/
@@ -34,6 +40,7 @@ APIs & Services > Library > "YouTube Data API v3" > Enable
 ```
 
 #### **Create Credentials**
+
 ```bash
 # API Key (for search operations)
 APIs & Services > Credentials > "Create Credentials" > "API Key"
@@ -43,6 +50,7 @@ APIs & Services > Credentials > "Create Credentials" > "OAuth client ID"
 ```
 
 #### **OAuth Consent Screen**
+
 ```bash
 # Configure OAuth consent screen
 APIs & Services > OAuth consent screen
@@ -55,6 +63,7 @@ APIs & Services > OAuth consent screen
 ### **2. Environment Configuration**
 
 #### **Add to .env file**
+
 ```bash
 # YouTube Music API Credentials
 YOUTUBE_API_KEY=your_youtube_api_key_here
@@ -64,6 +73,7 @@ YOUTUBE_CLIENT_CONFIG=client_secret.json
 ```
 
 #### **Download OAuth Configuration**
+
 ```bash
 # Download client_secret.json from Google Cloud Console
 # Place in project root directory
@@ -71,6 +81,7 @@ YOUTUBE_CLIENT_CONFIG=client_secret.json
 ```
 
 ### **3. Install Dependencies**
+
 ```bash
 pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
 ```
@@ -83,15 +94,22 @@ YouTube API authentication is more complex than Spotify's approach, requiring a 
 
 ### **OAuth 2.0 Flow**
 
-#### **Required Scopes**
+#### **Required Scopes (Updated August 2025)**
+
 ```python
+# Current YouTube Data API v3 scopes
 SCOPES = [
-    'https://www.googleapis.com/auth/youtube.force-ssl',  # Full YouTube access
-    'https://www.googleapis.com/auth/youtube'            # YouTube access
+    'https://www.googleapis.com/auth/youtube.force-ssl',  # Full YouTube access (read/write)
+    'https://www.googleapis.com/auth/youtube'            # Standard YouTube access
 ]
+
+# Alternative scopes for specific operations:
+# 'https://www.googleapis.com/auth/youtube.readonly' - Read-only access
+# 'https://www.googleapis.com/auth/youtube.upload' - Upload access only
 ```
 
 #### **Authentication Process**
+
 ```python
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -123,6 +141,7 @@ def authenticate_youtube():
 ```
 
 ### **API Key Authentication**
+
 ```python
 from googleapiclient.discovery import build
 
@@ -141,6 +160,7 @@ YouTube's content discovery system offers powerful search capabilities specifica
 ### **Music Video Search**
 
 #### **Basic Search Query**
+
 ```python
 def search_music_videos(query, max_results=50):
     """Search for music videos on YouTube."""
@@ -159,6 +179,7 @@ def search_music_videos(query, max_results=50):
 ```
 
 #### **Enhanced Search with Filters**
+
 ```python
 def enhanced_music_search(query, filters=None):
     """Enhanced search with music-specific filters."""
@@ -186,6 +207,7 @@ def enhanced_music_search(query, filters=None):
 ### **Video Details & Metadata**
 
 #### **Get Detailed Video Information**
+
 ```python
 def get_video_details(video_ids):
     """Get detailed information for videos."""
@@ -215,6 +237,7 @@ def get_video_details(video_ids):
 ```
 
 #### **Parse Video Duration**
+
 ```python
 import re
 
@@ -246,6 +269,7 @@ YouTube's vast content library requires sophisticated filtering to identify high
 ### **Content Quality Filters**
 
 #### **Music Content Detection**
+
 ```python
 def is_music_content(video):
     """Determine if video is music-focused content."""
@@ -280,6 +304,7 @@ def is_music_content(video):
 ```
 
 #### **Channel Verification & Quality**
+
 ```python
 def check_channel_quality(channel_id):
     """Check channel quality indicators."""
@@ -309,6 +334,7 @@ def check_channel_quality(channel_id):
 ```
 
 #### **View Count & Engagement Filters**
+
 ```python
 def filter_by_engagement(videos, min_views=1000, min_like_ratio=0.01):
     """Filter videos by engagement metrics."""
@@ -336,6 +362,7 @@ def filter_by_engagement(videos, min_views=1000, min_like_ratio=0.01):
 ```
 
 ### **Duration-Based Filtering**
+
 ```python
 def filter_by_duration(videos, min_duration=1.0, max_duration=10.0):
     """Filter videos by duration range (in minutes)."""
@@ -361,6 +388,7 @@ YouTube playlist management provides comprehensive control over video collection
 ### **Create Playlist**
 
 #### **Basic Playlist Creation**
+
 ```python
 def create_youtube_playlist(title, description, privacy='public'):
     """Create a new YouTube playlist."""
@@ -390,6 +418,7 @@ def create_youtube_playlist(title, description, privacy='public'):
 ```
 
 #### **Add Videos to Playlist**
+
 ```python
 def add_videos_to_playlist(playlist_id, video_ids):
     """Add videos to an existing playlist."""
@@ -425,6 +454,7 @@ def add_videos_to_playlist(playlist_id, video_ids):
 ### **Playlist Analytics & Management**
 
 #### **Get Playlist Information**
+
 ```python
 def get_playlist_details(playlist_id):
     """Get detailed playlist information."""
@@ -450,6 +480,7 @@ def get_playlist_details(playlist_id):
 ```
 
 #### **Get Playlist Videos**
+
 ```python
 def get_playlist_videos(playlist_id, max_results=50):
     """Get all videos in a playlist."""
@@ -490,6 +521,7 @@ YouTube API operates on a strict quota system with a default limit of 10,000 uni
 ### **Understanding YouTube API Quotas**
 
 #### **Daily Quota Limits**
+
 ```python
 # YouTube Data API v3 Default Quotas (per day)
 DEFAULT_QUOTA = 10000  # units per day
@@ -507,6 +539,7 @@ QUOTA_COSTS = {
 ```
 
 #### **Quota Management Strategy**
+
 ```python
 class QuotaManager:
     """Manage YouTube API quota usage."""
@@ -533,6 +566,7 @@ class QuotaManager:
 ```
 
 #### **Efficient Batch Operations**
+
 ```python
 def batch_video_lookup(video_ids, batch_size=50):
     """Efficiently lookup video details in batches."""
@@ -564,6 +598,7 @@ YouTube API integration requires robust error handling due to the dynamic nature
 ### **Common API Errors**
 
 #### **Error Types & Solutions**
+
 ```python
 from googleapiclient.errors import HttpError
 import time
@@ -600,6 +635,7 @@ def handle_youtube_api_error(error):
 ```
 
 #### **Retry Strategy with Exponential Backoff**
+
 ```python
 def youtube_api_call_with_retry(api_call, max_retries=3):
     """Execute YouTube API call with retry logic."""
@@ -630,6 +666,7 @@ def youtube_api_call_with_retry(api_call, max_retries=3):
 ### **Content Validation**
 
 #### **Video Availability Check**
+
 ```python
 def validate_video_availability(video_id):
     """Check if video is available and accessible."""
@@ -670,6 +707,7 @@ YouTube's rich analytics ecosystem provides detailed insights into playlist perf
 ### **Playlist Performance Metrics**
 
 #### **Get Playlist Analytics**
+
 ```python
 def analyze_playlist_performance(playlist_id):
     """Analyze playlist performance metrics."""
@@ -705,6 +743,7 @@ def analyze_playlist_performance(playlist_id):
 ```
 
 ### **Content Quality Report**
+
 ```python
 def generate_content_quality_report(video_ids):
     """Generate quality report for video selection."""
@@ -768,6 +807,7 @@ YouTube Music playlist configuration extends beyond basic search queries to incl
 ### **Playlist Configuration for YouTube Music**
 
 #### **Enhanced Markdown Configuration**
+
 ```markdown
 # Douglas Gaming - YouTube Music Edition
 
@@ -808,6 +848,7 @@ YouTube Music playlist configuration extends beyond basic search queries to incl
 ```
 
 ### **Python Integration Example**
+
 ```python
 def create_youtube_music_playlist(config_file):
     """Create YouTube Music playlist from configuration."""
@@ -855,45 +896,69 @@ def create_youtube_music_playlist(config_file):
 
 ## 🚨 **Important Considerations**
 
-### **API Limitations**
-- **Daily Quota**: 10,000 units per day (monitor usage carefully)
+### **API Limitations (Updated August 2025)**
+
+- **Daily Quota**: 10,000 units per day (default allocation for new projects)
+- **Quota Costs**:
+  - Read operations (list): 1 unit
+  - Search requests: 100 units
+  - Write operations (insert/update/delete): 50 units
+  - Video upload: 1,600 units
 - **Search Results**: Maximum 50 results per search request
 - **Batch Operations**: Maximum 50 items per batch request
-- **Rate Limiting**: Respect API rate limits to avoid throttling
+- **Rate Limiting**: Automatic rate limiting applied by Google (no specific published limits)
+- **Quota Extension**: Available via YouTube API Services quota extension request form
 
-### **Content Availability**
+### **Content Availability & Recent Updates**
+
 - **Regional Restrictions**: Videos may not be available in all regions
 - **Copyright Claims**: Music videos may be blocked or restricted
 - **Privacy Settings**: Private/unlisted videos won't appear in search
 - **Age Restrictions**: Some content may require age verification
+- **YouTube Shorts Update**: As of March 2025, the Data API now matches how YouTube counts views for Shorts (may affect statistics for short-form music content)
 
-### **Best Practices**
-- **Quota Management**: Implement efficient batching and caching
-- **Error Handling**: Graceful handling of unavailable content
-- **Content Validation**: Verify video availability before adding to playlists
-- **User Experience**: Provide clear feedback during playlist creation
-- **Security**: Protect API credentials and user OAuth tokens
+### **Best Practices (Updated August 2025)**
+
+- **Quota Management**:
+  - Use `part` parameter to request only needed data
+  - Implement efficient batching for multiple video lookups
+  - Cache API responses using ETags for conditional requests
+  - Monitor quota usage in Google Cloud Console
+- **Error Handling**: Graceful handling of unavailable content and API errors
+- **Content Validation**: Verify video availability and regional restrictions before adding to playlists
+- **Performance Optimization**:
+  - Enable gzip compression for API responses
+  - Use `fields` parameter to filter response data
+  - Implement proper pagination for large result sets
+- **Security**: Protect API credentials and user OAuth tokens with secure storage
+- **User Experience**: Provide clear feedback during playlist creation and quota status
 
 ---
 
 ## 📚 **Additional Resources**
 
-### **Official Documentation**
-- [YouTube Data API v3 Reference](https://developers.google.com/youtube/v3/docs)
+### **Official Documentation (Updated August 2025)**
+
+- [YouTube Data API v3 Reference](https://developers.google.com/youtube/v3/docs) (Last updated 2025-05-07 UTC)
 - [YouTube API Client Libraries](https://developers.google.com/youtube/v3/libraries)
 - [OAuth 2.0 for YouTube](https://developers.google.com/youtube/v3/guides/auth/installed-apps)
+- [Quota Calculator](https://developers.google.com/youtube/v3/determine_quota_cost) (Last updated 2025-05-13 UTC)
+- [API Revision History](https://developers.google.com/youtube/v3/revision_history)
 
 ### **Useful Tools**
+
 - [YouTube API Explorer](https://developers.google.com/youtube/v3/docs/search/list)
 - [Google Cloud Console](https://console.cloud.google.com/)
 - [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/)
 
 ### **Community Resources**
+
 - [YouTube Data API Stack Overflow](https://stackoverflow.com/questions/tagged/youtube-data-api)
 - [Google API Python Client](https://github.com/googleapis/google-api-python-client)
 
 ---
 
-**Documentation Version**: 1.0
-**Last Updated**: August 2, 2025
-**Universal Playlist Creator**: YouTube Music Integration Complete
+**Documentation Version**: 1.1
+**Last Updated**: August 4, 2025
+**Alex Method DJ Platform**: YouTube Music Integration Complete
+**API Version**: YouTube Data API v3 (verified current as of August 2025)

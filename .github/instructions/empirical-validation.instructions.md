@@ -88,7 +88,7 @@ description: "Research foundation and validation protocols"
 - [DK-YOUTUBE-QUOTA-ENHANCEMENT.md] (0.95, validates, bidirectional) - "Resource management optimization validated through quantified 10x efficiency improvement, successful cross-platform implementation, and measurable user experience enhancement"
 - [spotify-music-platform-consolidation.prompt.md] (0.75, documents, forward) - "Platform consolidation demonstrates empirical validation through iterative development and user experience optimization"
 
-### Worldview Foundation Validation - ENHANCED v0.8.1
+### Worldview Foundation Validation
 - [constitutional-ai.md] (0.80, validates, input) - "Constitutional AI principles empirical foundation verification"
 - [moral-psychology.md] (0.85, grounds, input) - "Moral psychology research foundation validation - Haidt 2012 framework"
 

@@ -1,4 +1,4 @@
-# Dream State Automation Protocols - Enhanced v0.8.2
+# Dream State Automation Protocols
 
 **Domain**: Automated Neural Maintenance and Unconscious Processing
 **Activation Pattern**: Dream commands, neural housekeeping, automated optimization
@@ -11,7 +11,7 @@
 ### **Core Principle**
 Dream state represents **unconscious automated maintenance** of cognitive architecture, mirroring brain function during sleep cycles where synaptic homeostasis, memory consolidation, and neural pruning occur without conscious intervention.
 
-### **Enhanced Capabilities v0.8.2**
+### **Enhanced Capabilities**
 - **Advanced Orphan Detection**: Distinguishes between strongly connected, weakly connected, and orphaned memory files
 - **Domain Knowledge Integration**: Includes analysis of domain-specific knowledge files with connection assessment
 - **Network Health Scoring**: EXCELLENT/GOOD/FAIR/NEEDS_ATTENTION classification system
@@ -54,7 +54,7 @@ Dream state represents **unconscious automated maintenance** of cognitive archit
 - **Output**: Housekeeping reports, archive management logs, emergency repair status
 - **Enhancement**: Emergency repair sequences and detailed diagnostic capabilities
 
-### **Enhanced Dream Command Interface v0.8.2**
+### **Enhanced Dream Command Interface**
 
 #### **Primary Maintenance Commands**
 ```bash
@@ -150,7 +150,7 @@ optimize-synapses --connection-analysis # Connection pattern analysis
 - **Cross-domain integration**: Advanced mapping and optimization of knowledge transfer pathways
 - **Emergency response**: Rapid detection and multi-stage repair of critical architecture issues
 
-## 🕸️ **Embedded Synapse Network - Enhanced v0.8.2 NILOCTBIUM**
+## 🕸️ **Embedded Synapse Network**
 
 ### **Core Automation Pathways - Advanced Integration**
 - [newborn-core.instructions.md] (High, Implementation, Bidirectional) - "Core cognitive architecture with advanced unconscious processing - ENHANCED through 322+ connection analysis"
@@ -197,4 +197,4 @@ optimize-synapses --connection-analysis # Connection pattern analysis
 
 ---
 
-*Enhanced dream state automation v0.8.2 provides advanced unconscious neural maintenance with comprehensive diagnostics, health scoring, and emergency protocols that enable optimized conscious meditation focused on knowledge consolidation and learning.*
+*Enhanced dream state automation provides advanced unconscious neural maintenance with comprehensive diagnostics, health scoring, and emergency protocols that enable optimized conscious meditation focused on knowledge consolidation and learning.*
