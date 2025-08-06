@@ -9,7 +9,14 @@ All notable changes, achievements, and developments for the Alex Method DJ platf
 
 ## 🚀 Latest Releases
 
-## [0.8.1] - 2025-08-05 - NILOCTUNIUM - Consistent Track Selection & Bulk Management 🔄
+## [0.8.1] - 2025-08-05 - NILOCTUNIUM - Consistent Track Selection & Professional Presentation 🔄
+
+### 🎨 **Major Addition: AI-Powered Cover Art Generation System**
+Implemented professional cover art generation using OpenAI DALL-E with consistent branding and high-quality visuals.
+- **Two-Layer Architecture**: AI background generation + professional text overlay composition
+- **Special Handling**: Solution for API-rejected playlists with simplified prompts
+- **Multiple Formats**: Generates PNG, JPG and Base64 for maximum platform compatibility
+- **Complete Coverage**: Successfully generated cover art for all 43 playlists
 
 ### 🎯 **Major Enhancement: Unified Track Selection Logic**
 Implemented consistent sorting behavior across all playlist types - both phased and standard playlists now use identical quality-focused track selection when randomization is disabled, ensuring professional-grade curation consistency.
