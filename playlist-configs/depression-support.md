@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🧘‍♀️ Depression Support Pathway - Alex Method (50min)
+- **Name**: 🧘‍♀️ Depression Support Pathway - Alex Method (50min)
 - **Description**: Therapeutic musical journey designed to gently support movement through depression using validated music therapy principles. Progressive journey from acceptance through gentle activation to hope cultivation.
 - **Duration Target**: 50 minutes
 - **Privacy**: public
@@ -82,20 +82,19 @@ Gentle conclusion fostering connection to self, others, or meaning with sustaina
 - compassionate
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/2Jt8Bb7IwrgNXVz2FHdxZZ
-- **Spotify ID**: 2Jt8Bb7IwrgNXVz2FHdxZZ
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 8
-- **Duration**: 51.9 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/1oQi7kgEfzGbMO6SE8j1e6
+- **Spotify ID**: 1oQi7kgEfzGbMO6SE8j1e6
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 7
+- **Duration**: 50.9 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Understanding Meditation - Gareth Davis (10.0m)
- 2. Gentle Acceptance - Celtic Man (6.5m)
- 3. Slowly but Forward - East Forest (12.3m)
- 4. Beginnings - Jimi Hendrix (4.2m)
- 5. Possibility - Andy & Dave Remix Instrumental - Andrew De la Foix (7.1m)
- 6. Possibility - Extended Instrumental - Andrew De la Foix (6.4m)
- 7. Connection with Sacral Chakra: 9 Hz - Brain Waves Therapy (4.1m)
- 8. 963 Hz Divine Connection - Power Sound Relaxing Music (1.3m)
+ 1. Psychological-Emotional Healing With Pink Calcite and the Archangel Anael (Honouring the Wisdom of Unconditional Acceptance) - Alana Fairchild (13.7m)
+ 2. YouTube Cypher, Vol. 3 - Crypt (12.7m)
+ 3. Curtain Call - Slingshot Maxximus (3.7m)
+ 4. Within the Realm of Possibility - Instrumental - Nospūn (15.4m)
+ 5. 963 Hz Connect to Higher Self - Music Body and Spirit (2.6m)
+ 6. Floating Clarity of Consciousness - Connectionist (1.9m)
+ 7. Get Connected (Education Connection Commercial Jingle) - Falcone (1.0m)

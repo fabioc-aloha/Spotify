@@ -18,7 +18,7 @@ Examples:
     python generate_cover_art_final.py playlist-configs/space-odyssey.md --force
     python generate_cover_art_final.py playlist-configs/ --batch --force
 
-Note: For playlists that consistently fail with API errors, use generate_problem_covers.py
+Note: If OpenAI content policy errors occur, edit the playlist .md file directly
 """
 
 import os
@@ -153,81 +153,29 @@ class BackgroundGenerator:
         self.api_key = api_key
         self.config_path = config_path
     
-    def _sanitize_content_for_ai(self, content: str) -> str:
-        """Sanitize content to avoid OpenAI content policy violations"""
-        import re
-        
-        # Remove or replace problematic terms that might trigger content policy
-        problematic_terms = {
-            # Mystical/spiritual terms
-            'alchemical': 'transformative',
-            'alchemy': 'transformation',
-            'mystical': 'mysterious',
-            'spiritual': 'inspirational', 
-            'sacred': 'special',
-            'enlightened': 'elevated',
-            'transcendent': 'uplifting',
-            'transmutation': 'transformation',
-            'purification': 'refinement',
-            'consciousness': 'awareness',
-            'awakening': 'discovery',
-            
-            # Medical/therapeutic terms
-            'therapy': 'relaxation',
-            'therapeutic': 'calming',
-            'amygdala': 'mind',
-            'neuroscience': 'science',
-            'trauma': 'healing',
-            'depression': 'mood',
-            'anxiety': 'calm',
-            'ketamine': 'ambient',
-            
-            # Potentially problematic descriptors
-            'intense alchemical work': 'deep musical transformation',
-            'fundamental change occurs': 'musical evolution happens',
-            'purification process': 'refinement journey',
-            'golden achievement': 'perfect harmony',
-        }
-        
-        sanitized = content
-        for problematic, safe in problematic_terms.items():
-            sanitized = re.sub(re.escape(problematic), safe, sanitized, flags=re.IGNORECASE)
-        
-        return sanitized
-
     def _build_background_prompt(self, visual_theme: Dict[str, Any]) -> str:
-        """Build background-focused prompt for DALL-E 3 with structured field injection"""
+        """Build background-focused prompt for DALL-E 3"""
         
         emoji = visual_theme.get('emoji', '🎵')
-        name = visual_theme.get('name', '')
-        
-        # Get the original playlist configuration file content
         playlist_content = ""
         
         if self.config_path:
-            # Read the playlist configuration file if available
             try:
                 playlist_file_path = Path(self.config_path)
                 if playlist_file_path.exists():
                     playlist_content = playlist_file_path.read_text(encoding='utf-8')
                     
-                    # Sanitize content to avoid content policy violations
-                    playlist_content = self._sanitize_content_for_ai(playlist_content)
-                    
                     # Remove track list section to reduce prompt length
                     track_list_pattern = re.compile(r'### Track List[^\n]*\n.*?(?=##|\Z)', re.DOTALL)
                     playlist_content = track_list_pattern.sub('', playlist_content)
                     
-                    # Also limit the overall length of the playlist content
-                    max_content_length = 3500  # Reduced to leave room for structured prompt
-                    if len(playlist_content) > max_content_length:
-                        # Keep metadata and first few sections
-                        playlist_content = playlist_content[:max_content_length] + "\n..."
-                        print(f"   Note: Playlist content truncated to {max_content_length} characters")
+                    # Limit content length for API efficiency
+                    if len(playlist_content) > 3500:
+                        playlist_content = playlist_content[:3500] + "\n..."
             except Exception as e:
                 print(f"Warning: Could not read playlist file: {e}")
         
-        # Build the structured prompt with field injection
+        # Simple, direct prompt
         prompt = f"""Please create a background image for a **Spotify playlist cover**.
 
 Playlist Theme: {playlist_content}
@@ -291,11 +239,11 @@ class CoverArtComposer:
     """Compose final cover art with AI background + Python overlay"""
     
     def __init__(self):
-        self.canvas_size = (1024, 1024)
+        self.canvas_size = (1024, 1024)  # Keep high resolution for quality
         self.emoji_size = 180
-        self.title_size = 84  # Increased from 72 for better small thumbnail readability
-        self.brand_size = 36
-        self.brand_small_size = 24
+        self.title_size = 128  # Increased from 108 for maximum Spotify thumbnail readability
+        self.brand_size = 56   # Increased from 48 for better visibility
+        self.brand_small_size = 38  # Increased from 32 for better readability
     
     def _create_overlay(self, visual_theme: Dict[str, Any]) -> Image.Image:
         """Create text and branding overlay"""
@@ -323,16 +271,16 @@ class CoverArtComposer:
         except:
             try:
                 # Fallback to regular Arial but with larger size for stronger presence
-                title_font = ImageFont.truetype("arial.ttf", self.title_size + 10)
-                brand_font = ImageFont.truetype("arial.ttf", self.brand_size + 4)
-                brand_small_font = ImageFont.truetype("arial.ttf", self.brand_small_size + 2)
+                title_font = ImageFont.truetype("arial.ttf", self.title_size + 16)  # Increased fallback boost further
+                brand_font = ImageFont.truetype("arial.ttf", self.brand_size + 8)   # Increased fallback boost further
+                brand_small_font = ImageFont.truetype("arial.ttf", self.brand_small_size + 6)  # Increased fallback boost further
             except:
                 title_font = ImageFont.load_default()
                 brand_font = ImageFont.load_default()
                 brand_small_font = ImageFont.load_default()
         
         # Position the title text at the top of the image (centered horizontally)
-        self._add_text_with_shadow(overlay, clean_name, title_font, (512, 180), max_width=900)
+        self._add_title_text(overlay, clean_name, title_font, (512, 180), max_width=900)
         
         # Add Alex Method branding at the bottom
         self._add_alex_method_branding(overlay, brand_font, brand_small_font)
@@ -347,59 +295,49 @@ class CoverArtComposer:
         # The overlay is already good as is
         return overlay
     
-    def _add_text_with_shadow(self, overlay: Image.Image, text: str, font: Any, 
-                            position: Tuple[int, int], max_width: int = 800) -> None:
-        """Add text with strong outline and shadow for better readability without background box"""
-        draw = ImageDraw.Draw(overlay)
+    def _draw_text_with_outline(self, draw, text: str, font: Any, 
+                               position: Tuple[int, int], outline_thickness: int = 3) -> None:
+        """Draw text with outline and shadow effects - DRY principle"""
+        x, y = position
+        outline_color = (0, 0, 0, 255)  # Black outline
+        shadow_color = (0, 0, 0, 180)   # Semi-transparent shadow
+        text_color = (255, 255, 255, 255)  # White text
         
-        # Wrap text to fit width
+        # Draw outline in 8 directions
+        for dx in [-outline_thickness, 0, outline_thickness]:
+            for dy in [-outline_thickness, 0, outline_thickness]:
+                if dx != 0 or dy != 0:  # Skip center position
+                    draw.text((x + dx, y + dy), text, font=font, fill=outline_color)
+        
+        # Draw shadow
+        shadow_offset = 3 if outline_thickness > 2 else 2
+        draw.text((x + shadow_offset, y + shadow_offset), text, font=font, fill=shadow_color)
+        
+        # Draw main text
+        draw.text((x, y), text, font=font, fill=text_color)
+    
+    def _add_title_text(self, overlay: Image.Image, text: str, font: Any, 
+                       position: Tuple[int, int], max_width: int = 900) -> None:
+        """Add wrapped title text with outline effects"""
+        draw = ImageDraw.Draw(overlay)
         lines = self._wrap_text(text, font, max_width)
         
-        # Calculate text block dimensions
-        line_heights = []
-        line_widths = []
-        for line in lines:
-            bbox = draw.textbbox((0, 0), line, font=font)
-            line_heights.append(bbox[3] - bbox[1])
-            line_widths.append(bbox[2] - bbox[0])
-        
+        # Calculate text block height for centering
+        line_heights = [draw.textbbox((0, 0), line, font=font)[3] - draw.textbbox((0, 0), line, font=font)[1] 
+                       for line in lines]
         text_block_height = sum(line_heights)
-        text_block_width = max(line_widths)
         
-        # Calculate starting position
-        x, y = position
-        x = x - (text_block_width // 2)  # Center horizontally
-        y = y - (text_block_height // 2)  # Center vertically
+        # Start from top of text block
+        current_y = position[1] - (text_block_height // 2)
         
-        # Draw each line of text with enhanced effects
-        current_y = y
         for i, line in enumerate(lines):
-            # Trim each line and recalculate centering for perfect alignment
             line = line.strip()
-            
-            # Calculate precise centering for this line
+            # Center each line
             bbox = draw.textbbox((0, 0), line, font=font)
             line_width = bbox[2] - bbox[0]
-            line_x = position[0] - (line_width // 2)  # Center this specific line
+            line_x = position[0] - (line_width // 2)
             
-            # Create strong outline effect by drawing text in multiple directions
-            outline_thickness = 3
-            outline_color = (0, 0, 0, 255)  # Solid black outline
-            
-            # Draw outline in 8 directions for thick border effect
-            for dx in [-outline_thickness, 0, outline_thickness]:
-                for dy in [-outline_thickness, 0, outline_thickness]:
-                    if dx != 0 or dy != 0:  # Skip center position
-                        draw.text((line_x + dx, current_y + dy), line, font=font, fill=outline_color)
-            
-            # Draw additional shadow for depth
-            shadow_offset = 4
-            shadow_color = (0, 0, 0, 180)
-            draw.text((line_x + shadow_offset, current_y + shadow_offset), line, font=font, fill=shadow_color)
-            
-            # Draw main text in white
-            draw.text((line_x, current_y), line, font=font, fill=(255, 255, 255, 255))
-            
+            self._draw_text_with_outline(draw, line, font, (int(line_x), int(current_y)), 3)
             current_y += line_heights[i]
     
     def _wrap_text(self, text: str, font: Any, max_width: int) -> List[str]:
@@ -431,69 +369,34 @@ class CoverArtComposer:
     
     def _add_alex_method_branding(self, overlay: Image.Image, brand_font: Any, 
                                 brand_small_font: Any) -> None:
-        """Add Alex Method branding with enhanced readability - centered at bottom with strong outline effects"""
+        """Add Alex Method branding - simplified using DRY principle"""
         draw = ImageDraw.Draw(overlay)
+        center_x = self.canvas_size[0] // 2
         
-        # Two-line branding at the bottom
+        # Calculate positions
         brand_text = "ALEX METHOD"
         dj_text = "DJ"
         
-        # Calculate text dimensions for centering
-        bbox_brand = draw.textbbox((0, 0), brand_text, font=brand_font)
-        brand_width = bbox_brand[2] - bbox_brand[0]
-        brand_height = bbox_brand[3] - bbox_brand[1]
+        brand_bbox = draw.textbbox((0, 0), brand_text, font=brand_font)
+        brand_width = brand_bbox[2] - brand_bbox[0]
+        brand_height = brand_bbox[3] - brand_bbox[1]
         
-        bbox_dj = draw.textbbox((0, 0), dj_text, font=brand_small_font)
-        dj_width = bbox_dj[2] - bbox_dj[0]
-        dj_height = bbox_dj[3] - bbox_dj[1]
+        dj_bbox = draw.textbbox((0, 0), dj_text, font=brand_small_font)
+        dj_width = dj_bbox[2] - dj_bbox[0]
         
-        # Center horizontally, position at bottom
-        center_x = self.canvas_size[0] // 2
-        
-        # Position "ALEX METHOD" line at bottom with margin
+        # Positions
         brand_x = center_x - (brand_width // 2)
-        brand_y = self.canvas_size[1] - 80  # 80px from bottom
+        brand_y = self.canvas_size[1] - 120  # Moved up from 80px to 120px from bottom
         
-        # Position "DJ" line below "ALEX METHOD"
         dj_x = center_x - (dj_width // 2)
-        dj_y = brand_y + brand_height + 8  # 8px spacing between lines
+        dj_y = brand_y + brand_height + 8  # 8px spacing
         
-        # Enhanced text effects for "ALEX METHOD" without background box
-        outline_thickness = 2
-        outline_color = (0, 0, 0, 255)  # Solid black outline
-        
-        # Draw outline in 8 directions for "ALEX METHOD"
-        for dx in [-outline_thickness, 0, outline_thickness]:
-            for dy in [-outline_thickness, 0, outline_thickness]:
-                if dx != 0 or dy != 0:  # Skip center position
-                    draw.text((brand_x + dx, brand_y + dy), brand_text, font=brand_font, fill=outline_color)
-        
-        # Draw shadow for "ALEX METHOD"
-        shadow_offset = 3
-        draw.text((brand_x + shadow_offset, brand_y + shadow_offset), 
-                brand_text, font=brand_font, fill=(0, 0, 0, 180))
-        
-        # Draw main "ALEX METHOD" text
-        draw.text((brand_x, brand_y), brand_text, font=brand_font, fill=(255, 255, 255, 255))
-        
-        # Enhanced text effects for "DJ"
-        outline_thickness_small = 2
-        
-        # Draw outline in 8 directions for "DJ"
-        for dx in [-outline_thickness_small, 0, outline_thickness_small]:
-            for dy in [-outline_thickness_small, 0, outline_thickness_small]:
-                if dx != 0 or dy != 0:  # Skip center position
-                    draw.text((dj_x + dx, dj_y + dy), dj_text, font=brand_small_font, fill=outline_color)
-        
-        # Draw shadow for "DJ"
-        draw.text((dj_x + shadow_offset, dj_y + shadow_offset), 
-                dj_text, font=brand_small_font, fill=(0, 0, 0, 180))
-        
-        # Draw main "DJ" text
-        draw.text((dj_x, dj_y), dj_text, font=brand_small_font, fill=(255, 255, 255, 255))
+        # Draw both texts using the DRY method
+        self._draw_text_with_outline(draw, brand_text, brand_font, (int(brand_x), int(brand_y)), 2)
+        self._draw_text_with_outline(draw, dj_text, brand_small_font, (int(dj_x), int(dj_y)), 2)
     
     def compose_cover_art(self, background_url: str, visual_theme: Dict[str, Any], 
-                        output_path: Path) -> Tuple[Path, Path, Path]:
+                        output_path: Path) -> Tuple[Path, Path]:
         """Compose the final cover art image with AI background and Python overlay"""
         safe_print(f"🎨 Composing cover art with Python overlay...")
         
@@ -509,101 +412,81 @@ class CoverArtComposer:
         # Create overlay with text and branding
         overlay = self._create_overlay(visual_theme)
         
+        # Ensure background is the right size
+        if background.size != self.canvas_size:
+            background = background.resize(self.canvas_size, Image.Resampling.LANCZOS)
+            safe_print(f"   🔧 Resized background from {background.size} to {self.canvas_size}")
+        
         # Composite background and overlay
         background = background.convert("RGBA")
         result = Image.alpha_composite(background, overlay)
         
-        # Save as PNG (with transparency)
+        # Save full-size PNG (1024x1024) - keep high quality
         png_path = f"{output_path}.png"
         result.save(png_path)
-        safe_print(f"   📁 PNG: {png_path}")
+        safe_print(f"   � PNG (1024x1024): {png_path}")
         
-        # Save as JPEG (no transparency)
+        # Create 512x512 version for JPEG and Base64 (Spotify optimization)
+        result_512 = result.resize((512, 512), Image.Resampling.LANCZOS)
+        
+        # Save as JPEG (512x512 for smaller file size)
         jpg_path = f"{output_path}.jpg"
-        jpg_image = result.convert("RGB")
+        jpg_image = result_512.convert("RGB")
         jpg_image.save(jpg_path, quality=95)
-        safe_print(f"   📁 JPEG: {jpg_path}")
-        
-        # Save as Base64 for embedding
-        base64_path = f"{output_path}_base64.txt"
-        buffered = BytesIO()
-        jpg_image.save(buffered, format="JPEG")
-        img_str = base64.b64encode(buffered.getvalue()).decode()
-        with open(base64_path, 'w') as f:
-            f.write(img_str)
-        safe_print(f"   📁 Base64: {base64_path}")
+        safe_print(f"   📁 JPEG (512x512): {jpg_path}")
         
         safe_print(f"✅ Cover art composed successfully!")
         
-        return Path(png_path), Path(jpg_path), Path(base64_path)
+        return Path(png_path), Path(jpg_path)
 
 
-def update_playlist_metadata_with_cover_art(config_file: str, cover_art_paths: Tuple[Path, Path, Path]) -> bool:
-    """Update playlist config file with generated cover art paths"""
+def update_playlist_metadata_with_cover_art(config_file: str, cover_art_paths: Tuple[Path, Path]) -> bool:
+    """Update playlist config file with generated cover art paths - simplified"""
     try:
         config_path = Path(config_file)
         if not config_path.exists():
             safe_print(f"❌ Config file not found: {config_file}")
             return False
         
-        # Read the current config content
         content = config_path.read_text(encoding='utf-8')
+        png_path, jpg_path = cover_art_paths
         
-        png_path, jpg_path, base64_path = cover_art_paths
+        # Ensure paths are absolute for proper relative calculation
+        png_abs = png_path.resolve()
+        jpg_abs = jpg_path.resolve()
+        working_dir = Path.cwd().resolve()
         
-        # Get relative paths for cleaner metadata
-        try:
-            png_rel = png_path.relative_to(Path.cwd())
-            jpg_rel = jpg_path.relative_to(Path.cwd())
-            base64_rel = base64_path.relative_to(Path.cwd())
-        except ValueError:
-            # If relative path fails, use absolute paths
-            png_rel = png_path
-            jpg_rel = jpg_path
-            base64_rel = base64_path
+        # Convert paths to forward slashes for cross-platform compatibility
+        png_rel = str(png_abs.relative_to(working_dir)).replace('\\', '/')
+        jpg_rel = str(jpg_abs.relative_to(working_dir)).replace('\\', '/')
         
         # Create cover art metadata section
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         cover_art_section = f"""## Cover Art
 - **PNG**: {png_rel}
 - **JPEG**: {jpg_rel}
-- **Base64**: {base64_rel}
 - **Generated**: {timestamp}
 
 """
         
-        # Check if Cover Art section already exists
+        # Simple replacement logic
         cover_art_pattern = re.compile(r'^## Cover Art\n.*?(?=^##|\Z)', re.MULTILINE | re.DOTALL)
         
         if cover_art_pattern.search(content):
-            # Replace existing Cover Art section
             content = cover_art_pattern.sub(cover_art_section.rstrip() + '\n\n', content)
             print("   📝 Updated existing Cover Art metadata")
         else:
-            # Add Cover Art section after Metadata section
+            # Insert after Metadata section or at beginning
             metadata_pattern = re.compile(r'(^## Metadata\n.*?(?=^##))', re.MULTILINE | re.DOTALL)
             metadata_match = metadata_pattern.search(content)
             
             if metadata_match:
-                # Insert after Metadata section
                 insert_pos = metadata_match.end()
                 content = content[:insert_pos] + '\n' + cover_art_section + content[insert_pos:]
-                print("   📝 Added Cover Art metadata after Metadata section")
             else:
-                # Fallback: add at the beginning after title
-                title_pattern = re.compile(r'^# [^\n]+\n', re.MULTILINE)
-                title_match = title_pattern.search(content)
-                
-                if title_match:
-                    insert_pos = title_match.end()
-                    content = content[:insert_pos] + '\n' + cover_art_section + content[insert_pos:]
-                    print("   📝 Added Cover Art metadata after title")
-                else:
-                    # Last resort: add at the very beginning
-                    content = cover_art_section + content
-                    print("   📝 Added Cover Art metadata at beginning")
+                content = cover_art_section + content
+            print("   📝 Added Cover Art metadata")
         
-        # Write back to file
         config_path.write_text(content, encoding='utf-8')
         safe_print(f"✅ Updated playlist metadata: {config_file}")
         return True
@@ -639,21 +522,6 @@ def get_existing_cover_art(config_name: str) -> List[Path]:
 def process_single_playlist(config_file: str, force: bool = False, preview: bool = False) -> bool:
     """Process a single playlist configuration file"""
     try:
-        # Check if this is a known problematic playlist
-        config_name = Path(config_file).stem
-        PROBLEM_PLAYLISTS = [
-            "bpm-energy-curve",
-            "brazilian-rock-80s-90s",
-            "ketamine-therapy",
-            "loud-music-escalation",
-        ]
-        
-        if config_name in PROBLEM_PLAYLISTS:
-            safe_print(f"⚠️ {config_name} is a known problematic playlist.")
-            safe_print(f"   Please use generate_problem_covers.py instead:")
-            safe_print(f"   python generate_problem_covers.py --playlist {config_name}")
-            return False
-        
         # Parse the playlist config
         safe_print(f"📋 Parsing playlist config: {config_file}")
         parser = PlaylistConfigParser(config_file)
@@ -700,10 +568,10 @@ def process_single_playlist(config_file: str, force: bool = False, preview: bool
         output_path = COVER_ART_DIR / config_name
         
         composer = CoverArtComposer()
-        png_path, jpg_path, base64_path = composer.compose_cover_art(background_url, visual_theme, output_path)
+        png_path, jpg_path = composer.compose_cover_art(background_url, visual_theme, output_path)
         
-        # Update playlist metadata with cover art paths
-        cover_art_paths = (png_path, jpg_path, base64_path)
+        # Update playlist metadata with cover art paths (no longer including base64)
+        cover_art_paths = (png_path, jpg_path)
         metadata_updated = update_playlist_metadata_with_cover_art(config_file, cover_art_paths)
         
         if not metadata_updated:

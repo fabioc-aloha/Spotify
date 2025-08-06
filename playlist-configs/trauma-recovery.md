@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌱 Trauma Recovery Garden - Alex Method (60min)
+- **Name**: 🌱 Trauma Recovery Garden - Alex Method (60min)
 - **Description**: Compassionate therapeutic journey for trauma recovery using safety-first musical architecture. Gentle progression through grounding, processing, integration, and empowerment phases with trauma-informed care principles.
 - **Duration Target**: 60 minutes
 - **Privacy**: public
@@ -85,18 +85,17 @@ Gentle empowerment and recognition of resilience developed through the recovery 
 - wisdom
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/676JoNwkieEeTg48eiqNhT
-- **Spotify ID**: 676JoNwkieEeTg48eiqNhT
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 6
-- **Duration**: 61.2 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/0OuYfy5x9ZczB5XPs9rOrO
+- **Spotify ID**: 0OuYfy5x9ZczB5XPs9rOrO
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 5
+- **Duration**: 61.3 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Ground Yourself (Root Chakra Meditation) - Londrelle (15.0m)
- 2. Gentle I - Ryan Richko (19.6m)
- 3. Integration - Kalima (7.9m)
- 4. Wisdom - Instrumental Sitar Version - DTO (7.6m)
- 5. I Know It's Over - Jeff Buckley (7.1m)
- 6. RESILIENCE - Instrumental - Mehsah (3.9m)
+ 1. Exquisite Corpse - Watsky (9.7m)
+ 2. Grounding - Sol Rising (6.6m)
+ 3. Gentle I - Ryan Richko (19.6m)
+ 4. Forgiveness - Instrumental - Phutureprimitive (14.6m)
+ 5. Blue Angel - Strawbs (10.8m)

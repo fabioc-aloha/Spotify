@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌅 Morning Awakening Protocol - Alex Method (90min)
+- **Name**: 🌅 Morning Awakening Protocol - Alex Method (90min)
 - **Description**: Progressive energy building from gentle wake to daily momentum - perfect for establishing positive morning routine
 - **Duration Target**: 90 minutes
 - **Privacy**: public
@@ -98,44 +98,43 @@ Energetic but focused tracks to establish productive mindset and sustained energ
 
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/4ZcajeSLhOxAssNQniOeYF
-- **Spotify ID**: 4ZcajeSLhOxAssNQniOeYF
-- **Last Updated**: 2025-08-05
+- **Spotify URL**: https://open.spotify.com/playlist/0HfMGrpqAc01klLsmebSVb
+- **Spotify ID**: 0HfMGrpqAc01klLsmebSVb
+- **Last Updated**: 2025-08-06
 - **Action**: created
-- **Track Count**: 32
-- **Duration**: 95.8 minutes
+- **Track Count**: 31
+- **Duration**: 98.5 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Sacred Reservoir - Nature Pulse (3.1m)
- 2. A Quiet Sunday Relaxing by the Lake - Path to the Wild (2.4m)
- 3. Peaceful Nights Sleep - The Sound Reserve (2.3m)
- 4. Peninsula Rain - The Nature Soundscapes (2.2m)
- 5. Quiet and Relaxing Forest Sounds - Path to the Wild (2.2m)
- 6. Ambient Sounds of a Forest on a Warm Day - Path to the Wild (2.1m)
- 7. Soothing Nature Sounds in a Wild Forest - Path to the Wild (2.1m)
- 8. Sleep Meditation Ocean Waves - Piano Peace (3.6m)
- 9. Piano for Relaxation, Vol. 2, Pt. 11 - Silentography (2.7m)
-10. Inside the stone - lili may (2.1m)
-11. Sleep Meditation - Deep Sleep Music Collective (2.0m)
-12. Ethereal Elegance - Aaron Flemming (2.0m)
-13. Calma - Karl Schintz (2.0m)
-14. Meditation Piano (White Noise) - White Noise Baby Sleep Music (1.9m)
-15. No More Parties In LA - Kanye West (6.2m)
-16. Summertime - DJ Jazzy Jeff & The Fresh Prince (4.5m)
-17. Killshot - Eminem (4.2m)
-18. Permafrost - J.B. Boone (4.0m)
-19. Real Peach - Henry Jamison (3.9m)
-20. June, After Dark - Elliot Root (3.7m)
-21. Penny, Heads Up - Caamp (3.5m)
-22. Acid Raindrops - People Under The Stairs (4.4m)
-23. Life's Tough (Motivational Speech) - Fearless Motivation (3.7m)
-24. One Kiss (with Dua Lipa) - Calvin Harris (3.6m)
-25. Gin and Juice - Snoop Dogg (3.5m)
-26. Never Quit (Fight for Your Life Motivational Speech) [feat. Walter Bond] - Fearless Motivation (3.4m)
-27. Woah - Lil Baby (3.1m)
-28. Motivation - Spiritual Tony (2.9m)
-29. Never Going Home - Kungs (2.8m)
-30. I Got U - Mg. (2.0m)
-31. Flute Loop - Beastie Boys (1.9m)
-32. Lick Back - EST Gee (1.6m)
+ 1. Hollywood Nights - Bob Seger (5.0m)
+ 2. Too Sweet - Hozier (4.2m)
+ 3. Carolina in My Mind - James Taylor (4.0m)
+ 4. Espresso - Sabrina Carpenter (2.9m)
+ 5. Felicitas - Jo Rochford (2.8m)
+ 6. Mindwalking - Daniela Petrová (2.2m)
+ 7. Oars divide the Ocean - lili may (2.2m)
+ 8. Try Again - Andrew Gialanella (2.1m)
+ 9. Sleep Meditation - Deep Sleep Music Collective (2.0m)
+10. In the rear window - Oceane Bardot (2.0m)
+11. For the joys - lili may (1.7m)
+12. Morning Light - Eternal Trip (1.4m)
+13. They Reminisce Over You (T.R.O.Y.) - Pete Rock & C.L. Smooth (4.8m)
+14. Killshot - Eminem (4.2m)
+15. Flames (Acoustic) - Fearless Soul (3.3m)
+16. Arrow - The Head And The Heart (3.2m)
+17. Wake Up - Run River North (3.2m)
+18. Whiskey Bent And Hell Bound - Hank Williams, Jr. (3.1m)
+19. Fingers Crossed - Lauren Spencer Smith (2.9m)
+20. Gucci Mane - Jessie Murph (2.8m)
+21. Bright Side - Anders Sohn (2.7m)
+22. Things Are Looking Up - Sheffield (2.6m)
+23. Worldwide Choppers - Tech N9ne (5.4m)
+24. Diesel Power - The Prodigy (4.3m)
+25. Remember Why You Started - Fearless Motivation (3.8m)
+26. Sunshine (feat. Anthony Hamilton) - Twista (3.8m)
+27. When You Feel Like Quitting (Motivational Speech) - Fearless Motivation (3.6m)
+28. Keep Showing Up (Motivational Speech) - Fearless Motivation (3.3m)
+29. One Kiss (with Dua Lipa) - R3HAB Remix - Calvin Harris (3.2m)
+30. Woah - Lil Baby (3.1m)
+31. I Didn't Come This Far to Only Come This Far (The Journey) - Fearless Motivation (2.5m)

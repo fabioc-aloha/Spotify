@@ -46,24 +46,34 @@ class BasePlaylistCreator(ABC):
         }
         
         # Parse metadata section
-        metadata_match = re.search(r'## Metadata\s*\n(.*?)\n\n', content, re.DOTALL)
+        metadata_match = re.search(r'## Metadata\s*\n(.*?)(?=\n##|\n\n|$)', content, re.DOTALL)
         if metadata_match:
             metadata_lines = metadata_match.group(1).strip().split('\n')
             for line in metadata_lines:
+                # Handle both bullet point format (- **Name**:) and direct format (**Name**:)
                 if line.startswith('- **'):
                     match = re.match(r'- \*\*(.*?)\*\*:\s*(.*)', line)
                     if match:
                         key = match.group(1).lower().replace(' ', '_')
                         value = match.group(2)
                         config['metadata'][key] = value
+                elif line.startswith('**') and ':' in line:
+                    match = re.match(r'\*\*(.*?)\*\*:\s*(.*)', line)
+                    if match:
+                        key = match.group(1).lower().replace(' ', '_')
+                        value = match.group(2)
+                        config['metadata'][key] = value
         
         # Parse search queries
-        queries_match = re.search(r'## Search Queries\s*\n(.*?)\n\n', content, re.DOTALL)
+        queries_match = re.search(r'## Search Queries\s*\n(.*?)(?=\n##|\n\n|$)', content, re.DOTALL)
         if queries_match:
             queries_lines = queries_match.group(1).strip().split('\n')
             for line in queries_lines:
-                if line.startswith('- '):
-                    config['search_queries'].append(line[2:].strip())
+                if line.startswith('- ') and not line.startswith('- **'):
+                    # Skip format instruction lines and only get actual query lines
+                    query = line[2:].strip()
+                    if query and not query.startswith('FORMAT:') and not query.startswith('FOCUS ON:'):
+                        config['search_queries'].append(query)
         
         # Parse content preferences (YouTube-specific)
         prefs_match = re.search(r'## Content Preferences\s*\n(.*?)(?=\n##|$)', content, re.DOTALL)

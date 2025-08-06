@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🎬 Cinematic Storytelling - Alex Method (180min)
+- **Name**: 🎬 Cinematic Storytelling - Alex Method (180min)
 - **Description**: Movie-like emotional arc with musical narrative structure - dramatic progression from mystery through climax to resolution
 - **Duration Target**: 180 minutes
 - **Privacy**: public
@@ -116,40 +116,44 @@ Emotional and reflective conclusions providing peaceful narrative closure and wi
 
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/5ff3I9M9VxzDsB6twKtYMF
-- **Spotify ID**: 5ff3I9M9VxzDsB6twKtYMF
-- **Last Updated**: 2025-08-05
+- **Spotify URL**: https://open.spotify.com/playlist/4uZFgKRjjlaXZmM67uIFf9
+- **Spotify ID**: 4uZFgKRjjlaXZmM67uIFf9
+- **Last Updated**: 2025-08-06
 - **Action**: created
-- **Track Count**: 28
-- **Duration**: 176.6 minutes
+- **Track Count**: 32
+- **Duration**: 168.1 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. End of the Century - Atrium Carceri (7.4m)
- 2. Exodus - The Cinematic Orchestra (7.3m)
- 3. Michelle - Wallace Roney (6.5m)
- 4. Hatching - The Cinematic Orchestra (5.2m)
- 5. Breaking The Silence - Remastered 2003 - Queensrÿche (4.6m)
- 6. Journey to New Worlds - Retland (4.4m)
- 7. Celeritas - Retland (4.2m)
- 8. Life And How To Live It - R.E.M. (4.1m)
- 9. Cumbia Medley - Live - Selena (8.6m)
+ 1. Mysterious Semblance At The Strand Of Nightmares - Remastered 2018 - Tangerine Dream (9.7m)
+ 2. All Dreams Mined - Apocryphos (6.8m)
+ 3. Hatching - The Cinematic Orchestra (5.2m)
+ 4. Breaking The Silence - Remastered 2003 - Queensrÿche (4.6m)
+ 5. You Got Me - The Roots (4.3m)
+ 6. Top Of The Stairs - D. H. Grey (4.1m)
+ 7. Marabou - The Cinematic Orchestra (3.9m)
+ 8. Hold My Breath - Paper Idol (3.7m)
+ 9. Overture/And All That Jazz - Catherine Zeta-Jones (6.1m)
 10. Epic III - Reeve Carney (5.9m)
-11. The Untold II - Secession Studios (5.3m)
-12. Dreaming Of You - Selena (5.2m)
-13. The Film Of My Love - 10cc (5.2m)
+11. From Now On - Hugh Jackman (5.8m)
+12. Death May Die - Secession Studios (5.5m)
+13. The Greatest Show - Hugh Jackman (5.0m)
 14. Mutiny - Jorge Rivera-Herrans (4.9m)
-15. I Can't Help but Wonder - Jorge Rivera-Herrans (4.9m)
-16. Mamacita (feat. Rich Homie Quan & Young Thug) - Travis Scott (4.5m)
-17. The Awakening Of A Woman - Burnout - The Cinematic Orchestra (10.3m)
-18. Reel Life - Evolution II - The Cinematic Orchestra (7.0m)
-19. Channel 1 Suite - The Cinematic Orchestra (5.8m)
-20. To Believe - The Cinematic Orchestra (5.5m)
-21. And Relax! - The Cinematic Orchestra (5.0m)
-22. Familiar Ground - The Cinematic Orchestra (4.6m)
-23. Cinematic - Owl City (4.2m)
-24. Manhatta - The Cinematic Orchestra (11.2m)
-25. Everyday - The Cinematic Orchestra (10.3m)
-26. Man With The Movie Camera - The Cinematic Orchestra (9.2m)
-27. Necrology - The Cinematic Orchestra (8.3m)
-28. Resolution - Tayla (7.1m)
+15. Past in Flames - Secession Studios (4.9m)
+16. I Can't Help but Wonder - Jorge Rivera-Herrans (4.9m)
+17. We Cry Together - Kendrick Lamar (5.7m)
+18. Superstar - Ms. Lauryn Hill (5.0m)
+19. Loungin' - Guru (4.7m)
+20. V Is for Villain - Secession Studios (4.6m)
+21. Mamacita (feat. Rich Homie Quan & Young Thug) - Travis Scott (4.5m)
+22. Fan Fiction - Bug Hunter (4.3m)
+23. This Life - OLWIK (4.2m)
+24. High Octane - Jo Blankenburg (4.2m)
+25. Sentenced to Death - Colossal Trailer Music (4.0m)
+26. Necrology - The Cinematic Orchestra (8.3m)
+27. Resolution - Scott Diaz (6.6m)
+28. The Great Resolution - Ken Yates (5.5m)
+29. Ending - Lyra Pramuk (5.5m)
+30. Concern - William Tyler (5.5m)
+31. Restful Contemplation - Slowbraid (5.3m)
+32. And Relax! - The Cinematic Orchestra (5.0m)

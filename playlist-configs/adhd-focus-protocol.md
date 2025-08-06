@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🧠 ADHD Focus Protocol - Alex Method (60min)
+- **Name**: 🧠 ADHD Focus Protocol - Alex Method (60min)
 - **Description**: Evidence-based phased playlist designed for ADHD cognitive enhancement using binaural beats, consistent tempo, and dopamine reward systems. Optimized for sustained attention and productivity.
 - **Duration Target**: 60 minutes
 - **Privacy**: public
@@ -82,22 +82,22 @@ Gentle environmental preparation music for smooth transition to next activity or
 - smooth
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/4kHckNn1vUXXGke1kuxYr4
-- **Spotify ID**: 4kHckNn1vUXXGke1kuxYr4
-- **Last Updated**: 2025-08-05
+- **Spotify URL**: https://open.spotify.com/playlist/6W4NNUzuMhKioQ4kUHuRHK
+- **Spotify ID**: 6W4NNUzuMhKioQ4kUHuRHK
+- **Last Updated**: 2025-08-06
 - **Action**: created
 - **Track Count**: 10
-- **Duration**: 62.2 minutes
+- **Duration**: 62.3 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Binaural Beats for Deep Sleep - Binaural Beats Sleep (2.4m)
- 2. Binaural Beats (Relaxation Sleep Sounds) - Binaural Beats Sleep (2.0m)
- 3. 3 Hz Delta Waves - Binaural Beats for Access to Unconscious Mind - Binaural Source (1.1m)
+ 1. Attention - Acoustic Version - Klub Rider (2.9m)
+ 2. 6 Hz Binaural Beats (Theta Waves) - Aura Celestia (1.5m)
+ 3. 3 Hz Delta Waves - Binaural Beats Pure Tone - Binaural Source (1.1m)
  4. The Interview - The Smashing Pumpkins (45.8m)
- 5. Upbeat Instrumental Work Music - Clean Pop Music (2.4m)
- 6. Energy and Fun (60s) - Audiosphere (1.1m)
- 7. Colorful Life (60s) - Audiosphere (1.0m)
- 8. Energizing - Pacific Piano (0.9m)
- 9. of transition - Seb Wildblood (3.4m)
-10. transition - instant era (2.0m)
+ 5. Rhythms Of Happiness - Melodality (2.5m)
+ 6. Feel Good Journey (60s) - Audiosphere (1.1m)
+ 7. A Lovely Day (60s) - Audiosphere (1.1m)
+ 8. Hype and Style (60s) - Audiosphere (0.8m)
+ 9. A Smooth Transition of Power - Akal Dub (3.7m)
+10. Lounge Transition - Concentración Profunda (1.8m)

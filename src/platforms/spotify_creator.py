@@ -24,6 +24,7 @@ from dotenv import load_dotenv
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from typing import Dict, List, Optional, Any
+import requests
 from ..core.base_playlist_creator import BasePlaylistCreator
 from ..utils.safe_print import safe_print
 
@@ -46,7 +47,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         if not client_id or not client_secret:
             raise ValueError("Missing Spotify credentials in .env file")
         
-        scope = "playlist-modify-public playlist-modify-private user-library-read"
+        scope = "playlist-modify-public playlist-modify-private user-library-read ugc-image-upload"
         auth_manager = SpotifyOAuth(
             client_id=client_id,
             client_secret=client_secret,
@@ -752,6 +753,15 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         safe_print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
         safe_print(f"🔗 Playlist URL: {playlist['external_urls']['spotify']}")
         
+        # Upload cover art if available
+        if hasattr(self, 'config_file_path') and self.config_file_path:
+            cover_art_path = self.get_cover_art_path()
+            if cover_art_path and os.path.exists(cover_art_path):
+                safe_print(f"🎨 Uploading cover art...")
+                self.upload_cover_art(playlist_id, cover_art_path)
+            else:
+                safe_print(f"⚠️ No cover art found - playlist will use default Spotify image")
+        
         # Save playlist URL and track info to config file for cross-platform usage
         self._save_playlist_metadata(playlist, tracks, action)
         
@@ -1065,6 +1075,158 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             
         return playlist['id']
     
+    def upload_cover_art(self, playlist_id: str, cover_art_path: str) -> bool:
+        """Upload cover art to a playlist with enhanced SSL handling and retry logic."""
+        import time
+        import base64
+        import requests
+        from urllib3.util.retry import Retry
+        from requests.adapters import HTTPAdapter
+        
+        try:
+            if not os.path.exists(cover_art_path):
+                safe_print(f"⚠️ Cover art file not found: {cover_art_path}")
+                return False
+            
+            # Handle base64 files vs image files differently
+            if cover_art_path.endswith('_base64.txt'):
+                # Read base64 data directly
+                with open(cover_art_path, 'r') as f:
+                    image_b64 = f.read().strip()
+                safe_print(f"📝 Using base64 data from: {os.path.basename(cover_art_path)}")
+                # For base64 files, we can't check file size easily, but they should be pre-optimized
+            else:
+                # Handle regular image files
+                file_size = os.path.getsize(cover_art_path)
+                if file_size > 256 * 1024:  # 256KB
+                    safe_print(f"⚠️ Cover art file too large: {file_size/1024:.1f}KB (max: 256KB)")
+                    return False
+                
+                # Read and encode image data
+                with open(cover_art_path, "rb") as image_file:
+                    image_data = image_file.read()
+                image_b64 = base64.b64encode(image_data).decode('utf-8')
+            
+            # Try method 1: Direct spotipy with enhanced retry
+            for attempt in range(5):  # Increased attempts
+                try:
+                    safe_print(f"🔄 Uploading cover art (attempt {attempt + 1}/5)...")
+                    self.sp.playlist_upload_cover_image(playlist_id, image_b64)
+                    safe_print(f"✅ Cover art uploaded successfully")
+                    return True
+                    
+                except Exception as e:
+                    error_str = str(e).lower()
+                    if any(term in error_str for term in ["ssl", "eof", "connection", "timeout", "read timed out"]):
+                        if attempt < 4:  # Not the last attempt
+                            wait_time = min(2 ** attempt, 10)  # Exponential backoff: 1, 2, 4, 8, 10 seconds
+                            safe_print(f"⚠️ Network error, retrying in {wait_time}s... ({e})")
+                            time.sleep(wait_time)
+                            continue
+                        else:
+                            safe_print(f"⚠️ Spotipy method failed after 5 attempts, trying direct API...")
+                            break
+                    else:
+                        safe_print(f"❌ Non-network error: {e}")
+                        return False
+            
+            # Method 2: Direct API call with requests and custom session
+            try:
+                safe_print(f"� Trying direct API approach...")
+                
+                # Create a session with retry strategy
+                session = requests.Session()
+                retry_strategy = Retry(
+                    total=3,
+                    backoff_factor=1,
+                    status_forcelist=[429, 500, 502, 503, 504],
+                    allowed_methods=["PUT"]
+                )
+                adapter = HTTPAdapter(max_retries=retry_strategy)
+                session.mount("https://", adapter)
+                session.mount("http://", adapter)
+                
+                # Get access token from spotipy
+                try:
+                    if hasattr(self.sp, 'auth_manager') and self.sp.auth_manager:
+                        token_info = self.sp.auth_manager.get_access_token()
+                        access_token = token_info['access_token']
+                    else:
+                        # Alternative: use spotipy's token method
+                        access_token = self.sp._auth
+                        if not access_token:
+                            raise Exception("No access token in auth")
+                except Exception as token_error:
+                    safe_print(f"⚠️ Could not get access token: {token_error}")
+                    raise Exception("Failed to get access token for direct API call")
+                
+                # Make direct API call
+                url = f"https://api.spotify.com/v1/playlists/{playlist_id}/images"
+                headers = {
+                    'Authorization': f'Bearer {access_token}',
+                    'Content-Type': 'image/jpeg'
+                }
+                
+                response = session.put(url, data=image_b64, headers=headers, timeout=30)
+                
+                if response.status_code == 202:  # Accepted
+                    safe_print(f"✅ Cover art uploaded successfully via direct API")
+                    return True
+                else:
+                    safe_print(f"⚠️ API returned status {response.status_code}: {response.text}")
+                    
+            except Exception as e:
+                safe_print(f"⚠️ Direct API method also failed: {e}")
+            
+            # Method 3: Fallback with user guidance
+            safe_print(f"❌ All upload methods failed due to network connectivity issues")
+            safe_print(f"💡 Manual upload instructions:")
+            safe_print(f"   1. Open Spotify and go to your playlist")
+            safe_print(f"   2. Click the playlist image area")
+            safe_print(f"   3. Upload: {os.path.abspath(cover_art_path)}")
+            return False
+                        
+        except Exception as e:
+            safe_print(f"❌ Unexpected error uploading cover art: {e}")
+            return False
+    
+    def get_cover_art_path(self) -> Optional[str]:
+        """Get the path to the cover art file for the current playlist configuration."""
+        if not hasattr(self, 'config_file_path') or not self.config_file_path:
+            return None
+            
+        # Extract playlist name from config file path
+        config_path = Path(self.config_file_path)
+        playlist_name = config_path.stem  # Remove .md extension
+        
+        # Look for cover art in cover-art directory
+        cover_art_dir = Path("cover-art")
+        if not cover_art_dir.exists():
+            return None
+            
+        # Prefer JPEG files (optimized for Spotify upload with automatic base64 conversion)
+        jpg_path = cover_art_dir / f"{playlist_name}.jpg"
+        if jpg_path.exists():
+            return str(jpg_path)
+            
+        # Fall back to PNG files
+        png_path = cover_art_dir / f"{playlist_name}.png"
+        if png_path.exists():
+            return str(png_path)
+            
+        # Legacy support: base64 files for backward compatibility
+        base64_path = cover_art_dir / f"{playlist_name}_base64.txt"
+        if base64_path.exists():
+            return str(base64_path)
+            
+        # Final fallback to other image formats
+        for ext in ['.jpeg']:
+            cover_art_path = cover_art_dir / f"{playlist_name}{ext}"
+            if cover_art_path.exists():
+                return str(cover_art_path)
+                
+        return None
+    
     def add_content_to_playlist(self, playlist_id: str, content_ids: List[str]) -> None:
         """Add tracks to a playlist."""
         # Convert track IDs to URIs if needed
@@ -1227,7 +1389,7 @@ def main():
         
         safe_print(f"🎯 Target: {config['metadata'].get('name', 'Unnamed Playlist')}")
         safe_print(f"⏱️ Duration: {config['metadata'].get('duration_target', 'Not specified')}")
-        safe_print()
+        safe_print("")
         
         # Search for tracks
         tracks = creator.search_tracks()

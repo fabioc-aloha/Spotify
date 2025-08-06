@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🧬 Binaural Beat Therapy - Alex Method (120min)
+- **Name**: 🧬 Binaural Beat Therapy - Alex Method (120min)
 - **Description**: Brainwave entrainment progression for cognitive enhancement and consciousness alteration - scientifically designed frequency therapy for mental wellness
 - **Duration Target**: 120 minutes
 - **Privacy**: public
@@ -109,3 +109,26 @@ Enhanced consciousness and insight states for mental clarity and focus
 - healing frequencies
 - mind enhancement
 - mental wellness
+
+
+## Cross-Platform Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/5MRKUWlXCYyEE8IWGqiI4R
+- **Spotify ID**: 5MRKUWlXCYyEE8IWGqiI4R
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 11
+- **Duration**: 126.6 minutes
+- **Generated Tracks**: Ready for YouTube Music transfer
+
+### Track List (for YouTube Music Transfer)
+ 1. Relaxing Binaural Beats Sine Waves With Soothing Nature Sounds - Binaural Beats Brain Waves Isochronic Tones Brain Wave Entrainment (24.0m)
+ 2. Awareness - Davinia Leonne (8.5m)
+ 3. Deep Sleep – Reimagined - Chris Collins (12.0m)
+ 4. Binaural Beats Alpha Brain Waves Meditation - 10 Hz - ENOMISH (10.1m)
+ 5. Where profound rites are found , Binaural Beat Epsilon 0.2 Hz - Tera Mangala (9.6m)
+ 6. GENOCIDE - Lil Darkie (10.5m)
+ 7. Seventh Son Of A Seventh Son - Rory Gallagher (8.5m)
+ 8. Tiger By My Side - Empire Of The Sun (5.8m)
+ 9. The Ringer - Eminem (5.6m)
+10. Meditation Music with Theta Isochronic Tones - Anna Thompson (20.0m)
+11. Pineal and Pituitary Flow - Pinealwave (11.8m)

@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🧘 Anxiety Relief Architecture - Alex Method (90min)
+- **Name**: 🧘 Anxiety Relief Architecture - Alex Method (90min)
 - **Description**: Extended therapeutic phased journey for anxiety management through musical support, validation, and empowerment. Professional-grade progression from acknowledgment through regulation to healing with extended safe harbor and empowerment phases.
 - **Duration Target**: 90 minutes
 - **Privacy**: public
@@ -97,19 +97,20 @@ Extended gentle uplifting journey building confidence and resilience for moving 
 - support
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/6Q0b3e27W3VvFopb2l3nNW
-- **Spotify ID**: 6Q0b3e27W3VvFopb2l3nNW
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 7
-- **Duration**: 96.2 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/5wElhNZ5BHi3sZejFy7alV
+- **Spotify ID**: 5wElhNZ5BHi3sZejFy7alV
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 8
+- **Duration**: 95.7 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. sole has issues - Sole (6.0m)
- 2. Softly and Tenderly Jesus Is Calling - Instrumental Hymns and Worship (4.6m)
- 3. Metronome - 60 BPM - Lento / Adagio - Music Utility (10.0m)
- 4. There's A Price 2 Pay - Afroman (6.3m)
- 5. Congress Shall Make No Law - Frank Zappa (32.8m)
- 6. Strength Audio Bible Verses (Scriptures with Relaxing Piano Music) - Peaceful Scriptures (18.5m)
- 7. Strength (Scriptures with Piano) - Peaceful Scriptures (18.1m)
+ 1. The Gentle Giant a Tale of Friendship and Understanding - Jo Harris (7.3m)
+ 2. Colossus - Tyler, The Creator (3.6m)
+ 3. 90 BPM Metronome - Metronome For Musicians (10.0m)
+ 4. Breathing Rhythm - Seby Burgio (6.2m)
+ 5. Ocean Waves - Rest & Relax Nature Sounds Artists (20.3m)
+ 6. Rain - Meditation (10.0m)
+ 7. Calm Mind - Silent - Robin Gregory (30.0m)
+ 8. Compassion - Aroshanti (8.3m)

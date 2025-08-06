@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌌 Space Odyssey - Alex Method (300min)
+- **Name**: 🌌 Space Odyssey - Alex Method (300min)
 - **Description**: Cosmic journey from Earth departure through deep space to alien worlds and triumphant return - epic interstellar expedition
 - **Duration Target**: 300 minutes
 - **Privacy**: public
@@ -132,42 +132,39 @@ Nostalgic, Earth-longing music building to triumphant return and mission complet
 
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/6V2vKIP7zLaek1v149W691
-- **Spotify ID**: 6V2vKIP7zLaek1v149W691
-- **Last Updated**: 2025-08-05
+- **Spotify URL**: https://open.spotify.com/playlist/6xfvdu4l8qRRVDeK6EJ4Gg
+- **Spotify ID**: 6xfvdu4l8qRRVDeK6EJ4Gg
+- **Last Updated**: 2025-08-06
 - **Action**: created
-- **Track Count**: 30
-- **Duration**: 284.2 minutes
+- **Track Count**: 27
+- **Duration**: 286.4 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Eternal World - (LUX) (13.3m)
- 2. Happy House - The Juan Maclean (12.5m)
- 3. Settlers - (LUX) (11.0m)
- 4. American Pie - Don McLean (8.6m)
- 5. Mission Control - Uone Remix - Bondi (7.6m)
- 6. The A400 - Joe Kraemer (6.6m)
- 7. Ambient Galaxy - Disco Valley Mix - Astral Projection (13.7m)
- 8. Stasis Sounds For Long-Distance Space Travel (Blue New World 2) - 36 (12.6m)
- 9. Space Travel - I-Doser (10.0m)
-10. Space Deck: Deep Waves in Space - SleepTherapy (9.4m)
-11. Towards Utopia - Andreas Waldetoft (8.1m)
-12. Distant Nebula (From Stellaris Original Game Soundtrack) - Andreas Waldetoft (7.9m)
-13. Distant Nebula (From Stellaris Original Game Soundtrack) - Instrumental - Andreas Waldetoft (7.9m)
-14. Galaxy Black - Planet Boelex (7.8m)
-15. Aurora - Stellardrone (7.6m)
-16. Roadhouse Blues - Live at The Country Club, Reseda, CA - December 1981 - Blue Öyster Cult (9.1m)
-17. She Loves Me That Way - Grouper (8.6m)
-18. Extraterrestrials - Extended Mix - Sergey Nevone (8.3m)
-19. Dios de Lo Imposible - Versión Devocional - Aliento (8.1m)
-20. Dios de Lo Imposible - Aliento Kids (7.9m)
-21. Strange Birds - Coil (7.5m)
-22. Como Dijiste - Aliento Kids (7.5m)
-23. The Med Bay - Jed Kurzel (7.4m)
-24. Shimmering - Remiel (6.3m)
-25. Older Than the Universe - Andrew Prahlow (6.2m)
-26. Dominance and Submission - Live at Mid-Hudson Civic Centre, Poughkeepsie, NY - February 1980 - Blue Öyster Cult (5.9m)
-27. Teeth Of Lions Rule The Divine - Earth (27.1m)
-28. Days of the Ring (feat. Annie Lennox Performing "Into the West") - Howard Shore (11.2m)
-29. Triumph of Death - Hellhammer (9.5m)
-30. Homeward Bound - Steven Sharp Nelson (8.7m)
+ 1. Relaxing Space Music - Silent Rhythm (30.0m)
+ 2. Eternal World - (LUX) (13.3m)
+ 3. Inverted Horizon - Hilyard (8.6m)
+ 4. Departures - Joe Hisaishi (8.3m)
+ 5. Ambient Galaxy - Disco Valley Mix - Astral Projection (13.7m)
+ 6. Interstellar Medley - Live - Hans Zimmer (12.3m)
+ 7. Stasis Sounds for Long-Distance Space Travel (Extended Hypersleep Program 2 - Cave) - 36 (10.5m)
+ 8. Space Travel - I-Doser (10.0m)
+ 9. Space Deck: Deep Waves in Space - SleepTherapy (9.4m)
+10. Glacial Dawn - Meg Bowles (9.4m)
+11. Dancing Galaxy - Astral Projection (9.3m)
+12. Cosmic Consciousness - Magic Sound Fabric (8.9m)
+13. The Universe Healing You While You Sleep - Silent Rhythm (30.0m)
+14. Escape / Chase / Saying Goodbye - Soundtrack Reissue (2002) - John Williams (15.0m)
+15. Creative Acceleration - Spacecraft (11.5m)
+16. Vapor Trails - Grouper (9.1m)
+17. Poekhali - 36 (7.8m)
+18. The Park at Night - Poemme (7.4m)
+19. Weekend Wind - Woods (7.3m)
+20. The Apostle In Triumph - 2023 Abbey Road Remaster - Opeth (11.6m)
+21. Fall Of The Watcher - Returned To The Earth (9.2m)
+22. Homeward Bound (Arr. Wilberg) - Marta Keen Thompson (6.1m)
+23. Stairs and Rooftops - Lorne Balfe (6.0m)
+24. A Return to the Earth Below - Oceans of Slumber (5.7m)
+25. The Earth - Hrvrd (5.5m)
+26. An Inquest Concerning Teeth - Earth (5.3m)
+27. Escape Through Paris - Lorne Balfe (5.1m)

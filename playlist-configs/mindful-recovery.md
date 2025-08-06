@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌸 Mindful Recovery - Alex Method (90min)
+- **Name**: 🌸 Mindful Recovery - Alex Method (90min)
 - **Description**: Gentle healing journey for stress recovery and emotional restoration through three therapeutic phases - stress release, emotional healing, and renewal energy for complete mental and emotional restoration
 - **Duration Target**: 90 minutes
 - **Privacy**: public
@@ -97,3 +97,41 @@ Vitality restoration, positive reinforcement, renewed strength - rebuilding ener
 - comforting
 - ambient
 - relaxing
+
+
+## Cross-Platform Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/7C1e2KOfQ1vWGTGLG5EmM4
+- **Spotify ID**: 7C1e2KOfQ1vWGTGLG5EmM4
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 25
+- **Duration**: 89.6 minutes
+- **Generated Tracks**: Ready for YouTube Music transfer (Tracks randomized on each refresh)
+
+### Track List (for YouTube Music Transfer)
+Note: Tracks are randomized on each refresh - track list below represents current selection only.
+ 1. Puppy Soothing Music, Pt. 26 - Calming for Dogs (3.0m)
+ 2. Soothing - Ambient Dealer (1.2m)
+ 3. Deep Slumber Ambient Melodies - Musiscape (3.6m)
+ 4. Sover - Sullen Sky (2.7m)
+ 5. Ambient Rain - Relaxing Music for Stress Relief (2.0m)
+ 6. Peaceful Music - Ambient (2.0m)
+ 7. Kick My Ass - Big & Rich (5.0m)
+ 8. 963 Hz Tension Release - Spiritual Frequencies (2.0m)
+ 9. Stress Release - Relaxing Music Therapy (3.8m)
+10. Puppy Soothing Music, Pt. 35 - Calming for Dogs (1.5m)
+11. Puppy Soothing Music, Pt. 32 - Calming for Dogs (2.0m)
+12. Inner Peace - Positive Soul Music (14.0m)
+13. Restore - Steven Gutheinz (3.0m)
+14. Red Bud - MaMuse (7.5m)
+15. Stress-Free Ambience - Spiritloom (2.3m)
+16. Inner Peace - Synth and Oboe - Steven Halpern (4.9m)
+17. Vital Energy Regeneration - Focus Skills Zone (3.2m)
+18. Optimistic Keys - SoulNectar (2.6m)
+19. Vitality Pulse - Solfeggio Frequencies Tones (3.5m)
+20. Vitality - Chakra Meditation Balancing (5.2m)
+21. VITALITY - Raiden (1.5m)
+22. Renewable Energies - HiDino Kids Songs (1.8m)
+23. Upbeat Ambient - Gold-Tiger (1.5m)
+24. Energy - HABITAAT (3.5m)
+25. Dreamscape - Positive Soul Music (6.4m)

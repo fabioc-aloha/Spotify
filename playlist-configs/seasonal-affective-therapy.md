@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌡️ Seasonal Affective Therapy - Alex Method (150min)
+- **Name**: 🌡️ Seasonal Affective Therapy - Alex Method (150min)
 - **Description**: Light therapy simulation through music for mood regulation and energy balancing - therapeutic support for seasonal depression and mood disorders
 - **Duration Target**: 150 minutes
 - **Privacy**: public
@@ -115,3 +115,24 @@ Peak energy, celebration, and life affirmation representing full recovery and vi
 - fresh
 - vibrant
 - alive
+
+
+## Cross-Platform Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/0sgcyk6uZZRmVBq1W3XyoP
+- **Spotify ID**: 0sgcyk6uZZRmVBq1W3XyoP
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 9
+- **Duration**: 151.2 minutes
+- **Generated Tracks**: Ready for YouTube Music transfer
+
+### Track List (for YouTube Music Transfer)
+ 1. Cozy Winter Ambience With a Fireplace - Natural Recorders (30.4m)
+ 2. The Flesh Is Weak - Thought Industry (6.8m)
+ 3. Six Degrees of Inner Turbulence (with the Octavarium Orchestra) - Live at Radio City Music Hall, New York City, NY, 4/1/2006 - Dream Theater (41.4m)
+ 4. Grow Taller - Super Miracle Growth V1 - Ascension-Archangel (30.0m)
+ 5. Hi Energy Proton Accelerator - Cliff Martinez (10.9m)
+ 6. Goddess Affirmations - Activation (10.2m)
+ 7. Adagio in E Major for Violin and Orchestra, K. 261 - Wolfgang Amadeus Mozart (8.4m)
+ 8. Cool for the Summer - Extended Workout Mix - Power Music Workout (6.7m)
+ 9. Celebrate Some Time - Zeitgeist Freedom Energy Exchange (6.5m)

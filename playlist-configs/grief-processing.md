@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌊 Grief Processing Waves - Alex Method (55min)
+- **Name**: 🌊 Grief Processing Waves - Alex Method (55min)
 - **Description**: Compassionate musical journey honoring the natural waves of grief with therapeutic progression through acknowledgment, feeling, integration, and memorial celebration. Designed with grief counseling principles.
 - **Duration Target**: 55 minutes
 - **Privacy**: public
@@ -80,21 +80,22 @@ Gentle integration of how love and memory continue as part of ongoing life journ
 - tribute
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/5JIrOg5qRiDIHrlTHhbDhm
-- **Spotify ID**: 5JIrOg5qRiDIHrlTHhbDhm
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 9
-- **Duration**: 57.4 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/1Q1Xk3Pzc9D0jS15Ksd09T
+- **Spotify ID**: 1Q1Xk3Pzc9D0jS15Ksd09T
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 10
+- **Duration**: 59.3 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. On Sacred Ground - Chinmaya Dunster (12.1m)
- 2. Salty Grave - Life In Your Way (4.3m)
- 3. Forest Outpost - Dark Synth Ambient (17.2m)
- 4. Emotional Health (Stress Release) - Relaxation Ocean Waves Academy (4.3m)
- 5. Prince Of Peace (From Golan Heights Memorial Of War & By The Shining Lights Of The Old City) - Live - Hillsong UNITED (8.2m)
- 6. Remembrance - Instrumental - Hillsong Worship (5.9m)
- 7. Hope To Carry On - Caedmon's Call (2.8m)
- 8. Carried Away - Nadav Kohen (2.0m)
- 9. Dancing Through Life’s Journey - Instrumental - The Heart of David (0.5m)
+ 1. Sing About Me, I'm Dying Of Thirst - Kendrick Lamar (12.1m)
+ 2. Forever in Spirit - Funeral Music (4.3m)
+ 3. In the Distant Travels - Sadness (8.5m)
+ 4. Emotional Release - Eternal Sleeping Zone (7.3m)
+ 5. We Cry Together - Kendrick Lamar (5.7m)
+ 6. Memorial - Michael Nyman (12.0m)
+ 7. Now and at the Hour of Our Death (feat. BONES) - $uicideboy$ (4.2m)
+ 8. Blind Blind Blind - Neon Crayon (2.4m)
+ 9. Carried Away - Oceenra (2.2m)
+10. Two Hearts, One Journey - Instrumental - The Heart of David (0.5m)

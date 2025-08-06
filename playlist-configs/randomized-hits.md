@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🎲 Randomized Hits - Alex Method (240min)
+- **Name**: 🎲 Randomized Hits - Alex Method (240min)
 - **Description**: Popular tracks across decades with different selection each refresh - entertainment variety through randomization
 - **Duration Target**: 240 minutes
 - **Privacy**: public
@@ -107,35 +107,31 @@ Entertainment hits spanning multiple decades with randomized selection for varie
 This playlist demonstrates the randomization feature with the 🎲 dice emoji representing the element of chance. Each time you refresh the playlist, you'll get a different selection of popular tracks from these decades. The playlist targets 240 minutes of entertainment variety, perfect for discovering hits you might have missed or rediscovering favorites in a fresh context.
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/3lyyqadrCXYpNsSR9YtU8Q
-- **Spotify ID**: 3lyyqadrCXYpNsSR9YtU8Q
-- **Last Updated**: 2025-08-05
+- **Spotify URL**: https://open.spotify.com/playlist/6kksAkoD7vcIr4Nkf0wf9e
+- **Spotify ID**: 6kksAkoD7vcIr4Nkf0wf9e
+- **Last Updated**: 2025-08-06
 - **Action**: created
-- **Track Count**: 22
-- **Duration**: 91.3 minutes
+- **Track Count**: 18
+- **Duration**: 74.0 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer (Tracks randomized on each refresh)
 
 ### Track List (for YouTube Music Transfer)
 Note: Tracks are randomized on each refresh - track list below represents current selection only.
- 1. Inner Smile - Texas (3.8m)
- 2. MMMBop - Hanson (4.5m)
+ 1. Hail Mary - 2Pac (5.2m)
+ 2. Sounds Like the Radio - Zach Top (3.6m)
  3. You Know How We Do It - Ice Cube (3.9m)
- 4. family ties (with Kendrick Lamar) - Baby Keem (4.2m)
- 5. I Want You Back - Radio Edit - *NSYNC (3.3m)
- 6. Let's Get It Started - Spike Mix - Black Eyed Peas (3.6m)
- 7. Hail Mary - 2Pac (5.2m)
- 8. Ginseng Strip 2002 - Yung Lean (2.6m)
- 9. All Eyes on You (feat. Chris Brown & Nicki Minaj) - Meek Mill (3.7m)
-10. Run BTS - BTS (3.4m)
-11. Lost - T-Dre (4.8m)
-12. 8am in Charlotte - Drake (4.4m)
-13. She - Tyler, The Creator (4.2m)
-14. won't stop - Gunna (3.0m)
-15. All I Wanna Do - Sheryl Crow (4.5m)
-16. Wild Thing - Tone-Loc (4.4m)
-17. Two Princes - Spin Doctors (4.3m)
-18. E.I. - Nelly (4.8m)
-19. California Love - Original Version - 2Pac (4.7m)
-20. Hit 'Em Up - Single Version - 2Pac (5.2m)
-21. Africa - TOTO (4.9m)
-22. Tell It to My Heart - Taylor Dayne (3.7m)
+ 4. I Want You Back - Radio Edit - *NSYNC (3.3m)
+ 5. 8am in Charlotte - Drake (4.4m)
+ 6. Hit 'Em Up - Single Version - 2Pac (5.2m)
+ 7. Let's Get It Started - Spike Mix - Black Eyed Peas (3.6m)
+ 8. What’s Your Country Song - Thomas Rhett (2.9m)
+ 9. Run BTS - BTS (3.4m)
+10. Lost - T-Dre (4.8m)
+11. She - Tyler, The Creator (4.2m)
+12. won't stop - Gunna (3.0m)
+13. All I Wanna Do - Sheryl Crow (4.5m)
+14. Wild Thing - Tone-Loc (4.4m)
+15. This Is How We Do It - Montell Jordan (4.0m)
+16. California Love - Original Version - 2Pac (4.7m)
+17. Africa - TOTO (4.9m)
+18. Tell It to My Heart - Taylor Dayne (3.7m)

@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🇧🇷 Música Popular Brasileira - Alex Method (90min)
+- **Name**: 🇧🇷 Música Popular Brasileira - Alex Method (90min)
 - **Description**: Essential MPB classics and contemporary hits featuring the greatest Brazilian artists and timeless songs that define Brazilian popular music
 - **Duration Target**: 90 minutes
 - **Privacy**: public
@@ -121,38 +121,37 @@ Modern artists continuing the MPB tradition
 - authentic
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/33l6ASmctvExqB9fQV3X4q
-- **Spotify ID**: 33l6ASmctvExqB9fQV3X4q
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 25
-- **Duration**: 93.7 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/3zGLQPqG6HtAqEjLxgVq4J
+- **Spotify ID**: 3zGLQPqG6HtAqEjLxgVq4J
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 24
+- **Duration**: 88.5 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer (Tracks randomized on each refresh)
 
 ### Track List (for YouTube Music Transfer)
 Note: Tracks are randomized on each refresh - track list below represents current selection only.
- 1. Alegria, Alegria (feat. Caetano Veloso) - Roberto Carlos (2.8m)
- 2. (Nothing But) Flowers - Caetano Veloso (4.3m)
- 3. Como Nossos Pais - Ao Vivo - Vannick Belchior (4.0m)
- 4. Trem Das Onze - Gilson Silveira (3.4m)
- 5. Miss Balanço - Ed Lincoln (1.9m)
- 6. Oriente - Gilberto Gil (6.0m)
- 7. La Mer - Caetano Veloso (3.5m)
- 8. Céu do Sul - Acústico - Gabriel Gonti (2.7m)
- 9. Desafinado - Rosa Passos (4.8m)
-10. Saudade da Bahia - João Gilberto (2.3m)
-11. So Nice (Summer Samba) - Tony Mottola (2.5m)
-12. Bossa nòva - Contrada Lorì (5.0m)
-13. A Côr Do Teu Baton - Herman José (3.1m)
-14. Artista Ou Não - Facção Central (5.5m)
-15. Divino - Toco (3.5m)
-16. São Salvador - Gal Costa (2.5m)
-17. Sever - Arca (2.2m)
-18. Bells - Lil Wayne (3.4m)
-19. I'm Sorry Babe (Desculpe Babe) - Os Mutantes (2.7m)
-20. Mutant - Arca (7.5m)
-21. Tchau Obrigado - MC Ryan SP (5.8m)
-22. Eu Sei Que Vou Te Amar - Nana Caymmi (3.8m)
-23. Ituverava - Ivan Lins (3.1m)
-24. Carta aberta - BK (4.4m)
-25. Una Famiglia Reale - Sr. Chinarro (3.1m)
+ 1. Quiet Nights of Quiet Stars - Antônio Carlos Jobim (3.4m)
+ 2. Chico Buarque Song - Céu (3.5m)
+ 3. Balansamba - Roberto Menescal E Seu Conjunto (1.9m)
+ 4. É preciso Perdoar - Chico Platinela (2.1m)
+ 5. Como nossos pais - Belchior (4.6m)
+ 6. Águas de Março - Celso Fonseca (3.6m)
+ 7. Expresso 2222 - Ao Vivo - Gilberto Gil (7.8m)
+ 8. Il Leprotto Zip I - Bruno Lauzi (2.4m)
+ 9. Antigua - Antônio Carlos Jobim (3.2m)
+10. Charlie Brown - Ao Vivo - Benito Di Paula (4.3m)
+11. Baiana Da Gema - Simone (4.3m)
+12. The Girl From Ipanema - Antônio Carlos Jobim (2.7m)
+13. O Barquinho - João Gilberto (2.5m)
+14. Marie Laveau - Dr. John (6.8m)
+15. Pan Am Flight 1701 - DJ Sun (6.6m)
+16. Maria Moita - Nicola Conte (5.3m)
+17. Hymn - Arca (2.0m)
+18. Little Boat - João Donato (2.4m)
+19. Lugar Comum - Clara Mendes (3.3m)
+20. Raton - Robson Jorge (0.9m)
+21. Mi Aventura por la India - Les Luthiers (4.4m)
+22. O Maior Sol - Claudio Fonseca Quartet (3.2m)
+23. Áudio - Ao Vivo em Brasília - Diego & Victor Hugo (3.2m)
+24. Alguém - Dota Kehr (4.2m)

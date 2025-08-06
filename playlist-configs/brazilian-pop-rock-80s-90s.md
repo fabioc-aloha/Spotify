@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🎸 Brazilian Pop Rock 80s-90s - Alex Method (75min)
+- **Name**: 🎸 Brazilian Pop Rock 80s-90s - Alex Method (75min)
 - **Description**: Popular Brazilian pop rock hits from the golden decades of the 80s and 90s featuring iconic artists and unforgettable melodies
 - **Duration Target**: 75 minutes
 - **Privacy**: public
@@ -116,33 +116,32 @@ Continuation and evolution of the pop rock tradition into the 1990s
 - polished
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/6zpsbfYdwDF3oQCp75HAJD
-- **Spotify ID**: 6zpsbfYdwDF3oQCp75HAJD
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 20
-- **Duration**: 76.8 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/2aNKyl7u9HYcSGR5yPBZsE
+- **Spotify ID**: 2aNKyl7u9HYcSGR5yPBZsE
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 19
+- **Duration**: 71.3 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer (Tracks randomized on each refresh)
 
 ### Track List (for YouTube Music Transfer)
 Note: Tracks are randomized on each refresh - track list below represents current selection only.
- 1. Educação sentimental - Kid Abelha (4.1m)
- 2. Como Eu Quero - Ao Vivo - Kid Abelha (4.8m)
- 3. Vai e Vem (feat. Seu Jorge) - Ao Vivo - Capital Inicial (3.6m)
- 4. No Seu Lugar - Ao Vivo - Kid Abelha (3.7m)
- 5. Tempos Modernos - Make U Sweat (3.6m)
- 6. Rock You Up - The Romantics (3.6m)
- 7. Do Me Anyway You Wanna (2023 Remaster) - The Romantics (3.4m)
- 8. Índios - Legião Urbana (4.6m)
- 9. Aa uu - Titãs (2.6m)
-10. Romance Ideal - Ao Vivo - Os Paralamas Do Sucesso (4.6m)
-11. Vital e sua moto - Faixa Extra - Samuel Úria (4.6m)
-12. Ainda Sonhar - S-Tone Inc (4.1m)
-13. Infinita Highway - Engenheiros Do Hawaii (6.2m)
-14. Infinita Highway - Ao Vivo - Engenheiros Do Hawaii (4.3m)
-15. Amanheceu - Fernanda Cunha (2.7m)
-16. Um Abraco Do Bonfa - Charlie Byrd (2.3m)
-17. I'm in Love With a Girl Named Spike - Skankin' Pickle (1.6m)
-18. Mais uma Vez - Acústico - Jota Quest (3.6m)
-19. Tempos Modernos - Estúdio - Jota Quest (3.9m)
-20. La Medianoche - Major League Skankers (4.9m)
+ 1. Debate De 4 - Romeo Santos (4.7m)
+ 2. Eu Tou Tentando - Kid Abelha (3.7m)
+ 3. Alice (Não me escreva aquela carta de amor) - Kid Abelha (3.1m)
+ 4. Como Eu Quero - Raí Saia Rodada (2.2m)
+ 5. Eu Vou Estar - Capital Inicial (3.4m)
+ 6. Uma Nova História - Ao Vivo - Fernandinho (6.5m)
+ 7. Não Sei Se Mereço - Alcoolémia (4.1m)
+ 8. Barra Limpa - Oscar Brown, Jr. (3.1m)
+ 9. Dividas - Titãs (3.2m)
+10. Baú Com Ouro - Viegas (3.9m)
+11. Por Supuesto - Antídoto (3.0m)
+12. MONTAGEM ULTRA PLAY FOR TRAFFIC - DJ VT DA RUA LARGA (1.6m)
+13. Você Não Ama Ninguém - Salve Malak (4.9m)
+14. Por Que? - Ave Sangria (4.5m)
+15. Cê Viu - Ultra Slowed - qaraqshy (3.0m)
+16. Kenjaku, Corpo Morto - M4rkim (4.9m)
+17. Preciso Crer - Gabro (4.0m)
+18. Dias Melhores - Jota Quest (4.8m)
+19. Fala Brasil - Rogê (3.0m)

@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 💤 Sleep Therapy Journey - Alex Method (45min)
+- **Name**: 💤 Sleep Therapy Journey - Alex Method (45min)
 - **Description**: Therapeutic sleep induction playlist using progressive tempo reduction, binaural beats, and nature sounds. Designed to guide the nervous system into natural sleep cycles through scientifically-informed musical therapy.
 - **Duration Target**: 45 minutes
 - **Privacy**: private
@@ -75,20 +75,19 @@ Ultra-gentle ambient soundscape for sleep maintenance and peaceful dreaming
 
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/2mYYT1laDS2BRqj84sfzyN
-- **Spotify ID**: 2mYYT1laDS2BRqj84sfzyN
-- **Last Updated**: 2025-08-05
-- **Action**: refreshed
-- **Track Count**: 8
-- **Duration**: 48.0 minutes
+- **Spotify URL**: https://open.spotify.com/playlist/6qkAVE0IGl5rcQhpClzGOZ
+- **Spotify ID**: 6qkAVE0IGl5rcQhpClzGOZ
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 7
+- **Duration**: 47.1 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Song of the Sea - Dan Fogelberg (5.6m)
- 2. Jonathan - Barclay James Harvest (4.8m)
- 3. Exquisite Corpse - Watsky (9.7m)
- 4. Deep Relaxation 2 - Dakini Mandarava (6.6m)
- 5. Deep Sleep Induction (Delta Binaural Beats) - Binaural Beats Isochronic Tones Lab (10.0m)
- 6. Nightswimming REM - REM Sleep Inducing (5.8m)
- 7. Ambient Tones - Background Music Attention (3.7m)
- 8. Music (Dream) - Massage Spa Playlist (1.8m)
+ 1. Mona Lisa (feat. Kendrick Lamar) - Lil Wayne (5.4m)
+ 2. A Quiet Evening - Arta Porting (5.1m)
+ 3. Peaceful Journeys - Meditation Music (10.0m)
+ 4. Rivers Turn to Waterfalls - Slow Attack Ensemble (5.9m)
+ 5. Delta Waves and Ocean Sounds Rest Mind - Emiliano Bruguera (15.3m)
+ 6. Tranquillum (Noctis) - The Goodnight Project (3.8m)
+ 7. A Quiet Dream - Slumberjacks (1.7m)

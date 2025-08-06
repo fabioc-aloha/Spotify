@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🎨 Synesthesia Simulation - Alex Method (180min)
+- **Name**: 🎨 Synesthesia Simulation - Alex Method (180min)
 - **Description**: Multi-sensory experience creation through carefully crafted sonic color and texture progression - explore the intersection of sound, color, and sensation
 - **Duration Target**: 180 minutes
 - **Privacy**: public
@@ -110,3 +110,26 @@ Complete multi-sensory integration bringing together all synesthetic elements in
 - vivid
 - saturated
 - nuanced
+
+
+## Cross-Platform Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/5HLrHcNvOkYIkc5dHowiQj
+- **Spotify ID**: 5HLrHcNvOkYIkc5dHowiQj
+- **Last Updated**: 2025-08-06
+- **Action**: created
+- **Track Count**: 11
+- **Duration**: 182.1 minutes
+- **Generated Tracks**: Ready for YouTube Music transfer
+
+### Track List (for YouTube Music Transfer)
+ 1. People Are Animals - Original Mix - Talpa (7.8m)
+ 2. Shores of India - Symphonized live 2018 - Anneke van Giersbergen (7.3m)
+ 3. No Earthly Connection - Praga Khan (6.8m)
+ 4. Shores of India - Gentle Version - The Gentle Storm (6.7m)
+ 5. Shores of India - Storm Version - The Gentle Storm (6.4m)
+ 6. Let go to Tao - Acoustic Version - Escaped Apple (6.2m)
+ 7. The Interview - The Smashing Pumpkins (45.8m)
+ 8. Why Patterns? - Morton Feldman (29.5m)
+ 9. Integral Accident - Horse Lords (18.6m)
+10. Deep Relaxation One - Dr. Jeffrey Thompson (30.9m)
+11. Bilateral Stimulation - Mark Grant (16.0m)

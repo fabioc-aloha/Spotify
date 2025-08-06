@@ -2,7 +2,7 @@
 
 ## Metadata
 
-**Name**: 🌊 Ocean Depth Exploration - Alex Method (200min)
+- **Name**: 🌊 Ocean Depth Exploration - Alex Method (200min)
 - **Description**: Underwater journey from surface waves to deep sea mystery and return - immersive aquatic experience through musical depths
 - **Duration Target**: 200 minutes
 - **Privacy**: public
@@ -125,37 +125,31 @@ Gradual brightening music representing relief and surface celebration after deep
 
 
 ## Cross-Platform Metadata
-- **Spotify URL**: https://open.spotify.com/playlist/3PsxMhutebd5UzMG37RgBy
-- **Spotify ID**: 3PsxMhutebd5UzMG37RgBy
-- **Last Updated**: 2025-08-05
+- **Spotify URL**: https://open.spotify.com/playlist/3ChE96Kq1n9SyYIzPVb5G7
+- **Spotify ID**: 3ChE96Kq1n9SyYIzPVb5G7
+- **Last Updated**: 2025-08-06
 - **Action**: created
-- **Track Count**: 25
-- **Duration**: 186.9 minutes
+- **Track Count**: 19
+- **Duration**: 189.4 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Hi Ren - Ren (8.6m)
- 2. Light Within Me - Dreamflute Dorothée Fröller (8.5m)
- 3. Aquatic Ambience - Tha Audio Unit (6.7m)
- 4. Dreamin' A Life - Woodie (6.3m)
- 5. Aqua Alaganza - Webinar™ (6.2m)
- 6. Quoth - Polygon Window (5.6m)
- 7. Aquatic Ambiance (From "Donkey Kong Country") - The 8-Bit Big Band (5.5m)
- 8. Bioluminescence - Dublicator (9.0m)
- 9. Ballard's Pier - Perry Rotwein (8.1m)
-10. The First Crossing of the Watershed - Northcape (8.0m)
-11. Plankton - Dublicator (8.0m)
-12. Blue Skied An' Clear - Slowdive (6.9m)
-13. Arrive Ruttledge Col - Northcape (6.5m)
-14. Rolling Seaside Ambience for Deep Sleep and Meditation - Ocean Sounds Collection (9.8m)
-15. Submarine - Nutolina (9.0m)
-16. As - Stevie Wonder (7.1m)
-17. Abyssanctum - Sephiroth (6.7m)
-18. Ocean Deep (Live) [feat. Justin Harrison] - Pastor Rob (6.7m)
-19. Silhouette - Little Simz (6.6m)
-20. Agua - Ayla Schafer (8.7m)
-21. The Water Blessing Song - Mose & Binder Remix - Mose (8.5m)
-22. Peace Sea - Ocean Therapy (8.3m)
-23. Water Memory 1 - Emily A. Sprague (7.5m)
-24. Coastal Afternoons - Ocean Therapy (7.4m)
-25. Sunken Treasure - 2017 Remaster - Wilco (6.9m)
+ 1. Tropical Caribbean Rainforest (Coqui Frogs and Crickets at Dusk) [feat. Dr. Siddharth Ashvin Shah] - Music For Deep Sleep (36.2m)
+ 2. ocean waves delta waves binaural beats relaxing sound atmospheres ambient music and chilling sound soundtrack by ambient-mixer.com - Dr. Head (10.0m)
+ 3. Romantic Tropical Beach - Natural Sounds (9.9m)
+ 4. Born in a Tropical Swamp - Secede (9.5m)
+ 5. Aquarium Sounds - Nutolina (9.0m)
+ 6. Humpback Whale Sounds - Whale Song (8.0m)
+ 7. underwater hills - Martin Schulte (6.3m)
+ 8. Aquatic Ambience (From "Donkey Kong Country") - Voltz Supreme (5.2m)
+ 9. Submarine - Nutolina (9.0m)
+10. This Abyssal Galaxy - Juan Olave (9.0m)
+11. Stave Peak - Loscil (6.7m)
+12. Silhouette - Little Simz (6.6m)
+13. Underwater Reflection - 美波 (6.5m)
+14. EOALH (Pressure Rhythm) - Sa Pa (5.7m)
+15. Waterfall - Todd Edwards Remix - Disclosure (5.6m)
+16. Down Once More .../Track Down This Murderer - Live At The Royal Albert Hall/2011 - Andrew Lloyd Webber (19.4m)
+17. Coastal Falls - Ocean Therapy (9.9m)
+18. Water is calling - YUNEA (9.5m)
+19. Peaceful Native American Flute Lullaby & Ocean for New Borns, Infants & Moms - Soothing White Noise for Infant Sleeping and Massage, Crying & Colic Relief (7.5m)
