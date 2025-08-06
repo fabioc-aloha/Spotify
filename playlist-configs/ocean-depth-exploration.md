@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/3ChE96Kq1n9SyYIzPVb5G7
+- **Spotify ID**: 3ChE96Kq1n9SyYIzPVb5G7
+- **Last Updated**: 2025-08-06 18:57:06
+- **Track Count**: 28
+- **Duration**: 46.3 minutes
 ## Cover Art
-- **PNG**: cover-art\ocean-depth-exploration.png
-- **JPEG**: cover-art\ocean-depth-exploration.jpg
-- **Base64**: cover-art\ocean-depth-exploration_base64.txt
-- **Generated**: 2025-08-06 08:59:22
+- **PNG**: cover-art/ocean-depth-exploration.png
+- **JPEG**: cover-art/ocean-depth-exploration.jpg
+- **Generated**: 2025-08-06 18:41:14
 
 ## Search Queries
 - ocean waves ambient
@@ -153,3 +159,33 @@ Gradual brightening music representing relief and surface celebration after deep
 17. Coastal Falls - Ocean Therapy (9.9m)
 18. Water is calling - YUNEA (9.5m)
 19. Peaceful Native American Flute Lullaby & Ocean for New Borns, Infants & Moms - Soothing White Noise for Infant Sleeping and Massage, Crying & Colic Relief (7.5m)
+
+### Track List
+  1. Ocean Sounds - Beach Sounds (1.0m)
+  2. Ocean Waves Lullaby and Melody - Soothing Restorations (1.1m)
+  3. Light - Radio Vrs. - Fontana & Fregonese (1.1m)
+  4. aquatica 1987 - nohpetS (1.1m)
+  5. Lightwave - Radio Vrs. - Tognazzi & Ricordo (1.2m)
+  6. Don't Think About It (Lights Over Me) - Buddahmar (1.2m)
+  7. Loopable Ocean Waves - Mist & Moon (1.4m)
+  8. Relaxing Sleep Campfire, Ocean Waves and Thunder - Nature Soundscapes (1.4m)
+  9. Ocean Rain Thunder and Lightning - Loopable - Ocean Waves Radiance (1.4m)
+ 10. Undercover Secretary - The Surfrajettes (1.5m)
+ 11. Buoyant - Iremia (1.5m)
+ 12. Aquarium Water Sound 3D - Aquarium Sounds Remix - Atmospheres Soundscapes (1.6m)
+ 13. Aquarium Sounds - Aquarium Sounds Remix - Atmospheres Soundscapes (1.6m)
+ 14. Beach Waves and Rain - Ocean Waves Radiance (1.7m)
+ 15. Ambient Waves for Dreams - Dreams of Dreams (1.8m)
+ 16. Ambient Waves for Dreams - Dreams of Dreams (1.8m)
+ 17. Buoyant - Slumberville (1.8m)
+ 18. Waves Ambience - Ocean Sounds (1.8m)
+ 19. Light - Star Hopper (1.8m)
+ 20. Caribbean Amphibian - Kermit the Frog (1.9m)
+ 21. Caribbean Amphibian - Kermit the Frog (1.9m)
+ 22. Relaxing Ocean Sounds - Oceanscapes (2.0m)
+ 23. Surfing Shores - Ambient Version - Eagle Lake (2.1m)
+ 24. Surfing Shores - Eagle Lake (2.1m)
+ 25. aquatic ambience - Scizzie (2.1m)
+ 26. Reaction to miracles bathed in light (153.23 Hz) - Tranquilitee (2.1m)
+ 27. Surfboard - Roberto Menescal (2.1m)
+ 28. Water's Surface - Avery's Ambient (2.2m)

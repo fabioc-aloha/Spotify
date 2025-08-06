@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/4Sla09xfzhYJXOsgXsv5FK
+- **Spotify ID**: 4Sla09xfzhYJXOsgXsv5FK
+- **Last Updated**: 2025-08-06 18:57:39
+- **Track Count**: 32
+- **Duration**: 55.0 minutes
 ## Cover Art
-- **PNG**: cover-art\scientific-research-session.png
-- **JPEG**: cover-art\scientific-research-session.jpg
-- **Base64**: cover-art\scientific-research-session_base64.txt
-- **Generated**: 2025-08-06 09:00:45
+- **PNG**: cover-art/scientific-research-session.png
+- **JPEG**: cover-art/scientific-research-session.jpg
+- **Generated**: 2025-08-06 18:42:24
 
 ## Search Queries
 - analytical music
@@ -215,3 +221,37 @@ Pattern recognition and insight generation music for discovery themes and breakt
 76. To Better Come Back - Swink (2.1m)
 77. In Front Of Me - Swink (2.1m)
 78. Insight - Bart Sunshine (2.0m)
+
+### Track List
+  1. Epilogue - mell-ø (0.8m)
+  2. Contemplative Mood - Instrumental Society (1.0m)
+  3. Atmosphere study ambient focus with rain - Instrumental Music for Study Focus Concentration Sleepp (1.2m)
+  4. Knowledge - GODLACTUS (1.3m)
+  5. Ambient Hip-Hop - LOFI BEATS (1.3m)
+  6. Knowledge (feat. Slick Rick) - Tony Touch (1.4m)
+  7. Analytical Reasing deep focus music for coding (concentration and study music for programmer electronic focus productivity music) - JS-DEV.TECH (1.5m)
+  8. Contemplative Wonder (Piano) - Fearless Motivation Instrumentals (1.5m)
+  9. knowledge - Bupin (1.5m)
+ 10. The Castle of the Nymphs - Dennis Korn (1.6m)
+ 11. itkanbe[sonice] - Knxwledge (1.7m)
+ 12. Leaf In The Wind - Mirko Dukanovic (1.7m)
+ 13. Ambient Piano Sleep - Piano Peace (1.8m)
+ 14. Academic Ambiance: Relaxing Acoustic for Focus - Jim the Acoustic Guitar Guy (1.8m)
+ 15. knowledge of self - DRWN. (1.8m)
+ 16. Romanticizing Life - Lysander (1.8m)
+ 17. Focus Flow: Gentle Strums for Academic Focus - Jim the Acoustic Guitar Guy (1.8m)
+ 18. remain - Khamir Music (1.8m)
+ 19. Un Journée au Louvre - Dennis Korn (1.8m)
+ 20. what we once had - Ophelia Wilde (1.9m)
+ 21. Ambient Dark Academia - Study Music Project (1.9m)
+ 22. First Meeting - Rob Lane (1.9m)
+ 23. Knowledge of Self - DJ Prominent (1.9m)
+ 24. When The Winters Come - Swink (1.9m)
+ 25. marionnettes - Annie Rosier (2.0m)
+ 26. lonely waltz - Ophelia Wilde (2.0m)
+ 27. thankful - Instrumental - draw close (2.0m)
+ 28. Monastral - Arden Forest (2.1m)
+ 29. Contemplative Soul - Instrumental Soft Music Playing (2.1m)
+ 30. Reverie - The Aiko (2.1m)
+ 31. Constant - Instrumental - draw close (2.1m)
+ 32. Analytically Sound - Vibraciones Tranquilas (2.1m)

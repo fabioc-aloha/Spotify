@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/4hsrnq8DtCJ7VXgfO8sk4B
+- **Spotify ID**: 4hsrnq8DtCJ7VXgfO8sk4B
+- **Last Updated**: 2025-08-06 18:55:20
+- **Track Count**: 24
+- **Duration**: 40.6 minutes
 ## Cover Art
-- **PNG**: cover-art\dinner-party-evolution.png
-- **JPEG**: cover-art\dinner-party-evolution.jpg
-- **Base64**: cover-art\dinner-party-evolution_base64.txt
-- **Generated**: 2025-08-06 08:54:17
+- **PNG**: cover-art/dinner-party-evolution.png
+- **JPEG**: cover-art/dinner-party-evolution.jpg
+- **Generated**: 2025-08-06 18:36:04
 
 ## Search Queries
 - sophisticated jazz dinner
@@ -134,3 +140,29 @@ Intimate and memorable music for deeper conversations and meaningful connections
 20. Later Tonight - Brian Culbertson (4.9m)
 21. Sophisticated Lady - Mulgrew Miller (4.8m)
 22. Blow The Roof Off - Fredlite (4.7m)
+
+### Track List
+  1. Elegant Jazz Piano – Classy & Chill Lounge Music for Any Mood - SMOOTH JAZZ (1.0m)
+  2. Dinner Party Jazz - The Jazz Restaurant (1.2m)
+  3. Smooth Jazz for Sophisticates - Jazz Playlist Sophisticates (1.2m)
+  4. After Dinner Parlour Games - Essential Dinner Party Background Music (1.3m)
+  5. Sophisticated Jazz Playlist - Jazz Playlist Sophisticates (1.3m)
+  6. Dinner Party Ambiance Jazz - Essential Dinner Party Background Music (1.5m)
+  7. Cool Jazz Ambiance - Restaurant Jazz Playlist (1.5m)
+  8. Smooth Piano Bossa Sound - Classy Bossa Piano Jazz (1.6m)
+  9. Miami - Viva Verde (1.7m)
+ 10. Azure Afternoons - Vacatia (1.8m)
+ 11. Gentle Course Serenade - Restaurant Lounge Background Music (1.8m)
+ 12. Sophisticated - Italian Restaurant Background Music (1.8m)
+ 13. Extraordinary Soul Parties - Dinner Party Jazz Radio (1.8m)
+ 14. Relaxing Soul Parties - Dinner Party Jazz Radio (1.8m)
+ 15. Classy Smooth Ambiance - Piano Lounge Smooth Jazz (1.8m)
+ 16. Smooth Jazz - Restaurant jazz sensation (1.9m)
+ 17. Chilled Cocktail Jazz Party - Chill Jazz-Lounge (1.9m)
+ 18. Sophisticated Ambience for Your Dinner - Wine Bar Jazz Pianist (1.9m)
+ 19. Smooth Jazz Background - Restaurant jazz sensation (2.0m)
+ 20. Smooth Jazz Piano - Smooth Background Jazz (2.0m)
+ 21. Elegant Jazz for an Elegant Encounter - Wine Bar Jazz Pianist (2.0m)
+ 22. Laidback Lights - Solbeats (2.0m)
+ 23. Sophisticated Ambiance for July Evenings - Música para Cafeterías (2.0m)
+ 24. Sophisticated Ambience for At Home and Relaxing - Smooth Jazz (2.0m)

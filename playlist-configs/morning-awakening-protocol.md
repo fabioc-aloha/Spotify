@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/0HfMGrpqAc01klLsmebSVb
+- **Spotify ID**: 0HfMGrpqAc01klLsmebSVb
+- **Last Updated**: 2025-08-06 18:56:39
+- **Track Count**: 8
+- **Duration**: 14.0 minutes
 ## Cover Art
-- **PNG**: cover-art\morning-awakening-protocol.png
-- **JPEG**: cover-art\morning-awakening-protocol.jpg
-- **Base64**: cover-art\morning-awakening-protocol_base64.txt
-- **Generated**: 2025-08-06 08:57:41
+- **PNG**: cover-art/morning-awakening-protocol.png
+- **JPEG**: cover-art/morning-awakening-protocol.jpg
+- **Generated**: 2025-08-06 18:39:28
 
 ## Search Queries
 - gentle wake up music
@@ -138,3 +144,13 @@ Energetic but focused tracks to establish productive mindset and sustained energ
 29. One Kiss (with Dua Lipa) - R3HAB Remix - Calvin Harris (3.2m)
 30. Woah - Lil Baby (3.1m)
 31. I Didn't Come This Far to Only Come This Far (The Journey) - Fearless Motivation (2.5m)
+
+### Track List
+  1. The Wake Up Song - Lisa Loeb (1.2m)
+  2. Slow Jazz Awakening - Morning Music for Kids (1.5m)
+  3. Soft Timeless Winds - NyKuo (1.5m)
+  4. First Morning - The Cabin Tapes (1.7m)
+  5. Gentle Jazz Kids Wake Up - Morning Music for Kids (1.7m)
+  6. Aurore - Lullaby (1.9m)
+  7. Lift - Andrew Gialanella (2.0m)
+  8. Presidential (with Jenn Carter, Kyle Richh,TaTa) - 41 (2.5m)

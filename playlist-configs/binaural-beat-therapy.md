@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/5MRKUWlXCYyEE8IWGqiI4R
+- **Spotify ID**: 5MRKUWlXCYyEE8IWGqiI4R
+- **Last Updated**: 2025-08-06 18:54:46
+- **Track Count**: 14
+- **Duration**: 27.2 minutes
 ## Cover Art
-- **PNG**: cover-art\binaural-beat-therapy.png
-- **JPEG**: cover-art\binaural-beat-therapy.jpg
-- **Base64**: cover-art\binaural-beat-therapy_base64.txt
-- **Generated**: 2025-08-06 08:51:06
+- **PNG**: cover-art/binaural-beat-therapy.png
+- **JPEG**: cover-art/binaural-beat-therapy.jpg
+- **Generated**: 2025-08-06 18:33:38
 
 ## Search Queries
 - binaural beats meditation
@@ -132,3 +138,19 @@ Enhanced consciousness and insight states for mental clarity and focus
  9. The Ringer - Eminem (5.6m)
 10. Meditation Music with Theta Isochronic Tones - Anna Thompson (20.0m)
 11. Pineal and Pituitary Flow - Pinealwave (11.8m)
+
+### Track List
+  1. Calm and Alert (Alpha with 432 Hz) - Sound Bath (1.0m)
+  2. Heightened Awareness - Dan Kraus (1.1m)
+  3. Awareness - Meditation John (1.6m)
+  4. Understanding - Meditation John (1.6m)
+  5. 70 Hz Peak Awareness - Binaural Beats - Miracle Tones (2.1m)
+  6. Ocean Of Loving Awareness - Intro - PRAANA (2.1m)
+  7. 40 Hz Memory Recall - Binaural Beats - Miracle Tones (2.1m)
+  8. 14 Hz Peak Awareness - Binaural Beats - Neuroflow (2.1m)
+  9. 8 Hz Awareness - Binaural Beats - Neuroflow (2.1m)
+ 10. Relaxed awareness, the portal to light (Binaural Gamma 65 Hz) - Arhat Sankhara (2.2m)
+ 11. 12 Hz Binaural Beats for Unlock Relaxed Awareness - Spiritual Vibration TP (2.2m)
+ 12. Relaxed Awareness Part One - Relaxing Music Therapy,Nature Sounds,Massage Tribe (2.2m)
+ 13. Relaxed Awareness Part Two - Relaxing Music Therapy,Nature Sounds,Massage Tribe (2.2m)
+ 14. Binaural Delta Sinus 100 Hz - 104 Hz - Heals My Heart (2.4m)

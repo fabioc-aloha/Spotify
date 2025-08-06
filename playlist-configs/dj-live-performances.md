@@ -10,11 +10,17 @@
 - **Randomize Selection**: true
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/78LsV0Yx0LGZxK8jIF5Aah
+- **Spotify ID**: 78LsV0Yx0LGZxK8jIF5Aah
+- **Last Updated**: 2025-08-06 18:55:41
+- **Track Count**: 43
+- **Duration**: 108.3 minutes
 ## Cover Art
-- **PNG**: cover-art\dj-live-performances.png
-- **JPEG**: cover-art\dj-live-performances.jpg
-- **Base64**: cover-art\dj-live-performances_base64.txt
-- **Generated**: 2025-08-06 08:54:48
+- **PNG**: cover-art/dj-live-performances.png
+- **JPEG**: cover-art/dj-live-performances.jpg
+- **Generated**: 2025-08-06 18:36:31
 
 ## Search Queries
 
@@ -501,3 +507,48 @@ Note: Tracks are randomized on each refresh - track list below represents curren
 371. MORJA KAIJU VIP - Skrillex (1.5m)
 372. BIGGY BAP - Skrillex (2.9m)
 373. FaceTime - billy woods (3.5m)
+
+### Track List
+  1. Speed Trials On Acid (feat. Dan Diamond) (LF SYSTEM Remix) - Carl Cox (3.1m)
+  2. Vertigo (feat. Ed Graves) - Odd Mob (2.5m)
+  3. Ushuaia - Turfy Gang (2.6m)
+  4. The Business - Tiësto (2.7m)
+  5. Al talks with Country Dan Dixon & introduces Rio Drive - Big Al Downing (1.7m)
+  6. Why Don't You Love Me Like You Used to Do? - Tom Jones (1.8m)
+  7. SACRIFICIO (feat. Kid Yugi) - Artie 5ive (2.2m)
+  8. Not At This Party - David Guetta Remix - Dasha (2.9m)
+  9. Another Love - Tiësto Remix - Tom Odell (3.1m)
+ 10. Berghain - German Radio Mix - Justin Dolan (3.0m)
+ 11. Last Caress (Live at 100.7 WMMS Coffee Break Concert) - Metallica (2.5m)
+ 12. Transmission (Mixed) - Armin van Buuren Remix - Eelke Kleijn (1.7m)
+ 13. Somebody Pay Nina - 1tbsp (2.4m)
+ 14. PATT (Party All The Time) - Adam Beyer, Layton Giordani & Green Velvet Remix - Sharam (3.1m)
+ 15. '02 Lakers (feat. Ro$ama) - BigXthaPlug (2.7m)
+ 16. All Life - Nuits d'Etoiles (2.8m)
+ 17. Glimpse Of Us - Live - Ola Strand Rønning (2.4m)
+ 18. How Deep Is Your Love - Scary Pockets (2.2m)
+ 19. RZR - Victor Mendivil (2.9m)
+ 20. ⁠grwm - Shirin David (2.2m)
+ 21. Star - Stealers Wheel (2.9m)
+ 22. Gently (feat. Bad Bunny) - Drake (2.2m)
+ 23. Star - Stealers Wheel (2.9m)
+ 24. Ain't That Just Like A Woman - Chuck Berry (2.2m)
+ 25. Pictures Of You - Anyma (2.9m)
+ 26. The Metal - Tenacious D (2.8m)
+ 27. Red Kingdom - Tech N9ne (2.4m)
+ 28. Live at Tomorrowland 2025 (Freedom Stage) ID #001 [Mixed] - ID (1.8m)
+ 29. Remember (with David Guetta) - Becky Hill (2.7m)
+ 30. Heartbreak Anthem - Galantis (3.1m)
+ 31. IV. Sweatpants - Childish Gambino (3.0m)
+ 32. The Age Of Love (Mixed) - Charlotte de Witte & Enrico Sangiuliano Remix - Age Of Love (3.1m)
+ 33. Something To Feel - Dixon Dallas (2.6m)
+ 34. Ash Hash - Moxy Früvous (2.2m)
+ 35. Lioness - Swedish House Mafia (2.9m)
+ 36. Live at Tomorrowland 2025 (Freedom Stage) ID #005 [Mixed] - ID (2.7m)
+ 37. Are You There? - Live - Crozet (2.0m)
+ 38. RZR - Victor Mendivil (2.9m)
+ 39. Life Support - Emerson Collins (2.0m)
+ 40. Ain't That Just Like A Woman - Chuck Berry (2.2m)
+ 41. I Want It That Way (arr. I. Cox) - Live - Max Martin (2.6m)
+ 42. A State of Trance (ASOT 1236) - ASOT Merch - Armin van Buuren (0.8m)
+ 43. Aftershock - Pouya (3.0m)

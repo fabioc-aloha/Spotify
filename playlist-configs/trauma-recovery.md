@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/0OuYfy5x9ZczB5XPs9rOrO
+- **Spotify ID**: 0OuYfy5x9ZczB5XPs9rOrO
+- **Last Updated**: 2025-08-06 18:58:10
+- **Track Count**: 9
+- **Duration**: 15.5 minutes
 ## Cover Art
-- **PNG**: cover-art	rauma-recovery.png
-- **JPEG**: cover-art	rauma-recovery.jpg
-- **Base64**: cover-art	rauma-recovery_base64.txt
-- **Generated**: 2025-08-06 09:11:01
+- **PNG**: cover-art/trauma-recovery.png
+- **JPEG**: cover-art/trauma-recovery.jpg
+- **Generated**: 2025-08-06 18:45:27
 
 ## Search Queries
 
@@ -99,3 +105,14 @@ Gentle empowerment and recognition of resilience developed through the recovery 
  3. Gentle I - Ryan Richko (19.6m)
  4. Forgiveness - Instrumental - Phutureprimitive (14.6m)
  5. Blue Angel - Strawbs (10.8m)
+
+### Track List
+  1. Root Chakra - Grounding - Sound Bath (1.0m)
+  2. Grounded - Shamanic Wanderer (1.2m)
+  3. Grounding Flute - Slumbering Shaman (1.4m)
+  4. Grounding (Interlude) - ford. (1.4m)
+  5. Grounding - Gong Bath (1.9m)
+  6. Gentle Grounding - Dream Star (2.1m)
+  7. healing happens in permission, not in pressure - Grounding Sanctuary (2.1m)
+  8. Deep Grounding Energy - Solfeggio Healing Frequencies (2.1m)
+  9. Grounding Frequency 432hz - Nature's Tone 432hz (2.2m)

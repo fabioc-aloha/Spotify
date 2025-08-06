@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/6xfvdu4l8qRRVDeK6EJ4Gg
+- **Spotify ID**: 6xfvdu4l8qRRVDeK6EJ4Gg
+- **Last Updated**: 2025-08-06 18:57:56
+- **Track Count**: 37
+- **Duration**: 54.9 minutes
 ## Cover Art
-- **PNG**: cover-art\space-odyssey.png
-- **JPEG**: cover-art\space-odyssey.jpg
-- **Base64**: cover-art\space-odyssey_base64.txt
-- **Generated**: 2025-08-06 09:02:11
+- **PNG**: cover-art/space-odyssey.png
+- **JPEG**: cover-art/space-odyssey.jpg
+- **Generated**: 2025-08-06 18:43:34
 
 ## Search Queries
 - space launch music
@@ -168,3 +174,42 @@ Nostalgic, Earth-longing music building to triumphant return and mission complet
 25. The Earth - Hrvrd (5.5m)
 26. An Inquest Concerning Teeth - Earth (5.3m)
 27. Escape Through Paris - Lorne Balfe (5.1m)
+
+### Track List
+  1. Countdown To Death - Epsilon Zero (0.8m)
+  2. Rocket Countdown/Blastoff - The Brothers Johnson (0.9m)
+  3. Departure - Alexey Omelchuk (1.0m)
+  4. Rocket Ride Countdown (Count Down 10 to 1) - Aria Lullaby (1.0m)
+  5. Rocket Take Off/Countdown "5.4.3.2.1.0 Ignition Lift Off" - Sound Effects (1.0m)
+  6. Rocket Launching With Countdown - Sound Effects (1.1m)
+  7. Tech Noir Reveries - Psybervision (1.1m)
+  8. Bedtime Rocket Countdown (10 to 1) - Aria Lullaby (1.1m)
+  9. Capriccio in B-Flat Major, BWV 992 "On the Departure of His Beloved Brother": V. Aria di postiglione - Johann Sebastian Bach (1.1m)
+ 10. Rocket Launch With Countdown - Hollywood Effects Sound Library (1.1m)
+ 11. Main Titles - from Mission: Impossible - The Final Reckoning - Max Aruj (1.1m)
+ 12. Countdown and Rocket Launch - Stanley R. Fields (1.1m)
+ 13. Departure - David García Díaz (1.1m)
+ 14. Capriccio in B-Flat Major, BWV 992 "On the Departure of His Beloved Brother": II. [Andante] - Johann Sebastian Bach (1.2m)
+ 15. Mission - Bravo the Bagchaser (1.2m)
+ 16. Mission Control - Hans Zimmer (1.3m)
+ 17. The Departure (Main title theme from "The Leftovers" - Music from the HBO series) - Khatia Buniatishvili (1.4m)
+ 18. departure! - TV Size - Masatoshi Ono (1.4m)
+ 19. Departure (From "Kiki's Delivery Service") - An Invitation (1.4m)
+ 20. Launch Canceled - Mychael Danna (1.5m)
+ 21. Zoom, Zoom, Zoom, We're Going to the Moon! - The Kiboomers (1.6m)
+ 22. Departing Coruscant - John Williams (1.8m)
+ 23. On A Rocket Mission - Miny & Moe (1.8m)
+ 24. Departure - Yoko Shimomura (1.8m)
+ 25. Ambient Through Time - makesound music (1.8m)
+ 26. Astronaut - Big Block Singsong (1.8m)
+ 27. Curtain Call - Max Aruj (1.9m)
+ 28. astronaut - the tofu paradigm (1.9m)
+ 29. Departure (Reflection) - Max Richter (1.9m)
+ 30. Departure (From 'The Leftovers') - Invadable Harmony (1.9m)
+ 31. Technological Ambients - Gerald Olson (1.9m)
+ 32. Medical Technology Background - Wavelayers (1.9m)
+ 33. Departure (Lullaby) - Max Richter (2.0m)
+ 34. Space X Launch - Kley Kley (2.0m)
+ 35. Astronaut Music - James Cycles (2.0m)
+ 36. Countdown - The Rockets Band (2.0m)
+ 37. Floating Endlessly - Space Atmosphere (2.0m)

@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/1Q1Xk3Pzc9D0jS15Ksd09T
+- **Spotify ID**: 1Q1Xk3Pzc9D0jS15Ksd09T
+- **Last Updated**: 2025-08-06 18:56:13
+- **Track Count**: 6
+- **Duration**: 16.2 minutes
 ## Cover Art
-- **PNG**: cover-art\grief-processing.png
-- **JPEG**: cover-art\grief-processing.jpg
-- **Base64**: cover-art\grief-processing_base64.txt
-- **Generated**: 2025-08-06 08:56:09
+- **PNG**: cover-art/grief-processing.png
+- **JPEG**: cover-art/grief-processing.jpg
+- **Generated**: 2025-08-06 18:37:46
 
 ## Search Queries
 
@@ -99,3 +105,11 @@ Gentle integration of how love and memory continue as part of ongoing life journ
  8. Blind Blind Blind - Neon Crayon (2.4m)
  9. Carried Away - Oceenra (2.2m)
 10. Two Hearts, One Journey - Instrumental - The Heart of David (0.5m)
+
+### Track List
+  1. Abide With Me - Memorial Funeral Music Consort (1.4m)
+  2. Amazing Grace - Memorial Funeral Music Consort (1.5m)
+  3. Homecoming - John Story (2.6m)
+  4. Amazing Grace - Funeral Music (3.2m)
+  5. You Are Near - The O'Neill Brothers Group (3.8m)
+  6. Solace - John Story (3.8m)

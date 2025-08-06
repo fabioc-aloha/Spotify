@@ -10,11 +10,17 @@
 - **Randomize Selection**: true
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/7C1e2KOfQ1vWGTGLG5EmM4
+- **Spotify ID**: 7C1e2KOfQ1vWGTGLG5EmM4
+- **Last Updated**: 2025-08-06 18:56:34
+- **Track Count**: 15
+- **Duration**: 28.3 minutes
 ## Cover Art
-- **PNG**: cover-art\mindful-recovery.png
-- **JPEG**: cover-art\mindful-recovery.jpg
-- **Base64**: cover-art\mindful-recovery_base64.txt
-- **Generated**: 2025-08-06 08:57:11
+- **PNG**: cover-art/mindful-recovery.png
+- **JPEG**: cover-art/mindful-recovery.jpg
+- **Generated**: 2025-08-06 18:39:04
 
 ## Search Queries
 - mindful ambient recovery
@@ -135,3 +141,20 @@ Note: Tracks are randomized on each refresh - track list below represents curren
 23. Upbeat Ambient - Gold-Tiger (1.5m)
 24. Energy - HABITAAT (3.5m)
 25. Dreamscape - Positive Soul Music (6.4m)
+
+### Track List
+  1. dissolve - insomnic sounds (2.0m)
+  2. liminal - twilight mind (1.8m)
+  3. Ambient Space Music - Relaxing Music for Stress Relief (2.0m)
+  4. 432 Hz Release Tension from Body and Mind - Sleep Fruits Music (2.1m)
+  5. Dissolution - Ronnie Scharrer (1.9m)
+  6. Peaceful - Meditation For Stress Relief (1.2m)
+  7. 174 Hz Stress Relief - Glowing Aura (2.1m)
+  8. 432 Hz Release Tension from Body and Mind - Sleep Fruits Music (2.1m)
+  9. Threat - ZBSBrothers (1.8m)
+ 10. 396 Hz Relieve Stress And Anxiety - Feed Your Soul (1.7m)
+ 11. 432 Hz Relieve Stress - Feed Your Soul (1.1m)
+ 12. Peaceful Music - Ambient (2.0m)
+ 13. Kensington Gardens - Calm Horizons (2.2m)
+ 14. 174 Hz Tension Dissolver - Glowing Aura (2.2m)
+ 15. COFFEE - Kelly Rowland (2.2m)

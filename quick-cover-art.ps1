@@ -5,7 +5,7 @@
 
 .DESCRIPTION
     Simple, fast script to generate cover art for all playlists with minimal output.
-    Uses the existing generate_cover_art.py with batch processing capabilities.
+    Uses the existing spotify_generate_cover_art.py with batch processing capabilities.
 
 .PARAMETER Force
     Force regeneration of cover art even if files exist
@@ -41,12 +41,12 @@ try {
     # Get script directory and config files
     $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
     $ConfigDir = Join-Path $ScriptDir "playlist-configs"
-    $CoverArtScript = Join-Path $ScriptDir "generate_cover_art.py"
+    $CoverArtScript = Join-Path $ScriptDir "spotify_generate_cover_art.py"
     $CoverArtDir = Join-Path $ScriptDir "cover-art"
     
     # Check if cover art script exists
     if (-not (Test-Path $CoverArtScript)) {
-        Write-Host "❌ Error: generate_cover_art.py not found" -ForegroundColor Red
+        Write-Host "❌ Error: spotify_generate_cover_art.py not found" -ForegroundColor Red
         exit 1
     }
     
@@ -111,7 +111,7 @@ try {
         
         try {
             # Build arguments for cover art generator
-            $Arguments = @($CoverArtScript, $configFile.FullName)
+            $Arguments = @($CoverArtScript, $configFile.FullName, "--force-ascii")
             if ($Force) {
                 $Arguments += "--force"
             }
@@ -192,7 +192,7 @@ try {
     }
     
     if ($FailureCount -gt 0) {
-        Write-Host "`n💡 Tip: For playlists that consistently fail, try generate_problem_covers.py" -ForegroundColor Blue
+        Write-Host "`n💡 Tip: For playlists that consistently fail, try spotify_generate_problem_covers.py" -ForegroundColor Blue
     }
 }
 catch {

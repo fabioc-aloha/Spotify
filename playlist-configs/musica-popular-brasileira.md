@@ -10,11 +10,17 @@
 - **Randomize Selection**: true
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/3zGLQPqG6HtAqEjLxgVq4J
+- **Spotify ID**: 3zGLQPqG6HtAqEjLxgVq4J
+- **Last Updated**: 2025-08-06 18:56:45
+- **Track Count**: 10
+- **Duration**: 24.1 minutes
 ## Cover Art
-- **PNG**: cover-art\musica-popular-brasileira.png
-- **JPEG**: cover-art\musica-popular-brasileira.jpg
-- **Base64**: cover-art\musica-popular-brasileira_base64.txt
-- **Generated**: 2025-08-06 08:58:05
+- **PNG**: cover-art/musica-popular-brasileira.png
+- **JPEG**: cover-art/musica-popular-brasileira.jpg
+- **Generated**: 2025-08-06 18:39:55
 
 ## Search Queries
 
@@ -155,3 +161,15 @@ Note: Tracks are randomized on each refresh - track list below represents curren
 22. O Maior Sol - Claudio Fonseca Quartet (3.2m)
 23. Áudio - Ao Vivo em Brasília - Diego & Victor Hugo (3.2m)
 24. Alguém - Dota Kehr (4.2m)
+
+### Track List
+  1. Água de Beber - Quarteto Jobim-Morelenbaum (2.6m)
+  2. Nem Que Seja A Nado Feat. Toco - Rosalia De Souza (2.7m)
+  3. Diz Que Fui Por Ai - Nara Leão (2.2m)
+  4. Águas Do Passado - Sara Santos (2.4m)
+  5. Essa Passou - Carlos Lyra (2.4m)
+  6. Amazon - João Donato (2.5m)
+  7. Alegria, Alegria - Ao Vivo - Caetano Veloso (2.7m)
+  8. Roda Mundo - Ana Mazzotti (2.5m)
+  9. Alfazema e Aguarrás - IZENZÊÊ (2.6m)
+ 10. Um Abraço No Bonfá - Ultimate Mix - João Gilberto (1.6m)

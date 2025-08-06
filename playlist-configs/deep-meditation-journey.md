@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/2z3Y2BXaPmscf9R0hQWR4Z
+- **Spotify ID**: 2z3Y2BXaPmscf9R0hQWR4Z
+- **Last Updated**: 2025-08-06 18:55:09
+- **Track Count**: 8
+- **Duration**: 10.8 minutes
 ## Cover Art
-- **PNG**: cover-art\deep-meditation-journey.png
-- **JPEG**: cover-art\deep-meditation-journey.jpg
-- **Base64**: cover-art\deep-meditation-journey_base64.txt
-- **Generated**: 2025-08-06 13:27:06
+- **PNG**: cover-art/deep-meditation-journey.png
+- **JPEG**: cover-art/deep-meditation-journey.jpg
+- **Generated**: 2025-08-06 18:35:13
 
 ## Search Queries
 
@@ -145,3 +151,13 @@
 10. Healing - Kamal Engels (9.6m)
 11. Tuva - Garth Stevenson (9.6m)
 12. Memorial - Remastered - Explosions In The Sky (8.8m)
+
+### Track List
+  1. Rich Earth - Sacred Grove (1.0m)
+  2. Earthbound Song - Totem Tone (1.2m)
+  3. Grounded - Shamanic Wanderer (1.2m)
+  4. Earthbound - Enchanted Mirage (1.2m)
+  5. Grounding Flute - Slumbering Shaman (1.4m)
+  6. Sacred Grounding - Barry Goldstein (1.4m)
+  7. Grounding (Interlude) - ford. (1.4m)
+  8. Empower - Sounds of the Canyon (1.9m)

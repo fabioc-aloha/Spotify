@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/4uZFgKRjjlaXZmM67uIFf9
+- **Spotify ID**: 4uZFgKRjjlaXZmM67uIFf9
+- **Last Updated**: 2025-08-06 18:54:59
+- **Track Count**: 24
+- **Duration**: 40.7 minutes
 ## Cover Art
-- **PNG**: cover-art\cinematic-storytelling.png
-- **JPEG**: cover-art\cinematic-storytelling.jpg
-- **Base64**: cover-art\cinematic-storytelling_base64.txt
-- **Generated**: 2025-08-06 08:52:12
+- **PNG**: cover-art/cinematic-storytelling.png
+- **JPEG**: cover-art/cinematic-storytelling.jpg
+- **Generated**: 2025-08-06 18:34:25
 
 ## Search Queries
 - mysterious cinematic
@@ -157,3 +163,29 @@ Emotional and reflective conclusions providing peaceful narrative closure and wi
 30. Concern - William Tyler (5.5m)
 31. Restful Contemplation - Slowbraid (5.3m)
 32. And Relax! - The Cinematic Orchestra (5.0m)
+
+### Track List
+  1. Suspenseful Hint - Ben Bromfield (0.9m)
+  2. Tension - Xullis (1.0m)
+  3. Building Tension - Dan Graham (1.0m)
+  4. Hollow Eyes - Jeff Cardoni (1.0m)
+  5. Tension Suspense Mystery Ambient Atmosphere Crime Scene Theme 001 - Background Music Soundtrack (1.2m)
+  6. Tensions Run High - Soundridemusic (1.3m)
+  7. Calm and Peace - Saymon Cleiton (1.3m)
+  8. Mysterious Crimes - Eitan Epstein Music (1.6m)
+  9. mysterious being - analoq. (1.7m)
+ 10. Threat - ZBSBrothers (1.8m)
+ 11. Chasing Kou "Drowning Love" - Orchestral Ambient Rework - Eleftherios (1.8m)
+ 12. Tension - Moonlynx (1.9m)
+ 13. Cinematic Tension - Wolfgang Woehrle (1.9m)
+ 14. The World Diamond Center - Kevin Matley (1.9m)
+ 15. tension - rl (1.9m)
+ 16. Blood Moon - Martin Sponticcia (1.9m)
+ 17. Cinematic Tension Underscore - Neil Cross (2.0m)
+ 18. Cinematic Tension - ArcticFoxMusic (2.0m)
+ 19. Mysterious Cinematic - cleanmindsounds (2.0m)
+ 20. Tension Suspense Mystery Ambient Atmosphere Crime Scene Theme 002 - Background Music Soundtrack (2.0m)
+ 21. Cinematic Violins - Rafael Krux (2.0m)
+ 22. Type E - Dream Cave (2.1m)
+ 23. Building Tension - Neil Cross (2.1m)
+ 24. Foreboding Whispers - Experia (2.1m)

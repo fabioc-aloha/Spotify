@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/1oQi7kgEfzGbMO6SE8j1e6
+- **Spotify ID**: 1oQi7kgEfzGbMO6SE8j1e6
+- **Last Updated**: 2025-08-06 18:55:13
+- **Track Count**: 8
+- **Duration**: 14.1 minutes
 ## Cover Art
-- **PNG**: cover-art\depression-support.png
-- **JPEG**: cover-art\depression-support.jpg
-- **Base64**: cover-art\depression-support_base64.txt
-- **Generated**: 2025-08-06 08:53:39
+- **PNG**: cover-art/depression-support.png
+- **JPEG**: cover-art/depression-support.jpg
+- **Generated**: 2025-08-06 18:35:36
 
 ## Search Queries
 
@@ -98,3 +104,13 @@ Gentle conclusion fostering connection to self, others, or meaning with sustaina
  5. 963 Hz Connect to Higher Self - Music Body and Spirit (2.6m)
  6. Floating Clarity of Consciousness - Connectionist (1.9m)
  7. Get Connected (Education Connection Commercial Jingle) - Falcone (1.0m)
+
+### Track List
+  1. Heart Healing - Accepting Emotions - Sound Bath (1.0m)
+  2. 741 Hz Heal Emotional Blockages - Feed Your Soul (1.2m)
+  3. Acceptance - blushful (1.4m)
+  4. Acceptance - Limelight Glow (1.6m)
+  5. 432 Hz Emotional Balance - Glowing Aura (2.1m)
+  6. 7.5 Hz Emotional Clarity - Binaural Beats - Neuroflow (2.2m)
+  7. Acceptance - Deepak Chopra (2.2m)
+  8. 417 Hertz (Emotional Strength and Stability) - Kev Thompson (2.4m)

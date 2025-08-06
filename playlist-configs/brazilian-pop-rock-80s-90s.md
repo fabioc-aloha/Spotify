@@ -10,11 +10,17 @@
 - **Randomize Selection**: true
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/2aNKyl7u9HYcSGR5yPBZsE
+- **Spotify ID**: 2aNKyl7u9HYcSGR5yPBZsE
+- **Last Updated**: 2025-08-06 18:54:52
+- **Track Count**: 7
+- **Duration**: 17.2 minutes
 ## Cover Art
-- **PNG**: cover-art\brazilian-pop-rock-80s-90s.png
-- **JPEG**: cover-art\brazilian-pop-rock-80s-90s.jpg
-- **Base64**: cover-art\brazilian-pop-rock-80s-90s_base64.txt
-- **Generated**: 2025-08-06 08:51:38
+- **PNG**: cover-art/brazilian-pop-rock-80s-90s.png
+- **JPEG**: cover-art/brazilian-pop-rock-80s-90s.jpg
+- **Generated**: 2025-08-06 18:34:02
 
 ## Search Queries
 
@@ -145,3 +151,12 @@ Note: Tracks are randomized on each refresh - track list below represents curren
 17. Preciso Crer - Gabro (4.0m)
 18. Dias Melhores - Jota Quest (4.8m)
 19. Fala Brasil - Rogê (3.0m)
+
+### Track List
+  1. Lilia - Milton Nascimento (2.6m)
+  2. Lembrança do Santos - Pierre Cavalli (2.3m)
+  3. Heroes Del Mundo - Lulu (2.1m)
+  4. Casamento - Diabo Na Cruz (2.3m)
+  5. Eu Rimo na Direita - De Leve (2.7m)
+  6. Nem Que Seja A Nado Feat. Toco - Rosalia De Souza (2.7m)
+  7. Sei - Flamha (2.6m)

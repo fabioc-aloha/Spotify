@@ -1,25 +1,17 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    Quick Refresh - All Alex Method DJ Playlists
+    Quick Refresh - All Alex Method DJ Spotify Playlists
 
 .DESCRIPTION
-    Simple, fast script to refresh all playlists with minimal output.
+    Simple, fast script to refresh all Spotify playlists with minimal output.
     Perfect for scheduled tasks or quick updates.
-
-.PARAMETER Platform
-    spotify or youtube-music (default: spotify)
 
 .EXAMPLE
     .\quick-refresh.ps1
-    .\quick-refresh.ps1 -Platform youtube-music
 #>
 
-param(
-    [Parameter()]
-    [ValidateSet("spotify", "youtube-music")]
-    [string]$Platform = "spotify"
-)
+param()
 
 $ErrorActionPreference = "Stop"
 
@@ -27,14 +19,14 @@ try {
     # Get script directory and config files
     $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
     $ConfigDir = Join-Path $ScriptDir "playlist-configs"
-    $PythonScript = Join-Path $ScriptDir "universal_playlist_creator.py"
+    $PythonScript = Join-Path $ScriptDir "spotify_playlist_creator.py"
     
     # Get all playlist configs (exclude templates and examples)
     $ConfigFiles = Get-ChildItem -Path $ConfigDir -Filter "*.md" -File | 
         Where-Object { $_.Name -notlike "TEMPLATE-*" -and $_.Name -ne "README.md" -and $_.FullName -notlike "*\examples\*" } |
         Sort-Object Name
     
-    Write-Host "🎵 Alex Method DJ - Quick Refresh ($Platform)" -ForegroundColor Cyan
+    Write-Host "🎵 Alex Method DJ - Quick Refresh (Spotify)" -ForegroundColor Cyan
     Write-Host "📁 Found $($ConfigFiles.Count) playlists to refresh" -ForegroundColor Yellow
     
     $SuccessCount = 0
@@ -46,8 +38,8 @@ try {
         Write-Host "🔄 $ConfigName..." -NoNewline
         
         try {
-            # Run playlist creator
-            $Process = Start-Process -FilePath "python" -ArgumentList @($PythonScript, $configFile.FullName, "--platform", $Platform) -Wait -PassThru -WindowStyle Hidden
+            # Run playlist creator with force-ascii for consistent output
+            $Process = Start-Process -FilePath "python" -ArgumentList @($PythonScript, $configFile.FullName, "--force", "--force-ascii") -Wait -PassThru -WindowStyle Hidden
             
             if ($Process.ExitCode -eq 0) {
                 Write-Host " ✅" -ForegroundColor Green

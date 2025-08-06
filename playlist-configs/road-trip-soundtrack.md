@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/6A2mS7k7tE7YpgzkWagUw3
+- **Spotify ID**: 6A2mS7k7tE7YpgzkWagUw3
+- **Last Updated**: 2025-08-06 18:57:31
+- **Track Count**: 44
+- **Duration**: 109.8 minutes
 ## Cover Art
-- **PNG**: cover-art\road-trip-soundtrack.png
-- **JPEG**: cover-art\road-trip-soundtrack.jpg
-- **Base64**: cover-art\road-trip-soundtrack_base64.txt
-- **Generated**: 2025-08-06 09:00:19
+- **PNG**: cover-art/road-trip-soundtrack.png
+- **JPEG**: cover-art/road-trip-soundtrack.jpg
+- **Generated**: 2025-08-06 18:42:02
 
 ## Search Queries
 - road trip adventure music
@@ -172,3 +178,49 @@ Achievement feeling, destination joy, and journey completion as you reach your d
 50. Arrival - SonicAid (6.3m)
 51. Topaz - Journey (6.2m)
 52. Arrival - Extended Mix - Queen Rami (6.2m)
+
+### Track List
+  1. Departure - Andrew Prahlow (0.5m)
+  2. Departure - Alexey Omelchuk (1.0m)
+  3. Departure - David García Díaz (1.1m)
+  4. Adventure Calls - toon (1.3m)
+  5. departure! - TV Size - Masatoshi Ono (1.4m)
+  6. Departure (From "Kiki's Delivery Service") - An Invitation (1.4m)
+  7. Another Great Adventure - Slick Rick (1.6m)
+  8. distance thought from emotion - Freedomdeus Mostart (1.6m)
+  9. access granted - Freedomdeus Mostart (1.6m)
+ 10. Departure - Yoko Shimomura (1.8m)
+ 11. Nascence - Austin Wintory (1.8m)
+ 12. Adventure - ProLuxeStudio (2.0m)
+ 13. Departures - Evan Call (2.1m)
+ 14. Expedition - Venture 5 (2.2m)
+ 15. A Departure - Ben Crosland (2.3m)
+ 16. The Journey Starts Today (Theme from Pokémon Journeys) - Walk off the Earth (2.4m)
+ 17. Jem And The Holograms Main Theme - Geek Music (2.4m)
+ 18. Departure -To the West- - Joe Hisaishi (2.5m)
+ 19. Departure - Kumbhaka (2.6m)
+ 20. To Travel for Aureole - Evan Call (2.7m)
+ 21. Departure - Beat Vibes Diary (2.7m)
+ 22. Manifest Freedom Beta Waves (432hz) - CalmWaves (2.8m)
+ 23. The Journey Begins - Celestial Aeon Project (2.8m)
+ 24. Embrace the Journey - Endless Taverns (2.8m)
+ 25. Departure On New Journey (From "Shenmue II") - Lofi - Pixel Boy (2.9m)
+ 26. Departure - Joe Hisaishi (2.9m)
+ 27. Adventures of the Young Hero - Grant Newman (3.0m)
+ 28. Darts Of Pleasure - Franz Ferdinand (3.0m)
+ 29. Darts Of Pleasure - Franz Ferdinand (3.0m)
+ 30. MY SUPER FLU - Superfluidity (3.0m)
+ 31. Departure - Martin Egger (3.0m)
+ 32. Departure - Twelve Titans Music (3.0m)
+ 33. Under Control (feat. Hurts) - Calvin Harris (3.1m)
+ 34. Departure of Boba Fett - John Williams (3.1m)
+ 35. Freedom Hymn - Austin French (3.1m)
+ 36. Fly Away (feat. Emie, Lusia Chebotina & Everthe8) - Burak Yeter (3.1m)
+ 37. Freedom Convoy Anthem - Loza Alexander (3.2m)
+ 38. The Next Freedom - 7Horse (3.2m)
+ 39. Awake - Freedom Fry (3.2m)
+ 40. Freedom - Vella (3.2m)
+ 41. Dream Alone - Talisco (3.3m)
+ 42. Dream Alone - Talisco (3.3m)
+ 43. Freedom - Kygo (3.3m)
+ 44. Freedom - Kygo (3.3m)

@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/5BYVEoqjN3X8DQishCbR5A
+- **Spotify ID**: 5BYVEoqjN3X8DQishCbR5A
+- **Last Updated**: 2025-08-06 18:56:09
+- **Track Count**: 26
+- **Duration**: 41.7 minutes
 ## Cover Art
-- **PNG**: cover-art\emotional-healing-journey.png
-- **JPEG**: cover-art\emotional-healing-journey.jpg
-- **Base64**: cover-art\emotional-healing-journey_base64.txt
-- **Generated**: 2025-08-06 08:55:46
+- **PNG**: cover-art/emotional-healing-journey.png
+- **JPEG**: cover-art/emotional-healing-journey.jpg
+- **Generated**: 2025-08-06 18:37:26
 
 ## Search Queries
 - sad emotional healing
@@ -145,3 +151,31 @@ Hopeful and inspiring music for future focus and emotional strength building
 17. Hopeful - The Tides (4.4m)
 18. Lost Myself (23) - MORGAN (4.0m)
 19. Hope Returns - Matthew West (3.9m)
+
+### Track List
+  1. Melancholy Avenue, Pt. 8 - Rain Fruits Sounds (0.5m)
+  2. 639 hz (Love & Compassion in Life) - Sound Bath (1.0m)
+  3. Seaside Melancholy Melodies - Dominican Nature Sounds (1.1m)
+  4. In a Melancholy Mood - Celestial Aeon Project (1.2m)
+  5. 741 Hz Emotional Healing - Dhyana Dan (1.3m)
+  6. Artificial Validation - The Stinky Meatballs (1.3m)
+  7. 396 Hz Turning Grief Into Joy - Spiritual Frequencies (1.4m)
+  8. Empty Can - Melancholic Raccoon (1.5m)
+  9. Melancholy Overflow - DV-i (1.5m)
+ 10. 528 Hz Emotional Healing - Eva Ambienta (1.5m)
+ 11. Melancholic Thoughts - Fuzzy & Glad (1.6m)
+ 12. Lofi Melancholy Beats - Lofi Beats (1.6m)
+ 13. Therapeutic Music Massage - Yoga (1.6m)
+ 14. Clear Windy Rains - Rain Nature Therapeutic Vibes (1.6m)
+ 15. melancholy - Ethergløw (1.7m)
+ 16. Melancholy and Sadness - Celestial Aeon Project (1.7m)
+ 17. Melancholy Waltz - David Albornoz (1.9m)
+ 18. Encore Banter - Live - Pigeons Playing Ping Pong (1.9m)
+ 19. Free from Emotional Blockage - Healing Solfeggio Frequencies (1.9m)
+ 20. Free from Emotional Blockage - Harmony Touch (1.9m)
+ 21. On me - BIG MOCEAN (1.9m)
+ 22. Music for Therapy Sessions - Healing Music Academy (1.9m)
+ 23. Therapeutic Turnoil - DrHeretic (2.0m)
+ 24. Massage Therapy Music - Relaxing Music Therapy (2.0m)
+ 25. Massage Therapy Music - Relaxing Music for Stress Relief (2.0m)
+ 26. Massage Therapy Music and Spa - Spa Music Relaxation (2.1m)

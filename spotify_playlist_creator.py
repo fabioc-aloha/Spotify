@@ -13,7 +13,7 @@ Features:
 - Smart refresh functionality
 
 Usage:
-    python spotify_playlist_creator.py <playlist_config.md> [--force]
+    python spotify_playlist_creator.py <playlist_config.md> [--force] [--force-ascii]
 """
 
 import os
@@ -28,18 +28,9 @@ from typing import Dict, List, Optional, Any
 import argparse
 from datetime import datetime
 
-# Safe print function for Windows console encoding issues
-def safe_print(text):
-    """Print text safely, handling Windows console encoding issues"""
-    try:
-        # Replace common emoji patterns with text alternatives for Windows
-        import re
-        text = re.sub(r'[🎵🔍🎯🎭📋✅❌⚠️📁🎨🔄🆕📱⏱️🔗🎉]', '[EMOJI]', text)
-        print(text)
-    except UnicodeEncodeError:
-        # Fallback: remove all non-ASCII characters
-        ascii_text = text.encode('ascii', 'ignore').decode('ascii')
-        print(ascii_text)
+# Import modular components
+from src.smart_print import safe_print, set_force_ascii_mode
+from src.config_parser import PlaylistConfigParser
 
 
 class SpotifyPlaylistCreator:
@@ -655,6 +646,7 @@ def main():
 Examples:
   python spotify_playlist_creator.py playlist-configs/coffee-shop.md
   python spotify_playlist_creator.py playlist-configs/coffee-shop.md --force
+  python spotify_playlist_creator.py playlist-configs/coffee-shop.md --force-ascii
         """
     )
     
@@ -669,23 +661,36 @@ Examples:
         help='Force refresh of existing playlist without prompting'
     )
     
+    parser.add_argument(
+        '--force-ascii',
+        action='store_true',
+        help='Force ASCII output (disable emojis) for compatibility with older terminals'
+    )
+    
     args = parser.parse_args()
+    
+    # Set global ASCII mode using the smart print module
+    set_force_ascii_mode(args.force_ascii)
     
     try:
         # Create playlist creator
         creator = SpotifyPlaylistCreator()
         
-        safe_print(f"[MUSIC] Alex Method DJ - Spotify Playlist Creator")
-        safe_print(f"[FOLDER] Loading configuration: {args.config_file}")
+        safe_print(f"🎵 Alex Method DJ - Spotify Playlist Creator")
+        safe_print(f"📁 Loading configuration: {args.config_file}")
         
-        # Load configuration
+        # Load configuration using modular parser
+        parser_config = PlaylistConfigParser(args.config_file)
+        metadata = parser_config.get_metadata()
+        visual_theme = parser_config.get_visual_theme()
+        
+        # Load configuration using legacy method for compatibility
         config = creator.load_config(args.config_file)
         
         # Display configuration summary
-        metadata = config['metadata']
         safe_print(f"\n{metadata['emoji']} Playlist: {metadata['name']}")
-        safe_print(f"[TARGET] Target Duration: {metadata.get('duration_target', 'Not specified')}")
-        safe_print(f"[SEARCH] Search Queries: {len(config['search_queries'])}")
+        safe_print(f"🎯 Target Duration: {metadata.get('duration_target', 'Not specified')}")
+        safe_print(f"🔍 Search Queries: {len(config['search_queries'])}")
         
         if config['track_categories']:
             safe_print(f"[THEATER] Phased Playlist: {len(config['track_categories'])} phases")

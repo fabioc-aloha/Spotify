@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/5wElhNZ5BHi3sZejFy7alV
+- **Spotify ID**: 5wElhNZ5BHi3sZejFy7alV
+- **Last Updated**: 2025-08-06 18:54:33
+- **Track Count**: 8
+- **Duration**: 9.9 minutes
 ## Cover Art
-- **PNG**: cover-art\anxiety-relief.png
-- **JPEG**: cover-art\anxiety-relief.jpg
-- **Base64**: cover-art\anxiety-relief_base64.txt
-- **Generated**: 2025-08-06 08:50:01
+- **PNG**: cover-art/anxiety-relief.png
+- **JPEG**: cover-art/anxiety-relief.jpg
+- **Generated**: 2025-08-06 18:32:48
 
 ## Search Queries
 
@@ -114,3 +120,13 @@ Extended gentle uplifting journey building confidence and resilience for moving 
  6. Rain - Meditation (10.0m)
  7. Calm Mind - Silent - Robin Gregory (30.0m)
  8. Compassion - Aroshanti (8.3m)
+
+### Track List
+  1. My Open Heart - Ambient Cello Version - Ivory Light (1.0m)
+  2. Female Humming - Shaman Voices (1.1m)
+  3. Far Far Away - The Far Away Voices (1.1m)
+  4. Calm Voices - Humming Shaman (1.2m)
+  5. Soft Voices - Humming Shaman (1.3m)
+  6. Shaman Vocal Meditation - Shaman Voices (1.3m)
+  7. Forever Free - The Far Away Voices (1.3m)
+  8. Sleep Aid - Deep Sleep Music Experience (1.6m)

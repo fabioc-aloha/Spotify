@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/0sgcyk6uZZRmVBq1W3XyoP
+- **Spotify ID**: 0sgcyk6uZZRmVBq1W3XyoP
+- **Last Updated**: 2025-08-06 18:57:45
+- **Track Count**: 18
+- **Duration**: 38.5 minutes
 ## Cover Art
-- **PNG**: cover-art\seasonal-affective-therapy.png
-- **JPEG**: cover-art\seasonal-affective-therapy.jpg
-- **Base64**: cover-art\seasonal-affective-therapy_base64.txt
-- **Generated**: 2025-08-06 09:01:15
+- **PNG**: cover-art/seasonal-affective-therapy.png
+- **JPEG**: cover-art/seasonal-affective-therapy.jpg
+- **Generated**: 2025-08-06 18:42:44
 
 ## Search Queries
 - seasonal mood regulation
@@ -136,3 +142,23 @@ Peak energy, celebration, and life affirmation representing full recovery and vi
  7. Adagio in E Major for Violin and Orchestra, K. 261 - Wolfgang Amadeus Mozart (8.4m)
  8. Cool for the Summer - Extended Workout Mix - Power Music Workout (6.7m)
  9. Celebrate Some Time - Zeitgeist Freedom Energy Exchange (6.5m)
+
+### Track List
+  1. Beautiful Voice - Sunset Harmony (1.0m)
+  2. See Amid The Winter's Snow Arr. For Piano - Sunset Harmony (1.0m)
+  3. warmth of a winter day - ambient giants (1.6m)
+  4. eternal winter - inalery (1.6m)
+  5. gentle snowfall - Ophelia Wilde (1.7m)
+  6. Spring Light - Nature Edit - Variation Point (2.0m)
+  7. Winter Mountain River - Language Earth (2.1m)
+  8. Winter Into Spring - Variation Point (2.1m)
+  9. Winds - Ambient Skies (2.2m)
+ 10. Winter Ambience (Snow and Howling Wind) - New Bliss (2.2m)
+ 11. On a Crisp Midwinter Morning - Harmonic Pathways (2.3m)
+ 12. Small Cabin in the Woods Winter Wind and Fireplace - Ambi Nature Sounds (2.4m)
+ 13. Relaxing Winter Snow Storm and Fireplace Sounds - Ambi Nature Sounds (2.4m)
+ 14. Spring Ambience - Nature Pulse (2.5m)
+ 15. Autumn Primeval Beech Forest - Jan Berliner (2.6m)
+ 16. Threads - Machine Soul Collective (2.9m)
+ 17. That Summertime - Terry Day (2.9m)
+ 18. Missing Days - Le Dieu (3.0m)

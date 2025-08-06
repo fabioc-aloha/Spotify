@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/7ItBmQZS9a9Dnf1H02mVKw
+- **Spotify ID**: 7ItBmQZS9a9Dnf1H02mVKw
+- **Last Updated**: 2025-08-06 18:56:51
+- **Track Count**: 28
+- **Duration**: 56.2 minutes
 ## Cover Art
-- **PNG**: cover-art\musical-world-tour.png
-- **JPEG**: cover-art\musical-world-tour.jpg
-- **Base64**: cover-art\musical-world-tour_base64.txt
-- **Generated**: 2025-08-06 08:58:33
+- **PNG**: cover-art/musical-world-tour.png
+- **JPEG**: cover-art/musical-world-tour.jpg
+- **Generated**: 2025-08-06 18:40:22
 
 ## Search Queries
 - world music cultural exploration
@@ -146,3 +152,33 @@ Afrobeat, world percussion, tribal rhythms, and primal energy from the African c
 24. Colony - Live - Damien Dempsey (9.0m)
 25. African Tribal Drums - Bang - African Djembe Music (8.5m)
 26. A Happy Place - Robbie Rivera's Juicy Ibiza mix - Katie Melua (8.1m)
+
+### Track List
+  1. The Dancing Master: Maiden Lane - John Playford (0.8m)
+  2. 12 German Dances, WoO 8: No. 1 in C Major - Ludwig van Beethoven (1.0m)
+  3. Romanian Folk Dances, Sz 56: III. Pe-loc - Andante - Béla Bartók (1.1m)
+  4. Bartók: Romanian Folk Dances, Sz.56: III. Pe-loc-Andante - Cinthya Garcia (1.2m)
+  5. Ecco la primavera - Early Music Consort Of London (1.2m)
+  6. Greensleeves - Traditional (1.2m)
+  7. Amphitryon, Z. 572, "The 2 Sosias": VIII. Borree - Henry Purcell (1.3m)
+  8. 6 Studies in English Folksong (Version for Cello & Piano): No. 4, Lento "She Borrowed Some of Her Mother's Gold" - Ralph Vaughan Williams (1.5m)
+  9. 12 German Dances, WoO 8: No. 7 in C Major - Ludwig van Beethoven (1.5m)
+ 10. The English Dancing Master: Parson's farewell - John Playford (1.6m)
+ 11. 6 Studies in English Folksong (Version for Cello & Piano): No. 1, Adagio "Lovely on the Water" - Ralph Vaughan Williams (1.6m)
+ 12. Trotto - Early Music Consort Of London (1.7m)
+ 13. Six Studies in English Folksong - Gene Pokorny (1.8m)
+ 14. Shawm - Saltarello - 2007 Remastered Version - David Munrow (1.9m)
+ 15. España - Andreyev Balalaika Ensemble (2.1m)
+ 16. Greensleeves - Public Domain (2.2m)
+ 17. Kazaska - Takis Elenis (2.2m)
+ 18. Grainger: Country Gardens (Orch. Artok) - Percy Grainger (2.3m)
+ 19. Aria Nova - Two singers from Nicastro, with organetto accompaniment (2.6m)
+ 20. Raised On Rock - Elvis Presley (2.7m)
+ 21. Raised On Rock - Elvis Presley (2.7m)
+ 22. Skandal - Polemic (2.7m)
+ 23. Spanish Lute Fantasia - Andrei Krylov (2.7m)
+ 24. Sonata I in B Minor, HWV 386, Op. 2 No. 1: III. Largo - George Frideric Handel (2.8m)
+ 25. 2 Swedish Folk-Melodies, Op. 27: No. 2 Du gamla, du friska, du fjellhoga Nord: Moderato - Johan Svendsen (2.9m)
+ 26. British Folk-Music Settings: No. 30, Ye Banks and Braes O' Bonnie Doon - Percy Grainger (2.9m)
+ 27. Almighty I - Ras Nelson (2.9m)
+ 28. Folk Dance in Hora Style (Orchestra) - Fiddler and string instrumentalist (3.0m)

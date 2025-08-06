@@ -10,11 +10,17 @@
 - **Randomize Selection**: true
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/0iAHGTC7DaaKGl8TRwaNUX
+- **Spotify ID**: 0iAHGTC7DaaKGl8TRwaNUX
+- **Last Updated**: 2025-08-06 18:58:00
+- **Track Count**: 14
+- **Duration**: 27.3 minutes
 ## Cover Art
-- **PNG**: cover-art\study-focus.png
-- **JPEG**: cover-art\study-focus.jpg
-- **Base64**: cover-art\study-focus_base64.txt
-- **Generated**: 2025-08-06 09:02:41
+- **PNG**: cover-art/study-focus.png
+- **JPEG**: cover-art/study-focus.jpg
+- **Generated**: 2025-08-06 16:56:41
 
 ## Search Queries
 
@@ -164,3 +170,19 @@ Note: Tracks are randomized on each refresh - track list below represents curren
 - Include variety to prevent monotony over 3 hours
 - Emphasis on ambient, classical, and lo-fi genres
 - Suitable for studying, coding, writing, and deep work
+
+### Track List
+  1. Snowfall - Thomas James White (2.3m)
+  2. Wellness Retreat - Nora Gallo (1.9m)
+  3. Sojourn - MettaForm (2.1m)
+  4. White Pine Walk - Alaskan Tapes (1.1m)
+  5. Ambient Piano Sleep - Piano Peace (1.8m)
+  6. Soothing Feel - Cosmic Evolution (1.8m)
+  7. Atmosphere - Center of Jupiter (1.6m)
+  8. Ambient Piano Deep Sleep - Piano Peace (1.9m)
+  9. Ambient Stream - Raol Marquis (2.1m)
+ 10. Awaken - fredrik sundberg (2.1m)
+ 11. Beautiful Piano Ambient - Oleksandr Chukhlib (2.3m)
+ 12. Ambient - Peaceful Piano Keys (2.1m)
+ 13. Hall of Restoration - Fredrik Sundberg (2.3m)
+ 14. Ambient Piano - Sleeping Music Experience (2.0m)

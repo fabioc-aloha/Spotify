@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/4wZB6yBGIcACL3kfDIy1E3
+- **Spotify ID**: 4wZB6yBGIcACL3kfDIy1E3
+- **Last Updated**: 2025-08-06 18:55:05
+- **Track Count**: 19
+- **Duration**: 46.7 minutes
 ## Cover Art
-- **PNG**: cover-art\classical-music-journey.png
-- **JPEG**: cover-art\classical-music-journey.jpg
-- **Base64**: cover-art\classical-music-journey_base64.txt
-- **Generated**: 2025-08-06 08:52:41
+- **PNG**: cover-art/classical-music-journey.png
+- **JPEG**: cover-art/classical-music-journey.jpg
+- **Generated**: 2025-08-06 18:34:49
 
 ## Search Queries
 - classical orchestral baroque
@@ -140,3 +146,24 @@ Contemporary classical and experimental sounds pushing the boundaries of classic
 12. Congress Shall Make No Law - Frank Zappa (32.8m)
 13. #23 - Aphex Twin (11.5m)
 14. Le Revenant - Live - Christopher Jessup (7.4m)
+
+### Track List
+  1. Concerto Grosso in D Major, Op. 1, No. 5: I. Largo - Pietro Locatelli (1.3m)
+  2. Concerto Grosso in G Minor, Op. 1, No. 12: I. Largo - Pietro Locatelli (1.6m)
+  3. Giddy Good Time - GiddyGang (2.0m)
+  4. Giddy Good Time - GiddyGang (2.0m)
+  5. Terpsichore*: Ballet - Michael Praetorius (2.1m)
+  6. Bassthoven - Kyle Exum (2.1m)
+  7. Passingmeasures Pavan - John Johnson (2.1m)
+  8. The Four Seasons: Concerto No. 1 in E Major, Op. 8, RV 269: "La primavera" (Spring): II. Largo - Antonio Vivaldi (2.3m)
+  9. The Ultimate Baroque Study Collection - John Smith (2.4m)
+ 10. Baroque II - Jagex Audio Team (2.6m)
+ 11. Period Piece - Jenny Hval (2.7m)
+ 12. Wishy Washy - Coco & Clair Clair (2.7m)
+ 13. Lawes: Consort Set No. 2 for 5 Viols in A Minor, VdGS 71-73: II. Fantazy - William Lawes (2.8m)
+ 14. Classical Music - The Sloppy Boys (2.8m)
+ 15. Symphony No. 47 in D Major, K. 97: I. Allegro - Wolfgang Amadeus Mozart (2.8m)
+ 16. Anima processional I - Hildegard von Bingen (3.0m)
+ 17. Suite No. 1 in C Major: II. Spagnoletta - Michael Praetorius (3.0m)
+ 18. Rise Up - The Skints (3.1m)
+ 19. Prelude & Fugue in A Minor, BWV 543: I. Prelude - Johann Sebastian Bach (3.3m)

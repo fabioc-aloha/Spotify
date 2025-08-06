@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/6W4NNUzuMhKioQ4kUHuRHK
+- **Spotify ID**: 6W4NNUzuMhKioQ4kUHuRHK
+- **Last Updated**: 2025-08-06 18:54:24
+- **Track Count**: 2
+- **Duration**: 4.3 minutes
 ## Cover Art
-- **PNG**: cover-art\adhd-focus-protocol.png
-- **JPEG**: cover-art\adhd-focus-protocol.jpg
-- **Base64**: cover-art\adhd-focus-protocol_base64.txt
-- **Generated**: 2025-08-06 08:49:00
+- **PNG**: cover-art/adhd-focus-protocol.png
+- **JPEG**: cover-art/adhd-focus-protocol.jpg
+- **Generated**: 2025-08-06 18:31:57
 
 ## Search Queries
 - focus instrumental music
@@ -101,3 +107,7 @@ Gentle environmental preparation music for smooth transition to next activity or
  8. Hype and Style (60s) - Audiosphere (0.8m)
  9. A Smooth Transition of Power - Akal Dub (3.7m)
 10. Lounge Transition - Concentración Profunda (1.8m)
+
+### Track List
+  1. 17 Hz Attuned - Binaural Beats - Neuroflow (2.1m)
+  2. 45 Hz Focus Beam - Binaural Beats - Neuroflow (2.2m)

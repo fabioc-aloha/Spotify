@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/5HLrHcNvOkYIkc5dHowiQj
+- **Spotify ID**: 5HLrHcNvOkYIkc5dHowiQj
+- **Last Updated**: 2025-08-06 18:58:07
+- **Track Count**: 23
+- **Duration**: 41.2 minutes
 ## Cover Art
-- **PNG**: cover-art\synesthesia-simulation.png
-- **JPEG**: cover-art\synesthesia-simulation.jpg
-- **Base64**: cover-art\synesthesia-simulation_base64.txt
-- **Generated**: 2025-08-06 09:03:11
+- **PNG**: cover-art/synesthesia-simulation.png
+- **JPEG**: cover-art/synesthesia-simulation.jpg
+- **Generated**: 2025-08-06 18:45:01
 
 ## Search Queries
 - colorful electronic music
@@ -133,3 +139,28 @@ Complete multi-sensory integration bringing together all synesthetic elements in
  9. Integral Accident - Horse Lords (18.6m)
 10. Deep Relaxation One - Dr. Jeffrey Thompson (30.9m)
 11. Bilateral Stimulation - Mark Grant (16.0m)
+
+### Track List
+  1. Mix a Color - Barney (1.0m)
+  2. I'll Say Anything To Make It Go Away - Eastside Velvet Remix - Wildwood (1.0m)
+  3. Colors Everywhere - Blue's Clues & You (1.2m)
+  4. Let's Wait For Yellow - StoryBots (1.3m)
+  5. Let's Wait For Yellow - StoryBots (1.3m)
+  6. The Color Family - Toddler Tunes (1.5m)
+  7. Three Primary Colors (feat. OK Go) - Sesame Street (1.5m)
+  8. Learning Colours - Toddler Time (1.6m)
+  9. Prologue - Andrew Lloyd Webber (1.7m)
+ 10. Colors All Around - Tinsel Town Kids (1.7m)
+ 11. A Color Just Right - Bubble Guppies Cast (1.8m)
+ 12. I See Colors Everywhere - ELF Learning (1.8m)
+ 13. Colors - The Learning Station (1.8m)
+ 14. Colors Rap - Little Baby Bum Nursery Rhyme Friends (2.0m)
+ 15. Primary Colors Song - Gracie's Corner (2.0m)
+ 16. Colors - The Kiboomers (2.1m)
+ 17. Colors Song 2 - Kids TV 123 (2.1m)
+ 18. Primary Colors - CHRIS CASEY (2.2m)
+ 19. The Color Song - Toddler Tunes (2.2m)
+ 20. Mixing Colors - Super Simple Songs (2.2m)
+ 21. Our Primary Colors - Remix - Fidatrix (2.3m)
+ 22. The Colors Song - Scratch Garden (2.3m)
+ 23. The Colors Song - Scratch Garden (2.3m)

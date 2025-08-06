@@ -10,12 +10,17 @@
 - **Emoji**: 🔮
 - **Randomize Selection**: true
 
-## Cover Art
 
-- **PNG**: cover-art\neural-network-symphony.png
-- **JPEG**: cover-art\neural-network-symphony.jpg
-- **Base64**: cover-art\neural-network-symphony_base64.txt
-- **Generated**: 2025-08-06 08:59:01
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/4UT1uH0B471XJJ674B5jsF
+- **Spotify ID**: 4UT1uH0B471XJJ674B5jsF
+- **Last Updated**: 2025-08-06 18:56:59
+- **Track Count**: 24
+- **Duration**: 42.6 minutes
+## Cover Art
+- **PNG**: cover-art/neural-network-symphony.png
+- **JPEG**: cover-art/neural-network-symphony.jpg
+- **Generated**: 2025-08-06 18:40:47
 
 ## Search Queries
 
@@ -134,3 +139,29 @@ Collaborative electronic music with transcendent harmonies and unified synthesis
  9. Inner Wandering - Eternell (11.5m)
 10. Transparent Clusters - protoU (9.6m)
 11. Harmonic Mean - Tripswitch (9.2m)
+
+### Track List
+  1. Playing in 8 Bits - Pixelboy (1.5m)
+  2. Digital Nightmare - TWRP (2.2m)
+  3. Japanese Traditional Music - Traditional Japanese Music (1.2m)
+  4. Koan - Photoautotroph (2.4m)
+  5. 彼女が12-14年間自分を切 - Rory in early 20s (1.5m)
+  6. Melodic Group Shapes iii - Daphne Oram (0.6m)
+  7. Symphony No. 5 - John Fulford Music (1.6m)
+  8. Polygon Trees - Halo (2.1m)
+  9. Tron 1982 - New Retro Wave - Synthwave Nation (1.5m)
+ 10. T.V. Song - Blue Man Group (2.1m)
+ 11. A Traditional Tune In Common - Cao Zheng (2.4m)
+ 12. Klassikal Elektronika - Young Mozart (1.9m)
+ 13. Road Tested - Halo (1.7m)
+ 14. Chiptune Cosmos - 8Bit Dreams (2.3m)
+ 15. Born Too Late - The Poni-Tails (2.3m)
+ 16. Reflections - Digital Ambient (1.3m)
+ 17. 8 Bit Dubstep - Christopher Dececio (2.4m)
+ 18. DIGITAL BLUE - TOKYOPILL (2.0m)
+ 19. Idea 12 - Gibran Alcocer (2.2m)
+ 20. classical phonk - 0to8 (1.4m)
+ 21. Retro Electro - Synthwave Nation (1.2m)
+ 22. De Kieru - Rory in early 20s (1.4m)
+ 23. early days - wes mills (2.3m)
+ 24. Early Telephone Sound - Electronic Music Exploration (1.2m)

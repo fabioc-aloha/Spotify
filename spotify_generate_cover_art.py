@@ -1,64 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Alex Method DJ Platform - AI Cover Art Generator (Final Version)
+Alex Method DJ Platform - AI Cover Art Generator (Modular Version)
 Generates high-quality playlist cover art with AI backgrounds and professional branding
 
 Usage:
-    python generate_cover_art.py <playlist_config.md> [options]
+    python spotify_generate_cover_art.py <playlist_config.md> [options]
 
 Options:
-    --force       Force regeneration of cover art even if files exist
-    --preview     Open the generated image in the default viewer
-    --batch       Process multiple playlists (provide a directory instead of a file)
+    --force         Force regeneration of cover art even if files exist
+    --preview       Open the generated image in the default viewer
+    --batch         Process multiple playlists (provide a directory instead of a file)
+    --force-ascii   Force ASCII output (disable emojis) for compatibility with older terminals
 
 Examples:
-    python generate_cover_art.py playlist-configs/neural-network-symphony.md
-    python generate_cover_art.py playlist-configs/coffee-shop.md --preview
-    python generate_cover_art.py playlist-configs/space-odyssey.md --force
-    python generate_cover_art.py playlist-configs/ --batch --force
+    python spotify_generate_cover_art.py playlist-configs/neural-network-symphony.md
+    python spotify_generate_cover_art.py playlist-configs/coffee-shop.md --preview
+    python spotify_generate_cover_art.py playlist-configs/space-odyssey.md --force
+    python spotify_generate_cover_art.py playlist-configs/ --batch --force
 
 Note: If OpenAI content policy errors occur, edit the playlist .md file directly
 """
 
 import os
 import sys
-
-# Safe print function for Windows console encoding issues
-def safe_print(text):
-    """Print text safely, handling Windows console encoding issues"""
-    try:
-        # Replace common emoji patterns with text alternatives
-        import re
-        
-        # Replace specific emojis with text equivalents
-        text = re.sub(r'📋', '[INFO]', text)
-        text = re.sub(r'🎵', '[MUSIC]', text)
-        text = re.sub(r'❌', '[ERROR]', text)
-        text = re.sub(r'⚠️', '[WARNING]', text)
-        text = re.sub(r'✅', '[SUCCESS]', text)
-        text = re.sub(r'📁', '[FOLDER]', text)
-        text = re.sub(r'🎨', '[ART]', text)
-        
-        # Remove any remaining emoji characters
-        emoji_pattern = re.compile("["
-                                  u"\U0001F600-\U0001F64F"  # emoticons
-                                  u"\U0001F300-\U0001F5FF"  # symbols & pictographs
-                                  u"\U0001F680-\U0001F6FF"  # transport & map symbols
-                                  u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
-                                  u"\U00002702-\U000027B0"  # dingbats
-                                  u"\U000024C2-\U0001F251"
-                                  "]+", flags=re.UNICODE)
-        text = emoji_pattern.sub('[EMOJI]', text)
-        
-        print(text)
-    except UnicodeEncodeError:
-        # Fallback: remove all non-ASCII characters
-        ascii_text = text.encode('ascii', 'ignore').decode('ascii')
-        print(ascii_text)
 import re
 import json
-import base64
 import requests
 import time
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
@@ -67,23 +34,25 @@ from pathlib import Path
 import argparse
 from typing import Dict, Any, Optional, Tuple, List
 from dotenv import load_dotenv
-import textwrap
 import subprocess
-import glob
 from datetime import datetime
+
+# Import modular components
+from src.smart_print import safe_print, set_force_ascii_mode
+from src.config_parser import PlaylistConfigParser
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Configuration
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-if not OPENAI_API_KEY:
+# Configuration - TypeScript-safe API key handling
+OPENAI_API_KEY_ENV = os.getenv('OPENAI_API_KEY')
+if not OPENAI_API_KEY_ENV:
     safe_print("❌ Error: OPENAI_API_KEY not found in environment variables or .env file")
-    print("Create a .env file with your OpenAI API key: OPENAI_API_KEY=your-api-key")
+    safe_print("Create a .env file with your OpenAI API key: OPENAI_API_KEY=your-api-key")
     sys.exit(1)
-    
-# Ensure it's a string for type checking
-OPENAI_API_KEY = str(OPENAI_API_KEY)
+
+# Now we know it's a string
+OPENAI_API_KEY: str = OPENAI_API_KEY_ENV
 
 # API Configuration
 OPENAI_MODEL = os.getenv('OPENAI_MODEL', 'dall-e-3')
@@ -98,54 +67,6 @@ COVER_ART_DIR = Path('cover-art')
 COVER_ART_DIR.mkdir(exist_ok=True)
 
 
-class PlaylistConfigParser:
-    """Parse Alex Method playlist configuration files"""
-    
-    def __init__(self, config_path: str):
-        self.config_path = Path(config_path)
-        self.config_data = self._parse_config()
-    
-    def _parse_config(self) -> Dict[str, Any]:
-        """Parse the playlist configuration file and extract metadata"""
-        try:
-            if not self.config_path.exists():
-                raise FileNotFoundError(f"Playlist config not found: {self.config_path}")
-            
-            content = self.config_path.read_text(encoding='utf-8')
-            
-            # Extract basic metadata
-            name_match = re.search(r'(?:- )?\*\*Name\*\*:\s*([^\n]+)', content)
-            description_match = re.search(r'(?:- )?\*\*Description\*\*:\s*([^\n]+)', content)
-            emoji_match = re.search(r'(?:- )?\*\*Emoji\*\*:\s*([^\n]+)', content)
-            
-            # Basic metadata
-            metadata = {
-                'name': name_match.group(1).strip() if name_match else f"{self.config_path.stem.title()} Playlist",
-                'description': description_match.group(1).strip() if description_match else "An Alex Method playlist",
-                'emoji': emoji_match.group(1).strip() if emoji_match else "🎵",
-                'file_content': content  # Store full content for prompt generation
-            }
-            
-            return metadata
-            
-        except Exception as e:
-            safe_print(f"❌ Error parsing playlist config: {e}")
-            raise
-    
-    def get_visual_theme(self) -> Dict[str, Any]:
-        """Extract visual theming information from the config"""
-        return {
-            'name': self.config_data.get('name', ''),
-            'description': self.config_data.get('description', ''),
-            'emoji': self.config_data.get('emoji', '🎵'),
-            'file_content': self.config_data.get('file_content', '')
-        }
-    
-    def get_info(self) -> Dict[str, Any]:
-        """Get basic playlist information"""
-        return self.config_data
-
-
 class BackgroundGenerator:
     """Generate AI backgrounds using OpenAI DALL-E"""
     
@@ -157,53 +78,99 @@ class BackgroundGenerator:
         """Build background-focused prompt for DALL-E 3"""
         
         emoji = visual_theme.get('emoji', '🎵')
-        playlist_content = ""
+        description = visual_theme.get('description', '')
+        
+        # Extract specific sections from playlist content
+        search_queries = ""
+        creation_notes = ""
         
         if self.config_path:
             try:
                 playlist_file_path = Path(self.config_path)
                 if playlist_file_path.exists():
-                    playlist_content = playlist_file_path.read_text(encoding='utf-8')
+                    content = playlist_file_path.read_text(encoding='utf-8')
                     
-                    # Remove track list section to reduce prompt length
-                    track_list_pattern = re.compile(r'### Track List[^\n]*\n.*?(?=##|\Z)', re.DOTALL)
-                    playlist_content = track_list_pattern.sub('', playlist_content)
+                    # Extract Search Queries section
+                    search_pattern = re.compile(r'## Search Queries\s*\n(.*?)(?=##|$)', re.DOTALL)
+                    search_match = search_pattern.search(content)
+                    if search_match:
+                        search_queries = search_match.group(1).strip()
                     
-                    # Limit content length for API efficiency
-                    if len(playlist_content) > 3500:
-                        playlist_content = playlist_content[:3500] + "\n..."
+                    # Extract Creation Notes section
+                    notes_pattern = re.compile(r'## Creation Notes\s*\n(.*?)(?=##|$)', re.DOTALL)
+                    notes_match = notes_pattern.search(content)
+                    if notes_match:
+                        creation_notes = notes_match.group(1).strip()
+                        
             except Exception as e:
-                print(f"Warning: Could not read playlist file: {e}")
+                safe_print(f"Warning: Could not read playlist file: {e}")
         
         # Simple, direct prompt
-        prompt = f"""Please create a background image for a **Spotify playlist cover**.
-
-Playlist Theme: {playlist_content}
+        prompt = f"""Create a high-quality background image for a **Spotify playlist cover**.
+Playlist Description: {description}
 Primary Mood/Concept: {emoji}
 
-Image Requirements:
-- Square composition (1024x1024)
-- Realistic yet artistic — aim for emotional impact and visual clarity
-- No text, no logos, no faces, no branding
-- Must visually represent the theme and mood of the playlist
-- Central area or upper-center should be visually calm or low-detail to allow for **title overlay** (Spotify places text prominently in this area)
-- Important: Treat this as a Spotify playlist cover where the **title and creator name will be placed over the image**
-- Focal elements should avoid the middle-top region to prevent clashing with text
-- Visual storytelling should be preserved even when text is overlaid
+Image Guidelines:
+- Square format (1024x1024 pixels)
+- Realistic but artistic, with strong emotional resonance and clear storytelling
+- Must visually convey the mood and theme of the playlist
+- Focal elements should avoid the middle-top area to leave space for title overlay
+- Avoid placing any key visual elements where Spotify's title or creator name might appear
+- No human faces unless specified
+
+IMPORTANT:
+- Do not include any typography, characters, numbers, or embedded words of any kind
 
 Final Output:
-- Background-only artwork suitable for professional cover usage"""
+- Professional-grade background-only artwork for playlist cover usage, with **zero text or logo content**"""
+
+        # Truncate to 4000 characters to stay within OpenAI's limit
+        if len(prompt) > 4000:
+            prompt = prompt[:4000]
+            safe_print(f"   ⚠️ Prompt truncated to 4000 characters")
 
         return prompt
     
+    def _build_fallback_prompt(self, visual_theme: Dict[str, Any]) -> str:
+        """Build simplified prompt using only search queries for content policy fallback"""
+        
+        emoji = visual_theme.get('emoji', '🎵')
+        
+        # Extract search queries from the visual theme data if available
+        search_queries = ""
+        if 'file_content' in visual_theme:
+            content = visual_theme['file_content']
+            # Extract search queries section
+            search_pattern = re.compile(r'## Search Queries\s*\n(.*?)(?=##|$)', re.DOTALL)
+            search_match = search_pattern.search(content)
+            if search_match:
+                search_queries = search_match.group(1).strip()
+        
+        # Build fallback prompt with search queries only
+        fallback_prompt = f"""Create a high-quality background image for a **Spotify playlist cover**.
+Playlist Description: {search_queries}
+Primary Mood/Concept: {emoji}
+
+Image Guidelines:
+- Square format (1024x1024 pixels)
+- Realistic but artistic, with strong emotional resonance and clear storytelling
+- Must visually convey the mood and theme of the playlist
+- Focal elements should avoid the middle-top area to leave space for title overlay
+- Avoid placing any key visual elements where Spotify's title or creator name might appear
+- No human faces unless specified
+
+IMPORTANT:
+- Do not include any typography, characters, numbers, or embedded words of any kind
+
+Final Output:
+- Professional-grade background-only artwork for playlist cover usage, with **zero text or logo content**"""
+
+        return fallback_prompt
+    
     def generate_background(self, visual_theme: Dict[str, Any]) -> str:
-        """Generate background image using DALL-E 3"""
+        """Generate background image using DALL-E 3 with content policy fallback"""
         
         prompt = self._build_background_prompt(visual_theme)
-        safe_print(f"🎨 Generating AI background with prompt:")
-        # Print a truncated version of the prompt for clarity
-        safe_print(f"   {prompt.split('Requirements:')[0][:200]}...")
-        safe_print(f"   Requirements: (artistic, realistic background with clean center for text)")
         
         headers = {
             "Content-Type": "application/json",
@@ -228,10 +195,71 @@ Final Output:
             response.raise_for_status()  # Raise exception for non-2xx responses
             
             image_url = response.json()["data"][0]["url"]
-            print("✅ Successfully generated background")
+            safe_print("✅ Successfully generated background")
             return image_url
+            
+        except requests.exceptions.HTTPError as e:
+            # Check if it's a content policy error (400 status with policy violation)
+            if e.response.status_code == 400:
+                try:
+                    error_data = e.response.json()
+                    error_message = error_data.get('error', {}).get('message', '').lower()
+                    
+                    # Only trigger fallback for specific content policy keywords
+                    content_policy_keywords = ['content policy', 'safety', 'violates', 'policy', 'unsafe', 'inappropriate']
+                    
+                    is_policy_error = any(keyword in error_message for keyword in content_policy_keywords)
+                    
+                    if is_policy_error:
+                        safe_print(f"⚠️ Content policy violation detected: {error_message}")
+                        safe_print(f"⚠️ Trying fallback prompt with search queries only...")
+                        return self._generate_with_fallback(visual_theme, headers)
+                    else:
+                        # For other 400 errors, just raise the exception
+                        safe_print(f"❌ Bad request error (non-policy): {error_message}")
+                        raise
+                except ValueError:
+                    # If we can't parse the JSON response, it's probably not a content policy issue
+                    safe_print(f"❌ 400 error with unparseable response: {e}")
+                    raise
+            
+            safe_print(f"❌ Error generating background: {e}")
+            raise
+            
         except Exception as e:
             safe_print(f"❌ Error generating background: {e}")
+            raise
+    
+    def _generate_with_fallback(self, visual_theme: Dict[str, Any], headers: dict) -> str:
+        """Generate background using fallback prompt with search queries only"""
+        
+        fallback_prompt = self._build_fallback_prompt(visual_theme)
+        safe_print(f"🔄 Using fallback prompt with search queries only:")
+        safe_print(f"   {fallback_prompt.split('Requirements:')[0][:200]}...")
+        
+        data = {
+            "model": OPENAI_MODEL,
+            "prompt": fallback_prompt,
+            "size": OPENAI_IMAGE_SIZE,
+            "quality": OPENAI_IMAGE_QUALITY,
+            "style": OPENAI_IMAGE_STYLE,
+            "n": 1
+        }
+        
+        try:
+            response = requests.post(
+                "https://api.openai.com/v1/images/generations",
+                headers=headers,
+                json=data
+            )
+            response.raise_for_status()
+            
+            image_url = response.json()["data"][0]["url"]
+            safe_print("✅ Successfully generated background with fallback prompt")
+            return image_url
+            
+        except Exception as e:
+            safe_print(f"❌ Fallback prompt also failed: {e}")
             raise
 
 
@@ -424,7 +452,7 @@ class CoverArtComposer:
         # Save full-size PNG (1024x1024) - keep high quality
         png_path = f"{output_path}.png"
         result.save(png_path)
-        safe_print(f"   � PNG (1024x1024): {png_path}")
+        safe_print(f"   📁 PNG (1024x1024): {png_path}")
         
         # Create 512x512 version for JPEG and Base64 (Spotify optimization)
         result_512 = result.resize((512, 512), Image.Resampling.LANCZOS)
@@ -474,7 +502,7 @@ def update_playlist_metadata_with_cover_art(config_file: str, cover_art_paths: T
         
         if cover_art_pattern.search(content):
             content = cover_art_pattern.sub(cover_art_section.rstrip() + '\n\n', content)
-            print("   📝 Updated existing Cover Art metadata")
+            safe_print("   📝 Updated existing Cover Art metadata")
         else:
             # Insert after Metadata section or at beginning
             metadata_pattern = re.compile(r'(^## Metadata\n.*?(?=^##))', re.MULTILINE | re.DOTALL)
@@ -485,7 +513,7 @@ def update_playlist_metadata_with_cover_art(config_file: str, cover_art_paths: T
                 content = content[:insert_pos] + '\n' + cover_art_section + content[insert_pos:]
             else:
                 content = cover_art_section + content
-            print("   📝 Added Cover Art metadata")
+            safe_print("   📝 Added Cover Art metadata")
         
         config_path.write_text(content, encoding='utf-8')
         safe_print(f"✅ Updated playlist metadata: {config_file}")
@@ -522,22 +550,20 @@ def get_existing_cover_art(config_name: str) -> List[Path]:
 def process_single_playlist(config_file: str, force: bool = False, preview: bool = False) -> bool:
     """Process a single playlist configuration file"""
     try:
-        # Parse the playlist config
+        # Parse the playlist config using modular parser
         safe_print(f"📋 Parsing playlist config: {config_file}")
         parser = PlaylistConfigParser(config_file)
-        playlist_info = parser.get_info()
+        playlist_info = parser.get_metadata()
         visual_theme = parser.get_visual_theme()
         
         # Show basic info
         name = playlist_info.get('name', 'Unknown Playlist')
         description = playlist_info.get('description', 'No description')
-        if len(description) > 70:
-            description = description[:67] + "..."
         emoji = playlist_info.get('emoji', '🎵')
         
         safe_print(f"🎵 Playlist: {name}")
         safe_print(f"   Emoji: {emoji}")
-        safe_print(f"   Description: {description}")
+        safe_print(f"   Description: {description[:100]}{'...' if len(description) > 100 else ''}")
         
         # Check if cover art already exists
         config_name = Path(config_file).stem
@@ -556,9 +582,9 @@ def process_single_playlist(config_file: str, force: bool = False, preview: bool
             return False
         elif existing_count > 0 and force:
             safe_print(f"📁 Found {existing_count} existing cover art files, but --force flag is set.")
-            safe_print("   Will regenerate cover art...")
+            safe_print("   Regenerating cover art...")
         else:
-            safe_print("📁 No existing cover art found - will generate new files")
+            safe_print("📁 No existing cover art found - generating new files")
         
         # Generate AI background
         generator = BackgroundGenerator(OPENAI_API_KEY, config_file)
@@ -575,7 +601,7 @@ def process_single_playlist(config_file: str, force: bool = False, preview: bool
         metadata_updated = update_playlist_metadata_with_cover_art(config_file, cover_art_paths)
         
         if not metadata_updated:
-            print("⚠️ Warning: Failed to update playlist metadata, but cover art was generated successfully")
+            safe_print("⚠️ Warning: Failed to update playlist metadata, but cover art was generated successfully")
         
         # Preview the image if requested
         if preview:
@@ -621,12 +647,20 @@ def main():
         action="store_true", 
         help="Process multiple playlists (provide directory instead of file)"
     )
+    parser.add_argument(
+        "--force-ascii", 
+        action="store_true", 
+        help="Force ASCII output (disable emojis) for compatibility with older terminals"
+    )
     args = parser.parse_args()
+    
+    # Set global ASCII mode using the smart print module
+    set_force_ascii_mode(args.force_ascii)
     
     # Check if OpenAI API key is available
     if not OPENAI_API_KEY:
-        print("❌ Error: OPENAI_API_KEY environment variable not set")
-        print("Create a .env file with your OpenAI API key or set the environment variable")
+        safe_print("❌ Error: OPENAI_API_KEY environment variable not set")
+        safe_print("Create a .env file with your OpenAI API key or set the environment variable")
         sys.exit(1)
     
     # Process in batch mode or single file mode
@@ -634,17 +668,17 @@ def main():
         # Batch processing
         config_path = Path(args.config_file)
         if not config_path.is_dir():
-            print(f"❌ Error: For batch processing, {args.config_file} must be a directory")
+            safe_print(f"❌ Error: For batch processing, {args.config_file} must be a directory")
             sys.exit(1)
         
         # Get all .md files in the directory
         md_files = list(config_path.glob("*.md"))
         if not md_files:
-            print(f"❌ Error: No .md files found in {args.config_file}")
+            safe_print(f"❌ Error: No .md files found in {args.config_file}")
             sys.exit(1)
         
-        print(f"🔍 Found {len(md_files)} playlist configuration files")
-        print("Starting batch processing...")
+        safe_print(f"🔍 Found {len(md_files)} playlist configuration files")
+        safe_print("Starting batch processing...")
         
         # Track successes and failures
         success_count = 0
@@ -654,7 +688,7 @@ def main():
             if md_file.name == "README.md" or md_file.name.startswith("TEMPLATE"):
                 continue  # Skip README and template files
                 
-            print(f"\n[{i+1}/{len(md_files)}] Processing {md_file.name}...")
+            safe_print(f"\n[{i+1}/{len(md_files)}] Processing {md_file.name}...")
             try:
                 result = process_single_playlist(str(md_file), args.force, False)  # No preview in batch mode
                 if result:
@@ -668,7 +702,7 @@ def main():
                 safe_print(f"❌ Error processing {md_file}: {e}")
                 failure_count += 1
         
-        print(f"\n✅ Batch processing complete: {success_count} successful, {failure_count} failed")
+        safe_print(f"\n✅ Batch processing complete: {success_count} successful, {failure_count} failed")
     
     else:
         # Single file processing

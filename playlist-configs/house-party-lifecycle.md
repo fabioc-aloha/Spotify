@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/7kLpQzRehKYVGzL8CiAYnx
+- **Spotify ID**: 7kLpQzRehKYVGzL8CiAYnx
+- **Last Updated**: 2025-08-06 18:56:19
+- **Track Count**: 28
+- **Duration**: 56.5 minutes
 ## Cover Art
-- **PNG**: cover-art\house-party-lifecycle.png
-- **JPEG**: cover-art\house-party-lifecycle.jpg
-- **Base64**: cover-art\house-party-lifecycle_base64.txt
-- **Generated**: 2025-08-06 08:56:42
+- **PNG**: cover-art/house-party-lifecycle.png
+- **JPEG**: cover-art/house-party-lifecycle.jpg
+- **Generated**: 2025-08-06 18:38:11
 
 ## Search Queries
 - house party playlist energy
@@ -155,3 +161,33 @@ Relaxed, intimate music for close friends and deeper conversations as the party 
 32. The end of Their World Part II - Akhenaton (19.2m)
 33. The Black Slim Shady - The Game (10.4m)
 34. Down Down The Deep River - Live From Bozeman / 2013 - Okkervil River (6.7m)
+
+### Track List
+  1. People Talking Party Reception (Version 1) [Crowd Background Ambience Ambient Noise Sfx Sound Effect Bite Clip Fx] - DV Sound Effects (1.0m)
+  2. People Talking Party Reception (Version 2) [Crowd Background Ambience Ambient Noise Sfx Sound Effect Bite Clip Fx] - DV Sound Effects (1.0m)
+  3. Chill Background Event Music - Chill Dinner Party Music (1.2m)
+  4. Upbeat Energetic Fun Happy Kids - Gold-Tiger (1.3m)
+  5. Preparation - High Energy Version - Jeffery Shaw (1.4m)
+  6. Getting Ready for the Party - MGM Studio Orchestra (1.6m)
+  7. How We Party - Radio Mix - Avery (1.7m)
+  8. Willing to Party - Lounge Bar Ibiza (1.8m)
+  9. First Course for Starters - Essential Dinner Party Background Music (1.8m)
+ 10. House Party - Country Night (1.9m)
+ 11. 365 featuring shygirl - Charli xcx (2.0m)
+ 12. Awesome Ambiance for Pre Dinner Drinks - Luxury Hotel Music (2.1m)
+ 13. WORLD TOUR BACKSTAGE PARTY - JT Young (2.1m)
+ 14. Freak Show - H3artcrush (2.1m)
+ 15. LOVE TO PARTY - avii (2.2m)
+ 16. HOUSE PARTY - Marty (2.2m)
+ 17. greedy - Tate McRae (2.2m)
+ 18. Prada - cassö (2.2m)
+ 19. take your vibes and go - Kito (2.2m)
+ 20. Waiting For My Ruca - Sublime (2.3m)
+ 21. i need - Eshey Muspell (2.4m)
+ 22. Let's Party - TAIGA (2.5m)
+ 23. Uplifting Upbeat Energetic Instrumental - Romansenykmusic (2.5m)
+ 24. Booty Loose (feat. Fly Boi Keno) - Party Favor (2.5m)
+ 25. Real Deadly - Snotty Nose Rez Kids (2.5m)
+ 26. After Party - Active Bird Community (2.5m)
+ 27. Move Your Feet / D.A.N.C.E. / It's A Sunshine Day - Anna Kendrick (2.6m)
+ 28. Hot Girl (Bodies Bodies Bodies) - Charli xcx (2.6m)

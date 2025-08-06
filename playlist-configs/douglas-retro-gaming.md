@@ -10,11 +10,17 @@
 - **Randomize Selection**: true
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/2mTCnjMqYeXZQC61wu7LR6
+- **Spotify ID**: 2mTCnjMqYeXZQC61wu7LR6
+- **Last Updated**: 2025-08-06 18:56:02
+- **Track Count**: 36
+- **Duration**: 56.3 minutes
 ## Cover Art
-- **PNG**: cover-art\douglas-retro-gaming.png
-- **JPEG**: cover-art\douglas-retro-gaming.jpg
-- **Base64**: cover-art\douglas-retro-gaming_base64.txt
-- **Generated**: 2025-08-06 08:55:17
+- **PNG**: cover-art/douglas-retro-gaming.png
+- **JPEG**: cover-art/douglas-retro-gaming.jpg
+- **Generated**: 2025-08-06 18:36:55
 
 ## Search Queries
 
@@ -132,3 +138,41 @@ Note: Tracks are randomized on each refresh - track list below represents curren
 23. World Bowser (From "Super Mario 3D World") - Qumu (2.5m)
 24. Fallen Down (From "UNDERTALE") [For Piano Solo] - daigoro789 (1.9m)
 25. M2q - Metroid Metal (4.8m)
+
+### Track List
+  1. SPARK MANDRILLER STAGE - Capcom Sound Team (1.9m)
+  2. Great Fairy Fountain (From "Ocarina of Time") - Lucas Cooper (1.2m)
+  3. MEGALOVANIA PHONK - NUEKI (1.1m)
+  4. Minecraft - from "A Minecraft Movie" - Mark Mothersbaugh (0.7m)
+  5. Megalovania (From "Undertale") - Piano Prince (2.0m)
+  6. Super Mario Bros. Theme - Video Game Players (1.5m)
+  7. STORM EAGLEED STAGE - Capcom Sound Team (1.3m)
+  8. Peaches - Jack Black (1.6m)
+  9. Super Mario Bros. Theme - Video Game Players (1.5m)
+ 10. Metroid Prime (Main Theme) - Mox Jade (1.9m)
+ 11. OPENING THEME - Naoto Tanaka (0.9m)
+ 12. Megaman - Tay-K (2.2m)
+ 13. See You Tomorrow - Omori (2.3m)
+ 14. Song That Might Play When You Fight Sans (From "Undertale") [Lofi Version] - Slofi (1.6m)
+ 15. sans. - Toby Fox (0.8m)
+ 16. Sans (Undertale) [Piano Version] - Game Soundtrack Cat (0.9m)
+ 17. Sans. - LewisPlaysGuitar (1.6m)
+ 18. Song Of Storms - The Marcus Hedges Trend Orchestra (1.4m)
+ 19. Story Dialog (From "Super Metroid") - Good Knight Productions (1.3m)
+ 20. sans. - Video Game Music Box (1.6m)
+ 21. Main Theme (From "The Legend of Zelda: Tears of the Kingdom") [Cover] - Masters of Sound (1.6m)
+ 22. Megalovania - Coffee Date (2.3m)
+ 23. MEGALOBOX - mabanua (2.1m)
+ 24. Sans. (From "Undertale") [Lofi Version] - Slofi (1.2m)
+ 25. Super Mario Bros - Theme - Jonne Vesa (1.4m)
+ 26. Ocarina Of Time: Main Theme - Jonnas Heisenberg (1.4m)
+ 27. No Fun - Bonus Track - Sex Bob-Omb (2.2m)
+ 28. Super Mario Bros. Theme - Fart Version - Fart Windbreaker (1.4m)
+ 29. Main Theme (from "The Legend of Zelda") - The Video Game Pianist (1.2m)
+ 30. Mario Brothers Rap - Ali Dee (1.0m)
+ 31. Super Mario Bros. Main Theme - Koji Kondo (2.0m)
+ 32. Metroid Melody - Twitch Music (2.0m)
+ 33. The Legend of Zelda: Tears of the Kingdom - Main Theme - Somnia Arcadia (1.8m)
+ 34. Megalo Strike Back - NyxTheShield (2.1m)
+ 35. MEGALOVANIA ~ lofi - Closed on Sunday (1.9m)
+ 36. Sans - Kato (1.4m)

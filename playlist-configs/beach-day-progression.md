@@ -10,11 +10,17 @@
 - **Randomize Selection**: false
 
 
+
+## Spotify Playlist Metadata
+- **Spotify URL**: https://open.spotify.com/playlist/76tfbdTQbRcqDCI8LfaKTe
+- **Spotify ID**: 76tfbdTQbRcqDCI8LfaKTe
+- **Last Updated**: 2025-08-06 18:54:40
+- **Track Count**: 29
+- **Duration**: 69.3 minutes
 ## Cover Art
-- **PNG**: cover-art\beach-day-progression.png
-- **JPEG**: cover-art\beach-day-progression.jpg
-- **Base64**: cover-art\beach-day-progression_base64.txt
-- **Generated**: 2025-08-06 08:50:35
+- **PNG**: cover-art/beach-day-progression.png
+- **JPEG**: cover-art/beach-day-progression.jpg
+- **Generated**: 2025-08-06 18:33:10
 
 ## Search Queries
 - tropical beach vibes summer
@@ -154,3 +160,34 @@ Romantic and contemplative tracks for watching the sunset and reflecting on the 
 34. When Will I Ever Learn to Live In God - Van Morrison (5.6m)
 35. Tropical Beach - Study Radiance (5.6m)
 36. Sunset on Ipanema Beach - Instrumental - Latin Vibe (5.4m)
+
+### Track List
+  1. Tropical Summer (60s) - Audiosphere (1.0m)
+  2. tropical getaway - mellow fox (1.5m)
+  3. Travel Vibe - Infraction Music (1.9m)
+  4. Shimmering Coastal Drift - Relaxing Piano Crew (1.9m)
+  5. Tropical Beach Club - kBeats (2.0m)
+  6. Tropical Breeze - Solbeats (2.0m)
+  7. At the Tropicana - Chalalatas (2.2m)
+  8. Summer Breeze - 7&Nine (2.2m)
+  9. Energetic Miami Beach Waves - Ocean Sounds (2.2m)
+ 10. As It Was - Chill Edit - Twan Ray (2.2m)
+ 11. Island life - Bthelick (2.3m)
+ 12. Tropical Beach - Goslow (2.3m)
+ 13. Tropics - Jay Arrow (2.5m)
+ 14. It's a Mad World - Solar State (2.6m)
+ 15. Miami Beach - Rivizion (2.6m)
+ 16. Tropical Fiesta - Carlos Zatch (2.6m)
+ 17. Whole Wide World - Bahamas (2.6m)
+ 18. Whole Wide World - Bahamas (2.6m)
+ 19. Indie Pop Type Beat - Billy Marchiafava (2.6m)
+ 20. Where I Belong - NSH (2.6m)
+ 21. Drip - Lizzy Jeff (2.6m)
+ 22. Tropical Arpeggiated - Upbeat Instrumental Music (2.7m)
+ 23. West Indies - Dyce Musiq (2.7m)
+ 24. Playa Maderas - Project Sunrise (2.7m)
+ 25. Summer Vibes - LIBERATI (2.8m)
+ 26. Key West Looks Good on You - James T. Slater (2.8m)
+ 27. Sunshine Samba - Simon & The Frequencies (2.8m)
+ 28. Sunrise - Surfaces (2.9m)
+ 29. Bucket - Carly Rae Jepsen (2.9m)
