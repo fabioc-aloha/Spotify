@@ -16,9 +16,9 @@
 
 ### **🎵 Alex Method Playlist Generation**
 
-Create perfectly curated playlists for any occasion in seconds:
+Create well-curated playlists for any occasion in seconds:
 
-- **☕ Coffee Shop Atmosphere** - Ambient tracks perfect for work or relaxation
+- **☕ Coffee Shop Atmosphere** - Ambient tracks ideal for work or relaxation
 - **🧘 Therapeutic Journeys** - Guided musical experiences for wellness and meditation
 - **🎧 Live Performance Collections** - Discover acclaimed DJ sets and live recordings
 - **📱 Custom Mood Playlists** - AI-powered recommendations based on your preferences
@@ -38,7 +38,7 @@ Leverage Spotify's powerful audio analysis:
 
 - **🎵 Audio Feature Analysis** - Tempo, energy, danceability, valence analysis
 - **🎨 Mood-Based Curation** - Create playlists based on emotional characteristics
-- **⚡ Energy Management** - Build playlists with perfect energy progression
+- **⚡ Energy Management** - Build playlists with strategic energy progression
 - **🔊 Sound Matching** - Find songs with similar audio characteristics
 
 ### **🌟 Professional DJ Tools**
@@ -50,10 +50,10 @@ Advanced features for music enthusiasts and DJs:
 - **🎪 Event Playlist Creation** - Specialized tools for parties, workouts, study sessions
 - **🎵 Music Discovery Engine** - Explore new artists and genres systematically
 
-## 🎯 Perfect For DJs & Music Lovers Who Want To
+## 🎯 Ideal For DJs & Music Lovers Who Want To
 
 ✅ **Discover New Music Systematically** - Find hidden gems and expand your musical horizons
-✅ **Create Perfect DJ Sets Effortlessly** - Build mood-based collections in minutes
+✅ **Create Effective DJ Sets Efficiently** - Build mood-based collections in minutes
 ✅ **Understand Your Music Taste** - Analyze what makes your favorite songs special
 ✅ **Manage Large Music Libraries** - Organize thousands of songs with intelligent tools
 ✅ **Share Curated Experiences** - Create professional-quality playlists for others
@@ -64,14 +64,15 @@ Advanced features for music enthusiasts and DJs:
 
 ### **Core DJ Playlist Creators**
 
-| Tool                                | Purpose                         | Perfect For                       |
-| ----------------------------------- | ------------------------------- | --------------------------------- |
-| ☕ **Coffee Shop Vibes**       | Ambient acoustic & chill tracks | Work, study, café atmosphere     |
-| 🎧 **Legendary DJ Live Sets**  | Acclaimed DJ performances       | Electronic festivals, dance music |
-| 🧘 **Therapeutic Journey**     | 90-min structured wellness      | Meditation, therapy sessions      |
-| 🎮 **Retro Gaming Soundtrack** | 8-bit & 16-bit game music       | Gaming sessions, nostalgia        |
-| 🔊 **LOUD Music Escalation**   | 100-min intensity progression   | Extreme workouts, weightlifting   |
-| 🎵 **YouTube Music Test**      | Cross-platform testing          | Multi-platform validation         |
+The Alex Method DJ platform includes a comprehensive collection of playlist creators for every occasion. For a complete catalog with detailed descriptions and features, see **[CATALOG.md](CATALOG.md)**.
+
+**Categories Include:**
+- ☕ **Ambient & Focus** - Coffee shop vibes, study sessions, and relaxation
+- 🎧 **DJ & Performance** - Live sets, electronic music, and dance collections
+- 🧘 **Therapeutic & Wellness** - Structured journeys for meditation and therapy
+- 🎮 **Entertainment & Specialty** - Gaming soundtracks, cultural music, and unique experiences
+- 🔊 **High-Energy & Fitness** - Workout intensifiers and energy boosters
+- 🎵 **Cross-Platform Testing** - Multi-platform validation and sync tools
 
 ### **Advanced Features**
 
@@ -85,13 +86,13 @@ Advanced features for music enthusiasts and DJs:
 
 ## 🎭 Phased Playlist Innovation
 
-**Revolutionary Feature**: Create structured musical journeys that progress through intentional phases over time, perfect for therapeutic sessions, intense workouts, and experiential listening.
+**Advanced Feature**: Create structured musical journeys that progress through intentional phases over time, ideal for therapeutic sessions, intense workouts, and experiential listening.
 
 ### **Example Phased Journeys**
 
 **🧘 Therapeutic Wellness (90 minutes)**
 - Grounding (10min) → Processing (5min) → Transcendence (30min) → Integration (45min)
-- Perfect for meditation, therapy sessions, and wellness programs
+- Great for meditation, therapy sessions, and wellness programs
 
 **🔊 Extreme Intensity Training (100 minutes)**
 - Loud (20min) → Louder (20min) → LOUDEST (60min)
@@ -99,7 +100,55 @@ Advanced features for music enthusiasts and DJs:
 
 **🎮 Gaming Nostalgia Journey**
 - Classic 8-bit foundations evolving through 16-bit masterpieces
-- Perfect for gaming sessions and nostalgic exploration
+- Great for gaming sessions and nostalgic exploration
+
+## 🔄 Randomization & Track Selection Features
+
+Keep your playlists fresh while maintaining consistent quality:
+
+### **🔀 Smart Randomization**
+- **🎲 Time-Based Seeds** - Different tracks every time you refresh a playlist
+- **🎯 Phase-Preserving Structure** - Maintains therapeutic playlist integrity while adding variety
+- **⚖️ Balanced Duration** - Randomization happens before duration targeting for optimal results
+
+### **📊 Consistent Quality Sorting**
+- **🏆 Duration-Based Selection** - When randomization is disabled, prioritizes longest/highest quality tracks
+- **🎭 Unified Logic** - Both standard and phased playlists use the same quality-focused sorting
+- **🎵 Professional Curation** - Mirrors manual DJ practices with longest tracks first
+
+### **⚙️ Configuration Control**
+To enable randomization, add this to your playlist configuration:
+
+```markdown
+## Metadata
+- **Randomize Selection**: true   # Enable variety and freshness
+- **Randomize Selection**: false  # Consistent, quality-focused selection
+```
+
+**Default Behavior**: If not specified, playlists use consistent duration-based sorting for predictable, high-quality results.
+
+## 🚀 Quick Playlist Management
+
+Efficiently refresh your entire playlist ecosystem with the simple, reliable quick-refresh script:
+
+### **💻 Quick Refresh Script**
+```powershell
+# Refresh all playlists on Spotify (default)
+.\quick-refresh.ps1
+
+# Refresh all playlists on YouTube Music
+.\quick-refresh.ps1 -Platform youtube-music
+```
+
+**Features:**
+- ✅ **19 Active Playlists** - Automatically discovers and processes all playlist configs
+- ✅ **Clean Output** - Minimal progress indicators for fast results
+- ✅ **Cross-Platform** - Supports both Spotify and YouTube Music
+- ✅ **Error Handling** - Proper exit codes and failure reporting
+- ✅ **API-Friendly** - Built-in request pacing for reliable operation
+- ✅ **Fast & Simple** - No complex features, just works reliably
+
+*See [QUICK-REFRESH-README.md](QUICK-REFRESH-README.md) for complete documentation and usage examples.*
 
 ## 🚀 Getting Started (Easy Setup!)
 
@@ -125,18 +174,49 @@ pip install spotipy python-dotenv requests
 
 ### **Create Your First Playlist**
 
-```python
-# Example: Create a coffee shop playlist
-python universal_playlist_creator.py playlist-configs/coffee-shop.md
+```bash
+# Browse available playlists first
+cat CATALOG.md
 
-# Example: Discover live DJ performances
-python universal_playlist_creator.py playlist-configs/dj-live-performances.md
+# Create any playlist from the catalog
+python universal_playlist_creator.py playlist-configs/<playlist-name>.md
 
-# Example: Build a therapeutic journey
-python universal_playlist_creator.py playlist-configs/ketamine-therapy.md
+# See CATALOG.md for complete list of available playlists
+# including therapeutic, ambient, DJ, gaming, and cultural options
+```
 
-# Example: Create an intense workout playlist
-python universal_playlist_creator.py playlist-configs/loud-music-escalation.md
+### **Quick Playlist Management**
+
+```powershell
+# Refresh all playlists on Spotify
+.\quick-refresh.ps1
+
+# Cross-platform sync (Spotify → YouTube Music)
+.\quick-refresh.ps1 -Platform youtube-music
+```
+
+**🎯 Ideal for:**
+- Daily playlist maintenance and fresh content
+- Cross-platform synchronization (Spotify ↔ YouTube Music)
+- Managing therapeutic playlist ecosystems
+- Professional DJ workflow automation
+
+## 📋 Available Playlists
+
+For a complete catalog of available playlists with descriptions and configurations, see **[CATALOG.md](CATALOG.md)**.
+
+**Quick Examples:**
+```bash
+# Browse the complete catalog first
+cat CATALOG.md
+
+# Then create any playlist from the catalog
+python universal_playlist_creator.py playlist-configs/<playlist-name>.md
+
+# Examples of usage patterns:
+python universal_playlist_creator.py playlist-configs/coffee-shop.md        # Ambient focus
+python universal_playlist_creator.py playlist-configs/adhd-focus-protocol.md # Therapeutic
+python universal_playlist_creator.py playlist-configs/loud-music-escalation.md # High-energy
 ```
 
 That's it! Your personalized playlists will appear in your Spotify account instantly.
@@ -176,7 +256,7 @@ This platform leverages The Alex Method's professional DJ expertise combined wit
 
 ### **DJ Professionals**
 
-"*Perfect for creating client playlists and discovering new tracks for sets.*" - Professional DJ
+"*Great for creating client playlists and discovering new tracks for sets.*" - Professional DJ
 
 ### **Wellness Practitioners**
 

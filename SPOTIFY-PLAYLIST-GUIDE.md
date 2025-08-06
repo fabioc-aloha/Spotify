@@ -6,6 +6,7 @@
 3. [API-Based Automation](#api-based-automation)
 4. [Advanced Techniques](#advanced-techniques)
 5. [The Alex Method](#the-alex-method)
+6. [Using Randomization in Playlists](#using-randomization-in-playlists)
 
 ## Getting Started
 
@@ -202,6 +203,34 @@ def update_playlist_with_trends():
     # Remove tracks that are losing popularity
     pass
 ```
+
+## Using Randomization in Playlists
+
+### What is Randomization?
+Randomization allows your playlist configurations to produce different track selections each time they're refreshed. This keeps playlists fresh and provides variety without requiring manual changes.
+
+### How to Enable Randomization
+Add this parameter to your playlist configuration's metadata section:
+
+```markdown
+## Metadata
+- **Randomize Selection**: true
+```
+
+When set to `false` or omitted, the system will produce the same tracks on each run (assuming Spotify's catalog hasn't changed).
+
+### How Randomization Works
+1. **Time-Based Seeding**: Uses the current time as a random seed
+2. **Search Variety**: Gets different tracks from search results
+3. **Order Shuffling**: Randomizes the track order before duration targeting
+4. **Phase Preservation**: For therapeutic playlists, randomizes within each phase to maintain the therapeutic journey
+
+### Best Uses for Randomization
+- **Entertainment Playlists**: Keep party and casual listening playlists fresh
+- **Discovery Playlists**: Find new music within your preferred genres
+- **Variety in Routine**: Change up your daily workout or commute playlists
+
+See the `playlist-configs/examples/randomized-hits.md` file for a complete example.
 
 ## Best Practices
 

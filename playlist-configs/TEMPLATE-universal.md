@@ -1,11 +1,14 @@
 # [Playlist Name] - Universal Template
 
 ## Metadata
-- **Name**: [Playlist Name with Emoji and Duration]
+# Playlist Configuration Template - Universal Format
+
+**Name**: [Emoji] [Playlist Name] - Alex Method ([Duration])
 - **Description**: [Describe the playlist purpose, mood, and any special features]
 - **Duration Target**: [X] minutes
 - **Privacy**: [public/private]
 - **Emoji**: [Choose appropriate emoji]
+- **Randomize Selection**: [true/false]
 
 ## Search Queries
 **FORMAT: Use bullet points (- keyword)**

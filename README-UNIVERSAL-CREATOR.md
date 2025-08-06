@@ -98,19 +98,19 @@ For complex playlists like therapeutic sessions:
 - **Duration**: 90 minutes
 - **Style**: Acoustic, indie folk, jazz
 - **Mood**: Relaxed, conversational
-- **Perfect for**: Work, study, cafe visits
+- **Ideal for**: Work, study, cafe visits
 
 ### 🧘 Ketamine Therapy (`ketamine-therapy.md`)
 - **Duration**: 180 minutes (3 hours)
 - **Style**: Ambient, therapeutic, healing
 - **Categories**: Foundation → Grounding → Processing → Transcendence → Integration
-- **Perfect for**: Medical therapeutic sessions (supervised)
+- **Ideal for**: Medical therapeutic sessions (supervised)
 
 ### 🎧 DJ Live Performances (`dj-live-performances.md`)
 - **Duration**: 120 minutes
 - **Style**: Electronic, house, techno, trance
 - **Focus**: Live recordings, festival sets
-- **Perfect for**: Electronic music enthusiasts
+- **Ideal for**: Electronic music enthusiasts
 
 ## 🛠️ Creating Your Own Configuration
 

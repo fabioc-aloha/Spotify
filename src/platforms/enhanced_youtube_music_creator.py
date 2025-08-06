@@ -443,6 +443,18 @@ class EnhancedYouTubeMusicCreator(BasePlaylistCreator):
         lines = self._raw_config_content.split('\n')
         tracks = []
         in_track_list = False
+        randomized = False
+        
+        # Check if randomization is enabled
+        for line in lines:
+            if 'Randomize Selection' in line and ('true' in line.lower() or 'yes' in line.lower() or '1' in line):
+                randomized = True
+                print(f"🔀 Randomization is enabled in this playlist - tracks will vary on each run")
+                break
+        
+        if randomized:
+            print(f"⚠️ This playlist uses randomization - YouTube Music will need to use its own search")
+            return []
         
         for line in lines:
             line = line.strip()

@@ -106,7 +106,7 @@ When you run the script, you'll see:
    ✅ Diagram saved to: .\catalyst-graphs\catalyst-overview-YYYYMMDD-HHMMSS.md
 
 📊 Cognitive Architecture Health:
-   � Files: 31 across 5 memory systems
+   📁 Files: 31 across 5 memory systems
    🔗 Connections: 88 total (57 high-strength)
    💪 Connectivity Ratio: 2.84 connections per file
    🎯 Architecture Status: EXCELLENT

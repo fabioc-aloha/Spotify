@@ -1,7 +1,7 @@
 # Deep Bass House Shaker - Universal Template
 
 ## Metadata
-- **Name**: 🔊 Deep Bass House Shaker - Alex Method (90min)
+- **Name**: 🔊 Deep Bass House Shaker - Alex Method (90 min)
 - **Description**: Maximum bass impact playlist designed to shake the house! Deep bass guitars, thunderous drums, and wall-shaking low frequencies across electronic, metal, and hip-hop genres.
 - **Duration Target**: 90 minutes
 - **Privacy**: public
@@ -145,50 +145,26 @@ Sustained powerful bass with memorable impact tracks
 ## Cross-Platform Metadata
 - **Spotify URL**: https://open.spotify.com/playlist/2G2u1ahbY7S40z6l7nW4Ym
 - **Spotify ID**: 2G2u1ahbY7S40z6l7nW4Ym
-- **Last Updated**: 2025-08-03
-- **Action**: created
-- **Track Count**: 40
-- **Duration**: 89.5 minutes
+- **Last Updated**: 2025-08-05
+- **Action**: refreshed
+- **Track Count**: 16
+- **Duration**: 91.5 minutes
 - **Generated Tracks**: Ready for YouTube Music transfer
 
 ### Track List (for YouTube Music Transfer)
- 1. Woofer Excursion Test - Power Supply (1.7m)
- 2. Rumble - Frisco (1.9m)
- 3. Bass Ritual - AHEE (2.0m)
- 4. Low Dive - Esseks (2.1m)
- 5. Yung Tumbo - Chmura (2.4m)
- 6. Rumble - Skrillex (2.4m)
- 7. Rumble - INFEKT (2.6m)
- 8. ROYAL RUMBLE VIP - Monxx (2.7m)
- 9. Space For Two - R3hab Remix - Mr. Probz (2.7m)
-10. Industrial Is As Industrial Does - Roastmane (1.2m)
-11. Drop In - GRiZ (2.0m)
-12. Blow The Speakers Up - Evalution (2.4m)
-13. Rock - Stepz (2.4m)
-14. Bass Rattle Stars Out The Sky - Death Grips (2.5m)
-15. SEE YOU DROP - Ray Volpe (2.6m)
-16. METANÖIA - Shöckface (2.7m)
-17. LET THE BASS KICK - Rooler (2.9m)
-18. Heavy Metal Shit (feat. Lafa Taylor & Neon Steve) - Stylust (3.0m)
-19. Extreme Bass - Bass Boosted Beats (3.0m)
-20. The Chicken Wing Beat - Ricky Desktop (1.0m)
-21. Bass Test Subwoofer - Bass Test (1.1m)
-22. Heaviest Bass Test (20hz Extreme Sub Boost) - Bass Boosted HD (1.3m)
-23. Bass Test 20Hz - Subwoofer - Sub Test - Bass Boosted HD (1.4m)
-24. Earthquake - prodJSTEW (1.7m)
-25. Earthquake - Nulteex (1.8m)
-26. It's Called Dubstep - Bear Grillz (2.1m)
-27. Earthquake - uncxmmn (2.2m)
-28. Earthquake - Jay Eskar (2.2m)
-29. Space Invaderz - WonkyWilla (2.3m)
-30. Earthquake - Zinga Remix - Zinga (2.3m)
-31. Crocodile - Know Good (2.4m)
-32. Earthquake - Marshmello (2.5m)
-33. legendary - Prod Arbitrary (1.9m)
-34. Banga - Dr. Fresch (2.4m)
-35. Shake Shit Up - Jauz (2.4m)
-36. ICON (DANCE IV LIFE) - Todrick Hall (2.5m)
-37. Taxman - Remastered 2009 - The Beatles (2.6m)
-38. FIVE SIX - Pouya (2.7m)
-39. Legendary - Rio Da Yung Og (2.7m)
-40. SPACE - SPORTMODE (2.7m)
+ 1. Wildstyle Method - Bassnectar (5.9m)
+ 2. Feel The Bass - DJ Magic Mike (5.1m)
+ 3. Crack A Bottle - Eminem (5.0m)
+ 4. I Like It Heavy - Halestorm (4.9m)
+ 5. Here We Go - Bassnectar (6.8m)
+ 6. 1Train (feat. Kendrick Lamar, Joey Bada$$, Yelawolf, Danny Brown, Action Bronson & Big K.R.I.T.) - A$AP Rocky (6.2m)
+ 7. Oni - Champagne Drip (4.6m)
+ 8. Thunderstruck (Trance Remix) - Ministry (4.6m)
+ 9. I Love Big Speakers - Bass Boy and Techmaster P.E.B. (4.4m)
+10. Virus - Excision (5.5m)
+11. Drop The Bass (Pt. 2) - DJ Magic Mike (5.1m)
+12. Earthquake - Teminite (4.9m)
+13. On The Floor - Jennifer Lopez (4.7m)
+14. Dubwoofer Substep - Omnitica (4.7m)
+15. Freddie Freeloader (feat. John Coltrane, Cannonball Adderley, Wynton Kelly & Paul Chambers) - Miles Davis (9.8m)
+16. So What (feat. John Coltrane, Cannonball Adderley & Bill Evans) - Miles Davis (9.4m)

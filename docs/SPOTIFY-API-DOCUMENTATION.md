@@ -122,7 +122,7 @@ for item in recent['items']:
 
 ## Playlists Management
 
-Playlists are at the heart of the Spotify experience, and this section provides complete control over playlist creation, modification, and management. You can create both public and private playlists, add or remove tracks, reorder content, update metadata, and even upload custom cover images. The API supports collaborative playlists and provides detailed track information with flexible field selection. These endpoints are perfect for building playlist management tools, automated DJ systems, or music curation applications.
+Playlists are at the heart of the Spotify experience, and this section provides complete control over playlist creation, modification, and management. You can create both public and private playlists, add or remove tracks, reorder content, update metadata, and even upload custom cover images. The API supports collaborative playlists and provides detailed track information with flexible field selection. These endpoints are well-suited for building playlist management tools, automated DJ systems, or music curation applications.
 
 ### Create Playlists
 ```python
@@ -476,7 +476,7 @@ for device in devices['devices']:
 
 ## Audio Features & Analysis
 
-Dive deep into the musical characteristics of tracks with Spotify's sophisticated audio analysis capabilities. This section provides access to audio features like danceability, energy, valence, and tempo, as well as detailed audio analysis including beats, bars, sections, and segments. The recommendation engine uses these features to suggest similar music based on acoustic characteristics. These endpoints are perfect for building music analysis tools, mood-based playlist generators, and AI-powered music recommendation systems.
+Dive deep into the musical characteristics of tracks with Spotify's sophisticated audio analysis capabilities. This section provides access to audio features like danceability, energy, valence, and tempo, as well as detailed audio analysis including beats, bars, sections, and segments. The recommendation engine uses these features to suggest similar music based on acoustic characteristics. These endpoints are well-suited for building music analysis tools, mood-based playlist generators, and AI-powered music recommendation systems.
 
 ### Audio Features
 ```python

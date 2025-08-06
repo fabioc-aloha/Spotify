@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Alex Method DJ Spotify Creator - Professional DJ Playlist Creation
 The Alex Method: Professional DJ techniques for creating perfect musical journeys
@@ -24,6 +25,10 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from typing import Dict, List, Optional, Any
 from ..core.base_playlist_creator import BasePlaylistCreator
+from ..utils.safe_print import safe_print
+
+from ..core.base_playlist_creator import BasePlaylistCreator
+from ..utils.safe_print import safe_print
 
 class SpotifyPlaylistCreator(BasePlaylistCreator):
     def __init__(self):
@@ -63,13 +68,22 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 return results['tracks']['items']
             return []
         except Exception as e:
-            print(f"Search error for query '{query}': {e}")
+            safe_print(f"Search error for query '{query}': {e}")
             return []
     
     def search_tracks(self) -> List[Dict[str, Any]]:
         """Search for tracks based on configuration."""
         if not self.config:
             raise ValueError("No configuration loaded. Call load_config() first.")
+            
+        # Check if randomization is enabled
+        randomize = False
+        if 'metadata' in self.config:
+            randomize_str = self.config['metadata'].get('randomize_selection', 'false').lower()
+            randomize = randomize_str in ('true', 'yes', '1')
+            
+        if randomize:
+            safe_print(f"   🔀 RANDOMIZATION ENABLED: Track selection will be different on each refresh")
 
         # Check if this is a phased playlist (has Track Categories section)
         if self.has_track_categories():
@@ -89,11 +103,11 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         per_query_limit = min(50, self.config['track_limits'].get('per_query', 20))  # Increase per-query limit
         
         emoji = self.config['metadata'].get('emoji', '🎵')
-        print(f"{emoji} Searching for tracks...")
+        safe_print(f"{emoji} Searching for tracks...")
         
         if target_minutes:
-            print(f"   🎯 Target duration: {target_minutes} minutes (±10% = {target_minutes*0.9:.1f}-{target_minutes*1.1:.1f} minutes)")
-            print(f"   🎯 Searching for {search_pool_size} tracks to find optimal {estimated_tracks_needed} for duration targeting")
+            safe_print(f"   🎯 Target duration: {target_minutes} minutes (±10% = {target_minutes*0.9:.1f}-{target_minutes*1.1:.1f} minutes)")
+            safe_print(f"   🎯 Searching for {search_pool_size} tracks to find optimal {estimated_tracks_needed} for duration targeting")
         
         for query in self.config['search_queries']:
             # Use dynamic search pool size based on duration target
@@ -114,25 +128,31 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                             tracks.append(track_info)
                             
             except Exception as e:
-                print(f"   ⚠️ Search issue with '{query}': {e}")
+                safe_print(f"   ⚠️ Search issue with '{query}': {e}")
                 continue
         
         # Apply any special sorting or filtering
         tracks = self.apply_special_processing(tracks)
+        
+        # Apply final deduplication to standard playlists as well
+        deduplicated_tracks = self.apply_final_deduplication(tracks)
+        if len(deduplicated_tracks) != len(tracks):
+            safe_print(f"   🔄 Final deduplication: {len(tracks)} → {len(deduplicated_tracks)} tracks")
+        tracks = deduplicated_tracks
         
         # Apply duration targeting
         if target_minutes:
             tracks = self.apply_duration_targeting(tracks, target_minutes)
         
         duration_total = sum(t['duration_min'] for t in tracks)
-        print(f"✅ Found {len(tracks)} suitable tracks ({duration_total:.1f} minutes)")
+        safe_print(f"✅ Found {len(tracks)} suitable tracks ({duration_total:.1f} minutes)")
         
         if target_minutes:
             variance = abs(duration_total - target_minutes) / target_minutes * 100
             if variance <= 10:
-                print(f"   🎯 Duration target achieved! ({variance:.1f}% variance)")
+                safe_print(f"   🎯 Duration target achieved! ({variance:.1f}% variance)")
             else:
-                print(f"   ⚠️ Duration variance: {variance:.1f}% (target: ±10%)")
+                safe_print(f"   ⚠️ Duration variance: {variance:.1f}% (target: ±10%)")
         
         return tracks
     
@@ -169,15 +189,15 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         target_min = target_minutes * 0.9  # -10%
         target_max = target_minutes * 1.1  # +10%
         
-        print(f"   🎯 Optimizing {len(tracks)} tracks for {target_minutes}min target ({target_min:.1f}-{target_max:.1f}min)")
+        safe_print(f"   🎯 Optimizing {len(tracks)} tracks for {target_minutes}min target ({target_min:.1f}-{target_max:.1f}min)")
         
         # Check if we have insufficient tracks for the target duration
         estimated_tracks_needed = max(15, target_minutes // 4)  # Rough estimate: 4min per track
         if len(tracks) < estimated_tracks_needed * 1.2:  # Less than 120% of estimated need (more aggressive)
-            print(f"   🔄 Insufficient tracks ({len(tracks)}) for {target_minutes}min target - searching with relaxed filters...")
+            safe_print(f"   🔄 Insufficient tracks ({len(tracks)}) for {target_minutes}min target - searching with relaxed filters...")
             relaxed_tracks = self.search_with_relaxed_filters()
             if relaxed_tracks:
-                print(f"   🔄 Found {len(relaxed_tracks)} additional tracks with relaxed filters")
+                safe_print(f"   🔄 Found {len(relaxed_tracks)} additional tracks with relaxed filters")
                 # Combine and deduplicate using enhanced deduplication
                 existing_track_ids = {t['id'] for t in tracks}
                 existing_track_names = set()
@@ -192,7 +212,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                         tracks.append(track)
                         existing_track_ids.add(track['id'])
                         existing_track_names.add(normalized_identifier)
-                print(f"   🔄 Total tracks after relaxed search: {len(tracks)}")
+                safe_print(f"   🔄 Total tracks after relaxed search: {len(tracks)}")
         
         # Use dynamic programming approach for better track selection
         best_combination = self.find_optimal_track_combination(tracks, target_min, target_max)
@@ -203,15 +223,22 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         
         total_duration = sum(t['duration_min'] for t in best_combination)
         variance = abs(total_duration - target_minutes) / target_minutes
-        print(f"   🎯 Duration optimization: {total_duration:.1f}min with {len(best_combination)} tracks")
+        safe_print(f"   🎯 Duration optimization: {total_duration:.1f}min with {len(best_combination)} tracks")
         
         if variance > 0.15:  # More than 15% variance
-            print(f"   ⚠️ High variance ({variance*100:.1f}%) - consider expanding search terms or relaxing filters")
+            safe_print(f"   ⚠️ High variance ({variance*100:.1f}%) - consider expanding search terms or relaxing filters")
         
         return best_combination
     
     def find_optimal_track_combination(self, tracks: List[Dict[str, Any]], target_min: float, target_max: float) -> List[Dict[str, Any]]:
         """Find optimal combination of tracks using subset sum approach."""
+        # Store the original track order 
+        original_tracks = tracks.copy()
+        
+        # IMPORTANT: We don't randomize here anymore. 
+        # Randomization should already be applied BEFORE calling this function
+        # This function should just preserve the existing order
+        
         if len(tracks) > 30:  # Avoid exponential complexity for large track lists
             return self.greedy_track_selection(tracks, target_min, target_max)
         
@@ -237,18 +264,31 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             if best_combination:  # Found good combination
                 break
         
+        # Preserve original track order (tracks might already be randomized or sorted earlier)
+        if best_combination:
+            # Find indices of selected tracks in original list
+            selected_ids = {track['id'] for track in best_combination}
+            preserved_tracks = [track for track in original_tracks if track['id'] in selected_ids]
+            if len(preserved_tracks) == len(best_combination):
+                safe_print(f"   � Preserving original track order in optimal combination")
+                return preserved_tracks
+        
         return best_combination
     
     def greedy_track_selection(self, tracks: List[Dict[str, Any]], target_min: float, target_max: float) -> List[Dict[str, Any]]:
         """Greedy track selection for duration targeting."""
-        # Sort tracks by duration (mix of long and short for better fitting)
-        sorted_tracks = sorted(tracks, key=lambda x: x['duration_min'])
+        # Store the original track order
+        original_tracks = tracks.copy()
+        
+        # Always use the original order (tracks are already randomized or sorted as needed)
+        tracks_to_use = tracks
+        safe_print(f"   � Using existing track order for greedy selection")
         
         selected_tracks = []
         current_duration = 0
         
         # First pass: add tracks greedily
-        for track in sorted_tracks:
+        for track in tracks_to_use:
             potential_duration = current_duration + track['duration_min']
             if potential_duration <= target_max:
                 selected_tracks.append(track)
@@ -258,7 +298,9 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         
         # Second pass: if we're under target, try to add more tracks
         if current_duration < target_min:
-            remaining_tracks = [t for t in tracks if t not in selected_tracks]
+            # Use remaining tracks in original order to preserve randomization or sort order
+            remaining_tracks = [t for t in original_tracks if t not in selected_tracks]
+            
             for track in remaining_tracks:
                 potential_duration = current_duration + track['duration_min']
                 if potential_duration <= target_max:
@@ -368,10 +410,31 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         return False
     
     def add_track_to_dedup_sets(self, track_info: Dict[str, Any], used_track_ids: set, used_track_names: set):
-        """Add track to both ID and name-based deduplication sets."""
+        """Add track to deduplication sets for ID and name-based duplicate detection."""
         used_track_ids.add(track_info['id'])
         normalized_identifier = self.normalize_track_identifier(track_info['name'], track_info['artist'])
         used_track_names.add(normalized_identifier)
+
+    def apply_final_deduplication(self, tracks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Apply final deduplication to remove any duplicate tracks that may have slipped through."""
+        if not tracks:
+            return tracks
+        
+        seen_ids = set()
+        seen_names = set()
+        deduplicated_tracks = []
+        
+        for track in tracks:
+            track_id = track['id']
+            normalized_identifier = self.normalize_track_identifier(track['name'], track['artist'])
+            
+            # Check if we've already seen this track
+            if track_id not in seen_ids and normalized_identifier not in seen_names:
+                deduplicated_tracks.append(track)
+                seen_ids.add(track_id)
+                seen_names.add(normalized_identifier)
+        
+        return deduplicated_tracks
 
     def categorize_track(self, query: str) -> str:
         """Categorize track based on query and configuration."""
@@ -390,13 +453,30 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         if self.config and self.config['track_categories']:
             return self.organize_by_categories(tracks)
         
-        # Otherwise, just sort by some criteria
-        return sorted(tracks, key=lambda x: x['duration_min'], reverse=True)
+        # Apply randomization using the standardized helper method
+        tracks = self.apply_randomization(tracks, "standard_playlist")
+        
+        # If randomization was not applied, sort by duration as fallback
+        if not self.should_randomize_tracks():
+            tracks = sorted(tracks, key=lambda x: x['duration_min'], reverse=True)
+            
+        return tracks
     
     def organize_by_categories(self, tracks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Organize tracks by categories with time targets."""
         if not self.config:
             return tracks
+        
+        # Check if randomization is enabled
+        randomize = False
+        if 'metadata' in self.config:
+            randomize_str = self.config['metadata'].get('randomize_selection', 'false').lower()
+            randomize = randomize_str in ('true', 'yes', '1')
+            
+            if randomize:
+                safe_print(f"   🎲 Randomization enabled for this playlist (randomize_selection: true)")
+            else:
+                safe_print(f"   📊 Using consistent track selection (randomize_selection: false/not set)")
             
         # Group tracks by category
         categorized = {}
@@ -406,15 +486,31 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 categorized[category] = []
             categorized[category].append(track)
         
-        # Sort within each category and build final list
+        # Sort or randomize within each category and build final list
         organized_tracks = []
         
         for category_name, category_info in self.config['track_categories'].items():
             if category_name in categorized:
                 category_tracks = categorized[category_name]
                 
-                # Sort by duration (longer first for deeper experiences)
-                category_tracks = sorted(category_tracks, key=lambda x: x['duration_min'], reverse=True)
+                if randomize:
+                    # Randomize tracks within this category
+                    import random
+                    import time
+                    # Set a random seed based on current time to ensure different results each run
+                    seed = int(time.time()) + hash(category_name)
+                    random.seed(seed)
+                    safe_print(f"   🔀 Randomizing tracks in category '{category_name}' with seed: {seed}")
+                    random.shuffle(category_tracks)
+                    
+                    # Print first few tracks to verify randomization
+                    if category_tracks:
+                        safe_print(f"      🎵 First 3 tracks in '{category_name}' after randomization:")
+                        for i, track in enumerate(category_tracks[:3]):
+                            safe_print(f"         {i+1}. {track['name']} - {track['artists'][0]['name']}")
+                else:
+                    # Sort by duration (longer first for deeper experiences)
+                    category_tracks = sorted(category_tracks, key=lambda x: x['duration_min'], reverse=True)
                 
                 # Apply time target if specified
                 target_minutes = category_info.get('target_minutes', 0)
@@ -446,8 +542,8 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         emoji = self.config['metadata'].get('emoji', '🎵')
         name = self.config['metadata'].get('name', 'Unnamed Playlist')
         
-        print(f"\n{emoji} {name}")
-        print("=" * 60)
+        safe_print(f"\n{emoji} {name}")
+        safe_print("=" * 60)
         
         # Show by category if we have them
         if self.config['track_categories']:
@@ -455,27 +551,27 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             for i, track in enumerate(tracks, 1):
                 if track['category'] != current_category:
                     current_category = track['category']
-                    print(f"\n🌀 {current_category}:")
-                    print("-" * 30)
+                    safe_print(f"\n🌀 {current_category}:")
+                    safe_print("-" * 30)
                 
-                print(f"{i:2d}. {track['name']} - {track['artist']} ({track['duration_min']:.1f}m)")
+                safe_print(f"{i:2d}. {track['name']} - {track['artist']} ({track['duration_min']:.1f}m)")
         else:
             for i, track in enumerate(tracks, 1):
-                print(f"{i:2d}. {track['name']} - {track['artist']} ({track['duration_min']:.1f}m)")
+                safe_print(f"{i:2d}. {track['name']} - {track['artist']} ({track['duration_min']:.1f}m)")
         
         total_duration = sum(t['duration_min'] for t in tracks)
         target_duration = self.config['metadata'].get('duration_target', '').split()[0] if self.config['metadata'].get('duration_target') else 'N/A'
         
-        print(f"\n🎵 Playlist Features:")
-        print(f"   • Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
-        print(f"   • Target Duration: {target_duration} minutes")
-        print(f"   • {len(tracks)} carefully curated tracks")
+        safe_print(f"\n🎵 Playlist Features:")
+        safe_print(f"   • Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
+        safe_print(f"   • Target Duration: {target_duration} minutes")
+        safe_print(f"   • {len(tracks)} carefully curated tracks")
         
         # Show special instructions
         if self.config['special_instructions']:
-            print(f"   • Special features:")
+            safe_print(f"   • Special features:")
             for instruction in self.config['special_instructions'][:3]:  # Show first 3
-                print(f"     - {instruction}")
+                safe_print(f"     - {instruction}")
         
         response = input(f"\n👍 Create this playlist? (y/n): ").lower().strip()
         return response in ['y', 'yes']
@@ -502,7 +598,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             return None
             
         except Exception as e:
-            print(f"⚠️ Warning: Could not search existing playlists: {e}")
+            safe_print(f"⚠️ Warning: Could not search existing playlists: {e}")
             return None
     
     def refresh_playlist(self, playlist_id: str, tracks: List[Dict[str, Any]]) -> str:
@@ -518,9 +614,9 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                     playlist_id=playlist_id,
                     description=enhanced_description
                 )
-                print(f"📝 Updated playlist description with phase timestamps")
+                safe_print(f"📝 Updated playlist description with phase timestamps")
             except Exception as e:
-                print(f"⚠️ Warning: Could not update playlist description: {e}")
+                safe_print(f"⚠️ Warning: Could not update playlist description: {e}")
         
         # Clear existing tracks
         existing_tracks = self.sp.playlist_tracks(playlist_id, fields='items.track.uri')
@@ -613,7 +709,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         existing_playlist = self.find_existing_playlist(name)
         
         if existing_playlist:
-            print(f"🔄 Found existing playlist '{name}' - refreshing content...")
+            safe_print(f"🔄 Found existing playlist '{name}' - refreshing content...")
             playlist_id = self.refresh_playlist(existing_playlist['id'], tracks)
             # Get updated playlist object with fresh metadata
             try:
@@ -624,7 +720,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 playlist = existing_playlist  # Fallback to existing if API call fails
             action = "refreshed"
         else:
-            print(f"🆕 Creating new playlist '{name}'...")
+            safe_print(f"🆕 Creating new playlist '{name}'...")
             # Create new playlist
             playlist = self.sp.user_playlist_create(
                 user=user_id,
@@ -651,15 +747,15 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         total_duration = sum(t['duration_min'] for t in tracks)
         emoji = self.config['metadata'].get('emoji', '🎵')
         
-        print(f"\n🎉 SUCCESS! {action.title()} '{name}'")
-        print(f"📱 {len(tracks)} tracks {action}")
-        print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
-        print(f"🔗 Playlist URL: {playlist['external_urls']['spotify']}")
+        safe_print(f"\n🎉 SUCCESS! {action.title()} '{name}'")
+        safe_print(f"📱 {len(tracks)} tracks {action}")
+        safe_print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
+        safe_print(f"🔗 Playlist URL: {playlist['external_urls']['spotify']}")
         
         # Save playlist URL and track info to config file for cross-platform usage
         self._save_playlist_metadata(playlist, tracks, action)
         
-        print(f"\n{emoji} Ready to enjoy your curated playlist!")
+        safe_print(f"\n{emoji} Ready to enjoy your curated playlist!")
         
         return playlist_id
 
@@ -669,7 +765,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             # Fallback to standard search if no phases detected
             return self.search_standard_tracks()
         
-        print(f"   🎭 Creating phased playlist with category-specific durations...")
+        safe_print(f"   🎭 Creating phased playlist with category-specific durations...")
         
         # Parse phases from Track Categories section
         phases = self.parse_track_categories()
@@ -684,15 +780,27 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             duration_minutes = phase_info['duration']
             queries = phase_info['queries']
             
-            print(f"   🎯 Phase: {phase_name} ({duration_minutes} minutes)")
+            safe_print(f"   🎯 Phase: {phase_name} ({duration_minutes} minutes)")
             
             # Search for tracks specific to this phase
             phase_tracks = []
             per_query_limit = 30
             
+            # Check if randomization is enabled - we'll need it later for ordering, not for search
+            randomize = False
+            if self.config and 'metadata' in self.config:
+                randomize_str = self.config['metadata'].get('randomize_selection', 'false').lower()
+                randomize = randomize_str in ('true', 'yes', '1')
+                
+            # For EACH phase, get the same search results regardless of randomization
+            # Randomization will be applied later after collecting ALL tracks for this phase
             for query in queries:
                 try:
-                    results = self.sp.search(q=query, type='track', limit=per_query_limit)
+                    # Use a small varied offset (0, 10, 20) to add some variety to searches
+                    # but keep it consistent so searches are predictable
+                    search_offset = hash(query + phase_name) % 20 * 5
+                    
+                    results = self.sp.search(q=query, type='track', limit=per_query_limit, offset=search_offset)
                     if results and results['tracks']['items']:
                         for track in results['tracks']['items']:
                             if self.is_track_suitable(track):
@@ -708,20 +816,58 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                                     if len(phase_tracks) >= duration_minutes * 4:  # 4x target for selection
                                         break
                 except Exception as e:
-                    print(f"   ⚠️ Error searching for phase '{phase_name}' with query '{query}': {e}")
+                    safe_print(f"   ⚠️ Error searching for phase '{phase_name}' with query '{query}': {e}")
                     continue
             
-            # Apply duration targeting for this phase
+            # Apply randomization or sorting based on config BEFORE duration targeting
+            phase_tracks = self.apply_randomization(phase_tracks, f"phase_{phase_name}")
+            
+            # Display sample of tracks to verify processing (randomization or sorting)
+            if phase_tracks:
+                processing_type = "randomization" if self.should_randomize_tracks() else "duration sorting"
+                safe_print(f"      🎵 First 3 tracks in '{phase_name}' after {processing_type}:")
+                for i, track in enumerate(phase_tracks[:3]):
+                    safe_print(f"         {i+1}. {track['name']} - {track['artist']}")
+            
+            # Apply duration targeting for this phase (on processed tracks)
             if phase_tracks:
                 optimal_tracks = self.apply_duration_targeting(phase_tracks, duration_minutes)
-                print(f"   ✅ Phase {phase_name}: {len(optimal_tracks)} tracks ({sum(t['duration_min'] for t in optimal_tracks):.1f}min)")
+                safe_print(f"   ✅ Phase {phase_name}: {len(optimal_tracks)} tracks ({sum(t['duration_min'] for t in optimal_tracks):.1f}min)")
+                
+                # Debug: Show what tracks are being added from this phase
+                if optimal_tracks:
+                    safe_print(f"      📋 Adding tracks from {phase_name}:")
+                    for i, track in enumerate(optimal_tracks[:3]):  # Show first 3
+                        safe_print(f"         {i+1}. {track['name']} - {track['artist']}")
+                    if len(optimal_tracks) > 3:
+                        safe_print(f"         ... and {len(optimal_tracks) - 3} more tracks")
                 
                 # Add to main playlist (tracks already marked as used above)
                 all_tracks.extend(optimal_tracks)
+                safe_print(f"      📊 Total tracks so far: {len(all_tracks)}")
             else:
-                print(f"   ⚠️ No tracks found for phase {phase_name}")
+                safe_print(f"   ⚠️ No tracks found for phase {phase_name}")
         
-        return all_tracks
+        safe_print(f"\n🎭 PHASED PLAYLIST SUMMARY:")
+        safe_print(f"   📊 Total phases processed: {len(phases)}")
+        safe_print(f"   📊 Total tracks collected: {len(all_tracks)}")
+        safe_print(f"   ⏱️ Total duration: {sum(t['duration_min'] for t in all_tracks):.1f} minutes")
+        
+        if all_tracks:
+            safe_print(f"   📋 Phase breakdown:")
+            phase_counts = {}
+            for track in all_tracks:
+                phase = track.get('phase', 'Unknown')
+                phase_counts[phase] = phase_counts.get(phase, 0) + 1
+            for phase, count in phase_counts.items():
+                safe_print(f"      • {phase}: {count} tracks")
+        
+        # Apply final deduplication across all collected tracks
+        deduplicated_tracks = self.apply_final_deduplication(all_tracks)
+        if len(deduplicated_tracks) != len(all_tracks):
+            safe_print(f"   🔄 Final deduplication: {len(all_tracks)} → {len(deduplicated_tracks)} tracks")
+        
+        return deduplicated_tracks
     
     def has_track_categories(self):
         """Check if config has Track Categories section for phased playlists."""
@@ -797,7 +943,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             # Keep only the most essential include keywords
             essential_keywords = relaxed_filters['include'][:3]  # Keep first 3 most important
             relaxed_filters['include'] = essential_keywords
-            print(f"   🔄 Relaxed include keywords to: {essential_keywords}")
+            safe_print(f"   🔄 Relaxed include keywords to: {essential_keywords}")
         
         # Apply relaxed filters temporarily
         self.config['track_filters'] = relaxed_filters
@@ -826,7 +972,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                                 relaxed_tracks.append(track_info)
                                 self.add_track_to_dedup_sets(track_info, used_track_ids, used_track_names)
             except Exception as e:
-                print(f"   ⚠️ Error in relaxed search for '{query}': {e}")
+                safe_print(f"   ⚠️ Error in relaxed search for '{query}': {e}")
                 continue
         
         # Restore original filters
@@ -838,6 +984,8 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         """Standard track search for non-phased playlists."""
         if not self.config:
             return []
+        
+        import time  # Import time for seed generation
             
         tracks = []
         used_track_ids = set()
@@ -857,11 +1005,15 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         per_query_limit = min(50, self.config.get('track_limits', {}).get('per_query', 20))
         
         emoji = self.config.get('metadata', {}).get('emoji', '🎵')
-        print(f"{emoji} Searching for tracks...")
+        safe_print(f"{emoji} Searching for tracks...")
         
+        # Check if randomization is enabled for standard playlists
+        if self.should_randomize_tracks():
+            safe_print(f"   🔀 Randomizing tracks with time-based seed: {int(time.time())}")
+            
         if target_minutes:
-            print(f"   🎯 Target duration: {target_minutes} minutes (±10% = {target_minutes*0.9:.1f}-{target_minutes*1.1:.1f} minutes)")
-            print(f"   🎯 Searching for {search_pool_size} tracks to find optimal {estimated_tracks_needed} for duration targeting")
+            safe_print(f"   🎯 Target duration: {target_minutes} minutes (±10% = {target_minutes*0.9:.1f}-{target_minutes*1.1:.1f} minutes)")
+            safe_print(f"   🎯 Searching for {search_pool_size} tracks to find optimal {estimated_tracks_needed} for duration targeting")
 
         search_queries = self.config.get('search_queries', [])
         for query in search_queries:
@@ -870,7 +1022,12 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 
             try:
                 search_limit = min(50, per_query_limit * 2)
-                results = self.sp.search(q=query, type='track', limit=search_limit)
+                
+                # For consistency, use a hash-based offset between searches
+                # but don't randomize per run - that will happen later
+                search_offset = hash(query) % 15 * 5  # 0, 5, 10, 15, ..., 70
+                
+                results = self.sp.search(q=query, type='track', limit=search_limit, offset=search_offset)
                 if results and results['tracks']['items']:
                     for track in results['tracks']['items']:
                         if len(tracks) >= search_pool_size:
@@ -884,7 +1041,7 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                                 tracks.append(track_info)
                                 self.add_track_to_dedup_sets(track_info, used_track_ids, used_track_names)
             except Exception as e:
-                print(f"   ⚠️ Error searching for '{query}': {e}")
+                safe_print(f"   ⚠️ Error searching for '{query}': {e}")
                 continue
         
         return tracks
@@ -928,10 +1085,10 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
         """Save playlist URL and track information to the config file for cross-platform usage."""
         try:
             if not hasattr(self, 'config_file_path') or not self.config_file_path:
-                print("⚠️ Config file path not available - skipping metadata save")
+                safe_print("⚠️ Config file path not available - skipping metadata save")
                 return
             
-            print(f"💾 Saving playlist metadata to {self.config_file_path}")
+            safe_print(f"💾 Saving playlist metadata to {self.config_file_path}")
             
             # Read current config file
             with open(self.config_file_path, 'r', encoding='utf-8') as f:
@@ -940,7 +1097,16 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
             # Prepare metadata section
             playlist_url = playlist['external_urls']['spotify']
             total_duration = sum(t['duration_min'] for t in tracks)
-            current_date = "2025-08-03"  # Using current date
+            from datetime import datetime
+            current_date = datetime.now().strftime("%Y-%m-%d")  # Use actual date
+            
+            # Check if randomization is enabled
+            randomized = False
+            if self.config and 'metadata' in self.config:
+                randomize_str = self.config['metadata'].get('randomize_selection', 'false').lower()
+                randomized = randomize_str in ('true', 'yes', '1')
+            
+            randomization_note = " (Tracks randomized on each refresh)" if randomized else ""
             
             metadata_section = f"""
 ## Cross-Platform Metadata
@@ -950,12 +1116,15 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
 - **Action**: {action}
 - **Track Count**: {len(tracks)}
 - **Duration**: {total_duration:.1f} minutes
-- **Generated Tracks**: Ready for YouTube Music transfer
+- **Generated Tracks**: Ready for YouTube Music transfer{randomization_note}
 
 ### Track List (for YouTube Music Transfer)
 """
             
             # Add track list for YouTube Music transfer
+            if randomized:
+                metadata_section += "Note: Tracks are randomized on each refresh - track list below represents current selection only.\n"
+                
             for i, track in enumerate(tracks, 1):
                 metadata_section += f"{i:2d}. {track['name']} - {track['artist']} ({track['duration_min']:.1f}m)\n"
             
@@ -967,36 +1136,77 @@ class SpotifyPlaylistCreator(BasePlaylistCreator):
                 # Escape special regex characters in the replacement string
                 escaped_metadata = metadata_section.replace('\\', '\\\\')
                 content = re.sub(pattern, escaped_metadata, content, flags=re.DOTALL)
-                print("🔄 Updated existing Cross-Platform Metadata section")
+                safe_print("🔄 Updated existing Cross-Platform Metadata section")
             else:
                 # Add new section at the end
                 content += "\n" + metadata_section
-                print("✨ Added new Cross-Platform Metadata section")
+                safe_print("✨ Added new Cross-Platform Metadata section")
             
             # Write back to file
             with open(self.config_file_path, 'w', encoding='utf-8') as f:
                 f.write(content)
             
-            print(f"✅ Successfully saved playlist metadata")
-            print(f"🔄 YouTube Music can now use this track list without additional searches")
-            print(f"   📋 Saved {len(tracks)} tracks for cross-platform transfer")
+            safe_print(f"✅ Successfully saved playlist metadata")
+            safe_print(f"🔄 YouTube Music can now use this track list without additional searches")
+            safe_print(f"   📋 Saved {len(tracks)} tracks for cross-platform transfer")
             
         except Exception as e:
-            print(f"⚠️ Warning: Could not save playlist metadata: {e}")
+            safe_print(f"⚠️ Warning: Could not save playlist metadata: {e}")
             import traceback
             traceback.print_exc()
+
+    def should_randomize_tracks(self):
+        """Check if randomization is enabled in the playlist configuration."""
+        if self.config and 'metadata' in self.config:
+            randomize_str = self.config['metadata'].get('randomize_selection', 'false').lower()
+            return randomize_str in ('true', 'yes', '1')
+        return False
+        
+    def apply_randomization(self, tracks, context_name=""):
+        """Apply randomization to the track list if enabled in config, otherwise sort by duration."""
+        if not tracks:
+            return tracks
+            
+        # Check if randomization is enabled
+        if self.should_randomize_tracks():
+            import random
+            import time
+            # Use time as base seed but add context name for different randomization in different contexts
+            seed = int(time.time()) + hash(context_name or "default")
+            random.seed(seed)
+            safe_print(f"   🔀 Randomizing tracks{' for ' + context_name if context_name else ''} with seed: {seed}")
+            random.shuffle(tracks)
+            
+            # Display sample of tracks to verify randomization
+            if tracks:
+                safe_print(f"      🎵 First 3 tracks after randomization:")
+                for i, track in enumerate(tracks[:3]):
+                    safe_print(f"         {i+1}. {track['name']} - {track['artist']}")
+        else:
+            # Sort by duration (longest first) for consistent quality-focused selection
+            tracks = sorted(tracks, key=lambda x: x.get('duration_ms', 0), reverse=True)
+            safe_print(f"   📊 Sorted tracks{' for ' + context_name if context_name else ''} by duration (longest first)")
+            
+            # Display sample to verify sorting
+            if tracks:
+                safe_print(f"      🎵 First 3 tracks after duration sorting:")
+                for i, track in enumerate(tracks[:3]):
+                    duration_str = f"{track.get('duration_min', 0):.1f}min"
+                    safe_print(f"         {i+1}. {track['name']} - {track['artist']} ({duration_str})")
+                    
+        return tracks
 
 def main():
     """Main function to create playlist from config file."""
     if len(sys.argv) != 2:
-        print("Usage: python universal_playlist_creator.py <config_file.md>")
-        print("\nAvailable configs:")
+        safe_print("Usage: python universal_playlist_creator.py <config_file.md>")
+        safe_print("\nAvailable configs:")
         config_dir = Path("playlist-configs")
         if config_dir.exists():
             for config_file in config_dir.glob("*.md"):
-                print(f"  - {config_file.name}")
+                safe_print(f"  - {config_file.name}")
         else:
-            print("  - No playlist-configs directory found")
+            safe_print("  - No playlist-configs directory found")
         return
     
     config_file = sys.argv[1]
@@ -1006,37 +1216,37 @@ def main():
         config_file = os.path.join("playlist-configs", config_file)
     
     try:
-        print("🎵 ALEX METHOD DJ - Spotify Platform")
-        print("=" * 50)
+        safe_print("🎵 ALEX METHOD DJ - Spotify Platform")
+        safe_print("=" * 50)
         
         creator = SpotifyPlaylistCreator()
         
         # Load configuration
-        print(f"📖 Loading configuration from {config_file}...")
+        safe_print(f"📖 Loading configuration from {config_file}...")
         config = creator.load_config(config_file)
         
-        print(f"🎯 Target: {config['metadata'].get('name', 'Unnamed Playlist')}")
-        print(f"⏱️ Duration: {config['metadata'].get('duration_target', 'Not specified')}")
-        print()
+        safe_print(f"🎯 Target: {config['metadata'].get('name', 'Unnamed Playlist')}")
+        safe_print(f"⏱️ Duration: {config['metadata'].get('duration_target', 'Not specified')}")
+        safe_print()
         
         # Search for tracks
         tracks = creator.search_tracks()
         
         if not tracks:
-            print("❌ Couldn't find suitable tracks. Check your configuration or internet connection.")
+            safe_print("❌ Couldn't find suitable tracks. Check your configuration or internet connection.")
             return
         
         # Preview and confirm
         if creator.preview_playlist(tracks):
             playlist_id = creator.create_or_refresh_playlist(tracks)
-            print(f"\n🚀 Playlist ready! Find it in your Spotify library.")
+            safe_print(f"\n🚀 Playlist ready! Find it in your Spotify library.")
         else:
-            print("👋 No playlist created. Configuration saved for future use!")
+            safe_print("👋 No playlist created. Configuration saved for future use!")
     
     except Exception as e:
-        print(f"❌ Error: {e}")
+        safe_print(f"❌ Error: {e}")
         if "credentials" in str(e).lower():
-            print("Make sure your .env file is configured correctly!")
+            safe_print("Make sure your .env file is configured correctly!")
 
 if __name__ == "__main__":
     main()

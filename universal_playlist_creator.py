@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Alex Method DJ - Multi-Platform Support
 Creates DJ playlists across different music platforms using The Alex Method
@@ -19,6 +20,27 @@ Usage:
 """
 
 import sys
+import os
+
+# Set UTF-8 encoding for Windows console to handle emoji characters
+if sys.platform == "win32":
+    os.environ['PYTHONIOENCODING'] = 'utf-8'
+
+# Import safe print utility
+try:
+    from src.utils.safe_print import safe_print
+except ImportError:
+    # Fallback if import fails
+    def safe_print(message):
+        try:
+            print(message)
+        except UnicodeEncodeError:
+            safe_message = message.replace('🎵', '[MUSIC]').replace('❌', '[ERROR]').replace('📁', '[FOLDER]')
+            safe_message = safe_message.replace('✅', '[SUCCESS]').replace('', '[BRAIN]').replace('🎭', '[THEATER]')
+            safe_message = safe_message.replace('🔍', '[SEARCH]').replace('🎯', '[TARGET]').replace('🔄', '[REFRESH]')
+            print(safe_message)
+
+import sys
 import argparse
 from typing import Dict, Any, Optional
 from pathlib import Path
@@ -32,7 +54,7 @@ def get_available_platforms():
         from src.platforms.spotify_creator import SpotifyPlaylistCreator
         platforms['spotify'] = SpotifyPlaylistCreator
     except ImportError as e:
-        print(f"⚠️ Spotify unavailable: {e}")
+        safe_print(f"⚠️ Spotify unavailable: {e}")
     
     # Check Enhanced YouTube Music availability (preferred)
     try:
@@ -44,7 +66,7 @@ def get_available_platforms():
             from src.platforms.youtube_creator import YouTubeMusicPlaylistCreator
             platforms['youtube-music'] = YouTubeMusicPlaylistCreator
         except ImportError as e:
-            print(f"⚠️ YouTube Music unavailable: {e}")
+            safe_print(f"⚠️ YouTube Music unavailable: {e}")
     
     return platforms
 
@@ -55,14 +77,14 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
     available_platforms = get_available_platforms()
     
     if not available_platforms:
-        print("❌ No platforms available. Please install required dependencies:")
-        print("   Spotify: pip install spotipy python-dotenv")
-        print("   YouTube: pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib")
+        safe_print("❌ No platforms available. Please install required dependencies:")
+        safe_print("   Spotify: pip install spotipy python-dotenv")
+        safe_print("   YouTube: pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib")
         return False
     
     if platform not in available_platforms:
-        print(f"❌ Platform '{platform}' not available")
-        print(f"Available platforms: {', '.join(available_platforms.keys())}")
+        safe_print(f"❌ Platform '{platform}' not available")
+        safe_print(f"Available platforms: {', '.join(available_platforms.keys())}")
         return False
     
     try:
@@ -70,8 +92,8 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
         CreatorClass = available_platforms[platform]
         creator = CreatorClass()
         
-        print(f"🎵 Alex Method DJ - {creator.get_platform_name()}")
-        print(f"📁 Loading configuration: {config_file}")
+        safe_print(f"🎵 Alex Method DJ - {creator.get_platform_name()}")
+        safe_print(f"📁 Loading configuration: {config_file}")
         
         # Load configuration
         config = creator.load_config(config_file)
@@ -82,19 +104,19 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
         target_duration = metadata.get('duration_target', 'Not specified')
         emoji = metadata.get('emoji', '🎵')
         
-        print(f"\n{emoji} Playlist: {playlist_name}")
-        print(f"🎯 Target Duration: {target_duration}")
-        print(f"🔍 Search Queries: {len(config.get('search_queries', []))}")
+        safe_print(f"\n{emoji} Playlist: {playlist_name}")
+        safe_print(f"🎯 Target Duration: {target_duration}")
+        safe_print(f"🔍 Search Queries: {len(config.get('search_queries', []))}")
         
         # Check for phased playlist
         if creator.has_track_categories():
             phases = creator.parse_track_categories()
-            print(f"🎭 Phased Playlist: {len(phases)} phases")
+            safe_print(f"🎭 Phased Playlist: {len(phases)} phases")
             for phase_name, phase_info in phases.items():
-                print(f"   • {phase_name}: {phase_info['duration']} minutes")
+                safe_print(f"   • {phase_name}: {phase_info['duration']} minutes")
         
         # Search for content
-        print(f"\n🔍 Searching for content on {creator.get_platform_name()}...")
+        safe_print(f"\n🔍 Searching for content on {creator.get_platform_name()}...")
         
         if hasattr(creator, 'search_tracks'):
             # Use Spotify-specific method for backward compatibility
@@ -122,14 +144,14 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
                 content = all_content[:config.get('track_limits', {}).get('total_tracks', 50)]
         
         if not content:
-            print("❌ No suitable content found. Try adjusting your search queries or filters.")
+            safe_print("❌ No suitable content found. Try adjusting your search queries or filters.")
             return False
         
         total_duration = sum(item.get('duration_minutes', item.get('duration_min', 0)) for item in content)
-        print(f"✅ Found {len(content)} items ({total_duration:.1f} minutes)")
+        safe_print(f"✅ Found {len(content)} items ({total_duration:.1f} minutes)")
         
         # Create playlist using platform-specific method if available
-        print(f"\n🆕 Creating playlist on {creator.get_platform_name()}...")
+        safe_print(f"\n🆕 Creating playlist on {creator.get_platform_name()}...")
         
         # Use Spotify-specific enhanced method if available
         if hasattr(creator, 'create_or_refresh_playlist'):
@@ -139,12 +161,12 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
             # Enhanced YouTube Music has metadata-based playlist creation
             playlist_id = creator.create_youtube_music_playlist_from_metadata(config_file)
             if playlist_id:
-                print(f"\n🎉 SUCCESS! Created '{playlist_name}' on YouTube Music")
-                print(f"📱 {len(content)} tracks processed")
+                safe_print(f"\n🎉 SUCCESS! Created '{playlist_name}' on YouTube Music")
+                safe_print(f"📱 {len(content)} tracks processed")
                 total_duration = sum(item.get('duration_minutes', item.get('duration_min', 0)) for item in content)
-                print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
-                print(f"🔗 Playlist URL: https://music.youtube.com/playlist?list={playlist_id}")
-                print(f"\n{emoji} Ready to enjoy your curated playlist!")
+                safe_print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
+                safe_print(f"🔗 Playlist URL: https://music.youtube.com/playlist?list={playlist_id}")
+                safe_print(f"\n{emoji} Ready to enjoy your curated playlist!")
         else:
             # Generic platform method for other platforms
             playlist_description = metadata.get('description', f'Created with Alex Method DJ for {creator.get_platform_name()}')
@@ -170,22 +192,22 @@ def create_playlist_alex_method_dj(config_file: str, platform: str = 'spotify') 
             creator.add_content_to_playlist(playlist_id, content_ids)
             
             # Success message for generic platforms
-            print(f"\n🎉 SUCCESS! Created '{playlist_name}' on {creator.get_platform_name()}")
-            print(f"📱 {len(content)} items added")
-            print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
+            safe_print(f"\n🎉 SUCCESS! Created '{playlist_name}' on {creator.get_platform_name()}")
+            safe_print(f"📱 {len(content)} items added")
+            safe_print(f"⏱️ Total Duration: {total_duration:.1f} minutes ({total_duration/60:.1f} hours)")
             
             if platform == 'youtube-music':
-                print(f"🔗 Playlist URL: https://www.youtube.com/playlist?list={playlist_id}")
+                safe_print(f"🔗 Playlist URL: https://www.youtube.com/playlist?list={playlist_id}")
             
-            print(f"\n{emoji} Ready to enjoy your curated playlist!")
+            safe_print(f"\n{emoji} Ready to enjoy your curated playlist!")
         
         return True
         
     except FileNotFoundError:
-        print(f"❌ Configuration file not found: {config_file}")
+        safe_print(f"❌ Configuration file not found: {config_file}")
         return False
     except Exception as e:
-        print(f"❌ Error creating playlist: {e}")
+        safe_print(f"❌ Error creating playlist: {e}")
         return False
 
 def main():

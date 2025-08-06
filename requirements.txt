@@ -33,6 +33,13 @@ requests>=2.32.4
 python-dateutil>=2.9.0
 # Date/time utilities for playlist naming and timestamps
 
+# AI Cover Art Generation Dependencies
+openai>=1.54.3
+# OpenAI API client for DALL-E 3 cover art generation
+
+pillow>=10.4.0
+# Python Imaging Library for image processing, optimization, and format conversion
+
 # Testing Framework
 pytest>=8.4.1
 # Unit testing framework for multi-platform development
