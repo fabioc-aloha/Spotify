@@ -35,10 +35,10 @@ python generate_cover_art_final.py playlist-configs --batch
 python generate_problem_covers.py
 ```
 
-### 4. Check Existing Cover Art
+### 4. Browse Existing Cover Art
 ```bash
-python cover_art_utils.py --list
-python cover_art_utils.py --find neural-network-symphony
+# View all cover art files in cover-art/ directory
+ls cover-art/
 ```
 
 ## 🎯 **Two-Layer Architecture**
@@ -69,8 +69,6 @@ python cover_art_utils.py --find neural-network-symphony
 | Script | Purpose | When to Use |
 |--------|---------|-------------|
 | `generate_cover_art_final.py` | Main cover art generator | General purpose cover generation |
-| `generate_problem_covers.py` | Special generator for problematic playlists | When the main generator fails with API errors |
-| `cover_art_utils.py` | Utility for finding and listing cover art | For checking what cover art exists |
 
 ## 🎵 **Theme-Aware Generation**
 
