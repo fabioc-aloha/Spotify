@@ -1,12 +1,20 @@
-# 🌊 Grief Processing Waves - Healing Through Loss
+# Grief Processing Waves - Universal Template
 
 ## Metadata
 
-- **Name**: 🌊 Grief Processing Waves - Alex Method (55 min)
+**Name**: 🌊 Grief Processing Waves - Alex Method (55min)
 - **Description**: Compassionate musical journey honoring the natural waves of grief with therapeutic progression through acknowledgment, feeling, integration, and memorial celebration. Designed with grief counseling principles.
 - **Duration Target**: 55 minutes
 - **Privacy**: public
 - **Emoji**: 🌊
+- **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\grief-processing.png
+- **JPEG**: cover-art\grief-processing.jpg
+- **Base64**: cover-art\grief-processing_base64.txt
+- **Generated**: 2025-08-06 08:56:09
 
 ## Search Queries
 

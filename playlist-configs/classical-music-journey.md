@@ -2,22 +2,29 @@
 
 ## Metadata
 
-- **Name**: 🏛️ Classical Music Journey - Alex Method (200 min)
+**Name**: 🏛️ Classical Music Journey - Alex Method (200min)
 - **Description**: Comprehensive classical education from baroque foundations to modern compositions - perfect for discovering the evolution of classical music
 - **Duration Target**: 200 minutes
 - **Privacy**: public
 - **Emoji**: 🏛️
 - **Randomize Selection**: false
 
+
+## Cover Art
+- **PNG**: cover-art\classical-music-journey.png
+- **JPEG**: cover-art\classical-music-journey.jpg
+- **Base64**: cover-art\classical-music-journey_base64.txt
+- **Generated**: 2025-08-06 08:52:41
+
 ## Search Queries
-- classical music journey education
-- baroque Bach mathematical precision
-- classical Mozart balance elegance
-- romantic classical emotional depth
-- modern contemporary classical
-- classical music evolution
-- orchestral symphony education
-- classical composition history
+- classical orchestral baroque
+- Bach orchestral baroque
+- Mozart classical orchestral
+- romantic orchestral symphony
+- contemporary classical orchestral
+- orchestral symphony classical
+- orchestral symphony evolution
+- classical orchestral composition
 
 ## Track Categories
 

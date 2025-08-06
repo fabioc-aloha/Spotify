@@ -1,13 +1,20 @@
-# Coffee Shop Playlist Configuration
+# Coffee Shop - Universal Template
 
 ## Metadata
 
-- **Name**: ☕ Coffee Shop Vibes - Alex Method (90 min)
+**Name**: ☕ Coffee Shop Vibes - Alex Method (90min)
 - **Description**: Perfect ambient music for your coffee shop visit! Curated acoustic and chill tracks for the ultimate coffee experience.
 - **Duration Target**: 90 minutes
-- **Privacy**: Public
+- **Privacy**: public
 - **Emoji**: ☕
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\coffee-shop.png
+- **JPEG**: cover-art\coffee-shop.jpg
+- **Base64**: cover-art\coffee-shop_base64.txt
+- **Generated**: 2025-08-06 08:53:10
 
 ## Search Queries
 

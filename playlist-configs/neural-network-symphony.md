@@ -1,76 +1,84 @@
 # Neural Network Symphony - Universal Template
 
+⚠️ **CONTENT GUIDELINES FOR AI COVER ART GENERATION** ⚠️
+- **DESCRIPTION**: Can use technical/sci-fi terms (neural network, algorithm, synthesis) - be accurate about musical exploration purpose
+- **SEARCH TERMS**: Use MUSIC-FOCUSED language only (genres, instruments, moods, BPM, energy levels)
+- Focus search terms on TRACK CHARACTERISTICS that Spotify can find (electronic, synthesizer, ambient, progressive)
+- Search terms should describe the MUSICAL QUALITIES that achieve your futuristic goals
+- Examples: Search for "progressive electronic ambient" not "AI consciousness music"
+
 ## Metadata
 # Playlist Configuration Template - Universal Format
 
 **Name**: 🔮 Neural Network Symphony - Alex Method (180min)
-- **Description**: Exploration of AI-generated music evolution and machine learning rhythms through four progressive phases - from familiar training data through algorithm evolution to AI creativity and human-AI harmony
+- **Description**: Progressive electronic journey through four evolving phases - from classic synthesizer foundations through complex algorithmic patterns to experimental digital soundscapes and collaborative electronic harmony
 - **Duration Target**: 180 minutes
 - **Privacy**: public
 - **Emoji**: 🔮
 - **Randomize Selection**: true
 
+
+## Cover Art
+- **PNG**: cover-art\neural-network-symphony.png
+- **JPEG**: cover-art\neural-network-symphony.jpg
+- **Base64**: cover-art\neural-network-symphony_base64.txt
+- **Generated**: 2025-08-06 08:59:01
+
 ## Search Queries
-**FORMAT: Use bullet points (- keyword)**
-- artificial intelligence
-- electronic neural
-- machine learning beats
-- algorithmic music
-- digital consciousness
-- computer generated
-- synthetic orchestra
-- AI collaboration
-- technological harmony
-- futuristic soundscape
+- electronic
+- synthesizer
+- progressive
+- ambient
+- experimental
+- digital
+- futuristic
+- atmospheric
+- evolving
+- collaborative
 
 ## Track Categories
 ### Training Data (45 minutes)
-Classic samples, learning patterns, familiar foundations - establishing the musical database that AI systems learn from
-**FORMAT: Use bullet points (- Queries: keyword)**
-- Queries: classic electronic samples
-- Queries: retro synthesizer patterns
-- Queries: vintage computer music
-- Queries: early digital sounds
-- Queries: 8-bit chiptune foundation
-- Queries: classical music samples
-- Queries: traditional instrumental learning
+Classic electronic foundations with retro synthesizer patterns and vintage digital sounds - establishing familiar musical structures
+- Queries: classic electronic
+- Queries: retro synthesizer
+- Queries: vintage digital
+- Queries: 8-bit chiptune
+- Queries: early electronic
+- Queries: classic ambient
+- Queries: traditional instrumental
 
 ### Algorithm Evolution (45 minutes)
-Progressive complexity, pattern recognition, emerging intelligence - the development phase where AI begins to understand musical structures
-**FORMAT: Use bullet points (- Queries: keyword)**
-- Queries: progressive electronic complexity
-- Queries: pattern recognition beats
-- Queries: evolving synthesizer sequences
-- Queries: algorithmic composition
-- Queries: mathematical music patterns
-- Queries: computational rhythm development
-- Queries: emerging digital intelligence
+Progressive electronic complexity with mathematical patterns and evolving sequences - developing sophisticated musical structures
+- Queries: progressive electronic
+- Queries: complex synthesizer
+- Queries: evolving ambient
+- Queries: mathematical rhythms
+- Queries: computational beats
+- Queries: developing sequences
+- Queries: emerging complexity
 
 ### AI Creativity (45 minutes)
-Unique AI-generated sounds, machine creativity unleashed - the breakthrough moment where AI creates original music beyond human input
-**FORMAT: Use bullet points (- Queries: keyword)**
-- Queries: experimental electronic creation
-- Queries: unique digital soundscapes
-- Queries: machine generated music
-- Queries: artificial creativity unleashed
-- Queries: innovative synthesizer work
-- Queries: original AI compositions
-- Queries: futuristic sound design
+Experimental electronic soundscapes with unique digital creativity and innovative synthesis - breakthrough musical exploration
+- Queries: experimental electronic
+- Queries: unique soundscapes
+- Queries: innovative synthesis
+- Queries: creative digital
+- Queries: original electronic
+- Queries: futuristic ambient
+- Queries: breakthrough sounds
 
 ### Human-AI Harmony (45 minutes)
-Perfect collaboration, symbiotic creation, future music - the transcendent phase where human and artificial intelligence create together
-**FORMAT: Use bullet points (- Queries: keyword)**
-- Queries: human AI collaboration
-- Queries: symbiotic electronic music
-- Queries: collaborative digital creation
-- Queries: transcendent technological harmony
-- Queries: unified consciousness music
-- Queries: future music evolution
-- Queries: perfect AI human synthesis
+Collaborative electronic music with transcendent harmonies and unified synthesis - perfect musical integration
+- Queries: collaborative electronic
+- Queries: harmonic synthesis
+- Queries: unified soundscapes
+- Queries: transcendent ambient
+- Queries: perfect harmony
+- Queries: integrated electronic
+- Queries: symbiotic music
 
 ## Track Filters
 ### Exclude Keywords
-**FORMAT: Use bullet points (- keyword) - ONE KEYWORD PER LINE**
 - aggressive
 - harsh
 - noisy
@@ -80,10 +88,9 @@ Perfect collaboration, symbiotic creation, future music - the transcendent phase
 - violent
 - destructive
 - angry
-- dark metal
+- dark
 
 ### Include Keywords (Prioritize)
-**FORMAT: Use bullet points (- keyword) - ONE KEYWORD PER LINE**
 - electronic
 - synthesizer
 - digital
@@ -91,7 +98,6 @@ Perfect collaboration, symbiotic creation, future music - the transcendent phase
 - atmospheric
 - evolving
 - progressive
-- intelligent
 - harmonic
 - melodic
 - futuristic

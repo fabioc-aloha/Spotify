@@ -1,12 +1,20 @@
-# 🌌 Space Odyssey - Universal Template
+# Space Odyssey - Universal Template
 
 ## Metadata
-- **Name**: 🌌 Space Odyssey - Alex Method (300 min)
+
+**Name**: 🌌 Space Odyssey - Alex Method (300min)
 - **Description**: Cosmic journey from Earth departure through deep space to alien worlds and triumphant return - epic interstellar expedition
 - **Duration Target**: 300 minutes
 - **Privacy**: public
 - **Emoji**: 🌌
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\space-odyssey.png
+- **JPEG**: cover-art\space-odyssey.jpg
+- **Base64**: cover-art\space-odyssey_base64.txt
+- **Generated**: 2025-08-06 09:02:11
 
 ## Search Queries
 - space launch music

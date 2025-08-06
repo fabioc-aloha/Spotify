@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🎭 House Party Lifecycle - Alex Method (360 min)
+**Name**: 🎭 House Party Lifecycle - Alex Method (360min)
 - **Description**: Complete party experience from setup through peak energy to intimate wind-down - perfect for hosting memorable house parties with seamless energy progression
 - **Duration Target**: 360 minutes
 - **Privacy**: public
 - **Emoji**: 🎭
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\house-party-lifecycle.png
+- **JPEG**: cover-art\house-party-lifecycle.jpg
+- **Base64**: cover-art\house-party-lifecycle_base64.txt
+- **Generated**: 2025-08-06 08:56:42
 
 ## Search Queries
 - house party playlist energy

@@ -1,12 +1,20 @@
-# 🧘 Anxiety Relief Architecture - Therapeutic Journey
+# Anxiety Relief - Universal Template
 
 ## Metadata
 
-- **Name**: 🧘 Anxiety Relief Architecture - Alex Method (90 min)
+**Name**: 🧘 Anxiety Relief Architecture - Alex Method (90min)
 - **Description**: Extended therapeutic phased journey for anxiety management through musical support, validation, and empowerment. Professional-grade progression from acknowledgment through regulation to healing with extended safe harbor and empowerment phases.
 - **Duration Target**: 90 minutes
 - **Privacy**: public
 - **Emoji**: 🧘
+- **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\anxiety-relief.png
+- **JPEG**: cover-art\anxiety-relief.jpg
+- **Base64**: cover-art\anxiety-relief_base64.txt
+- **Generated**: 2025-08-06 08:50:01
 
 ## Search Queries
 

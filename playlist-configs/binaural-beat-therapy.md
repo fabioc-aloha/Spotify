@@ -2,56 +2,63 @@
 
 ## Metadata
 
-- **Name**: 🧬 Binaural Beat Therapy - Alex Method (120 min)
+**Name**: 🧬 Binaural Beat Therapy - Alex Method (120min)
 - **Description**: Brainwave entrainment progression for cognitive enhancement and consciousness alteration - scientifically designed frequency therapy for mental wellness
 - **Duration Target**: 120 minutes
 - **Privacy**: public
 - **Emoji**: 🧬
 - **Randomize Selection**: false
 
+
+## Cover Art
+- **PNG**: cover-art\binaural-beat-therapy.png
+- **JPEG**: cover-art\binaural-beat-therapy.jpg
+- **Base64**: cover-art\binaural-beat-therapy_base64.txt
+- **Generated**: 2025-08-06 08:51:06
+
 ## Search Queries
-- binaural beats therapy brainwave
-- alpha waves relaxed awareness
-- theta waves deep meditation
-- delta waves healing sleep
-- gamma waves peak awareness
-- brainwave entrainment cognitive
-- frequency therapy consciousness
-- binaural beat meditation
+- binaural beats meditation
+- relaxing ambient meditation
+- deep meditation ambient
+- healing ambient sleep
+- awareness meditation ambient
+- cognitive ambient focus
+- meditation ambient therapy
+- calming meditation soundscape
 
 ## Track Categories
 
-### Alpha Waves (30 minutes)
-Relaxed awareness, 8-12 Hz frequency range for calm alertness and focused relaxation
-- Queries: alpha waves relaxed awareness 8-12 Hz
-- Queries: binaural beats alpha calm alertness
-- Queries: alpha frequency relaxed awareness
-- Queries: 8-12 Hz alpha waves binaural
-- Queries: calm alertness alpha wave therapy
+### Relaxed Awareness (30 minutes)
+Calm alertness and focused relaxation for gentle mental clarity
+- Queries: binaural beats relaxed awareness
+- Queries: calm alertness binaural meditation
+- Queries: relaxed awareness meditation
+- Queries: binaural calm alertness
+- Queries: meditation relaxed awareness binaural
 
-### Theta Waves (30 minutes)
-Deep meditation, 4-8 Hz frequency range for subconscious access and profound meditation states
-- Queries: theta waves deep meditation 4-8 Hz
-- Queries: binaural beats theta subconscious
-- Queries: theta frequency deep meditation
-- Queries: 4-8 Hz theta waves binaural
-- Queries: subconscious access theta wave therapy
+### Deep Meditation (30 minutes)
+Profound meditation states for inner exploration and mental depth
+- Queries: binaural beats deep meditation
+- Queries: deep meditation binaural ambient
+- Queries: profound meditation binaural
+- Queries: deep binaural meditation
+- Queries: meditation deep binaural ambient
 
-### Delta Waves (30 minutes)
-Healing sleep, 0.5-4 Hz frequency range for restoration and deep healing processes
-- Queries: delta waves healing sleep 0.5-4 Hz
-- Queries: binaural beats delta restoration
-- Queries: delta frequency healing sleep
-- Queries: 0.5-4 Hz delta waves binaural
-- Queries: restoration healing delta wave therapy
+### Healing Sleep (30 minutes)
+Restoration and deep healing processes for physical and mental recovery
+- Queries: binaural beats healing sleep
+- Queries: healing sleep binaural ambient
+- Queries: restorative binaural sleep
+- Queries: sleep healing binaural
+- Queries: healing ambient binaural sleep
 
-### Gamma Waves (30 minutes)
-Peak awareness, 30-100 Hz frequency range for insight states and enhanced consciousness
-- Queries: gamma waves peak awareness 30-100 Hz
-- Queries: binaural beats gamma insight states
-- Queries: gamma frequency peak awareness
-- Queries: 30-100 Hz gamma waves binaural
-- Queries: insight states gamma wave therapy
+### Peak Awareness (30 minutes)
+Enhanced consciousness and insight states for mental clarity and focus
+- Queries: binaural beats peak awareness
+- Queries: awareness binaural meditation
+- Queries: enhanced awareness binaural
+- Queries: peak awareness meditation binaural
+- Queries: meditation awareness binaural enhanced
 
 ## Track Filters
 

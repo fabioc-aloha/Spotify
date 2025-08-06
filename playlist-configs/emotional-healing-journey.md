@@ -1,12 +1,20 @@
-# 💔 Emotional Healing Journey - Universal Template
+# Emotional Healing Journey - Universal Template
 
 ## Metadata
-- **Name**: 💔 Emotional Healing Journey - Alex Method (180 min)
+
+**Name**: 💔 Emotional Healing Journey - Alex Method (180min)
 - **Description**: Therapeutic progression through grief, processing, acceptance, and renewal - supportive musical companion for emotional recovery
 - **Duration Target**: 180 minutes
 - **Privacy**: public
 - **Emoji**: 💔
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\emotional-healing-journey.png
+- **JPEG**: cover-art\emotional-healing-journey.jpg
+- **Base64**: cover-art\emotional-healing-journey_base64.txt
+- **Generated**: 2025-08-06 08:55:46
 
 ## Search Queries
 - sad emotional healing

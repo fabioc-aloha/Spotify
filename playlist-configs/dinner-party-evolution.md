@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🍽️ Dinner Party Evolution - Alex Method (180 min)
+**Name**: 🍽️ Dinner Party Evolution - Alex Method (180min)
 - **Description**: Sophisticated social gathering progression from arrival through intimate late-night conversation - perfect for hosting elegant dinner parties with seamless musical flow
 - **Duration Target**: 180 minutes
 - **Privacy**: public
 - **Emoji**: 🍽️
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\dinner-party-evolution.png
+- **JPEG**: cover-art\dinner-party-evolution.jpg
+- **Base64**: cover-art\dinner-party-evolution_base64.txt
+- **Generated**: 2025-08-06 08:54:17
 
 ## Search Queries
 - sophisticated jazz dinner

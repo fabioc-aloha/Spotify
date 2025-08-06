@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🎸 Brazilian Pop Rock 80s-90s - Alex Method (75 min)
+**Name**: 🎸 Brazilian Pop Rock 80s-90s - Alex Method (75min)
 - **Description**: Popular Brazilian pop rock hits from the golden decades of the 80s and 90s featuring iconic artists and unforgettable melodies
 - **Duration Target**: 75 minutes
 - **Privacy**: public
 - **Emoji**: 🎸
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\brazilian-pop-rock-80s-90s.png
+- **JPEG**: cover-art\brazilian-pop-rock-80s-90s.jpg
+- **Base64**: cover-art\brazilian-pop-rock-80s-90s_base64.txt
+- **Generated**: 2025-08-06 08:51:38
 
 ## Search Queries
 

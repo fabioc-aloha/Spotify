@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🗺️ Musical World Tour - Alex Method (240 min)
+**Name**: 🗺️ Musical World Tour - Alex Method (240min)
 - **Description**: Global cultural exploration through authentic regional music and fusion experiences - journey across continents through diverse musical traditions
 - **Duration Target**: 240 minutes
 - **Privacy**: public
 - **Emoji**: 🗺️
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\musical-world-tour.png
+- **JPEG**: cover-art\musical-world-tour.jpg
+- **Base64**: cover-art\musical-world-tour_base64.txt
+- **Generated**: 2025-08-06 08:58:33
 
 ## Search Queries
 - world music cultural exploration

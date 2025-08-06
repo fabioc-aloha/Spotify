@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🌅 Morning Awakening Protocol - Alex Method (90 min)
+**Name**: 🌅 Morning Awakening Protocol - Alex Method (90min)
 - **Description**: Progressive energy building from gentle wake to daily momentum - perfect for establishing positive morning routine
 - **Duration Target**: 90 minutes
 - **Privacy**: public
 - **Emoji**: 🌅
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\morning-awakening-protocol.png
+- **JPEG**: cover-art\morning-awakening-protocol.jpg
+- **Base64**: cover-art\morning-awakening-protocol_base64.txt
+- **Generated**: 2025-08-06 08:57:41
 
 ## Search Queries
 - gentle wake up music

@@ -1,13 +1,20 @@
-# 🎲Randomized Hits - Universal Template
+# Randomized Hits - Universal Template
 
 ## Metadata
 
-- **Name**: 🎲 Randomized Hits - Alex Method (240 min)
+**Name**: 🎲 Randomized Hits - Alex Method (240min)
 - **Description**: Popular tracks across decades with different selection each refresh - entertainment variety through randomization
 - **Duration Target**: 240 minutes
 - **Privacy**: public
 - **Emoji**: 🎲
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\randomized-hits.png
+- **JPEG**: cover-art\randomized-hits.jpg
+- **Base64**: cover-art\randomized-hits_base64.txt
+- **Generated**: 2025-08-06 08:59:51
 
 ## Search Queries
 

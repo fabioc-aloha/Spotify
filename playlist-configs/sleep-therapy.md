@@ -1,11 +1,20 @@
-# 💤 Sleep Therapy Journey - Deep Rest Architecture
+# Sleep Therapy Journey - Universal Template
 
 ## Metadata
-- **Name**: 💤 Sleep Therapy Journey - Alex Method (45 min)
+
+**Name**: 💤 Sleep Therapy Journey - Alex Method (45min)
 - **Description**: Therapeutic sleep induction playlist using progressive tempo reduction, binaural beats, and nature sounds. Designed to guide the nervous system into natural sleep cycles through scientifically-informed musical therapy.
 - **Duration Target**: 45 minutes
 - **Privacy**: private
 - **Emoji**: 💤
+- **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\sleep-therapy.png
+- **JPEG**: cover-art\sleep-therapy.jpg
+- **Base64**: cover-art\sleep-therapy_base64.txt
+- **Generated**: 2025-08-06 09:01:42
 
 ## Search Queries
 - sleep music instrumental

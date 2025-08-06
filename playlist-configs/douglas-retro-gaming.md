@@ -1,13 +1,20 @@
-# Douglas Retro Gaming Playlist
+# Douglas Retro Gaming - Universal Template
 
 ## Metadata
 
-- **Name**: 🎮 Douglas Retro Gaming - Alex Method (60 min)
+**Name**: 🎮 Douglas Retro Gaming - Alex Method (60min)
 - **Description**: Epic 8-bit and 16-bit video game music collection! From Undertale to classic Nintendo, perfect for gaming sessions and nostalgic listening.
 - **Duration Target**: 60 minutes
-- **Privacy**: Public
+- **Privacy**: public
 - **Emoji**: 🎮
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\douglas-retro-gaming.png
+- **JPEG**: cover-art\douglas-retro-gaming.jpg
+- **Base64**: cover-art\douglas-retro-gaming_base64.txt
+- **Generated**: 2025-08-06 08:55:17
 
 ## Search Queries
 

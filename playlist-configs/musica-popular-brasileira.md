@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🇧🇷 Música Popular Brasileira - Alex Method (90 min)
+**Name**: 🇧🇷 Música Popular Brasileira - Alex Method (90min)
 - **Description**: Essential MPB classics and contemporary hits featuring the greatest Brazilian artists and timeless songs that define Brazilian popular music
 - **Duration Target**: 90 minutes
 - **Privacy**: public
 - **Emoji**: 🇧🇷
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\musica-popular-brasileira.png
+- **JPEG**: cover-art\musica-popular-brasileira.jpg
+- **Base64**: cover-art\musica-popular-brasileira_base64.txt
+- **Generated**: 2025-08-06 08:58:05
 
 ## Search Queries
 

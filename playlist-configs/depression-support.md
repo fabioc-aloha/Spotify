@@ -1,12 +1,20 @@
-# 🧘‍♀️ Depression Support Pathway - Light-Finding Journey
+# Depression Support Pathway - Universal Template
 
 ## Metadata
 
-- **Name**: 🧘‍♀️ Depression Support Pathway - Alex Method (50 min)
+**Name**: 🧘‍♀️ Depression Support Pathway - Alex Method (50min)
 - **Description**: Therapeutic musical journey designed to gently support movement through depression using validated music therapy principles. Progressive journey from acceptance through gentle activation to hope cultivation.
 - **Duration Target**: 50 minutes
 - **Privacy**: public
 - **Emoji**: 🧘‍♀️
+- **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\depression-support.png
+- **JPEG**: cover-art\depression-support.jpg
+- **Base64**: cover-art\depression-support_base64.txt
+- **Generated**: 2025-08-06 08:53:39
 
 ## Search Queries
 

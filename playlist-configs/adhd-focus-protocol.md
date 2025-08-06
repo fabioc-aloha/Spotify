@@ -1,15 +1,22 @@
-# 🧠 ADHD Focus Protocol - Cognitive Enhancement Journey
+# ADHD Focus Protocol - Universal Template
 
 ## Metadata
 
-- **Name**: 🧠 ADHD Focus Protocol - Alex Method (60 min)
+**Name**: 🧠 ADHD Focus Protocol - Alex Method (60min)
 - **Description**: Evidence-based phased playlist designed for ADHD cognitive enhancement using binaural beats, consistent tempo, and dopamine reward systems. Optimized for sustained attention and productivity.
 - **Duration Target**: 60 minutes
 - **Privacy**: public
 - **Emoji**: 🧠
+- **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\adhd-focus-protocol.png
+- **JPEG**: cover-art\adhd-focus-protocol.jpg
+- **Base64**: cover-art\adhd-focus-protocol_base64.txt
+- **Generated**: 2025-08-06 08:49:00
 
 ## Search Queries
-
 - focus instrumental music
 - concentration ambient
 - study productivity music

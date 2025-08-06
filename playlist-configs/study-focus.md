@@ -1,13 +1,20 @@
-# Study & Focus Instrumental Journey
+# Study Focus - Universal Template
 
 ## Metadata
 
-- **Name**: 🎯 Study Focus Journey - Alex Method (180 min)
-- **Description**: 3-hour structured focus journey: Gentle Start → Deep Focus → Active Concentration → Wind Down. Instrumental music for studying and working without distractions. Designed with The Alex Method for optimal productivity.
+**Name**: 🎯 Study Focus Journey - Alex Method (180min)
+- **Description**: 3-hour structured focus journey: Gentle Start → Deep Focus → Active Concentration → Wind Down. Instrumental music for studying and working without distractions. Designed for optimal productivity.
 - **Duration Target**: 180 minutes
 - **Privacy**: public
 - **Emoji**: 🎯
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\study-focus.png
+- **JPEG**: cover-art\study-focus.jpg
+- **Base64**: cover-art\study-focus_base64.txt
+- **Generated**: 2025-08-06 09:02:41
 
 ## Search Queries
 

@@ -1,12 +1,20 @@
-# 🎬 Cinematic Storytelling - Universal Template
+# Cinematic Storytelling - Universal Template
 
 ## Metadata
-- **Name**: 🎬 Cinematic Storytelling - Alex Method (180 min)
+
+**Name**: 🎬 Cinematic Storytelling - Alex Method (180min)
 - **Description**: Movie-like emotional arc with musical narrative structure - dramatic progression from mystery through climax to resolution
 - **Duration Target**: 180 minutes
 - **Privacy**: public
 - **Emoji**: 🎬
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\cinematic-storytelling.png
+- **JPEG**: cover-art\cinematic-storytelling.jpg
+- **Base64**: cover-art\cinematic-storytelling_base64.txt
+- **Generated**: 2025-08-06 08:52:12
 
 ## Search Queries
 - mysterious cinematic

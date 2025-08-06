@@ -2,12 +2,19 @@
 
 ## Metadata
 
-- **Name**: 🚗 Road Trip Soundtrack - Alex Method (480 min)
+**Name**: 🚗 Road Trip Soundtrack - Alex Method (480min)
 - **Description**: Epic journey companion with phases matching travel psychology and landscape changes - perfect for long drives and adventure journeys
 - **Duration Target**: 480 minutes
 - **Privacy**: public
 - **Emoji**: 🚗
 - **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art\road-trip-soundtrack.png
+- **JPEG**: cover-art\road-trip-soundtrack.jpg
+- **Base64**: cover-art\road-trip-soundtrack_base64.txt
+- **Generated**: 2025-08-06 09:00:19
 
 ## Search Queries
 - road trip adventure music

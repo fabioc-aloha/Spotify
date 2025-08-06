@@ -1,13 +1,20 @@
-# DJ Live Performances Playlist Configuration
+# DJ Live Performances - Universal Template
 
 ## Metadata
 
-- **Name**: 🎧 Legendary DJ Live Performances - Alex Method (120 min)
+**Name**: 🎧 Legendary DJ Live Performances - Alex Method (120min)
 - **Description**: Curating acclaimed and highly-played DJ live performances. From legendary electronic sets to underground techno masters - the cream of the crop!
 - **Duration Target**: 120 minutes
-- **Privacy**: Public
+- **Privacy**: public
 - **Emoji**: 🎧
 - **Randomize Selection**: true
+
+
+## Cover Art
+- **PNG**: cover-art\dj-live-performances.png
+- **JPEG**: cover-art\dj-live-performances.jpg
+- **Base64**: cover-art\dj-live-performances_base64.txt
+- **Generated**: 2025-08-06 08:54:48
 
 ## Search Queries
 

@@ -4,19 +4,19 @@
 
 This system generates stunning, professional cover art for your playlists using AI backgrounds combined with consistent Python-overlaid branding. The approach separates AI background generation from text overlay for maximum control and consistency.
 
-## 📁 **Consistent File Naming Convention**
+## 📁 **Directory Structure**
 
-All cover art files use the same name as your playlist configuration file:
+All cover art files are generated directly in the `cover-art/` folder using the same name as your playlist configuration file:
 
 ```
 playlist-configs/neural-network-symphony.md
 ↓
-cover-art/generated/neural-network-symphony.jpg
-cover-art/generated/neural-network-symphony.png
-cover-art/generated/neural-network-symphony_base64.txt
+cover-art/neural-network-symphony.jpg
+cover-art/neural-network-symphony.png
+cover-art/neural-network-symphony_base64.txt
 ```
 
-This makes it easy for Python scripts to automatically find the correct cover art for any playlist.
+This structure makes it easy for Python scripts to automatically find the correct cover art for any playlist.
 
 ## 🚀 **Quick Start**
 
@@ -60,9 +60,9 @@ python cover_art_utils.py --find neural-network-symphony
 
 | Format | Purpose | Location |
 |--------|---------|----------|
-| **JPEG** | Visual preview, social sharing | `cover-art/generated/[playlist-name].jpg` |
-| **PNG** | High-quality with transparency | `cover-art/generated/[playlist-name].png` |
-| **Base64** | Spotify API upload ready | `cover-art/generated/[playlist-name]_base64.txt` |
+| **JPEG** | Visual preview, social sharing | `cover-art/[playlist-name].jpg` |
+| **PNG** | High-quality with transparency | `cover-art/[playlist-name].png` |
+| **Base64** | Spotify API upload ready | `cover-art/[playlist-name]_base64.txt` |
 
 ## 🛠️ **Available Tools**
 
@@ -89,18 +89,27 @@ The system automatically detects playlist emojis and applies appropriate visual 
 
 ### **Check if cover art exists for a playlist:**
 ```python
-from generate_cover_art_v2 import check_existing_cover_art
+from generate_cover_art_final import get_existing_cover_art
 
-existing = check_existing_cover_art("playlist-configs/my-playlist.md")
-# Returns: {'jpeg': Path|None, 'png': Path|None, 'base64': Path|None}
+existing_files = get_existing_cover_art("playlist-configs/my-playlist.md")
+# Returns: List[Path] of existing files (PNG, JPEG, Base64)
 ```
 
 ### **Get specific cover art path:**
 ```python
-from generate_cover_art_v2 import get_cover_art_path
+from pathlib import Path
 
-jpeg_path = get_cover_art_path("playlist-configs/my-playlist.md", "jpeg")
-base64_path = get_cover_art_path("playlist-configs/my-playlist.md", "base64")
+def get_cover_art_path(config_file: str, format_type: str) -> Path:
+    """Get path to cover art file for a given format"""
+    config_name = Path(config_file).stem
+    cover_art_dir = Path('cover-art')
+
+    if format_type.lower() == "jpeg" or format_type.lower() == "jpg":
+        return cover_art_dir / f"{config_name}.jpg"
+    elif format_type.lower() == "png":
+        return cover_art_dir / f"{config_name}.png"
+    elif format_type.lower() == "base64":
+        return cover_art_dir / f"{config_name}_base64.txt"
 ```
 
 ## 📋 **Integration with Playlist Scripts**
@@ -108,14 +117,18 @@ base64_path = get_cover_art_path("playlist-configs/my-playlist.md", "base64")
 Your playlist generation scripts can now easily check for and use cover art:
 
 ```python
-from generate_cover_art_v2 import get_cover_art_path
+from generate_cover_art_final import get_existing_cover_art
+from pathlib import Path
 
 config_file = "playlist-configs/neural-network-symphony.md"
+config_name = Path(config_file).stem
+cover_art_dir = Path('cover-art')
 
 # Check if cover art exists
-base64_path = get_cover_art_path(config_file, "base64")
+existing_files = get_existing_cover_art(config_file)
+base64_path = cover_art_dir / f"{config_name}_base64.txt"
 
-if base64_path:
+if base64_path.exists():
     # Use existing cover art
     with open(base64_path, 'r') as f:
         cover_art_base64 = f.read()
@@ -123,8 +136,7 @@ if base64_path:
 else:
     # Generate new cover art
     print("🎨 Generating new cover art...")
-    os.system(f"python generate_cover_art_v2.py {config_file}")
-    base64_path = get_cover_art_path(config_file, "base64")
+    os.system(f"python generate_cover_art_final.py {config_file}")
 ```
 
 ## 🎨 **Visual Quality Standards**

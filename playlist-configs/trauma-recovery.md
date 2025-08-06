@@ -1,12 +1,20 @@
-# 🌱 Trauma Recovery Garden - Healing Journey
+# Trauma Recovery - Universal Template
 
 ## Metadata
 
-- **Name**: 🌱 Trauma Recovery Garden (60 min)
+**Name**: 🌱 Trauma Recovery Garden - Alex Method (60min)
 - **Description**: Compassionate therapeutic journey for trauma recovery using safety-first musical architecture. Gentle progression through grounding, processing, integration, and empowerment phases with trauma-informed care principles.
 - **Duration Target**: 60 minutes
 - **Privacy**: public
 - **Emoji**: 🌱
+- **Randomize Selection**: false
+
+
+## Cover Art
+- **PNG**: cover-art	rauma-recovery.png
+- **JPEG**: cover-art	rauma-recovery.jpg
+- **Base64**: cover-art	rauma-recovery_base64.txt
+- **Generated**: 2025-08-06 09:11:01
 
 ## Search Queries
 

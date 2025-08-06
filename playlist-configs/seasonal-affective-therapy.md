@@ -2,32 +2,39 @@
 
 ## Metadata
 
-- **Name**: 🌡️ Seasonal Affective Therapy - Alex Method (150 min)
+**Name**: 🌡️ Seasonal Affective Therapy - Alex Method (150min)
 - **Description**: Light therapy simulation through music for mood regulation and energy balancing - therapeutic support for seasonal depression and mood disorders
 - **Duration Target**: 150 minutes
 - **Privacy**: public
 - **Emoji**: 🌡️
 - **Randomize Selection**: false
 
+
+## Cover Art
+- **PNG**: cover-art\seasonal-affective-therapy.png
+- **JPEG**: cover-art\seasonal-affective-therapy.jpg
+- **Base64**: cover-art\seasonal-affective-therapy_base64.txt
+- **Generated**: 2025-08-06 09:01:15
+
 ## Search Queries
-- seasonal affective therapy mood
-- winter blues gentle support
-- gradual awakening light simulation
-- spring energy renewal growth
-- summer vitality celebration life
-- mood regulation energy balancing
-- seasonal depression support
-- light therapy music
+- seasonal mood regulation
+- winter gentle support
+- gradual awakening ambient
+- spring energy renewal
+- summer vitality celebration
+- mood regulation ambient
+- seasonal support ambient
+- uplifting ambient seasonal
 
 ## Track Categories
 
-### Winter Blues Recognition (40 minutes)
-Acknowledgment and gentle support for seasonal depression and winter mood challenges
-- Queries: winter blues recognition gentle support
-- Queries: seasonal depression acknowledgment therapy
-- Queries: winter mood support gentle recognition
-- Queries: seasonal affective gentle support
-- Queries: winter blues therapeutic acknowledgment
+### Winter Support Recognition (40 minutes)
+Acknowledgment and gentle support for seasonal mood challenges and winter emotional needs
+- Queries: winter ambient support gentle
+- Queries: seasonal mood support ambient
+- Queries: winter support gentle ambient
+- Queries: seasonal gentle support ambient
+- Queries: winter ambient gentle support
 
 ### Gradual Awakening (40 minutes)
 Increasing energy and light simulation to combat seasonal darkness and depression
