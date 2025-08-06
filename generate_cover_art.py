@@ -5,7 +5,7 @@ Alex Method DJ Platform - AI Cover Art Generator (Final Version)
 Generates high-quality playlist cover art with AI backgrounds and professional branding
 
 Usage:
-    python generate_cover_art_final.py <playlist_config.md> [options]
+    python generate_cover_art.py <playlist_config.md> [options]
 
 Options:
     --force       Force regeneration of cover art even if files exist
@@ -13,10 +13,10 @@ Options:
     --batch       Process multiple playlists (provide a directory instead of a file)
 
 Examples:
-    python generate_cover_art_final.py playlist-configs/neural-network-symphony.md
-    python generate_cover_art_final.py playlist-configs/coffee-shop.md --preview
-    python generate_cover_art_final.py playlist-configs/space-odyssey.md --force
-    python generate_cover_art_final.py playlist-configs/ --batch --force
+    python generate_cover_art.py playlist-configs/neural-network-symphony.md
+    python generate_cover_art.py playlist-configs/coffee-shop.md --preview
+    python generate_cover_art.py playlist-configs/space-odyssey.md --force
+    python generate_cover_art.py playlist-configs/ --batch --force
 
 Note: If OpenAI content policy errors occur, edit the playlist .md file directly
 """

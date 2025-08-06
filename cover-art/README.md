@@ -22,12 +22,12 @@ This structure makes it easy for Python scripts to automatically find the correc
 
 ### 1. Generate Cover Art
 ```bash
-python generate_cover_art_final.py playlist-configs/neural-network-symphony.md
+python generate_cover_art.py playlist-configs/neural-network-symphony.md
 ```
 
 ### 2. Generate Cover Art in Batch Mode
 ```bash
-python generate_cover_art_final.py playlist-configs --batch
+python generate_cover_art.py playlist-configs --batch
 ```
 
 ### 3. Generate Cover Art for Problematic Playlists
@@ -68,7 +68,7 @@ ls cover-art/
 
 | Script | Purpose | When to Use |
 |--------|---------|-------------|
-| `generate_cover_art_final.py` | Main cover art generator | General purpose cover generation |
+| `generate_cover_art.py` | Main cover art generator | General purpose cover generation |
 
 ## 🎵 **Theme-Aware Generation**
 
@@ -87,7 +87,7 @@ The system automatically detects playlist emojis and applies appropriate visual 
 
 ### **Check if cover art exists for a playlist:**
 ```python
-from generate_cover_art_final import get_existing_cover_art
+from generate_cover_art import get_existing_cover_art
 
 existing_files = get_existing_cover_art("playlist-configs/my-playlist.md")
 # Returns: List[Path] of existing files (PNG, JPEG, Base64)
@@ -115,7 +115,7 @@ def get_cover_art_path(config_file: str, format_type: str) -> Path:
 Your playlist generation scripts can now easily check for and use cover art:
 
 ```python
-from generate_cover_art_final import get_existing_cover_art
+from generate_cover_art import get_existing_cover_art
 from pathlib import Path
 
 config_file = "playlist-configs/neural-network-symphony.md"
@@ -134,7 +134,7 @@ if base64_path.exists():
 else:
     # Generate new cover art
     print("🎨 Generating new cover art...")
-    os.system(f"python generate_cover_art_final.py {config_file}")
+    os.system(f"python generate_cover_art.py {config_file}")
 ```
 
 ## 🎨 **Visual Quality Standards**

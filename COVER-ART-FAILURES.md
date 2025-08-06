@@ -262,7 +262,7 @@
 4. **Silent Failures**: Some playlists fail without detailed error reporting
 
 ### Next Steps Required:
-1. **Fix Template Filtering**: Ensure generate_cover_art_final.py properly excludes template headers
+1. **Fix Template Filtering**: Ensure generate_cover_art.py properly excludes template headers
 2. **Content Sanitization**: Review and sanitize all playlist descriptions for content policy compliance
 3. **Emoji Replacement**: Fix emoji placeholder processing in cover art generation
 4. **Individual Testing**: Test silent failure playlists individually for specific error details
