@@ -260,26 +260,30 @@ class SpotifyPlaylistCreator:
             
             safe_print(f"   [TARGET] Phase: {phase_name} ({duration_minutes} minutes)")
             
-            # Search for tracks for this phase
+            # Search for tracks for this phase - using direct, intentional search terms
             phase_tracks = []
             for query in queries:
                 try:
-                    results = self.sp.search(q=query, type='track', limit=30)
-                    safe_print(f"   [SEARCH] Phase query '{query}': {len(results['tracks']['items']) if results and results['tracks']['items'] else 0} results")
+                    # Use higher limit to get more relevant results for better selection
+                    results = self.sp.search(q=query, type='track', limit=50)
+                    safe_print(f"   [SEARCH] Direct query '{query}': {len(results['tracks']['items']) if results and results['tracks']['items'] else 0} results")
                     
                     if results and results['tracks']['items']:
                         suitable_count = 0
+                        # Tracks are already in relevance order from Spotify - preserve this order
                         for track in results['tracks']['items']:
                             if self._is_track_suitable(track) and track['id'] not in used_track_ids:
                                 track_info = self._extract_track_info(track, query)
                                 track_info['phase'] = phase_name
+                                track_info['relevance_rank'] = len(phase_tracks)  # Track original relevance position
                                 phase_tracks.append(track_info)
                                 used_track_ids.add(track['id'])
                                 suitable_count += 1
                                 
-                                if len(phase_tracks) >= duration_minutes * 4:  # 4x for selection
+                                # Get more tracks for better selection, but maintain relevance order
+                                if len(phase_tracks) >= duration_minutes * 6:  # 6x for better selection
                                     break
-                        safe_print(f"   [FILTER] {suitable_count} tracks passed filters for '{query}'")
+                        safe_print(f"   [RELEVANCE] {suitable_count} relevant tracks found for '{query}'")
                 except Exception as e:
                     safe_print(f"   Warning: Error searching phase '{phase_name}' with query '{query}': {e}")
                     continue
@@ -357,7 +361,7 @@ class SpotifyPlaylistCreator:
         return None
     
     def _apply_diversity_filter(self, tracks: List[Dict[str, Any]], max_per_artist: int = 2, max_per_album: int = 2) -> List[Dict[str, Any]]:
-        """Apply diversity filtering to limit tracks per artist and album."""
+        """Apply diversity filtering while preserving relevance order - limit tracks per artist and album."""
         if not tracks:
             return tracks
         
@@ -365,6 +369,7 @@ class SpotifyPlaylistCreator:
         album_count = {}
         diverse_tracks = []
         
+        # Process tracks in relevance order (don't sort, preserve original order)
         for track in tracks:
             artist_name = track['artist']
             album_name = track['album']
@@ -387,23 +392,24 @@ class SpotifyPlaylistCreator:
         # Log diversity results
         total_artists = len(set(t['artist'] for t in diverse_tracks))
         total_albums = len(set(t['album'] for t in diverse_tracks))
-        safe_print(f"   [DIVERSITY] {len(diverse_tracks)} tracks from {total_artists} artists, {total_albums} albums")
+        safe_print(f"   [RELEVANCE+DIVERSITY] {len(diverse_tracks)} tracks from {total_artists} artists, {total_albums} albums")
         
         return diverse_tracks
 
     def _apply_duration_targeting(self, tracks: List[Dict[str, Any]], target_minutes: int) -> List[Dict[str, Any]]:
-        """Apply The Alex Method duration targeting (±10% variance)."""
+        """Apply The Alex Method duration targeting with relevance-based selection (±10% variance)."""
         if not tracks:
             return tracks
         
-        # Sort tracks by duration for better distribution
-        tracks.sort(key=lambda t: t['duration_min'])
+        # Keep tracks in relevance order (Spotify's default search order)
+        # Don't sort by duration - preserve search relevance ranking
         
         selected_tracks = []
         current_duration = 0
         target_duration = target_minutes
         variance_range = (target_duration * 0.9, target_duration * 1.1)
         
+        # First pass: prioritize most relevant tracks that fit
         for track in tracks:
             track_duration = track['duration_min']
             
@@ -419,7 +425,18 @@ class SpotifyPlaylistCreator:
                 len(selected_tracks) >= target_minutes / 4):  # At least 1 track per 4 minutes
                 break
         
-        safe_print(f"   Duration targeting: {current_duration:.1f}min (target: {target_minutes}min ±10%)")
+        # If we haven't reached minimum duration, add more tracks prioritizing relevance
+        if current_duration < variance_range[0]:
+            remaining_tracks = [t for t in tracks if t not in selected_tracks]
+            for track in remaining_tracks:
+                track_duration = track['duration_min']
+                if current_duration + track_duration <= variance_range[1]:
+                    selected_tracks.append(track)
+                    current_duration += track_duration
+                    if current_duration >= variance_range[0]:
+                        break
+        
+        safe_print(f"   Relevance-based targeting: {current_duration:.1f}min (target: {target_minutes}min ±10%)")
         return selected_tracks
     
     def _should_randomize(self) -> bool:

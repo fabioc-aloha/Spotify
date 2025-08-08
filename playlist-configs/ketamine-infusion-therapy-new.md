@@ -3,7 +3,7 @@
 ## Metadata
 
 - **Name**: 💊 Ketamine Infusion Therapy - Alex Method (90min)
-- **Description**: Carefully curated ambient electronic and minimal instrumental music designed for guided therapeutic sessions. Features slow-building ambient textures, gentle synthesizer progressions, and deep bass frequencies to support introspective healing journeys.
+- **Description**: Therapeutic ambient music for ketamine therapy sessions and psychedelic assisted therapy. Designed for trauma healing and consciousness exploration with four phases: preparation, induction, integration, and emergence for clinical settings.
 - **Duration Target**: 90 minutes
 - **Privacy**: public
 - **Emoji**: 💊
@@ -24,71 +24,65 @@
 
 ## Search Queries
 
-**FORMAT: Use bullet points (- keyword)**
-**FOCUS ON: Genres, instruments, BPM, energy levels, musical characteristics**
-
-- ambient electronic music
-- minimal techno slow
-- drone ambient
-- deep bass meditation
-- synthesizer ambient
-- slow tempo instrumental
-- atmospheric soundscapes
-- peaceful electronic
-- gentle electronic beats
-- meditative ambient
-- soft electronic music
-- calming synthesizer
+- ketamine therapy music
+- psychedelic therapy ambient
+- therapeutic electronic music
+- healing ambient soundscapes
+- trauma therapy music
+- dissociative healing sounds
+- therapeutic drone ambient
+- psychedelic assisted therapy
+- healing journey music
+- consciousness expansion ambient
+- therapeutic sound healing
+- guided therapy music
 
 ## Track Categories
 
 ### Preparation Phase (15 minutes)
 
-Gentle ambient electronic introduction with soft synthesizer pads and minimal rhythmic elements to establish a calming atmosphere.
-**FORMAT: Use bullet points (- Queries: keyword)**
-**FOCUS ON: What Spotify should search for to find the right tracks**
+Music to establish safety and grounding before ketamine administration. Research-based approach focusing on anxiety reduction and therapeutic preparation with 60-80 BPM range.
 
-- Queries: ambient electronic introduction
-- Queries: soft synthesizer pads
-- Queries: minimal electronic calm
-- Queries: gentle electronic ambient
+- Queries: therapy preparation music
+- Queries: pre-session anxiety relief
+- Queries: therapeutic ambient grounding
+- Queries: medical setting calming music
 
-### Induction Phase (10 minutes)
+### Induction Phase (20 minutes)
 
-Deeper ambient textures with slowly evolving soundscapes, featuring drone elements and subtle bass frequencies for introspective exploration.
+Deep therapeutic ambient for ketamine onset and initial dissociative experience. Extended to match research on gradual consciousness transition with 40-60 BPM range.
 
-- Queries: deep ambient drone
-- Queries: slowly evolving soundscapes
-- Queries: minimal electronic meditation
-- Queries: subtle bass frequencies
-- Queries: atmospheric electronic music
-- Queries: meditative synthesizer
+- Queries: ketamine onset music
+- Queries: dissociative therapy ambient
+- Queries: consciousness transition music
+- Queries: therapeutic dissociation sounds
+- Queries: psychedelic therapy induction
+- Queries: therapeutic trance music
 
-### Integration Phase (45 minutes)
+### Integration Phase (35 minutes)
 
-Sustained ambient environments with minimal melodic elements, focusing on spacious sound design and peaceful electronic textures.
+Core therapeutic window for deep healing work during peak ketamine effects. Optimized duration based on research for trauma processing and therapeutic breakthrough with minimal rhythmic elements.
 
-- Queries: sustained ambient electronic
-- Queries: spacious sound design
-- Queries: peaceful electronic textures
-- Queries: minimal melodic ambient
-- Queries: contemplative electronic music
+- Queries: trauma processing music
+- Queries: emotional healing ambient
+- Queries: therapeutic breakthrough sounds
+- Queries: deep healing session music
+- Queries: therapeutic emotional release
+- Queries: consciousness healing music
 
 ### Emergence Phase (20 minutes)
 
-Gentle return with uplifting ambient tones, soft melodic elements, and gradual increase in harmonic complexity for safe transition back.
+Gentle therapeutic music for ketamine comedown and integration. Research-based approach for therapeutic closure and safe return to normal consciousness with gradually increasing BPM (40-70).
 
-- Queries: uplifting ambient electronic
-- Queries: soft melodic synthesizer
-- Queries: gentle electronic music
-- Queries: peaceful electronic transition
-- Queries: calming electronic melodies
+- Queries: therapy session closure
+- Queries: therapeutic grounding music
+- Queries: healing integration ambient
+- Queries: therapeutic comedown music
+- Queries: post-therapy grounding sounds
 
 ## Track Filters
 
 ### Exclude Keywords
-
-**FORMAT: Use bullet points (- keyword) - ONE KEYWORD PER LINE**
 
 - loud
 - aggressive
@@ -106,26 +100,53 @@ Gentle return with uplifting ambient tones, soft melodic elements, and gradual i
 - rhythm
 - energetic
 - upbeat
+- chaotic
+- dissonant
 
 ### Include Keywords (Prioritize)
 
-**FORMAT: Use bullet points (- keyword) - ONE KEYWORD PER LINE**
-
+- therapeutic
+- healing
 - ambient
-- electronic
-- synthesizer
-- minimal
-- peaceful
-- calm
-- meditative
-- atmospheric
 - drone
-- soundscape
-- deep
+- calming
+- peaceful
+- grounding
+- consciousness
+- meditation
+- contemplative
 - soft
 - gentle
-- slow
-- contemplative
+- flowing
+- ethereal
+- atmospheric
+
+### Duration Preferences
+
+- **Min Duration**: 3 minutes
+- **Max Duration**: 8 minutes
+- **Preferred Duration**: 4-6 minutes
+
+## Track Limits
+
+- **Per Query**: 25
+- **Total Tracks**: 30
+- **Popularity Threshold**: 30
+
+## Search Preferences
+
+- **Sort By**: relevance
+- **Max Per Artist**: 2
+- **Max Per Album**: 2
+- **Quality Focus**: high_relevance
+
+## Special Instructions
+
+- Prioritize instrumental tracks over vocals
+- Focus on ambient and drone electronic music
+- Maintain consistent low-energy throughout all phases
+- Avoid any sudden volume changes or jarring transitions
+- Select tracks with therapeutic research backing when possible
 
 ## Creation Notes
 
@@ -138,17 +159,27 @@ This playlist is specifically designed for 90-minute guided therapeutic sessions
 
 The playlist avoids any vocals, lyrics, or rhythmic elements that might be distracting, focusing instead on pure ambient electronic soundscapes that create a supportive sonic environment for therapeutic work.
 
-**Musical Characteristics**:
+**Musical Characteristics** (Research-Based):
 
-- BPM: 40-80 (slow to moderate)
-- Key Focus: Ambient electronic, minimal techno, drone
-- Instruments: Synthesizers, electronic ambient, sound design
-- Mood: Peaceful, contemplative, supportive, non-intrusive
-- Structure: Phased progression supporting therapeutic journey
+- **BPM Range**: 40-80 (slow to moderate, supporting therapeutic states)
+- **Preparation**: 60-80 BPM (anxiety reduction, grounding)
+- **Induction**: 40-60 BPM (consciousness transition support)
+- **Integration**: 40-50 BPM (minimal rhythmic interference)
+- **Emergence**: 40-70 BPM (gradual return to normal awareness)
+- **Key Focus**: Ambient electronic, minimal techno, drone, binaural beats
+- **Frequency**: Lower frequencies (100-200 Hz) for grounding, higher frequencies (200-500 Hz) for exploration
+- **Instruments**: Synthesizers, electronic ambient, sound design, minimal acoustic elements
+- **Mood**: Peaceful, contemplative, supportive, non-intrusive, research-informed
+- **Structure**: Evidence-based phased progression supporting ketamine therapy protocols
 
 **Target Audience**: Licensed therapists conducting ketamine-assisted psychotherapy sessions
 **Usage Context**: Clinical therapeutic settings with proper medical supervision
 **Safety Note**: This playlist is designed as a therapeutic tool for use only in appropriate clinical contexts with qualified medical professionals.
+
+## Cross-Platform Metadata
+
+**AUTO-GENERATED: Do not manually edit this section**
+This section is automatically added when playlists are created and contains metadata for cross-platform transfers.
 
 ### Track List
   1. I Am Ani - Ani After Death (0.8m)

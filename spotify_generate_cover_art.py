@@ -269,12 +269,41 @@ class CoverArtComposer:
     def __init__(self):
         self.canvas_size = (1024, 1024)  # Keep high resolution for quality
         self.emoji_size = 180
-        self.title_size = 128  # Increased from 108 for maximum Spotify thumbnail readability
-        self.brand_size = 56   # Increased from 48 for better visibility
-        self.brand_small_size = 38  # Increased from 32 for better readability
+        self.title_size = 160  # Increased for more prominent display
+        self.brand_size = 48   # Consistent branding size
+        self.brand_small_size = 32  # Consistent DJ text size
     
-    def _create_overlay(self, visual_theme: Dict[str, Any]) -> Image.Image:
-        """Create text and branding overlay"""
+    def _analyze_background_colors(self, background: Image.Image) -> Tuple[Tuple[int, int, int, int], Tuple[int, int, int, int]]:
+        """Analyze background image to choose optimal text colors"""
+        # Convert to RGB if needed
+        if background.mode != 'RGB':
+            background = background.convert('RGB')
+        
+        # Sample the top area where title will be placed (top 30% of image)
+        title_area = background.crop((0, 0, background.width, background.height // 3))
+        
+        # Get dominant colors in the title area
+        title_area = title_area.resize((50, 50))  # Reduce for faster processing
+        title_pixels = list(title_area.getdata())
+        
+        # Calculate average brightness in title area
+        avg_brightness = sum(sum(pixel) for pixel in title_pixels) / (len(title_pixels) * 3)
+        
+        # Choose text color based on background brightness
+        if avg_brightness > 128:  # Bright background
+            text_color = (0, 0, 0, 255)      # Black text
+            outline_color = (255, 255, 255, 200)  # White outline
+        else:  # Dark background
+            text_color = (255, 255, 255, 255)  # White text
+            outline_color = (0, 0, 0, 200)    # Black outline
+        
+        return text_color, outline_color
+
+    def _create_overlay_with_background(self, visual_theme: Dict[str, Any], background: Image.Image) -> Image.Image:
+        """Create text and branding overlay with background-aware colors"""
+        
+        # Analyze background colors for optimal text contrast
+        text_color, outline_color = self._analyze_background_colors(background)
         
         # Create transparent overlay
         overlay = Image.new('RGBA', self.canvas_size, (0, 0, 0, 0))
@@ -283,35 +312,40 @@ class CoverArtComposer:
         name = visual_theme['name']
         
         # Clean up playlist name - remove emoji and Alex Method suffix since it's in the branding
-        # Remove all emoji characters from anywhere in the title
         clean_name = re.sub(r'[^\w\s\-\'",.:;!?&()]', '', name)
-        # Then remove Alex Method suffix
         clean_name = re.sub(r'\s*-\s*Alex Method.*$', '', clean_name, flags=re.IGNORECASE)
-        # Trim all whitespace from both ends and normalize internal spacing
         clean_name = re.sub(r'\s+', ' ', clean_name.strip())
         
-        # Load fonts (fallback to default if custom fonts not available)
+        # Load fonts with better hierarchy
         try:
-            # Try to use Arial Bold for stronger text
-            title_font = ImageFont.truetype("arialbd.ttf", self.title_size)
-            brand_font = ImageFont.truetype("arialbd.ttf", self.brand_size)
-            brand_small_font = ImageFont.truetype("arialbd.ttf", self.brand_small_size)
+            # Try modern fonts first - Segoe UI is clean and modern
+            title_font = ImageFont.truetype("seguibl.ttf", self.title_size)  # Segoe UI Bold
+            brand_font = ImageFont.truetype("seguisb.ttf", self.brand_size)  # Segoe UI Semibold
+            brand_small_font = ImageFont.truetype("segoeui.ttf", self.brand_small_size)  # Segoe UI Regular
         except:
             try:
-                # Fallback to regular Arial but with larger size for stronger presence
-                title_font = ImageFont.truetype("arial.ttf", self.title_size + 16)  # Increased fallback boost further
-                brand_font = ImageFont.truetype("arial.ttf", self.brand_size + 8)   # Increased fallback boost further
-                brand_small_font = ImageFont.truetype("arial.ttf", self.brand_small_size + 6)  # Increased fallback boost further
+                # Fallback to Arial Bold for clean look
+                title_font = ImageFont.truetype("arialbd.ttf", self.title_size)
+                brand_font = ImageFont.truetype("arialbd.ttf", self.brand_size)
+                brand_small_font = ImageFont.truetype("arial.ttf", self.brand_small_size)
             except:
-                title_font = ImageFont.load_default()
-                brand_font = ImageFont.load_default()
-                brand_small_font = ImageFont.load_default()
+                try:
+                    # Second fallback to regular Arial
+                    title_font = ImageFont.truetype("arial.ttf", self.title_size)
+                    brand_font = ImageFont.truetype("arial.ttf", self.brand_size)
+                    brand_small_font = ImageFont.truetype("arial.ttf", self.brand_small_size)
+                except:
+                    title_font = ImageFont.load_default()
+                    brand_font = ImageFont.load_default()
+                    brand_small_font = ImageFont.load_default()
         
-        # Position the title text at the top of the image (centered horizontally)
-        self._add_title_text(overlay, clean_name, title_font, (512, 180), max_width=900)
+        # Position the title text higher up and more prominently with dynamic colors
+        self._add_title_text(overlay, clean_name, title_font, (512, 140), max_width=900, 
+                           text_color=text_color, outline_color=outline_color)
         
-        # Add Alex Method branding at the bottom
-        self._add_alex_method_branding(overlay, brand_font, brand_small_font)
+        # Add Alex Method branding at the bottom with dynamic colors
+        self._add_alex_method_branding(overlay, brand_font, brand_small_font,
+                                     text_color=text_color, outline_color=outline_color)
         
         # Add subtle overlay effects
         overlay = self._add_subtle_effects(overlay)
@@ -324,29 +358,30 @@ class CoverArtComposer:
         return overlay
     
     def _draw_text_with_outline(self, draw, text: str, font: Any, 
-                               position: Tuple[int, int], outline_thickness: int = 3) -> None:
-        """Draw text with outline and shadow effects - DRY principle"""
+                               position: Tuple[int, int], text_color: Tuple[int, int, int, int],
+                               outline_color: Tuple[int, int, int, int], outline_thickness: int = 2) -> None:
+        """Draw text with outline and shadow effects using dynamic colors"""
         x, y = position
-        outline_color = (0, 0, 0, 255)  # Black outline
-        shadow_color = (0, 0, 0, 180)   # Semi-transparent shadow
-        text_color = (255, 255, 255, 255)  # White text
+        shadow_color = (0, 0, 0, 120)   # Semi-transparent shadow
         
-        # Draw outline in 8 directions
+        # Draw outline in 8 directions (smaller outline for cleaner look)
         for dx in [-outline_thickness, 0, outline_thickness]:
             for dy in [-outline_thickness, 0, outline_thickness]:
                 if dx != 0 or dy != 0:  # Skip center position
                     draw.text((x + dx, y + dy), text, font=font, fill=outline_color)
         
-        # Draw shadow
-        shadow_offset = 3 if outline_thickness > 2 else 2
+        # Draw subtle shadow
+        shadow_offset = 2
         draw.text((x + shadow_offset, y + shadow_offset), text, font=font, fill=shadow_color)
         
         # Draw main text
         draw.text((x, y), text, font=font, fill=text_color)
     
     def _add_title_text(self, overlay: Image.Image, text: str, font: Any, 
-                       position: Tuple[int, int], max_width: int = 900) -> None:
-        """Add wrapped title text with outline effects"""
+                       position: Tuple[int, int], max_width: int = 900,
+                       text_color: Tuple[int, int, int, int] = (255, 255, 255, 255),
+                       outline_color: Tuple[int, int, int, int] = (0, 0, 0, 200)) -> None:
+        """Add wrapped title text with outline effects and dynamic colors"""
         draw = ImageDraw.Draw(overlay)
         lines = self._wrap_text(text, font, max_width)
         
@@ -365,7 +400,8 @@ class CoverArtComposer:
             line_width = bbox[2] - bbox[0]
             line_x = position[0] - (line_width // 2)
             
-            self._draw_text_with_outline(draw, line, font, (int(line_x), int(current_y)), 3)
+            self._draw_text_with_outline(draw, line, font, (int(line_x), int(current_y)), 
+                                        text_color, outline_color, 2)
             current_y += line_heights[i]
     
     def _wrap_text(self, text: str, font: Any, max_width: int) -> List[str]:
@@ -396,8 +432,10 @@ class CoverArtComposer:
         return lines
     
     def _add_alex_method_branding(self, overlay: Image.Image, brand_font: Any, 
-                                brand_small_font: Any) -> None:
-        """Add Alex Method branding - simplified using DRY principle"""
+                                brand_small_font: Any,
+                                text_color: Tuple[int, int, int, int] = (255, 255, 255, 255),
+                                outline_color: Tuple[int, int, int, int] = (0, 0, 0, 200)) -> None:
+        """Add Alex Method branding with dynamic colors"""
         draw = ImageDraw.Draw(overlay)
         center_x = self.canvas_size[0] // 2
         
@@ -419,9 +457,11 @@ class CoverArtComposer:
         dj_x = center_x - (dj_width // 2)
         dj_y = brand_y + brand_height + 8  # 8px spacing
         
-        # Draw both texts using the DRY method
-        self._draw_text_with_outline(draw, brand_text, brand_font, (int(brand_x), int(brand_y)), 2)
-        self._draw_text_with_outline(draw, dj_text, brand_small_font, (int(dj_x), int(dj_y)), 2)
+        # Draw both texts using the DRY method with dynamic colors
+        self._draw_text_with_outline(draw, brand_text, brand_font, (int(brand_x), int(brand_y)), 
+                                    text_color, outline_color, 2)
+        self._draw_text_with_outline(draw, dj_text, brand_small_font, (int(dj_x), int(dj_y)), 
+                                    text_color, outline_color, 2)
     
     def compose_cover_art(self, background_url: str, visual_theme: Dict[str, Any], 
                         output_path: Path) -> Tuple[Path, Path]:
@@ -437,13 +477,13 @@ class CoverArtComposer:
             safe_print(f"❌ Error downloading background image: {e}")
             raise
         
-        # Create overlay with text and branding
-        overlay = self._create_overlay(visual_theme)
-        
-        # Ensure background is the right size
+        # Ensure background is the right size first
         if background.size != self.canvas_size:
             background = background.resize(self.canvas_size, Image.Resampling.LANCZOS)
             safe_print(f"   🔧 Resized background from {background.size} to {self.canvas_size}")
+        
+        # Create overlay with text and branding using background-aware colors
+        overlay = self._create_overlay_with_background(visual_theme, background)
         
         # Composite background and overlay
         background = background.convert("RGBA")

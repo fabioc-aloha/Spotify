@@ -8,35 +8,48 @@
 
 <!-- =============================================== -->
 
-## 📋 CONTENT GUIDELINES FOR AI COVER ART GENERATION
+## 📋 SEARCH STRATEGY GUIDELINES
 
-**IMPORTANT**: These are guidelines for creating playlist configs, not content for the playlist itself.
+**PRINCIPLE**: Use direct, authentic search terms that reflect the true purpose and intent of your playlist, whatever that may be.
 
-- **DESCRIPTION FIELD**: Can use medical/therapeutic terms (PTSD, amygdala, anxiety) - be accurate about therapeutic purpose
-- **SEARCH TERMS**: Use MUSIC-FOCUSED language only (genres, instruments, moods, BPM, energy levels)
-- Focus search terms on TRACK CHARACTERISTICS that Spotify can find (slow BPM, soft vocals, ambient sounds)
-- Search terms should describe the MUSICAL QUALITIES that achieve your therapeutic goals
-- Examples: Search for "ambient piano 60 bpm" not "anxiety relief music"
+- **DESCRIPTION FIELD**: Write a compelling, meaningful description under 300 characters that naturally incorporates the keywords users would search for. Be concise but include searchable terms organically within well-written sentences.
+- **SEARCH TERMS**: Use whatever terms best capture the actual intent - therapeutic, entertainment, functional, emotional, or experiential
+- Search for what you actually want - be honest about the playlist's purpose
+- Examples: "party music", "workout motivation", "anxiety relief ambient", "funny songs", "romantic dinner", "study focus"
+- **FOR THERAPEUTIC PLAYLISTS**: Base structure and search terms on established literature and research
 
-## 🎵 LANGUAGE EXAMPLES - Music-Focused Terms
+## AUTHENTIC SEARCH PHILOSOPHY
 
-**USE THESE** (Spotify-friendly + AI-safe):
+**BE TRUE TO YOUR PLAYLIST'S ACTUAL PURPOSE:**
 
-- "slow tempo songs" instead of "anxiety relief"
-- "ambient piano tracks" instead of "stress therapy"
-- "gentle acoustic guitar" instead of "trauma healing"
-- "calming instrumental music" instead of "PTSD support"
-- "peaceful nature sounds" instead of "panic disorder"
-- "soft vocal melodies" instead of "depression treatment"
-- "minimal electronic ambient" instead of "mental health"
-- "deep bass relaxation" instead of "therapeutic intervention"
+**Therapeutic Playlists** (use research-based approaches):
+- "anxiety relief" - evidence-based therapeutic music
+- "depression support" - clinically-informed selections
+- "trauma healing" - literature-guided structure
+- "ADHD focus" - neuroscience-backed musical choices
 
-**AVOID THESE** (May cause AI generation issues):
+**Entertainment Playlists** (use what people actually search for):
+- "party music" - high-energy, danceable tracks
+- "funny songs" - comedic, humorous music
+- "throwback hits" - nostalgic, popular tracks
+- "feel-good music" - uplifting, positive vibes
 
-- Medical terms (PTSD, anxiety, depression, trauma, therapy) in SEARCH QUERIES
-- Clinical language (treatment, disorder, syndrome, pathology) in SEARCH QUERIES
-- Pharmaceutical references (medication names, drug terms) in SEARCH QUERIES
-- Diagnostic terminology (diagnosis, symptoms, clinical) in SEARCH QUERIES
+**Functional Playlists** (direct purpose-driven):
+- "workout motivation" - energizing, driving beats
+- "study focus" - concentration-enhancing music
+- "dinner party" - sophisticated background music
+- "road trip songs" - sing-along favorites
+
+**Emotional Playlists** (honest emotional expression):
+- "heartbreak songs" - cathartic, relatable lyrics
+- "confidence boost" - empowering, uplifting tracks
+- "nostalgic vibes" - memory-triggering classics
+- "romantic mood" - intimate, loving atmosphere
+
+**COMBINE WITH MUSICAL DESCRIPTORS** when helpful:
+- "party music electronic" - specific genre for party context
+- "workout motivation rock" - genre preference for exercise
+- "anxiety relief ambient" - therapeutic purpose + calming style
 
 <!-- =============================================== -->
 
@@ -49,7 +62,7 @@
 ## Metadata
 
 - **Name**: [Emoji] [Playlist Name] - Alex Method ([Duration])
-- **Description**: [Describe musical style, genre, mood, and intended listening experience]
+- **Description**: [Write meaningful description under 300 characters with searchable keywords]
 - **Duration Target**: [X] minutes
 - **Privacy**: [public/private]
 - **Emoji**: [Choose appropriate emoji]
@@ -57,26 +70,21 @@
 
 ## Search Queries
 
-**FORMAT: Use bullet points (- keyword)**
-**FOCUS ON: Genres, instruments, BPM, energy levels, musical characteristics**
-
-- [genre name] (e.g., ambient, acoustic, classical)
-- [instrument type] (e.g., piano, guitar, strings)
-- [tempo/energy] (e.g., slow, calm, gentle)
-- [musical mood] (e.g., peaceful, uplifting, dreamy)
-- [style descriptor] (e.g., instrumental, soft vocals, minimal)
+- [search term 1]
+- [search term 2]
+- [search term 3]
+- [search term 4]
+- [search term 5]
 
 ## Track Categories
 
 ### [Phase Name] ([X] minutes)
 
-[Describe musical progression, BPM range, instruments, and sonic characteristics]
-**FORMAT: Use bullet points (- Queries: keyword)**
-**FOCUS ON: What Spotify should search for to find the right tracks**
+[Describe the phase's purpose and musical characteristics]
 
-- Queries: [specific musical search term]
-- Queries: [another musical search term]
-- Queries: [third musical search term]
+- Queries: [search term]
+- Queries: [search term]
+- Queries: [search term]
 
 [Add more phases as needed]
 [For single-phase playlists, just use one "Main Phase" or descriptive name]
@@ -87,80 +95,44 @@
 
 ### Exclude Keywords
 
-**FORMAT: Use bullet points (- keyword) - ONE KEYWORD PER LINE**
-
-- loud
-- aggressive
-- fast
-- intense
-- party
+- [unwanted element 1]
+- [unwanted element 2]
+- [unwanted element 3]
 
 ### Include Keywords (Prioritize)
 
-**FORMAT: Use bullet points (- keyword) - ONE KEYWORD PER LINE**
-
-- calm
-- peaceful
-- gentle
-- soothing
-- soft
+- [desired element 1]
+- [desired element 2]
+- [desired element 3]
 
 ### Duration Preferences
 
-**FORMAT: Use bullet points (- **Key**: value) - OPTIONAL SECTION**
-
-- **Min Duration**: 2 minutes
-- **Max Duration**: 6 minutes
-- **Preferred Duration**: 3-4 minutes
+- **Min Duration**: [X] minutes
+- **Max Duration**: [X] minutes
+- **Preferred Duration**: [X]-[X] minutes
 
 ## Track Limits
 
-**FORMAT: Use bullet points (- **Key**: value) - OPTIONAL SECTION**
+- **Per Query**: [X]
+- **Total Tracks**: [X]
+- **Popularity Threshold**: [X]
 
-- **Per Query**: 20
-- **Total Tracks**: 100
-- **Popularity Threshold**: 50
+## Search Preferences
 
-## Content Preferences
-
-**FORMAT: Use bullet points (- **Key**: value) - OPTIONAL SECTION FOR YOUTUBE**
-
-- **Content Types**: [music_video, live_performance]
-- **Quality**: high_quality
-- **Length Preference**: standard
+- **Sort By**: relevance
+- **Max Per Artist**: 2
+- **Max Per Album**: 2
+- **Quality Focus**: high_relevance
 
 ## Special Instructions
 
-**FORMAT: Use bullet points (- instruction) - OPTIONAL SECTION**
-
-- Prioritize original versions over covers
-- Focus on high-quality audio
-- Maintain consistent energy throughout
-
-## ✅ LANGUAGE EXAMPLES - Music-Focused Terms
-
-**USE THESE** (Spotify-friendly + AI-safe):
-
-- "slow tempo songs" instead of "anxiety relief"
-- "ambient piano tracks" instead of "stress therapy"
-- "gentle acoustic guitar" instead of "trauma healing"
-- "calming instrumental music" instead of "PTSD support"
-- "peaceful nature sounds" instead of "panic disorder"
-- "soft vocal melodies" instead of "depression treatment"
-- "minimal electronic ambient" instead of "mental health"
-- "deep bass relaxation" instead of "therapeutic intervention"
-
-**AVOID THESE** (May cause AI generation issues):
-
-- Medical terms (PTSD, anxiety, depression, trauma, therapy)
-- Clinical language (treatment, disorder, syndrome, pathology)
-- Pharmaceutical references (medication names, drug terms)
-- Diagnostic terminology (diagnosis, symptoms, clinical)
+- [instruction 1]
+- [instruction 2]
+- [instruction 3]
 
 ## Creation Notes
 
-**FORMAT: Free text - OPTIONAL SECTION FOR DOCUMENTATION**
-Notes about the playlist creation process, inspiration, or special considerations.
+[Notes about the playlist creation process, inspiration, or special considerations]
 
 ## Cross-Platform Metadata
 
