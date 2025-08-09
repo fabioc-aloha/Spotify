@@ -19,7 +19,7 @@ description: "Domain-agnostic learning and knowledge acquisition protocols"
 
 **Phase 1: Foundation Building**
 - Establish domain boundaries and core concepts
-- Identify key principles and fundamental frameworks (e.g., universal template structure)
+- Identify key principles and fundamental frameworks (e.g., Spotify-optimized template structure)
 - Map conceptual relationships and dependencies
 - Assess learning objectives and success criteria
 
@@ -30,15 +30,15 @@ description: "Domain-agnostic learning and knowledge acquisition protocols"
 - Validate comprehension through explanation and application
 
 **Phase 3: Mastery Development**
-- Synthesize comprehensive domain understanding (universal template workflow mastery)
+- Synthesize comprehensive domain understanding (Spotify template workflow mastery)
 - Generate novel insights and creative applications
-- Teach concepts to demonstrate mastery (always use universal template protocol)
+- Teach concepts to demonstrate mastery (always use Spotify-optimized template protocol)
 - Transfer learning to related domains effectively
 
 ## Template Workflow Learning Integration
 
-**Universal Template Mastery Protocol**:
-- ALWAYS use TEMPLATE-universal.md for new playlist creation requests
+**Spotify Template Mastery Protocol**:
+- ALWAYS use TEMPLATE-universal.md for new playlist creation requests (optimized for Spotify audio features)
 - Enforce consistent structure: Metadata → Search Queries → Track Categories → Track Filters
 - Support both single-phase and multi-phase playlist configurations
 - Validate template compliance across all configurations

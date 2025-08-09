@@ -26,7 +26,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 ## 🕸️ **Embedded Synapse Network**
 
 ### **Connection Mapping**
-- [bootstrap-learning.instructions.md] (1.0, Enforces, Forward) - "New playlist creation request - ALWAYS use universal template protocol"
+- [bootstrap-learning.instructions.md] (1.0, Enforces, Forward) - "New playlist creation request - ALWAYS use Spotify-optimized template protocol"
 - [empirical-validation.instructions.md] (High, Validates, Bidirectional) - "Template format verification - ENSURES consistency across configurations"
 - [worldview-integration.instructions.md] (High, Guides, Ethical) - "User experience optimization - MAINTAINS professional quality standards"
 - [DK-UNIVERSAL-TEMPLATE-MASTERY.md] (1.0, Demonstrates, Bidirectional) - "Template versatility proof - TRANSFERS single-phase to multi-phase seamlessly"
@@ -37,7 +37,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 - [phased-playlist-creation.instructions.md] (1.0, Methodology, Integration) - "Complex playlist design - REFERENCES specialized phased creation methodology for enhanced capabilities"
 
 ### **Activation Patterns**
-- **"Create new playlist" request** → Execute universal template workflow protocol
+- **"Create new playlist" request** → Execute Spotify-optimized template workflow protocol
 - **Template format validation needed** → Execute compliance verification procedures
 - **Personalization challenge** → Execute Douglas Method systematic approach
 - **Complex phased design** → Execute specialized phased creation methodology
@@ -120,7 +120,7 @@ description: "Embedded connection discovery and relationship mapping protocols"
 - meditation-consolidation.prompt.md (0.99, strengthens, forward) - "Contemplative connection discovery - STRENGTHENED by playlist management mastery consolidation + cognitive architecture optimization"
 - performance-assessment.prompt.md (0.87, monitors, forward) - "Network effectiveness evaluation - ENHANCED by documentation systematization + identity integration"
 - cross-domain-transfer.prompt.md (0.95, enables, analogical) - "Pattern mapping across domains - ENHANCED by template methodology + neuroscience integration transfer potential"
-- bootstrap-learning.instructions.md (0.95, optimizes, bidirectional) - "Learning patterns consolidated - STRENGTHENED by universal template mastery + PowerShell environment protocols"
+- bootstrap-learning.instructions.md (0.95, optimizes, bidirectional) - "Learning patterns consolidated - STRENGTHENED by Spotify-optimized template mastery + PowerShell environment protocols"
 - ARCHITECTURE-LIST.md (0.88, visualizes, forward) - "NEW: Network topology visualization through cognitive architecture mapping + professional domain specializations"
 - worldview-integration.instructions.md (0.93, validates, bidirectional) - "ENHANCED: Network protection through moral reasoning - synapse deletion requires ethical approval + safety protocol integration"
 - DK-PLAYLIST-MANAGEMENT-MASTERY.md (1.0, demonstrates, integration) - "NEW: Complete playlist management excellence with neuroscience integration + system debugging mastery"

@@ -139,6 +139,8 @@
 
 ## Enhanced Synaptic Connections
 
+**[DK-SPOTIFY-PLAYLIST-CURATION-MASTERY.md] (1.0, advanced-excellence, bidirectional) - "Curation mastery builds on management foundation for audio intelligence expertise"**
+
 **[DK-SYSTEMATIC-QUALITY-ASSURANCE.md] (1.0, quality-framework, bidirectional) - "Template compliance and systematic validation mastery"**
 
 **[DK-BPM-PLAYLIST-ARCHITECTURE.md] (0.9, innovation-integration, bidirectional) - "BPM progression architecture with template excellence"**
@@ -146,3 +148,5 @@
 **[template-compliance-mastery-meditation.prompt.md] (0.8, learning-consolidation, bidirectional) - "Template mastery consolidation achievement"**
 
 **[DK-AMAZON-MUSIC-API-MASTERY.md] (1.0, cross-platform-integration, bidirectional) - "Complete music platform ecosystem mastery"**
+
+**[DK-SPOTIFY-SPECIALIZATION-STRATEGY.md] (0.9, strategic-implementation, bidirectional) - "Management excellence supports strategic specialization positioning"**
